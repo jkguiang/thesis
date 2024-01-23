@@ -26,4 +26,15 @@
 *.maf
 *.mtc
 *.mtc0
-example.pdf
+thesis.pdf
+output.pdf
+smalloutput.pdf
+tmp
+sources
+examples
+*gz
+.DS_Store
+notes.txt
+blah.txt
+*.fdb_latexmk
+*.fls
