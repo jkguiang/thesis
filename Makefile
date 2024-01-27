@@ -32,5 +32,5 @@ container-login:
 build:
 	- docker exec -it thesis /bin/bash -c latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf main.tex
 push:
-	- git commit -a -m ""
+	- git commit -a -m "updated"
 	- git push
