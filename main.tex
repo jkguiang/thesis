@@ -25,6 +25,16 @@
 \usepackage{blindtext}
 \overfullrule5pt
 % ---
+% Reference for quotes
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+% Custom quote environment
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+% ---
 
 % Required information
 \title{This is the Title of My Dissertation}
@@ -37,9 +47,9 @@
 \cochair{Professor Avi Yagil} % Optional
 % Your committee members (other than the chairs) must be in alphabetical order
 \committee{Professor Sekhar Chivukula}
-\committee{Professor Michael Norman}
-\committee{Professor Arun Kumar}
 \committee{Professor Albert Hsiao}
+\committee{Professor Arun Kumar}
+\committee{Professor Michael Norman}
 \degreeyear{2024}
 
 % Start the document
@@ -80,6 +90,7 @@
 \mainmatter
 
 % --- Chapters ---
+\include{tex/introduction.tex}
 \include{tex/chapter1.tex}
 \include{tex/chapter2.tex}
 \include{tex/chapter3.tex}
