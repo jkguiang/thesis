@@ -30,10 +30,7 @@ container-stop:
 container-login:
 	- docker exec -it thesis /bin/bash
 build:
-	- mkdir -p draft
 	- docker exec -it thesis /bin/bash -c "latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf thesis.tex"
-	# - mv thesis.* draft/
-	# - mv draft/thesis.tex .
 	- rm -f *.aux
 	- rm -f tex/*.aux
 	- rm -f tex/appendices/*.aux

@@ -12,9 +12,21 @@
 \usepackage{microtype}
 \usepackage[breaklinks=true,pdfborder={0 0 0}]{hyperref}
 \usepackage{graphicx}
+% ---
+\usepackage{color}  % for color and textcolor
+\usepackage{xspace} % for heppennames
+\usepackage{pifont} % for dingbats
+% ---
 \AtBeginDocument{%
 	\settowidth\cvlabelwidth{\cvlabelfont 0000--0000}%
 }
+% ---
+% Pennames (TDR aliases for particles)
+\usepackage{sty/hepparticles}
+\usepackage{sty/heppennames2}
+% Custom aliases
+\usepackage{sty/aliases}
+% ---
 
 % OGS recommends increasing the margins slightly.
 \increasemargins{.1in}
@@ -38,7 +50,7 @@
 % ---
 
 % Required information
-\title{This is the Title of My Dissertation}
+\title{Measurements of the Higgs Boson through Vector Boson Scattering with the CMS Detector and Software and Computing for Exascale Data Science}
 \author{Jonathan Kasuke Guiang}
 \degree{Physics}{Doctor of Philosophy}
 % Each member of the committee should be listed as Professor Foo Bar.
@@ -67,6 +79,7 @@
 % --- Epigraph ---
 \input{tex/epigraph}
 
+% --- Table of contents ---
 % Next comes the table of contents, list of figures, list of tables,
 % etc. If you have code listings, you can use \listoflistings (or
 % \lstlistoflistings) to have it be produced here as well. Same with
@@ -87,15 +100,15 @@
 % --- Abstract ---
 \include{tex/abstract}
 
-% This is where the main body of your dissertation goes!
-\mainmatter
-
 % --- Chapters ---
+\mainmatter
 \include{tex/introduction}
 \include{tex/standard_model}
 \include{tex/lhc_cms}
-\include{tex/physics_work}
-\include{tex/upgrade_work}
+\include{tex/vbswh}
+\include{tex/vbsvvh}
+\include{tex/lst}
+\include{tex/cyber}
 
 % --- Appendices ---
 \appendix
@@ -103,7 +116,7 @@
 \include{tex/appendices/example_figs}
 \include{tex/appendices/example_misc}
 
-% Stuff at the end of the dissertation goes in the back matter
+% --- Bibliography ---
 \backmatter
 \bibliographystyle{plain} % Or whatever style you want like plainnat
 \bibliography{references}

@@ -51,10 +51,11 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
     \label{fig:sm_vertices}
 \end{figure}
 
+\subsection{Cross sections}
 In order to make the actual mechanics of the Standard Model more clear, consider two electrons barrelling towards each other with some velocity. 
 The electrons can, for now, be visualized as two spheres with the same electric charge. 
 Finally, the electrons glance off each other and fly off to infinity at some angle to their original respective trajectories. 
-This picture can be represented as a Feynman diagram (Fig.~\ref{fig:ee_scatter}) which is assembled by two EM vertices. 
+This picture can be represented as a Feynman diagram (Fig.~\ref{fig:ee_scattering}) which is assembled by two EM vertices. 
 Time flows from left to right in the Feynman diagrams depicted in this document, showing the two electrons entering, then the exchange of a photon, then the two electrons leaving. 
 A reasonable question one could ask is ``what is the probability of this collision occuring?''
 While this question is entirely quantum mechanical at the scale of electrons, the classical picture of two colliding objects is still useful\footnotemark{}, where this question is answered by computing the cross-sectional area presented to either object. 
@@ -64,7 +65,7 @@ Feynman diagrams beautifully encode the complex mathematics at work here accordi
 Along with the momenta of the incoming and outgoing particles, each line and every vertex (where three lines meet) represent a term in the calculation. 
 While, again, the mathematical details are beyond the scope of this document, it is important to realize that the Feynman diagram can be directly used to calculate the cross-section ($\sigma$):
 \begin{equation}
-    \sigma = \langle|\mathcal{M}|^2\rangle = \frac{2g_e^4}{(p_1 \cdot p_3)^2(p_1 \cdot p_4)^2[(p_1 \cdot p_2)^4 + (p_1 \cdot p_3)^4 + (p_1 \cdot p_4)^4]}.
+    \sigma = \langle|\mathcal{M}|^2\rangle = \frac{2g_e^4}{(p_1 \cdot p_3)^2(p_1 \cdot p_4)^2[(p_1 \cdot p_2)^4 + (p_1 \cdot p_3)^4 + (p_1 \cdot p_4)^4]}
 \end{equation}
 where $p_1$ and $p_2$ are the four-momenta of the incoming electrons, $p_3, p_4$ are the four-momenta of the outgoing electrons, and $g_e$ is the EM coupling constant. 
 This exercise, and the compact answer above, serves to demonstrate the sheer complexity of QFT calculations. 
@@ -74,17 +75,44 @@ Moreover, this feature of QFT---the ability to compute cross-sections---is absol
 
 \begin{figure}[htb]
     \centering
+    \includegraphics[width=0.8\textwidth]{fig/cms/cms_xsecs_2021.pdf}
+    \caption{
+        The totality of the cross section measurements performed with data from the CMS Experiment compared to the Standard Model predictions. 
+        Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny.
+    }
+    \label{fig:cms_xsecs}
+\end{figure}
+
+% Talk about xsec measurements, how well SM has done, ...
+The validity of any model is a precarious condition: the model must exactly describe reality, else it is not a realization of the truth, but rather only approximately---or worse, accidentally---correct. 
+
+\begin{figure}[htb]
+    \centering
     \includegraphics[width=0.8\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % FIXME: missing!!
     \caption{
         Feynman diagram for electron-electron scattering. 
     }
-    \label{fig:ee_scatter}
+    \label{fig:ee_scattering}
 \end{figure}
 
-\section{Electroweak Symmetry Breaking}
+\subsection{The Higgs boson}
 % Give basic overview
 %    - wtf is it???
-\section{Open Questions}
+%    - 10-year anniversary Nature papers have a good summary
+% From P5:
+% The Higgs boson is an extraordinary and unique particle that is connected to the most puzzling questions of particle physics, 
+% including the origin of flavor, the matter-antimatter asymmetry, dark matter and dark energy, and inflation. The Higgs boson 
+% differs from other particles in that it is “frozen” in the universe. And once frozen, it is called the Higgs field because it 
+% permeates the universe. The field disturbs and slows down the motion of every elementary particle. The Higgs boson slows electrons 
+% in atoms so that they stay within the atom instead of flying off into space. Without the Higgs boson, or field, every electron 
+%
+% The Higgs boson is the only known fundamental particle that has no spin angular momentum, which permits it to have unique behavior: 
+% it can interact with all known matter particles and give them mass, depending on the strength of the interaction. The Higgs boson 
+% also provides a novel and distinct gateway to as yet unknown particles, such as dark matter.
+%
+% Find sources! Otherwise, this is great
+% in every atom would move at the speed of light and everything, including us, would evaporate in a nanosecond.
+\section{Open questions}\label{sec:open_questions}
 % Higgs sector:
 %    - naturalness?
 %    - other higgses?? Gell-Mann said something like "it would be weird if 
