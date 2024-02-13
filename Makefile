@@ -29,6 +29,11 @@ container-stop:
 	- docker system prune -f --volumes
 container-login:
 	- docker exec -it thesis /bin/bash
+draft:
+	- docker exec -it thesis /bin/bash -c "pdflatex -pdf thesis.tex"
+	- rm -f *.aux
+	- rm -f tex/*.aux
+	- rm -f tex/appendices/*.aux
 build:
 	- docker exec -it thesis /bin/bash -c "latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf thesis.tex"
 	- rm -f *.aux

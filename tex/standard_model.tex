@@ -19,7 +19,7 @@ These first two forces are, today, understood to be unified into the ``electrowe
 Finally, there is the strong force, which holds the nuclei of atoms together. 
 Alongside the forces, there is the Higgs mechanism, carried by the Higgs boson, which is responsible for giving the fundamental particles mass. 
 Together, these forces and the Higgs mechanism---and gravity, whose omission here is left as a topic for another time---describe how \textit{everything} came to be and continues to be: from the sight of the sun in the sky, to the fusion reaction causing the sun to shine, to the formation of the sun and all of the other stars in the universe, to the first instance of creation itself. 
-The entire universe is, we believe, the emergent picture from an elegant, infinite dance of fundamental particles. 
+The entire universe is, we believe, the emergent motion from an elegant, infinite dance of fundamental particles. 
 
 Of course, a stack of textbooks underlie the text above.
 The concepts of fermions and bosons carry deeply insightful mathematical meaning derived originally in statistical mechanics, which was developed to describe the behavior of large ensembles of microscopic objects (like gases). 
@@ -28,25 +28,16 @@ Unfortunately, four to five years of attentive instruction and rigorous study ac
 \footnotetext{Even still, paraphrasing the great Prof. Aneesh Manohar, ``all QFT textbooks are wrong.''}
 The Standard Model will instead, as promised, be described here from the perspective of an experimentalist: through hastily scrawled cartoons, rough calculations, and a great deal of hand-waving that, together, at least communicate the essential features of the theory. 
 
-% Fortunately, there is way to compactly, and intuitively, illustrate the most essential Standard Model calculations. 
-% These so-called Feynman diagrams, named after Richard Feynman who developed them, can be assembled from a set of pieces, called ``vertices,'' representing the fundamental interactions described by the Standard Model. 
-% The first, and most familiar, of these vertices corresponds to the electromagnetic (EM) force (Fig.~\ref{fig:qed1}), which is carried by the photon. 
-% Next, there is the vertex for the ``weak'' force (Fig.~\ref{fig:weak}), carried by the W and Z bosons, which is most famously responsible for beta decay---the mechanism that allows for carbon dating. 
-% There are also ``electroweak'' vertices (Fig.~\ref{fig:ewk1},~\ref{fig:ewk2}), which, although more obscure, importantly illustrate the connection between the EM and weak forces. 
-% Then, there are the vertices for the ``strong'' force (Fig.~\ref{fig:qcd1},~\ref{fig:qcd2},~\ref{fig:qcd3}), carried by the gluon, which binds quarks into protons, neutrons, and other hadrons, and also holds the nuclei of atoms together. 
-% Finally, there are the most recent additions (added in the 1960s): the vertices involving the Higgs boson. 
-% Unlike the others, these vertices do not correspond to a physical force. 
-% Instead, they correspond to the Higgs mechanism, which is responsible for giving the fundamental particles mass. 
-% Together, these three forces (EM, weak, strong) and the Higgs mechanism---and gravity, which a topic left for another time---describe the totality of the operation of the \textit{everything}, from the sight of the sun in the sky, to the fusion reaction causing the sun to shine, to the formation of the sun and all of the other stars in the universe, to the first instance of creation itself. 
-% Thankfully, however, it can be expressed on a blackboard through ``Feynman diagrams.''
 \subsection{Feynman diagrams}
-Fortunately, there is way to write down essential Standard Model calculations in a simple drawing, so-called ``Feynman diagrams,'' which, consequently, help experimentalists keep track of physically allowed processes. 
+Fortunately, there is way to encode essential Standard Model calculations in a simple drawing, so-called ``Feynman diagrams,'' which, consequently, help experimentalists keep track of physically allowed processes. 
 In these pictures, time flows from left to right, while space is abstractly represented on the vertical axis\footnotemark{}. 
 \footnotetext{In some dark corners of the physics community, these axes are switched, but this dissertation will not deviate from the configuration described here.}
 The fundamental particles are represented by lines, and the intersections of three or four of these lines (Fig.~\ref{fig:sm_vertices}) represent interactions between the corresponding particles, so at least one of them must be a boson. 
 For example, an electron emitting a photon (Fig.~\ref{fig:qed1}) is represented by an electron coming in from the left, the turning into a photon and an electron leaving the picture to the right. 
-These vertices act as building blocks that can be fit together (e.g. Fig.~\ref{fig:ee_scattering}) according to a small set of rules that correspond to real physical laws. 
-Thus, any physical process can be represented with a Feynman diagram. 
+This same vertex can be rotated clockwise, such that it instead depicts the annihilation of an electron and positron into a photon (Fig.~\ref{fig:ee_to_g})---one of the electrons had to be replaced with its anti-particle (a positron) to conserve charge. 
+Rotating it again, we see that it now represents an electron absorbing a photon (Fig.~\ref{fig:eg_to_e}). 
+These vertices act as building blocks that can be rotated and fit together according to a set of rules that correspond to real physical laws. 
+Thus, any fundamental physical process (e.g. Fig.~\ref{fig:beta_decay}) can be represented with a Feynman diagram. 
 Feynman diagrams are not only a visual aid for remembering which processes are allowed, however, for they also encode precise calculations about that process which can, importantly, be verified by experiment.
 
 \begin{figure}[htb]
@@ -70,25 +61,38 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % FIXME: missing!!
+    \subfloat[$\Pem\to\PGg+\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:e_to_ge}}\quad
+    \subfloat[$\Pep+\Pem\to\PGg$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:ee_to_g}}\quad
+    \subfloat[$\Pem+\PGg\to\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:eg_to_e}}
     \caption{
-        Feynman diagram for electron-electron scattering. 
+        Rotations of the QED vertex, showing (a) an electron emitting a photon, (b) an electron and positron annihilating and producing a photon, and (c) an electron absorbing a photon. 
     }
-    \label{fig:ee_scattering}
+    \label{fig:qed_rotations}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % FIXME: missing!!
+    \caption{
+        Feynman diagram for beta decay, which is mechanism behind the radioactive decay of certain elements. 
+    }
+    \label{fig:beta_decay}
 \end{figure}
 
 \subsection{Cross sections}
 Consider two electrons barrelling towards each other with some velocity. 
 In the classical picture, the electrons glance off one another and fly off to infinity at some angle to their original trajectories---like two errant ice skaters. 
-This can be represented as a Feynman diagram (Fig.~\ref{fig:ee_scattering}) which is assembled by two EM vertices. 
-Again, time flows from left to right, showing the two electrons entering, then the exchange of a photon, followed by the two electrons leaving, much like the classical picture. . 
-A reasonable question one could ask is ``what is the probability of this collision occuring?''
-While this question is entirely quantum mechanical at the scale of electrons, the classical picture of two colliding objects is still useful\footnotemark{}, where this question is answered by computing the cross-sectional area presented by one object to the other. 
-\footnotetext{In fact, the answer to this question is expressed in the units of ``barns,'' literally as in ``hitting the broad side of a barn,'' coined by during World War II.}
-Indeed, one of the most important features of QFT is the ability to compute the effective ``cross-section'' for scattering two electrons off of each other, as in this case, or any other interactions between particles. 
-Feynman diagrams beautifully encode the complex mathematics at work here according to the ``Feynman Rules.'' 
-Along with the momenta of the incoming and outgoing particles, each line and every vertex (where three lines meet) represent a term in the calculation. 
-While, again, the mathematical details are beyond the scope of this document, it is important to realize that the Feynman diagram can be directly used to calculate the cross-section ($\sigma$):
+This can be represented as a Feynman diagram (Fig.~\ref{fig:ee_scattering}) which is assembled from two EM vertices. 
+Again, time flows from left to right, showing the two electrons entering, then the exchange of a photon, followed by the two electrons leaving, much like the classical picture. 
+Now, suppose we construct two beams of electrons, aim them at each other, then turn them on (preferably after we leave the room). 
+In this scenario, we may well want to know the probability that the two electrons will bounce off hach other (``scatter''). 
+This probability is called the ``cross section,'' because it is mathematically similar to the classical picture\footnotemark{}, where we would compute the cross-sectional area presented to either of the colliding objects. 
+\footnotetext{
+    In fact, the answer to this question is expressed in the units of ``barns,'' literally as in ``hitting the broad side of a barn,'' coined by during World War II. % citatin needed
+}
+Indeed, one of the most important features of QFT is the ability to compute the cross section for scattering two electrons off of each other, as in this case, or any other interactions between particles. 
+Feynman diagrams beautifully encode the complex mathematics at work here: each line and every vertex (where three lines meet) correspond a term in the calculation. 
+While, again, the mathematical details are beyond the scope of this document, it is important to realize that the Feynman diagram can be directly used to calculate the cross section ($\sigma$):
 \begin{equation}
     \sigma = \langle|\mathcal{M}|^2\rangle = \frac{2g_e^4}{(p_1 \cdot p_3)^2(p_1 \cdot p_4)^2[(p_1 \cdot p_2)^4 + (p_1 \cdot p_3)^4 + (p_1 \cdot p_4)^4]}
 \end{equation}
@@ -96,7 +100,16 @@ where $p_1$ and $p_2$ are the four-momenta of the incoming electrons, $p_3, p_4$
 This exercise, and the compact answer above, serves to demonstrate the sheer complexity of QFT calculations. 
 Many details were left out beyond the computation itself (which is already a glaring omission), including details surrounding the spin of the electron, the definition of spin, the defition of four-momentum (and special relativity), and so on. 
 Those details, and much more, can be found in the illustrious textbook from which this entire example was borrowed~\cite{Griffiths}. 
-Moreover, this feature of QFT---the ability to compute cross-sections---is absolutely vital because it offers a way of testing the theory with observation: compute the probability that the event is expected to occur, then try to reproduce that event many times in the lab and see how many times it really happens. 
+Moreover, this feature of QFT---the ability to compute cross sections---is absolutely vital because it offers a way of testing the theory with observation: compute the probability that the event is expected to occur, then try to reproduce that event many times in the lab and see how many times it really happens. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % FIXME: missing!!
+    \caption{
+        Feynman diagram for electron-electron scattering. 
+    }
+    \label{fig:ee_scattering}
+\end{figure}
 
 \begin{figure}[htb]
     \centering

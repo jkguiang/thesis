@@ -8,13 +8,18 @@
 \newcommand{\kV}{\ensuremath{\kappa_{\PV}}\xspace}
 \newcommand{\lambdaWZ}{\ensuremath{\lambda_{\PW\PZ}}\xspace}
 % Processes
+\newcommand{\ttbar}{{\PQt{}\PAQt}\xspace}
+\newcommand{\bbbar}{{\PQb{}\PAQb}\xspace}
+\newcommand{\qqbar}{{\PQq{}\PAQq}\xspace}
 \newcommand{\WH}{\ensuremath{\PW^{\pm}\PH}\xspace}
 \newcommand{\ZH}{\ensuremath{\PZ\PH}\xspace}
 \newcommand{\VH}{\ensuremath{\PV\PH}\xspace}
 \newcommand{\VBSWH}{\ensuremath{\Pp\Pp\rightarrow\PW^{\pm}\PH + \Pj\Pj}\xspace}
-\newcommand{\Htobb}{\ensuremath{\PH\rightarrow\PQb\PAQb}\xspace}
-\newcommand{\ttbar}{{\PQt{}\PAQt}\xspace}
-% Numbers
+\newcommand{\Htobb}{\ensuremath{\PH\rightarrow\bbbar}\xspace}
+\newcommand{\Ztoqq}{\ensuremath{\PW\rightarrow\qqbar}\xspace}
+\newcommand{\Wtoqq}{\ensuremath{\PW\rightarrow\PQq{}\PQq}\xspace}
+\newcommand{\Vtoqq}{\ensuremath{\PV\rightarrow\PQq{}\PQq}\xspace}
+% VBS WH Numbers
 \newcommand{\PredBkg}{108}
 \newcommand{\PredBkgStatErr}{14.4}
 \newcommand{\PredBkgSystErr}{13.8}
@@ -72,13 +77,46 @@
 \newcommand{\PredBkgYearFour}{66}
 \newcommand{\PredBkgStatErrYearFour}{13.3}
 \newcommand{\PredBkgSystErrYearFour}{5.3}
-% Energies
+% Measurements and units
 \newcommand{\TeV}{\ensuremath{\,\text{Te\hspace{-.08em}V}}\xspace}
 \newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
 \newcommand{\MeV}{\ensuremath{\,\text{Me\hspace{-.08em}V}}\xspace}
 \newcommand{\keV}{\ensuremath{\,\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\micron}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\cm}{\ensuremath{\,\text{cm}}\xspace}
+\newcommand{\mm}{\ensuremath{\,\text{mm}}\xspace}
+\newcommand{\de}{\ensuremath{^\circ}} % degrees
+\newcommand{\ten}[1]{\ensuremath{\times \text{10}^\text{#1}}}
+\newcommand{\unit}[1]{\ensuremath{\text{\,#1}}\xspace}
+\newcommand{\fbinv} {\mbox{\ensuremath{\,\text{fb}^{-1}}}\xspace}
+\newcommand{\pbinv} {\mbox{\ensuremath{\,\text{pb}^{-1}}}\xspace}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
+% Physics symbols
+\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
+\newcommand{\ET}{\ensuremath{E_{\mathrm{T}}}\xspace}
+\newcommand{\HT}{\ensuremath{H_{\mathrm{T}}}\xspace}
+\newcommand{\Em}{\ensuremath{E\hspace{-0.6em}/}\xspace}
+\newcommand{\Pm}{\ensuremath{p\hspace{-0.5em}/}\xspace}
+\newcommand{\ETm}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\MET}{\ETm}
+\newcommand{\ETmiss}{\ETm}
+\newcommand{\ptmiss}{\ensuremath{\pt^\text{miss}}\xspace}
+\newcommand{\ptvec}{\ensuremath{{\vec p}_{\mathrm{T}}}\xspace}
+\newcommand{\ptvecmiss}{\ensuremath{{\vec p}_{\mathrm{T}}^{\kern1pt\text{miss}}}\xspace}
+% Statistics symbols
+\newcommand{\CL}{\ensuremath{\text{CL}}\xspace}
+\newcommand{\CLs}{\ensuremath{\text{CL}_\text{s}}\xspace}
+\newcommand{\CLsb}{\ensuremath{\text{CL}_\text{s+b}}\xspace}
+% Software
+\newcommand{\MADGRAPH} {\textsc{MadGraph}\xspace}
+\newcommand{\MCATNLO} {\textsc{mc@nlo}\xspace}
+\newcommand{\MGvATNLO}{\MADGRAPH{}5\_a\MCATNLO}
+\newcommand{\PYTHIA} {{\textsc{pythia}}\xspace}
+\newcommand{\HERWIG} {{\textsc{herwig}}\xspace}
+\newcommand{\HERWIGpp} {{\textsc{herwig++}}\xspace}
+\newcommand{\POWHEG} {{\textsc{powheg}}\xspace}
 % Other
-\newcommand{\RunTwoLumi}{\ensuremath{138\,\textrm{fb}^{-1}}\xspace}
+\newcommand{\RunTwoLumi}{\ensuremath{138\fbinv}\xspace}
 \newcommand{\MSD}{\ensuremath{M_{\mathrm{SD}}}\xspace}
 \newcommand{\MWH}{\ensuremath{M_{\PW\PH}}\xspace}
 \newcommand{\Mjj}{\ensuremath{M_{\Pj\Pj}}\xspace}
@@ -86,3 +124,4 @@
 \newcommand{\LT}{\ensuremath{L_{\mathrm{T}}}\xspace}
 \newcommand{\ST}{\ensuremath{S_{\mathrm{T}}}\xspace}
 \newcommand{\ts}{\textsuperscript}
+\newcommand{\abs}[1]{\ensuremath{\lvert #1 \rvert}}
