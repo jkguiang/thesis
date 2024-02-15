@@ -39,14 +39,18 @@
 \overfullrule5pt
 % ---
 % Reference for quotes
-\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
-  \hbox{}\nobreak\hfil(#1)%
-  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
-% Custom quote environment
+% \def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+%   \hbox{}\nobreak\hfil(#1)%
+%   \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+\def\signed #1{{\\ \hspace*{\fill}(#1)}}
+% Custom quote environments
 \newsavebox\mybox
 \newenvironment{aquote}[1]
   {\savebox\mybox{#1}\begin{quote}}
   {\signed{\usebox\mybox}\end{quote}}
+\newenvironment{epiquote}[1]
+  {\savebox\mybox{#1}\noindent\ignorespaces}
+  {\signed{\usebox\mybox}\vfil}
 % ---
 
 % Required information

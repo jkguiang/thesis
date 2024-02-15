@@ -6,13 +6,13 @@
 \section{Looking for a sign}
 Before this work was published, the CMS Collaboration had constrained the \textit{magnitudes} of the HWW (\kW) and HZZ (\kZ) couplings to $|\kW| = 1.02^{+0.11}_{-0.10}$ and $|\kZ| = 1.04^{+0.07}_{-0.07}$, showing precise agreement with the SM values~\cite{NatureHiggsCMS2022}. 
 The \textit{sign} of either coupling, however, had not yet been well-determined. 
-The relative sign between \kW and \kZ, which is of particular interest, can be expressed more compactly as the ratio between the two couplings:
+The relative sign between \kW and \kZ, which was of particular interest, can be expressed more compactly as the ratio between the two couplings:
 \begin{equation}
     \lambdaWZ = \frac{\kW}{\kZ}.
 \end{equation}
 The Standard Model requires $\lambdaWZ = 1$ in order to preserve the ``custodial'' symmetry. 
 Meanwhile, certain BSM theories require \lambdaWZ to be negative~\cite{Theory1LambdaWZ}. 
-Therefore, in the absence of a significant experimental measurement of the sign of \lambdaWZ, a crucial element of the SM had not been confirmed, and a potential indication of BSM was left unexplored. 
+Therefore, in the absence of a significant experimental measurement of the sign of \lambdaWZ, a crucial element of the SM had not been confirmed, and a potential signature of BSM physics was left unexplored. 
 
 \section{The signal}
 The precise determinations of the magnitude of \kW and \kZ~\cite{NatureHiggsCMS2022} were performed by studying processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
@@ -23,7 +23,7 @@ Such a channel is sensitive to the relative sign of \kW and \kZ since the since 
     \sigma \propto |\mathcal{M}|^2 = \kW^2|\mathcal{M}_W|^2 + \kW\kZ\mathcal{M}_{WZ}^2 + \kZ^2|\mathcal{M}_Z|^2
 \end{equation}
 where the matrix elements for the contributions from the HWW couplings, HZZ couplings, and interference term are denoted as $\mathcal{M}_W$, $\mathcal{M}_W$, and $\mathcal{M}_{WZ}$, respectively. 
-Therefore, this channel provides the opportunity to determine the sign of \lambdaWZ with certainty. 
+Therefore, this channel provides the opportunity to determine the sign of \lambdaWZ. 
 \begin{figure}[htb]
     \centering
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbswh/vbswh_1.pdf}}\quad
@@ -42,10 +42,18 @@ First, leptons are preferred in the final state over jets, due to the sheer size
 Then, $\PW\to\ell\nu$ is preferred over $\PZ\to\ell\ell$, since there are fewer backgrounds with only one lepton in the final state. 
 Finally, $\PH\to\PQb\PAQb$ has the largest branching ratio, and it can be identified using the latest advances in artificial intelligence. 
 
-While there are a few background processes can produce the target final state, the Monte Carlo (MC) simulation of the signal reveals additional boons. 
+While there are a few, quite large background processes can produce the target final state, the Monte Carlo (MC) simulation of the signal reveals additional boons. 
 The final state particles receive a significant boost for negative \lambdaWZ scenarios (Fig.~\ref{fig:vbswh_lhe}). 
 In our preferred final state, this will give a lepton with large \pt, some additional \MET from the neutrino, and two overlapping b-jets reconstructed as a single merged jet. 
-Additionally, the cross section of the signal process increases quadratically as \kW or \kZ deviate from the SM value (Fig.~\ref{fig:vbswh_xsecs}). 
+This can be quantified in a single variable by simply summing the \pt of each final-state particle other than the VBS jets:
+\begin{equation}\label{eq:vbswh_st}
+    \ST = \pt(\PW\to\ell\nu)+\pt(\Htobb) = \pt(\ell)+\ptmiss+\pt(\bbbar\text{ AK8 jet})
+\end{equation}
+Additionally, the cross section of the signal process increases quadratically as \kW or \kZ deviate from the SM value (Fig.~\ref{fig:vbswh_xsecs}), so there are simply more signal events in BSM scenarios. 
+
+The VBS jets also provide a distinct kinematic signature (Fig.~\ref{fig:vbswh_fireworks}), namely two nearly back-to-back jets---i.e. a large absolute difference in pseudorapidity \abs{\detajj}---with a large combined invariant mass \Mjj. 
+In particular, the background processes fall off exponentially in \Mjj whereas the signal process is more flatly distributed. 
+Combined with the fact that the signal has a distinctly larger average value of \abs{\detajj} than background, these VBS characteristics form a strong handle for distinguishing signal from background. 
 
 \begin{figure}[htb]
     \centering
@@ -73,14 +81,27 @@ Additionally, the cross section of the signal process increases quadratically as
     \label{fig:vbswh_xsecs}
 \end{figure}
 
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rphi_gen.png}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen.png}}
+    \caption{
+        Event display for a typical VBS WH signal event. 
+        Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
+    }
+    \label{fig:vbswh_fireworks}
+\end{figure}
+
+\clearpage
+
 \section{The backgrounds}
 In general, background processes for this analysis need a fake\footnotemark{} $\Htobb$ merged jet, two fake\footnotemark[\value{footnote}] VBS jets, one lepton, and some \MET. 
 \footnotetext{
     In principle, a background process could have a \textit{real} Higgs boson with large \pt decay to \bbbar or two \textit{real} VBS jets, however SM processes with these kinds of signatures are so rare that they do not represent a significant background for this analysis---in fact, SM VBS WH is one such insignificant background.
 }
 The main background process for this analysis comes from \ttbar production (Fig.~\ref{fig:ttbar}), wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
-One of the \PW bosons can decay to a real lepton and neutrino, then the fake VBS jets and $\Htobb$ merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
-One of the incoming quarks can radiate a \PW or \PZ boson (Fig.~\ref{fig:ttV1l}), which presents additional opportunities for trickery. 
+One of the \PW bosons can decay to a real lepton and neutrino, and the fake VBS jets and $\Htobb$ merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
+One of the incoming quarks can also radiate a \PW or \PZ boson (Fig.~\ref{fig:ttV1l}), which presents additional opportunities for trickery. 
 Additional backgrounds come from single-top production, where only one top quark is produced, which then decays to a bottom quark and \PW boson (Fig.~\ref{fig:single_t}). 
 
 \begin{figure}[htb]
@@ -105,21 +126,134 @@ Additional backgrounds come from single-top production, where only one top quark
 \end{figure}
 
 \section{Event selection}
-\subsection{Triggers}
+\subsection{Triggers and preselection}
+The single lepton in our signal final state gives a clean signature on which to trigger, so the aptly named ``single lepton'' triggers are applied, and the ``single lepton'' datasets are used. 
+These triggers are nearly 100\% efficient for signal events because the lepton in the BSM final state is expected to have high \pt. 
+A number of additional event-level filters are applied to remove detector noise and unphysical events~\cite{JMEPaper}. 
+
+Then, a loose selection, referred to as the ``Preselection,'' is applied to select the final state of interest. 
+First, a loose selection is made on the combined VBS jet invariant mass: $\Mjj > 500\GeV$.
+Next, the ParticleNet Xbb score of the \Htobb fat jet candidate is required to be greater than 0.3.
+The event is also required to have no AK4 jets passing the Medium DeepJet working point.
+The event must furthermore have one and only one lepton with $\pt > 40\GeV$ that passes the Tight lepton ID. 
+If there are any additional leptons that pass the Veto lepton ID, the event is vetoed--these leptons are not required pass the \pt threshold. 
+Finally, the event must have $\ST > 800\GeV$ (where \ST is defined in Eq.~\ref{eq:vbswh_st}).
+
 \subsection{Signal region}
-\subsection{Validation regions}
+The signal region for this analysis is defined on top of the Preselection with similar, but tighter selections. 
+First, the \ST threshold is increased to $\ST > 900 \GeV$. 
+Then, the selections on the VBS jet variables are tightened to $\Mjj > 600 \GeV$ and $|\detajj| > 4$. 
+Finally, the selections on the \Htobb fat jet candidate are made much more strict, where the ParticleNet Xbb score is required to be greater than 0.9 and \MSD is required to be less than $150 \GeV$. 
+
+The background in this region is estimated using a data-driven technique, described in the next section, that the signal region was specifically designed to enable. 
+Looser cuts are preferred in particular, as it was found that the variables used for the background estimation become correlated in a more restricted phase space. 
+Therefore, the signal region selections are not optimized for maximal purity, though such a region can be formed. 
 
 \section{Background estimation}
-
-\section{Systematic uncertainties}
-
-\section{Results}
+The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, \MSD, requirement, or both inverted. % TODO: add cartoon and reference here
+First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as $A_{MC}$, $B_{MC}$, $C_{MC}$, and $D_{MC}$.
+Likewise, let the the same yields in data be defined as  $A_{data}$, $B_{data}$, $C_{data}$, and $D_{data}$.
+Under these definitions, the estimated background yield in region A, which will be referred to as $A_{data}^{pred}$, can be computed with data as follows:
+\begin{equation}\label{eq:abcd}
+    A_{data}^{pred} = B_{data}\times\frac{C_{data}}{D_{data}}
+\end{equation}
+\noindent where the same can be done in MC, yielding $A_{MC}^{pred}$. 
+First, it can be seen in Fig.~\ref{fig:vbswh_abcd_closure} that data and MC agree reasonably well in regions A, B, and C. 
+In addition, it has been verified that the ``transfer factor'' that scales the actual yield in Region C to the estimated yield in region D is consistent within statistical uncertainty across data and MC:
+\begin{equation*}
+    \frac{C_{MC}}{D_{MC}} = \BkgEstABMC \pm \BkgEstABMCErr\% \qquad \frac{C_{data}}{D_{data}} = \BkgEstABData \pm \BkgEstABDataErr\%
+\end{equation*}
+The closure of the ABCD method described here is tested by comparing $A_{MC}^{pred}$ to $A_{MC}$. 
+This checks how closely the estimation in Monte Carlo predicts the actual yield in Monte Carlo. 
+\begin{equation*}
+    A_{MC}^{pred} = B_{MC}\times\frac{C_{MC}}{D_{MC}} = \PredBkgMC \qquad A_{MC} = \ExpBkg
+\end{equation*}
+Comparing these two numbers, it is clear that the ABCD method for this analysis systematically over-predicts the background yield in the signal region. 
+The difference between the predicted and actual yield in MC is therefore taken as the baseline systematic uncertainty of $\BkgEstMethodSystErr\%$ on this method. 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.5\textwidth]{fig/vbswh/exclusion_2D_contours_unblinded.pdf}
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/regionsABCD_closure_unblinded.pdf}
     \caption{
-        Exclusion significance plotted as a function of \kW and \kZ.
-        Opposite-sign scenarios ($\lambdaWZ < 0$) are excluded well beyond 5$\,\sigma$. 
+        The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram. 
+        In region A, the signal region, the background yield estimated from data is plotted instead of that predicted by MC. 
+        Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding $2\,\sigma$. 
     }
-    \label{fig:vbswh_limit}
+    \label{fig:vbswh_abcd_closure}
+\end{figure}
+However, the background composition is not consistent between the ABCD regions, and it is furthermore not known to high precision. 
+The baseline systematic must be extended to cover the uncertainty in the background composition. 
+In order to quantify this uncertainty, the yields for each of the next-to-leading backgrounds are varied within their respective statistical uncertainties, representing scenarios in which the contributions from each background are larger or smaller, and the closure of the method is recalculated. 
+Based on how the closure varies for each scenario, a final systematic uncertainty of \BkgEstTotalSystErr\% is selected to cover the uncertainty in the background composition. 
+Thus, the systematic and statistical uncertainties $\epsilon_{syst}$ and $\epsilon_{stat}$ are
+\begin{align*}
+    \epsilon_{syst} &\approx \BkgEstTotalSystErr\% \\
+    \epsilon_{stat} &= \frac{\sqrt{B_{data}}}{B_{data}} \oplus \frac{\sqrt{C_{data}}}{C_{data}} \oplus \frac{\sqrt{D_{data}}}{D_{data}} \approx \BkgEstStatErr\%
+\end{align*}
+and the estimated background yield in the signal region is therefore given by 
+\begin{equation*}
+    A_{data}^{pred} = \PredBkgNoCorrection \pm \PredBkgNoCorrectionStatErr \pm \PredBkgNoCorrectionSystErr
+\end{equation*}
+However, it can be seen in Fig.~\ref{fig:vbswh_abcd_corr} that the ABCD variables \detajj and \MSD are correlated.
+This correlation is not evident in MC closure because it happens to ``cancel out,'' leading to the mild systematic overprediction quantified above. 
+To improve the reliability and accuracy of the method, a correction is computed in MC and used to amend the ABCD method (Eq.~\ref{eq:abcd}) as follows:
+\begin{equation}
+    A_{data}^{pred} = B_{data}\times\frac{C_{data}}{D_{data}}\times\bigg(\frac{A_{MC}/B_{MC}}{C_{MC}/D_{MC}}\bigg)
+\end{equation}
+That is, the overprediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $B_{data}/C_{data}$ to account for the correlation between \MSD and \detajj. 
+Moreover, in the $\MSD \geq 150 \GeV$ sideband, comparison between data and MC shows that the correlation is well-modeled by MC (Fig.~\ref{fig:vbswh_abcd_corr_data_mc}), thus validating this correction. 
+This trivially makes the method close exactly in MC, but by applying it to ABCD in data, the predicted background yield in the signal region is made more accurate, as the correlation was previously biasing the result.
+Therefore, the final estimated background yield in the signal region is given by
+\begin{equation*}
+    D_{data}^{pred} = \PredBkg \pm \PredBkgStatErr \pm \PredBkgSystErr
+\end{equation*}
+where the systematic and statistical uncertainties are kept as \BkgEstTotalSystErr\% and \BkgEstStatErr\% respectively.
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_flipped.pdf}\label{fig:vbswh_abcd_corr}}\qquad
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_data_vs_mc.pdf}\label{fig:vbswh_abcd_corr_data_mc}}
+    \caption{
+        A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlayed using only MC (left). 
+        The downward trend in the profile plot indicates that there is a minor correlation between \MSD and \detajj. 
+        The profile is compared between data and MC (right), and good agreement suggests that the correlation is at least well-modeled. 
+        This correlation can thus be addressed with a correction derived from MC when applying the method in data, such that the background yield in the signal region is more accurately predicted.
+    }
+\end{figure}
+
+\section{Results}
+The background yield in the signal region estimated from data and the signal yield predicted by Monte Carlo simulation are tabulated in Table~\ref{tab:vbswh_yields}. 
+Using these yields, and a thorough accounting of systematic uncertainties, we perform a maximum-likelihood fit~\cite{Cowan:2010js} using the \COMBINE statistical tool. 
+Then, the exclusion significance and confidence level (CL) are extracted following the procedure described in Section~3.2 of Ref.~\cite{Aad2016MLM}.
+In particular, we exclude the scenario where $\lambdaWZ = -1$ with an observed (expected) significance of 8.3\std (9.3\std), and we exclude all $\lambdaWZ < 0$ scenarios that were allowed by previous limits well beyond 5\std.
+The results of this analysis therefore strongly indicate that \kW and \kZ have the same sign, representing another success of the Standard Model.
+
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{c rclcl}
+\toprule
+    Type       & Yield    & $\pm$ & stat.           & $\pm$ & syst.           \\ 
+    \midrule
+    Signal     & \ExpSig  & $\pm$ & \ExpSigStatErr  & $\pm$ & \ExpSigSystErr  \\
+    Background & \PredBkg & $\pm$ & \PredBkgStatErr & $\pm$ & \PredBkgSystErr \\
+    Observed   & \Obs     &       &                 &       &                 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption[Signal region yields]{
+    Table of the signal region yields from signal MC, background estimated from data, and observed data along with their respective statistical and systematic uncertainties. 
+    The systematic uncertainty for signal quoted here is the sum in quadrature of all of the independent systematics (percent errors) multiplied by the total yield.
+    The observed yield is also tabulated. 
+}
+\label{tab:vbswh_yields}
+\end{table}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[1D exclusion of $\lambdaWZ = -1$]{\includegraphics[width=0.45\textwidth]{fig/vbswh/r_vs_m2deltaLogL_unblinded.pdf}\label{fig:vbswh_limit_1D}}
+    \subfloat[2D exclusion of \lambdaWZ values]{\includegraphics[width=0.45\textwidth]{fig/vbswh/exclusion_2D_contours_unblinded.pdf}\label{fig:vbswh_limit_2D}}
+    \caption{
+        The negative-log-likelihood plotted as a function of the signal strength ($r$) for $\lambdaWZ = -1$ (a).
+        The exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped errorbars (b).
+        It is clear from these two plots (a) the $\lambdaWZ = -1$ scenario is excluded well at 8.3\std and (b) opposite-sign scenarios ($\lambdaWZ < 0$) within previous CMS limits are excluded well beyond 5\std. 
+    }
 \end{figure}

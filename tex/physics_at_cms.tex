@@ -5,21 +5,20 @@ Experiment is the sole judge of scientific ``truth.''
 \end{aquote}
 
 \section{Looking for new physics}
-The stage is set: over a century of particle physics has yielded a beautiful, but incomplete theory of everything, the Standard Model, and a grand coalition of nations have built the largest and most complex scientific instrument in human history, the LHC, to test it. 
-The most recent triumph came in 2012, when the Higgs boson was discovered. 
-We will focus on questions around the Higgs boson, although this is just one of many ongoing efforts at the LHC.
-
-In the years following the discovery of the Higgs boson, the LHC experiments have measured many of its properties to great precision and found no significant deviations from SM predictions~\cite{NatureHiggsCMS2022, NatureHiggsATLAS2022}. 
+The stage is set: over a century of particle physics has yielded a beautiful, but incomplete theory of everything, the Standard Model, and a grand coalition of nations has built the largest and most complex scientific instrument in human history, the LHC, to test it. 
+The most recent triumph came in 2012, when the Higgs boson was discovered at CMS and ATLAS~\cite{CMSdisc, ATLASdisc}. 
+In the years following its discovery, the LHC experiments have measured many of its properties to great precision and found no significant deviations from SM predictions~\cite{NatureHiggsCMS2022, NatureHiggsATLAS2022}. 
 Nevertheless, the confounding mysteries still surrounding the Higgs boson at the time of writing suggest that there must be some beyond Standard Model (BSM) physics that is not yet understood. 
 Moreover, given the existential importance of the Higgs boson, this kind of new physics would have profound implications towards a better understanding of the past, present, and future of the entire universe. 
-There are many educated guesses, called theories, aimed at addressing these open questions around the Higgs boson. 
-Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}. 
+
+There are many educated guesses, called theories, aimed at addressing the open questions involving the Higgs boson. 
+Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}, and experimentalists can search for their existence directly: either by looking for the SM particles that they might decay into, or by accounting for what is missing after everything is accounted for. 
 \footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may obtain that mass through the Higgs mechanism.}
 Experimentalists can also search for new physics indirectly by making precise measurements of SM predictions; any significant deviation from the prediction would poke another hole in the Standard Model or even confirm a prediction of a new theory. 
 The physics analyses described in this document both follow the latter strategy.
 
-\subsection{The $k$-framework}
-One commonly used framework used to quantify these deviations from the SM is the so-called $k$-framework~\cite{KFrame}, which introduces modifiers $\kappa_X$ to the Higgs boson couplings to some particle $X$:
+\subsection{The $\kappa$-framework}
+One commonly used framework used to quantify these deviations from the SM is the so-called $\kappa$-framework~\cite{KFrame}, which introduces modifiers $\kappa_X$ to the Higgs boson couplings to some particle $X$:
 \begin{equation}
     \kappa_X = \frac{\text{modifed coupling value}}{\text{SM coupling value}}.
 \end{equation}
@@ -34,9 +33,30 @@ While there are myriad theoretical nuances to the statement above, it is suffici
 \subsubsection{Jets originating from b quarks}
 
 \section{Event selection}
+In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
+We do this in a particular order, however, because of the sheer size of our data. 
 \subsection{Triggers}
 \subsection{Signal regions}
 \subsection{Control regions}
 \subsection{Background estimation}
 
+\section{Systematic uncertainties}
+Since the background estimation strategy is data-driven, the systematics on the Monte Carlo, which are more numerous, only need to be evaluated for the signal yield. 
+Most sources of systematic uncertainty are derived by varying individual theoretical scales and experimental corrections by one standard deviation and taking the maximal difference in yield as the error. 
+In particular, the corrections and their uncertainties are typically derived centrally in order to augment the efficiency of a specific selection in MC to match that measured in data.
+In general, these corrections are applied as an event weight $w$, such that the weighted contribution $W$ of each raw Monte Carlo event is given by the product of the event weights for that same event. 
+The yield in a given signal region $y$ containing $N$ raw Monte Carlo events is therefore given by
+\begin{equation}
+    y = \sum_{i = 1}^{N}W_i
+\end{equation}
+Then, the yield $y_{var}$ is computed after applying a systematic variation (up or down) of each source of systematic uncertainty independently:
+\begin{equation}\label{eq:systs}
+    y_{var} = \sum_{i = 1}^{N}W_i\times\frac{w_{var}}{w}
+\end{equation}
+Finally, the maximum of the percent differences $\delta_{up}$ or $\delta_{down}$ are taken as the systematic uncertainty for that source, where
+\begin{equation}
+    \delta_{var} = \bigg| 1-\frac{y_{var}}{y} \bigg|
+\end{equation}
+
 \section{Statistical interpretation}
+\subsection{Maximum likelihood estimate}
