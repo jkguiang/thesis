@@ -4,14 +4,14 @@
 \end{aquote}
 
 \section{Looking for a sign}
-Before this work was published, the CMS Collaboration had constrained the \textit{magnitudes} of the HWW (\kW) and HZZ (\kZ) couplings to $|\kW| = 1.02^{+0.11}_{-0.10}$ and $|\kZ| = 1.04^{+0.07}_{-0.07}$, showing precise agreement with the SM values~\cite{NatureHiggsCMS2022}. 
+Before this work was published, the CMS Collaboration had constrained the \textit{magnitudes} of the HWW (\kW) and HZZ (\kZ) couplings to $|\kW| = 1.02^{+0.11}_{-0.10}$ and $|\kZ| = 1.04^{+0.07}_{-0.07}$, showing precise agreement with the SM values~\cite{NatureHiggsCMS2022}---with similarly strong constraints from ATLAS~\cite{NatureHiggsATLAS2022}. 
 The \textit{sign} of either coupling, however, had not yet been well-determined. 
 The relative sign between \kW and \kZ, which was of particular interest, can be expressed more compactly as the ratio between the two couplings:
 \begin{equation}
     \lambdaWZ = \frac{\kW}{\kZ}.
 \end{equation}
 The Standard Model requires $\lambdaWZ = 1$ in order to preserve the ``custodial'' symmetry. 
-Meanwhile, certain BSM theories require \lambdaWZ to be negative~\cite{Theory1LambdaWZ}. 
+Meanwhile, certain BSM theories require \lambdaWZ to be negative~\cite{Theory1LambdaWZ}, including models with higher isospin representations~\cite{Low2010} like the Georgi-Machacek model~\cite{GEORGI1985463}. 
 Therefore, in the absence of a significant experimental measurement of the sign of \lambdaWZ, a crucial element of the SM had not been confirmed, and a potential signature of BSM physics was left unexplored. 
 
 \section{The signal}
@@ -99,10 +99,12 @@ In general, background processes for this analysis need a fake\footnotemark{} $\
 \footnotetext{
     In principle, a background process could have a \textit{real} Higgs boson with large \pt decay to \bbbar or two \textit{real} VBS jets, however SM processes with these kinds of signatures are so rare that they do not represent a significant background for this analysis---in fact, SM VBS WH is one such insignificant background.
 }
-The main background process for this analysis comes from \ttbar production (Fig.~\ref{fig:ttbar}), wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
-One of the \PW bosons can decay to a real lepton and neutrino, and the fake VBS jets and $\Htobb$ merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
+The leading background process for this analysis is \ttbar production (Fig.~\ref{fig:vbswh_lead_bkg}), wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
+One of the \PW bosons can decay to a real lepton and neutrino, and the fake VBS jets and \Htobb merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
 One of the incoming quarks can also radiate a \PW or \PZ boson (Fig.~\ref{fig:ttV1l}), which presents additional opportunities for trickery. 
-Additional backgrounds come from single-top production, where only one top quark is produced, which then decays to a bottom quark and \PW boson (Fig.~\ref{fig:single_t}). 
+The largest sub-leading background processes are \wjets (Fig.~\ref{fig:w_jets}), where a \PW is produced along with some number of quarks or gluons, and single-top production (Fig.~\ref{fig:single_t}), where only one top quark is produced. 
+In \wjets, the W can give a real lepton and neutrino, while the additional jets cover the fake VBS and \Htobb signature. 
+In single-top production, the top quark again decays to a \PW boson and b quark, so it can produce a signal-like final state much like \ttbar. 
 
 \begin{figure}[htb]
     \centering
@@ -111,18 +113,17 @@ Additional backgrounds come from single-top production, where only one top quark
     \caption{
         Feynman diagram for \ttbar production in the single-lepton final state with (a) an extra jet from a gluon or (b) an extra vector boson ($\PV = \PW$ or \PZ) radiated from one of the incoming partons.  
     }
-    \label{fig:ttbar}
+    \label{fig:vbswh_lead_bkg} % leading background (ttbar)
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf} % FIXME: missing!!
-    % \subfloat[$\ttbar + \text{jet}$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf}\label{fig:ttbar1l}}\quad
-    % \subfloat[$\ttbar + \PV$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:ttV1l}}
+    \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:w_jets}}\quad
+    \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf}\label{fig:single_t}}
     \caption{
         Lorem ipsum
     }
-    \label{fig:single_t}
+    \label{fig:vbswh_subl_bkg} % sub-leading background (W+jets and single top)
 \end{figure}
 
 \section{Event selection}
@@ -148,6 +149,35 @@ Finally, the selections on the \Htobb fat jet candidate are made much more stric
 The background in this region is estimated using a data-driven technique, described in the next section, that the signal region was specifically designed to enable. 
 Looser cuts are preferred in particular, as it was found that the variables used for the background estimation become correlated in a more restricted phase space. 
 Therefore, the signal region selections are not optimized for maximal purity, though such a region can be formed. 
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/M_jj_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/deta_jj_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
+    \caption{
+        The VBS jet combined invariant mass (left) and absolute difference in pseudorapidity (right) are plotted after applying the Preselection.
+    }
+    \label{fig:vbswh_presel_vbs}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/ST_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}
+    \caption{
+        The variable \ST is plotted after applying the Preselection.
+    }
+    \label{fig:vbswh_presel_st}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_msoftdrop_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_score_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
+    \caption{
+        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet Xbb score (right) are plotted after applying the Preselection.
+    }
+    \label{fig:vbswh_presel_hbb}
+\end{figure}
 
 \section{Background estimation}
 The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, \MSD, requirement, or both inverted. % TODO: add cartoon and reference here
@@ -196,9 +226,9 @@ and the estimated background yield in the signal region is therefore given by
 However, it can be seen in Fig.~\ref{fig:vbswh_abcd_corr} that the ABCD variables \detajj and \MSD are correlated.
 This correlation is not evident in MC closure because it happens to ``cancel out,'' leading to the mild systematic overprediction quantified above. 
 To improve the reliability and accuracy of the method, a correction is computed in MC and used to amend the ABCD method (Eq.~\ref{eq:abcd}) as follows:
-\begin{equation}
+\begin{equation*}
     A_{data}^{pred} = B_{data}\times\frac{C_{data}}{D_{data}}\times\bigg(\frac{A_{MC}/B_{MC}}{C_{MC}/D_{MC}}\bigg)
-\end{equation}
+\end{equation*}
 That is, the overprediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $B_{data}/C_{data}$ to account for the correlation between \MSD and \detajj. 
 Moreover, in the $\MSD \geq 150 \GeV$ sideband, comparison between data and MC shows that the correlation is well-modeled by MC (Fig.~\ref{fig:vbswh_abcd_corr_data_mc}), thus validating this correction. 
 This trivially makes the method close exactly in MC, but by applying it to ABCD in data, the predicted background yield in the signal region is made more accurate, as the correlation was previously biasing the result.

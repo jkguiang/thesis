@@ -4,11 +4,8 @@
     a beautiful or elegant theory is more likely to be right 
     than a theory that is inelegant.
 \end{aquote}
+
 \section{The Standard Model}
-% Give basic overview
-%    - stick to feynman diagrams
-%    - maybe (maybe??) show the SM lagrangian
-%    - dig up some good resources on describing SM well...
 Put simply, the Standard Model attempts to describe, at the most fundamental level, what the universe is made of and how it operates. 
 So far, the content of the model is as follows: the universe is made of fermions (quarks and leptons), and it operates through the exchange of bosons (photons, gluons, W, Z, and H). 
 That is, matter\footnotemark{} is composed of assemblies of fermions, which are held together, pushed apart, and otherwise interact via the fundamental forces ``transmitted'' by bosons. 
@@ -27,6 +24,35 @@ Moreover, the particle ``zoo'' has been herded into the confines of the mathemat
 Unfortunately, four to five years of attentive instruction and rigorous study across multiple subjects---including quantum mechanics, statistical mechanics, special relativity, and a bevy of mathematical formalism---are required to even begin reading QFT textbooks, and well over a lifetime may be required to fully understand them\footnotemark{}. 
 \footnotetext{Even still, paraphrasing the great Prof. Aneesh Manohar, ``all QFT textbooks are wrong.''}
 The Standard Model will instead, as promised, be described here from the perspective of an experimentalist: through hastily scrawled cartoons, rough calculations, and a great deal of hand-waving that, together, at least communicate the essential features of the theory. 
+
+\subsection{The Higgs boson}
+% Give basic overview
+%    - wtf is it???
+%    - 10-year anniversary Nature papers have a good summary
+% From P5:
+% The Higgs boson is an extraordinary and unique particle that is connected to the most puzzling questions of particle physics, 
+% including the origin of flavor, the matter-antimatter asymmetry, dark matter and dark energy, and inflation. The Higgs boson 
+% differs from other particles in that it is “frozen” in the universe. And once frozen, it is called the Higgs field because it 
+% permeates the universe. The field disturbs and slows down the motion of every elementary particle. The Higgs boson slows electrons 
+% in atoms so that they stay within the atom instead of flying off into space. Without the Higgs boson, or field, every electron 
+%
+% The Higgs boson is the only known fundamental particle that has no spin angular momentum, which permits it to have unique behavior: 
+% it can interact with all known matter particles and give them mass, depending on the strength of the interaction. The Higgs boson 
+% also provides a novel and distinct gateway to as yet unknown particles, such as dark matter.
+%
+% Find sources! Otherwise, this is great
+% in every atom would move at the speed of light and everything, including us, would evaporate in a nanosecond.
+Because we swore to steer away from the details of QFT, we cannot define the Higgs boson and Higgs mechanism completely. 
+For this, we are better served by a primer by Griffiths~\cite{Griffiths}, followed by some QFT textbooks, and finally the original papers on the subject. % TODO: add citation for Schroeder, Schredniki, and maybe Schwards? + Higgs papers
+Instead, we will discuss it at the surface-level, starting in the classical world. 
+
+When considering a classical system---an arrow in flight, a planet in motion, a ball on a ramp---one can describe the mechanics of that system through a Lagrangian. 
+Together with the Euler-Lagrange equation, an appropriately formed Lagrangian can reproduce the ``equations of motion'' for an arbitrary system. 
+The simplest example starts with the following Lagrangian $L$:
+\begin{equation}
+    L = \frac{1}{2}m\dot{x}^2 + U(x)
+\end{equation}
+where $x$ is the position of an object in just one dimension, $\dot{x}$ is the change in $x$ with respect to time (i.e. $\frac{dx}{dt}$ or the velocity) and $U(x)$ is the potential energy, which is the amount of energy needed to move an object against a certain force (e.g. $U(x) = \frac{1}{2}kx^2$ for an object fixed to a spring). 
 
 \subsection{Feynman diagrams}
 Fortunately, there is way to encode essential Standard Model calculations in a simple drawing, so-called ``Feynman diagrams,'' which, consequently, help experimentalists keep track of physically allowed processes. 
@@ -111,36 +137,38 @@ Moreover, this feature of QFT---the ability to compute cross sections---is absol
     \label{fig:ee_scattering}
 \end{figure}
 
+The validity of any model is a precarious condition: the model must exactly describe reality, else it is not a realization of the truth, but rather only approximately---or worse, accidentally---correct. 
+That is, \textit{every} SM cross section value must be accurate for the validity of the model to hold. 
+And so generations of physicists have made dilligent, and highly accurate, measurements of a dozens of cross sections---spanning orders of magnitude of rarity. 
+Tabulated in grand tables (Fig.~\ref{fig:cms_xsecs} and \ref{fig:atlas_xsecs}), it is evident that the Standard Model has so far withstood every test derived from CMS data and ATLAS data. 
+This is an incredible feat: a ``simple'' model seems to describe subatomic physics, which drove the creation of the universe and continues to drive the mechanics of everything, with incredible accuracy. 
+Lingering beyond these shining trophies, however, are a number of glaring inconsistencies and enormous missing pieces. 
+In other words, we know with certainty that the Standard Model is not complete, and that much more work is needed to complete it. 
+We will focus in this dissertation on questions around the Higgs boson, these are detailed in the next section, because these questions motivated the bulk of the work described in the following chapters. 
+However, we will also mention some additional open questions to illustrate the magnitude of the problem ahead for future particle physicists. 
+
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{fig/cms/cms_xsecs_2021.pdf}
+    \includegraphics[width=0.9\textwidth]{fig/cms/cms_xsecs_2023.pdf}
     \caption{
         The totality of the cross section measurements performed with data from the CMS Experiment compared to the Standard Model predictions. 
-        Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny.
+        Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
+        Plot taken from Ref.~\cite{CMSXSecs}.
     }
     \label{fig:cms_xsecs}
 \end{figure}
 
-% Talk about xsec measurements, how well SM has done, ...
-The validity of any model is a precarious condition: the model must exactly describe reality, else it is not a realization of the truth, but rather only approximately---or worse, accidentally---correct. 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig/atlas/atlas_xsecs_2023.pdf}
+    \caption{
+        A selection of cross section measurements performed with data from the ATLAS Experiment compared to the Standard Model predictions. 
+        Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
+        Plot taken from Ref.~\cite{ATL-PHYS-PUB-2023-039}.
+    }
+    \label{fig:atlas_xsecs}
+\end{figure}
 
-\subsection{The Higgs boson}
-% Give basic overview
-%    - wtf is it???
-%    - 10-year anniversary Nature papers have a good summary
-% From P5:
-% The Higgs boson is an extraordinary and unique particle that is connected to the most puzzling questions of particle physics, 
-% including the origin of flavor, the matter-antimatter asymmetry, dark matter and dark energy, and inflation. The Higgs boson 
-% differs from other particles in that it is “frozen” in the universe. And once frozen, it is called the Higgs field because it 
-% permeates the universe. The field disturbs and slows down the motion of every elementary particle. The Higgs boson slows electrons 
-% in atoms so that they stay within the atom instead of flying off into space. Without the Higgs boson, or field, every electron 
-%
-% The Higgs boson is the only known fundamental particle that has no spin angular momentum, which permits it to have unique behavior: 
-% it can interact with all known matter particles and give them mass, depending on the strength of the interaction. The Higgs boson 
-% also provides a novel and distinct gateway to as yet unknown particles, such as dark matter.
-%
-% Find sources! Otherwise, this is great
-% in every atom would move at the speed of light and everything, including us, would evaporate in a nanosecond.
 \section{Open questions}\label{sec:open_questions}
 % Higgs sector:
 %    - naturalness?
