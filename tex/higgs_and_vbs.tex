@@ -1,4 +1,4 @@
-\chapter{Studying the Higgs boson through vector boson scattering with CMS}
+\chapter{Studying the Higgs boson through vector boson scattering at CMS}
 \begin{aquote}{Richard Feynman, The Feynman Lectures, 1963}
 The principle of science, the definition, almost, is the following: The test of all knowledge is experiment. 
 Experiment is the sole judge of scientific ``truth.''
@@ -13,7 +13,7 @@ Moreover, given the existential importance of the Higgs boson, this kind of new 
 
 There are many educated guesses, called theories, aimed at addressing the open questions involving the Higgs boson. 
 Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}, and experimentalists can search for their existence directly: either by looking for the SM particles that they might decay into, or by accounting for what is missing after everything is accounted for. 
-\footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may obtain that mass through the Higgs mechanism.}
+\footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may haved obtained that mass through the Higgs mechanism.}
 Experimentalists can also search for new physics indirectly by making precise measurements of SM predictions; any significant deviation from the prediction would poke another hole in the Standard Model or even confirm a prediction of a new theory. 
 The physics analyses described in this document both follow the latter strategy.
 
@@ -23,16 +23,40 @@ One commonly used framework used to quantify these deviations from the SM is the
     \kappa_X = \frac{\text{modifed coupling value}}{\text{SM coupling value}}.
 \end{equation}
 While there are myriad theoretical nuances to the statement above, it is sufficient to state the obvious: $\kappa_X = 1$ represents the SM scenario and significant deviations from 1 represent BSM scenarios. 
+The $\kappa$-framework is not the only framework used to understand and quantify modifications to the SM, however, with the most notable alternative being Effective Field Theory~\cite{EFT, DimSix}. 
 
-\section{Vector boson scattering}
+\subsection{Vector boson scattering}
+The dominant Higgs boson production mechanisms at the LHC are gluon-gluon fusion and a top quark loop. % TODO: add feynman diagrams, cite PDG?
+Through these processes, the Higgs boson was discovered and many of its branching ratios and couplings have been measured precisely. 
+However, additional production mechanisms can yield unique insights. 
+Enter vector boson scattering (VBS)\footnotemark{}, where two quarks scatter off of each other by the exchange of vector bosons. % TODO: add feynman diagram, ideally with "here there be monsters" circle with stuff coming out
+\footnotetext{Although VBS specifically implies the production of two vector bosons, while vector boson fusion (VBF) implies the production of a single Higgs or vector boson~\cite{RauchVBSVBF2016}, the names VBS and VBF are used interchangeably; since we are interested in the production of a Higgs boson and one or two vector bosons, the naming is anyway ambiguous.}
+This exchange can, in turn, produce a variety of physics, most notably the production of at least one Higgs boson. 
+This process also has two important features. 
+First, it has a unique signature: the two scattered quarks fly out of the collision back-to-back, typically in the forward regions of the detector (Fig.~\ref{fig:vbs_fireworks}), with a large combined invariant mass. 
+Second, but equally important, modifications to the Higgs couplings induce effects that grow with energy~\cite{HiggsWithoutHiggs}---at the LHC, where energy is plentiful, this makes BSM scenarios easier to spot. 
 
-\section{Simulation}
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
+    \caption{
+        Event display for a simulated VBS WH signal event. 
+        The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
+        Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
+    }
+    \label{fig:vbs_fireworks}
+\end{figure}
+
+\subsection{Search strategy}
 
 \section{Reconstruction}
 \subsection{Leptons}
 \subsection{Jets}
 \subsubsection{Jets originating from VBS quarks}
 \subsubsection{Jets originating from b quarks}
+
+\section{Simulation}
 
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 

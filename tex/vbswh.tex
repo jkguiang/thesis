@@ -15,7 +15,7 @@ Meanwhile, certain BSM theories require \lambdaWZ to be negative~\cite{Theory1La
 Therefore, in the absence of a significant experimental measurement of the sign of \lambdaWZ, a crucial element of the SM had not been confirmed, and a potential signature of BSM physics was left unexplored. 
 
 \section{The signal}
-The precise determinations of the magnitude of \kW and \kZ~\cite{NatureHiggsCMS2022} were performed by studying processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
+The precise determinations of the magnitudes of \kW and \kZ~\cite{NatureHiggsCMS2022} were performed by studying processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
 While there were some with a linear dependence, they did not give a strong exclusion of opposite-sign scenarios~\cite{BestCMSLambdaWZ}---in fact they slightly preferred the $\lambdaWZ < 0$ scenario. 
 A promising channel to directly probe \lambdaWZ at the LHC is the production of \VH via vector-boson scattering (VBS)~\cite{Theory2LambdaWZ}.
 Such a channel is sensitive to the relative sign of \kW and \kZ since the since the cross section $\sigma$ has an interference term that is linear in both \kW and \kZ~\cite{Theory2LambdaWZ}: 
@@ -73,7 +73,7 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/kW_xsecs.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/kZ_xsecs.pdf}}
     \caption{
-        Plot of the signal cross section as a function of enhancements to \kW (keeping $\kZ = +1$) on the left and to \kZ (keeping $\kW = +1$) on the right. 
+        The signal cross section plotted as a function of enhancements to \kW, keeping $\kZ = +1$ (left) and to \kZ, keeping $\kW = +1$ (right). 
         The black points are taken from \MGvATNLO, and the blue curve is the best fit of a 2nd order polynomial to those points. 
         The errors are also plotted, but are smaller than the width of the black points. 
         Importantly, the cross section for $\kW = -1$, $\kZ = +1$ and $\kW = +1$, $\kZ = -1$ are exactly the same. 
@@ -83,10 +83,11 @@ Combined with the fact that the signal has a distinctly larger average value of 
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rphi_gen.png}}\qquad
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen.png}}
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rphi_gen_labeled.png}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
     \caption{
-        Event display for a typical VBS WH signal event. 
+        Event display for a simulated VBS WH signal event. 
+        The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
     }
     \label{fig:vbswh_fireworks}
@@ -97,12 +98,12 @@ Combined with the fact that the signal has a distinctly larger average value of 
 \section{The backgrounds}
 In general, background processes for this analysis need a fake\footnotemark{} $\Htobb$ merged jet, two fake\footnotemark[\value{footnote}] VBS jets, one lepton, and some \MET. 
 \footnotetext{
-    In principle, a background process could have a \textit{real} Higgs boson with large \pt decay to \bbbar or two \textit{real} VBS jets, however SM processes with these kinds of signatures are so rare that they do not represent a significant background for this analysis---in fact, SM VBS WH is one such insignificant background.
+    In principle, a background process could have a \textit{real} Higgs boson with large \pt decay to \bbbar or two \textit{real} VBS jets, however SM processes with these kinds of signatures are so rare that they do not represent a significant background for this analysis.
 }
 The leading background process for this analysis is \ttbar production (Fig.~\ref{fig:vbswh_lead_bkg}), wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
 One of the \PW bosons can decay to a real lepton and neutrino, and the fake VBS jets and \Htobb merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
 One of the incoming quarks can also radiate a \PW or \PZ boson (Fig.~\ref{fig:ttV1l}), which presents additional opportunities for trickery. 
-The largest sub-leading background processes are \wjets (Fig.~\ref{fig:w_jets}), where a \PW is produced along with some number of quarks or gluons, and single-top production (Fig.~\ref{fig:single_t}), where only one top quark is produced. 
+The largest sub-leading background comes from \wjets (Fig.~\ref{fig:w_jets}), where a \PW is produced along with some number of quarks or gluons, and single-top production (Fig.~\ref{fig:single_t}), where only one top quark is produced. 
 In \wjets, the W can give a real lepton and neutrino, while the additional jets cover the fake VBS and \Htobb signature. 
 In single-top production, the top quark again decays to a \PW boson and b quark, so it can produce a signal-like final state much like \ttbar. 
 
@@ -155,7 +156,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/M_jj_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/deta_jj_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
     \caption{
-        The VBS jet combined invariant mass (left) and absolute difference in pseudorapidity (right) are plotted after applying the Preselection.
+        The VBS jet combined invariant mass (left) and absolute difference in pseudorapidity (right) plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_vbs}
 \end{figure}
@@ -164,7 +165,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbswh/ST_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}
     \caption{
-        The variable \ST is plotted after applying the Preselection.
+        The variable \ST plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_st}
 \end{figure}
@@ -174,7 +175,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_msoftdrop_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_score_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
     \caption{
-        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet Xbb score (right) are plotted after applying the Preselection.
+        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet Xbb score (right) plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_hbb}
 \end{figure}
