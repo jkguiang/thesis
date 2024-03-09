@@ -44,16 +44,38 @@ The Standard Model will instead, as promised, be described here from the perspec
 % Find sources! Otherwise, this is great
 % in every atom would move at the speed of light and everything, including us, would evaporate in a nanosecond.
 Because we swore to steer away from the details of QFT, we cannot define the Higgs boson and Higgs mechanism completely. 
-For this, we are better served by a primer by Griffiths~\cite{Griffiths}, followed by some QFT textbooks, and finally the original papers on the subject. % TODO: add citation for Schroeder, Schredniki, and maybe Schwartz? + Higgs papers
-Instead, we will discuss it at the surface-level, starting in the classical world. 
+For this, we are better served by a primer by Griffiths~\cite{Griffiths}, followed by the standard QFT textbooks, and finally the original papers on the subject~\cite{EnglertBroutPRL, HiggsPhysLett, HiggsPRL, GuralnikHagenKibblePRL}. % TODO: add citation for Schroeder, Schredniki, and maybe Schwartz?
+% NOTE: I think a more concise description is better suited here. Introducing the Lagrangian in any detail is a tangeant and doesn't serve the reader much. 
+% Instead, we will discuss it at the surface-level, starting in the classical world. 
 
-When considering a classical system---an arrow in flight, a planet in motion, a ball on a ramp---one can describe the mechanics of that system through a Lagrangian. 
-Together with the Euler-Lagrange equation, an appropriately formed Lagrangian can reproduce the ``equations of motion'' for an arbitrary system. 
-The simplest example starts with the following Lagrangian $L$:
-\begin{equation}
-    L = \frac{1}{2}m\dot{x}^2 + U(x)
-\end{equation}
-where $x$ is the position of an object in just one dimension, $\dot{x}$ is the change in $x$ with respect to time (i.e. $\frac{dx}{dt}$ or the velocity) and $U(x)$ is the potential energy, which is the amount of energy needed to move an object against a certain force (e.g. $U(x) = \frac{1}{2}kx^2$ for an object fixed to a spring). 
+% When considering a classical system---an arrow in flight, a planet in motion, a ball on a ramp---one can describe the mechanics of that system through a Lagrangian. 
+% Together with the Euler-Lagrange equation, an appropriately formed Lagrangian can reproduce the ``equations of motion'' for an arbitrary system. 
+% The simplest example starts with the following Lagrangian $L$:
+% \begin{equation}
+%     L = \frac{1}{2}m\dot{x}^2 + U(x)
+% \end{equation}
+% where $x$ is the position of an object as a function of time (really $x(t)$) in just one dimension, $\dot{x}$ is the change in $x$ with respect to time (i.e. $\frac{dx}{dt}$ or the velocity) and $U(x)$ is the potential energy, which is the amount of energy needed to move an object against a certain force (e.g. $U(x) = \frac{1}{2}kx^2$ for an object fixed to a spring). 
+% Taking the example of a mass on a spring, we can plug the Lagrangian into the Euler-Lagrange equation:
+% \begin{align}
+%     \frac{d}{dt}\bigg(\frac{\partial L}{\partial\dot{q}}\bigg) &= \frac{\partial L}{\partial q} \\
+%                                         \frac{d}{dt}(m\dot{x}) &= kx \\
+%                                                      m\ddot{x} &= kx
+% \end{align}
+% The above result is known as Hooke's law, something deeply familiar to any undergraduate physics student, which describes the dynamics of a mass on a spring. 
+% More importantly, we have demonstrated that this seemingly complex formulation allows us to compute the fundamental mechanics of a system---this is much more useful for a more complicated system than a simple mass on a spring. 
+
+% In particle physics, we promote $x(t)$ to a field\footnotemark{} $\phi$, which is a function of space and time (really $\phi(x, y, z, t)$), and $L$ to $\mathcal{L}$, a Lagrangian \textit{density}.
+% \footnotetext{Fields are used here in a quantum context, scalar fields in particular, but there are many classical examples: the temperature of a room, the height of the sea, the strength of a magnetic field, these are quantities that may be different at every position in space and may also vary in time.}
+% Our interest in these abstract fields is well-motivated in QFT, where a field $\phi(x,y,z,t)$ with certain properties corresponds to an observable particle with those same properties. 
+% Therefore, plugging the appropriate Lagrangian density into the Euler-Lagrange equation yields the precise descriptions of the dynamics of fundamental particles. 
+
+% The Higgs mechanism arises when we try to write down a Lagrangian density $\mathcal{L}$ that accounts for the existence of the \PW and \PZ bosons. 
+% In doing so, we find that we must demand that $\mathcal{L}$ does not change under certain transformations of the fields $\phi$, which, at face value, equates to demanding that the field is massless---without going into details, this claim must simply be accepted as true. 
+% This is a problem because the \PW and \PZ bosons are verifiably not massless. 
+% However, by introducing two scalar fields $\eta$ and $\xi$, we can arrive at a Lagrangian density describing those two fields as well as another field $A$ that has a non-zero mass. 
+% The field $\eta$ corresponds to the Higgs boson, $A$ to the \PW and \PZ bosons, and $\xi$ to the Goldstone boson, which does not correspond to a real particle, but instead services the mathematics\footnotemark{} and disappears under a specific transformation. 
+% \footnotetext{For example, it accounts for the fact that there are three bosons that carry the weak force ($\PW^{+}$, $\PW^{-}$, \PZ).}
+% The Higgs \textit{mechanism} itself refers to the appearance of the \PW and \PZ boson masses, as well as the fermion masses through different interactions.
 
 \subsection{Feynman diagrams}
 Fortunately, there is way to encode essential Standard Model calculations in a simple drawing, so-called ``Feynman diagrams,'' which, consequently, help experimentalists keep track of physically allowed processes. 

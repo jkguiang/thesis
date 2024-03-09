@@ -1,61 +1,99 @@
-% Skipping a bunch of chapters
 \chapter{Exascale Cyberinfrastructure}
 
+\section{The HL-LHC data challenge}
+In the high lumonisty era of the LHC, the CMS experiment alone is expected to produce roughly 0.5 exabytes of data every year (Fig.~\ref{fig:tape_projections}). 
+The data will need to be distributed across the worldwide LHC computing grid (WLCG), as it is now, to be accessed by thousands of scientists. 
+This defines two important classifications of network traffic: the \textit{distribution} of LHC data, referred to as ``production'' traffic, and the \textit{access} and final processing of that data, referred to as ``user'' traffic. 
+Crucially, CMS data movement is entirely driven by the production data transfers, which are centrally managed. 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=.9\textwidth]{fig/cyber/tape_cms2022.pdf}
+  \caption{Lorem ipsum~\cite{CMSComputingReport2022}.}
+  \label{fig:tape_projections}
+\end{figure}
+
+With many petabytes, soon to be exabytes, of data that needs to be distrubted all over the world, National Research and Education Networks (NRENs) are critical to the continued operation of CMS, and the LHC in general. 
+However, NRENs are entirely opaque to their users---that is, users have no control over the share of the network that they receive---resulting in highly variable networking performance. 
+This kind of unmanaged networking is reffered to as ``best effort'' service, and it already presents significant challenges to CMS operators running production data transfers. 
+For example, high priority data transfers will unpredictably slow down, or even fail, making any precise coordination impossible. 
+These kinds of issues are furthermore difficult to diagnose: with an opaque network, operators must coordinate between the data storage site administrators and network engineers just to gain a preliminary understanding of where the problem may lie. 
+An increase in data volumes by an order of magnitude would inflate these challenges into significant barriers for the data operation at CMS, and the LHC in general. 
+Thus, a novel solution is imperative in order to guarantee the success of the HL-LHC~\cite{HEPSoftwareFoundation2017, Zurawski2021}. 
+
+\section{Software defined networking}
+If CMS operators could have a specified bandwidth reserved for a high-priority, production data transfers could be achieved on a more well-defined timescale. 
+Meanwhile, lower priority data transfers, including user traffic, could share the unreserved bandwidth as they do today. 
+This functionality is exactly provided by software defined networking (SDN)~\cite{SDNSurvey}, which enables the allocation of networking resources in the same way that CPUs and memory are allocated on shared computing clusters. 
+With this model, CMS operators could hold the network accountable for the ``promises'' (bandwidth guarantees) it has made. 
+By comparing data movement speed against the network promise and storage site diagnostics, which are already maintained, CMS operators could easily determine, and therefore more quickly address, bottlenecks in throughput. 
+Therefore, by incorporating SDN into the existing data movement infrastructure, CMS would be able to efficiently and reliably move exabytes of data around the world. 
+Furthermore, while described in the context of CMS, SDN could be used to address the data movement requirements for other LHC experiments like ATLAS, or even other large-scale science experiments. 
+
 \section{Rucio}
+The distribution of CMS data is managed through Rucio, an open-source data management framework designed specifically for large-scale science~\cite{Rucio2019}. 
+In practice, CMS operators define ``rules'' which represent the replication of one or more datasets one or more data storage sites. 
+The operator also assigns a priority to each rule that can be changed at any time. 
+Until the replication is complete, the requisite data transfers are organized for each rule. 
+These data transfers are initialized and managed by the File Transfer Service (FTS)~\cite{FTS3}, starting with the transfers belonging to the highest priority rule. 
 
 \section{SENSE}
+The Energy Sciences Network (ESNet), the NREN used by the CMS and ATLAS collaborations in the United States, has developed an SDN product called SENSE: SDN for end-to-end networked science at the exascale~\cite{SENSE}. 
+It is designed to provide users with enhanced interactivity via an ``intent-based'' interface, allowing for the precise management of network resources---the exact functionality needed for HL-LHC data movement. 
+SENSE provides this interactivity through a novel configuration of the data storage sites (Fig.~\ref{fig:sense_site}) that allows data to be accessed across many different IPv6 subnets simultaneously. 
+These subnets logically divide the network traffic which, in turn, enables SENSE to allocate bandwidth. 
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_site.png}
   \caption{Lorem ipsum}
-  \label{fig:rucio_sense_site}
+  \label{fig:sense_site}
 \end{figure}
 
 \section{Rucio-SENSE interoperation model}
-% The central goal of this work is to produce a Rucio-SENSE interoperation model that enables Rucio operators to prioritize certain transfers, then see those priorities reflected in the allocation of network resources.
-% Moreover, this should have a minimal impact on the current implementation and operation of Rucio.
-% To this end, a Data Movement Manager (DMM) is introduced to perform the crucial task of translating Rucio requests into SENSE provisions and returning the
-% results, keeping a bulk of the functionality required for the incorporation of SENSE capabilities separate from the Rucio codebase.
-% Thus, DMM serves as a keystone for the Rucio-SENSE interoperation model explored in this initial work (Fig. \ref{fig:rucio_sense_basic}):
-% \begin{enumerate}
-%     \item A Rucio operator initializes a rule with some priority which requests one or more dataset transfers, where each transfer may involve a different pair (source and destination) of sites
-%     \item Rucio sends the following data to DMM for each transfer:
-%     \begin{itemize}
-%         \item Total transfer size
-%         \item Source site
-%         \item Destination site
-%         \item Priority
-%     \end{itemize}
-%     \item DMM processes the data from Rucio:
-%     \begin{enumerate}
-%         \item If the transfer has no priority, immediately place it on best effort service (skip steps below)
-%         \item Reserve an IPv6 address at the source and destination site
-%         \item Compute the bandwidth provision (i.e. promise) appropriate for the transfer priority
-%     \end{enumerate}
-%     \item DMM requests a new promise from SENSE that implements the provisioning from (3c), reprovisioning existing promises where appropriate
-%     \item DMM sends the IPv6 addresses it reserved to Rucio
-%     \item Rucio injects the IPv6 addresses into the FTS request
-%     \item SENSE takes one of the following actions:
-%     \begin{enumerate}
-%         \item Begin the construction of a new guaranteed-bandwidth link
-%         \item Do nothing; the transfer will be provided best effort service
-%     \end{enumerate}
-%     \item SENSE sends identifying metadata for the link back to DMM
-% \end{enumerate}
-% Several of these steps offer the opportunity for further optimization.
-% In particular, it is clear that a future implementation may see the integration of DMM into Rucio such that the operations in steps (2) through (5) can be implemented to better handle a large number of transfers.
-% Before then, however, DMM provides an isolated testbed in which the fundamental design of the interoperation model can be prototyped.
-% Step (3c) is of particular interest, because it implements the bandwidth provisioning--the central deliverable of this work.
-% The provisioning decision could be designed, for example, to allow Rucio operators to schedule transfers: e.g. \textit{move Dataset A to Site B in one week}.
-% Alternatively, the decision could pack the maximum available bandwidth between two sites as a function of each transfer's priority.
-% In any case, this interoperation model provides a flexible testbed for evaluating these ideas and producing concrete metrics on their scalability, practicality, and efficiency.
+In order to leverage SENSE for CMS data distribution, the close interoperation of Rucio and SENSE must be implemented with little-to-no changes to Rucio, as it is already used in production. 
+Specifically, priorities assigned to each rule in Rucio should correspond to an appropriate bandwidth reservation made through SENSE, and changes to that rule should result in changes to the reservation. 
+We designed and implemented a Data Movement Manager (DMM) to perform this crucial translation. 
+Importantly, DMM also holds the intelligence for determining what an ``appropriate'' bandwidth reservation is for a given priority. 
+DMM is therefore the keystone of the Rucio-SENSE interoperation model (Fig.~\ref{fig:rucio_sense_basic}) first described in Ref.~\cite{Guiang:2022tgi}:
+\begin{enumerate}
+    \item A Rucio operator initializes a rule with some priority which requests one or more dataset transfers, where each transfer may involve a different pair (source and destination) of sites
+    \item Rucio sends the following data to DMM for each transfer:
+    \begin{itemize}
+        \item Total transfer size
+        \item Source site
+        \item Destination site
+        \item Priority
+    \end{itemize}
+    \item DMM processes the data from Rucio:
+    \begin{enumerate}
+        \item If the transfer has no priority, place it on best effort service (skip steps below)
+        \item Reserve an IPv6 address at the source and destination site
+        \item Compute the bandwidth provision (i.e. promise) appropriate for the transfer priority
+    \end{enumerate}
+    \item DMM requests a new promise from SENSE that implements the provisioning from (3c), reprovisioning existing promises where appropriate
+    \item DMM sends the IPv6 addresses it reserved to Rucio
+    \item Rucio injects the IPv6 addresses into the FTS request
+    \item SENSE takes one of the following actions:
+    \begin{enumerate}
+        \item Begin the construction of a new guaranteed-bandwidth link
+        \item Do nothing; the transfer will be provided best effort service
+    \end{enumerate}
+    \item SENSE sends identifying metadata for the link back to DMM
+\end{enumerate}
+Several of these steps offer the opportunity for further optimization.
+In particular, it is clear that a future implementation may see the integration of DMM into Rucio such that the operations in steps (2) through (5) can be implemented to better handle a large number of transfers.
+Before then, however, DMM provides an isolated testbed in which the fundamental design of the interoperation model can be prototyped.
+Step (3c) is of particular interest, because it implements the bandwidth provisioning--the central deliverable of this work.
+The provisioning decision could be designed, for example, to allow Rucio operators to schedule transfers: e.g. \textit{move Dataset A to Site B in one week}.
+Alternatively, the decision could pack the maximum available bandwidth between two sites as a function of each transfer's priority.
+In any case, this interoperation model provides a flexible testbed for evaluating these ideas and producing concrete metrics on their scalability, practicality, and efficiency.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_basic.png}
   \caption{
-    Simplified diagram of the Rucio-SENSE interoperation workflow, with numbered steps: 
+      A simplified diagram of the Rucio-SENSE interoperation workflow, taken from Ref.~\cite{Guiang:2022tgi}, with numbered steps: 
     (1) a rule is initialized; 
     (2) Rucio sends transfer description to DMM; 
     (3) DMM translates Rucio request into SENSE provision; 
@@ -69,6 +107,18 @@
 \end{figure}
 
 \section{Demonstration}
+The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech. 
+These instutions were selected because they each maintain highly active ``Tier-2'' computing facilities, which are the endpoints of real CMS production data transfers. 
+In order to simulate this kind of network traffic, the IPerf tool was used to emulate activity across best effort network services. 
+At the same time, a private instance of Rucio was deployed with only UCSD and Caltech as known sites. 
+After the best effort network traffic saturated the 10 Gb/s network link between the two sites, we initialized a rule in Rucio that requested a replica of 750 GB of data stored at UCSD to be made at Caltech. 
+This rule was assigned a high priority. 
+Once the rule was initialized, DMM requested bandwidth reservation of 7 Gb/s for the data transfers. 
+Importantly, the bandwidth received may never fall below a SENSE bandwidth reservation, but it is allowed to exceed it. 
+As shown in Fig.~\ref{fig:rucio_sense_demo}, the priority data transfers were completed in a timely manner thanks to the large amount of bandwidth reserved for them. 
+The throughput for best effort traffic, meanwhile, was suppressed until the priority transfers finished. 
+This test shows the fundamental action of the Rucio-SENSE interoperation model from end to end, demonstrating that the two technologies could successfully work in concert. 
+Though simple, the test was the result of many months of work, as many aspects of the implementation of this model are novel, and therefore non-trivial. 
 
 \begin{figure}[htb]
   \centering
@@ -76,3 +126,7 @@
   \caption{Lorem ipsum}
   \label{fig:rucio_sense_demo}
 \end{figure}
+
+\section{Next steps}
+With the Rucio-SENSE interoperation model now demonstrated successfully multiple times, we are now interested in including more sites in the existing testbed as we walk the project closer to production. 
+In addition, the intelligence of the DMM priority allocation will continue to be refined, with special attention given to the possiblity of data transfer scheduling. 
