@@ -15,11 +15,11 @@ Meanwhile, certain BSM theories require \lambdaWZ to be negative~\cite{Theory1La
 Therefore, in the absence of a significant experimental measurement of the sign of \lambdaWZ, a crucial element of the SM had not been confirmed, and a potential signature of BSM physics was left unexplored. 
 
 \section{The signal}
-The precise determinations of the magnitudes of \kW and \kZ~\cite{NatureHiggsCMS2022} were performed by studying processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
+The precise determinations of the magnitudes of \kW and \kZ~\cite{NatureHiggsCMS2022} were obtained in studies of processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
 While there were some with a linear dependence, they did not give a strong exclusion of opposite-sign scenarios~\cite{BestCMSLambdaWZ}---in fact they slightly preferred the $\lambdaWZ < 0$ scenario. 
 A promising channel to directly probe \lambdaWZ at the LHC is the production of \VH via vector-boson scattering (VBS)~\cite{Theory2LambdaWZ}.
 Such a channel is sensitive to the relative sign of \kW and \kZ since the since the cross section $\sigma$ has an interference term that is linear in both \kW and \kZ~\cite{Theory2LambdaWZ}: 
-\begin{equation}\label{eq:matrix_elem}
+\begin{equation}\label{eq:vbswh_matrix_elem}
     \sigma \propto |\mathcal{M}|^2 = \kW^2|\mathcal{M}_W|^2 + \kW\kZ\mathcal{M}_{WZ}^2 + \kZ^2|\mathcal{M}_Z|^2
 \end{equation}
 where the matrix elements for the contributions from the HWW couplings, HZZ couplings, and interference term are denoted as $\mathcal{M}_W$, $\mathcal{M}_W$, and $\mathcal{M}_{WZ}$, respectively. 
@@ -129,13 +129,13 @@ In single-top production, the top quark again decays to a \PW boson and b quark,
 
 \section{Event selection}
 \subsection{Triggers and preselection}
-The single lepton in our signal final state gives a clean signature on which to trigger, so the aptly named ``single lepton'' triggers are applied, and the ``single lepton'' datasets are used. 
+The single lepton in our signal final state gives a clean signature on which to trigger, so the aptly named ``single lepton'' triggers are applied and the ``single lepton'' datasets are used. 
 These triggers are nearly 100\% efficient for signal events because the lepton in the BSM final state is expected to have high \pt. 
 A number of additional event-level filters are applied to remove detector noise and unphysical events~\cite{JMEPaper}. 
 
 Then, a loose selection, referred to as the ``Preselection,'' is applied to select the final state of interest. 
 First, a loose selection is made on the combined VBS jet invariant mass: $\Mjj > 500\GeV$.
-Next, the ParticleNet Xbb score of the \Htobb fat jet candidate is required to be greater than 0.3.
+Next, the ParticleNet \Xtobb score of the \Htobb fat jet candidate is required to be greater than 0.3.
 The event is also required to have no AK4 jets passing the Medium DeepJet working point.
 The event must furthermore have one and only one lepton with $\pt > 40\GeV$ that passes the Tight lepton ID. 
 If there are any additional leptons that pass the Veto lepton ID, the event is vetoed--these leptons are not required pass the \pt threshold. 
@@ -143,9 +143,9 @@ Finally, the event must have $\ST > 800\GeV$ (where \ST is defined in Eq.~\ref{e
 
 \subsection{Signal region}
 The signal region for this analysis is defined on top of the Preselection with similar, but tighter selections. 
-First, the \ST threshold is increased to $\ST > 900 \GeV$. 
+First, the \ST threshold is increased to $\ST > 900\GeV$. 
 Then, the selections on the VBS jet variables are tightened to $\Mjj > 600 \GeV$ and $|\detajj| > 4$. 
-Finally, the selections on the \Htobb fat jet candidate are made much more strict, where the ParticleNet Xbb score is required to be greater than 0.9 and \MSD is required to be less than $150 \GeV$. 
+Finally, the selections on the \Htobb fat jet candidate are made much more strict, where the ParticleNet \Xtobb score is required to be greater than 0.9 and \MSD is required to be less than 150\GeV. 
 
 The background in this region is estimated using a data-driven technique, described in the next section, that the signal region was specifically designed to enable. 
 Looser cuts are preferred in particular, as it was found that the variables used for the background estimation become correlated in a more restricted phase space. 
@@ -175,39 +175,39 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_msoftdrop_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_score_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
     \caption{
-        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet Xbb score (right) plotted after applying the Preselection.
+        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet \Xtobb score (right) plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_hbb}
 \end{figure}
 
 \section{Background estimation}
 The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, \MSD, requirement, or both inverted. % TODO: add cartoon and reference here
-First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as $A_{MC}$, $B_{MC}$, $C_{MC}$, and $D_{MC}$.
-Likewise, let the the same yields in data be defined as  $A_{data}$, $B_{data}$, $C_{data}$, and $D_{data}$.
-Under these definitions, the estimated background yield in region A, which will be referred to as $A_{data}^{pred}$, can be computed with data as follows:
-\begin{equation}\label{eq:abcd}
-    A_{data}^{pred} = B_{data}\times\frac{C_{data}}{D_{data}}
+First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as \AMC, \BMC, \CMC, and \DMC.
+Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
+Under these definitions, the estimated background yield in region A, referred to as \AdataPred, can be computed with data as follows:
+\begin{equation}\label{eq:vbswh_abcd}
+    \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
 \end{equation}
-\noindent where the same can be done in MC, yielding $A_{MC}^{pred}$. 
+\noindent where the same can be done in MC, yielding \AMCPred. 
 First, it can be seen in Fig.~\ref{fig:vbswh_abcd_closure} that data and MC agree reasonably well in regions A, B, and C. 
 In addition, it has been verified that the ``transfer factor'' that scales the actual yield in Region C to the estimated yield in region D is consistent within statistical uncertainty across data and MC:
 \begin{equation*}
-    \frac{C_{MC}}{D_{MC}} = \BkgEstABMC \pm \BkgEstABMCErr\% \qquad \frac{C_{data}}{D_{data}} = \BkgEstABData \pm \BkgEstABDataErr\%
+    \frac{\CMC}{\DMC} = \BkgEstABMC \pm \BkgEstABMCErr\% \qquad \frac{\Cdata}{\Ddata} = \BkgEstABData \pm \BkgEstABDataErr\%
 \end{equation*}
-The closure of the ABCD method described here is tested by comparing $A_{MC}^{pred}$ to $A_{MC}$. 
-This checks how closely the estimation in Monte Carlo predicts the actual yield in Monte Carlo. 
+The closure of the ABCD method described here is tested by comparing \AMCPred to \AMC. 
+This checks how closely the estimation in simulated events predicts the actual yield in simulation. 
 \begin{equation*}
-    A_{MC}^{pred} = B_{MC}\times\frac{C_{MC}}{D_{MC}} = \PredBkgMC \qquad A_{MC} = \ExpBkg
+    \AMCPred = \BMC\times\frac{\CMC}{\DMC} = \PredBkgMC \qquad \AMC = \ExpBkg
 \end{equation*}
 Comparing these two numbers, it is clear that the ABCD method for this analysis systematically over-predicts the background yield in the signal region. 
-The difference between the predicted and actual yield in MC is therefore taken as the baseline systematic uncertainty of $\BkgEstMethodSystErr\%$ on this method. 
+The difference between the predicted and actual yield in MC is therefore taken as the baseline systematic uncertainty of \BkgEstMethodSystErr\% on this method. 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbswh/regionsABCD_closure_unblinded.pdf}
     \caption{
         The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram. 
         In region A, the signal region, the background yield estimated from data is plotted instead of that predicted by MC. 
-        Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding $2\,\sigma$. 
+        Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding 2\std. 
     }
     \label{fig:vbswh_abcd_closure}
 \end{figure}
@@ -215,27 +215,27 @@ However, the background composition is not consistent between the ABCD regions, 
 The baseline systematic must be extended to cover the uncertainty in the background composition. 
 In order to quantify this uncertainty, the yields for each of the next-to-leading backgrounds are varied within their respective statistical uncertainties, representing scenarios in which the contributions from each background are larger or smaller, and the closure of the method is recalculated. 
 Based on how the closure varies for each scenario, a final systematic uncertainty of \BkgEstTotalSystErr\% is selected to cover the uncertainty in the background composition. 
-Thus, the systematic and statistical uncertainties $\epsilon_{syst}$ and $\epsilon_{stat}$ are
+Thus, the systematic and statistical uncertainties \Esyst and \Estat are
 \begin{align*}
-    \epsilon_{syst} &\approx \BkgEstTotalSystErr\% \\
-    \epsilon_{stat} &= \frac{\sqrt{B_{data}}}{B_{data}} \oplus \frac{\sqrt{C_{data}}}{C_{data}} \oplus \frac{\sqrt{D_{data}}}{D_{data}} \approx \BkgEstStatErr\%
+    \Esyst &\approx \BkgEstTotalSystErr\% \\
+    \Estat &= \frac{\sqrt{\Bdata}}{\Bdata} \oplus \frac{\sqrt{\Cdata}}{\Cdata} \oplus \frac{\sqrt{\Ddata}}{\Ddata} \approx \BkgEstStatErr\%
 \end{align*}
 and the estimated background yield in the signal region is therefore given by 
 \begin{equation*}
-    A_{data}^{pred} = \PredBkgNoCorrection \pm \PredBkgNoCorrectionStatErr \pm \PredBkgNoCorrectionSystErr
+    \Adata^\text{pred} = \PredBkgNoCorrection \pm \PredBkgNoCorrectionStatErr \pm \PredBkgNoCorrectionSystErr
 \end{equation*}
 However, it can be seen in Fig.~\ref{fig:vbswh_abcd_corr} that the ABCD variables \detajj and \MSD are correlated.
 This correlation is not evident in MC closure because it happens to ``cancel out,'' leading to the mild systematic overprediction quantified above. 
-To improve the reliability and accuracy of the method, a correction is computed in MC and used to amend the ABCD method (Eq.~\ref{eq:abcd}) as follows:
+To improve the reliability and accuracy of the method, a correction is computed in MC and used to amend the ABCD method (Eq.~\ref{eq:vbswh_abcd}) as follows:
 \begin{equation*}
-    A_{data}^{pred} = B_{data}\times\frac{C_{data}}{D_{data}}\times\bigg(\frac{A_{MC}/B_{MC}}{C_{MC}/D_{MC}}\bigg)
+    \Adata^\text{pred} = \Bdata\times\frac{\Cdata}{\Ddata}\times\bigg(\frac{\AMC}{\CMC/\DMC}\bigg)
 \end{equation*}
-That is, the overprediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $B_{data}/C_{data}$ to account for the correlation between \MSD and \detajj. 
-Moreover, in the $\MSD \geq 150 \GeV$ sideband, comparison between data and MC shows that the correlation is well-modeled by MC (Fig.~\ref{fig:vbswh_abcd_corr_data_mc}), thus validating this correction. 
+That is, the overprediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $\Cdata/\Ddata$ to account for the correlation between \MSD and \detajj. 
+Moreover, in the $\MSD \geq 150\GeV$ sideband, comparison between data and MC shows that the correlation is well-modeled by MC (Fig.~\ref{fig:vbswh_abcd_corr_data_mc}), thus validating this correction. 
 This trivially makes the method close exactly in MC, but by applying it to ABCD in data, the predicted background yield in the signal region is made more accurate, as the correlation was previously biasing the result.
 Therefore, the final estimated background yield in the signal region is given by
 \begin{equation*}
-    D_{data}^{pred} = \PredBkg \pm \PredBkgStatErr \pm \PredBkgSystErr
+    \AdataPred = \PredBkg \pm \PredBkgStatErr \pm \PredBkgSystErr
 \end{equation*}
 where the systematic and statistical uncertainties are kept as \BkgEstTotalSystErr\% and \BkgEstStatErr\% respectively.
 

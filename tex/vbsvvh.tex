@@ -3,6 +3,7 @@
 The principle of science, the definition, almost, is the following: The test of all knowledge is experiment. 
 Experiment is the sole judge of scientific ``truth.''
 \end{aquote}
+
 \section{Motivation}
 \begin{figure}[htb]
     \centering
@@ -14,6 +15,7 @@ Experiment is the sole judge of scientific ``truth.''
     }
     \label{fig:vbsvvh_feynman}
 \end{figure}
+
 \section{The signal}
 \begin{figure}[htb]
     \centering
@@ -25,8 +27,424 @@ Experiment is the sole judge of scientific ``truth.''
     }
     \label{fig:vbsvvh_feynman_allhad}
 \end{figure}
+
+\subsection{Signal characteristics}
+The VBS signature of \VBSVVH is a strong handle for discrimination also for the all-hadronic channel. 
+Again, the two nearly back-to-back jets have a large absolute difference in pseudorapidity $|\detajj|$ and large combined invariant mass \Mjj (Fig.~\ref{fig:vbsvvh_vbs_vars}). 
+Two jets selected in background events via the VBS selection scheme detailed in Section~\ref{sec:vbsjets}, instead, tend to have lower values of $|\detajj|$ and \Mjj. 
+The boost from BSM values of \kVV is also evident when the $\PV\PV\PH$ system is reconstructed as three fat jets (Fig.~\ref{fig:vbsvvh_fatjet_pts}). 
+Moreover, the three fat jets each have a distinct mass peak, with negligable mis-identification for signal, providing a strong handle for removing the dominant QCD background, which is distributed flatly (Fig.~\ref{fig:vbsvvh_fatjet_masses}).
+The ParticleNet regressed mass \MPNet is used in particular, as it has been shown to have better resolution than the ``softdrop'' mass corrected with PUPPI, which had been widely used previously. 
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/M_jj_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/abs_deta_jj_sig_vs_bkg_stacked_logy.pdf}}
+    \caption{
+        The invariant mass \Mjj (left) and pseudorapidity separation \detajj (right) of the VBS jets are plotted after the Preselection is applied. 
+        The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
+    }
+    \label{fig:vbsvvh_vbs_vars}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/hbbfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/ld_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/tr_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}
+    \caption{
+        The \pt of the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) fat jets are plotted after the Preselection is applied. 
+        The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
+    }
+    \label{fig:vbsvvh_fatjet_pts}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/hbbfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/ld_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/tr_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}
+    \caption{
+        The ParticleNet regressed masses \MPNet of the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) fat jets are plotted after the Preselection is applied. 
+        The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
+    }
+    \label{fig:vbsvvh_fatjet_masses}
+\end{figure}
+
 \section{The backgrounds}
+\subsection{QCD ParticleNet resampling}
+From Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores_noCorr}, it looks like that the data and MC distributions for the ParticleNet scores used in this analysis do not fully agree. 
+This is not an issue for the final result as the background estimation is fully data-driven. 
+However, for training any classifier for this analysis, such as a BDT or Deep Neural Network, a better modeling would result in a more optimal discriminator.
+Moreover, in this case if the distributions are modeled correctly, there would more events in the higher score regions
+and consequently more raw MC events to use for training and testing. 
+
+To address this, the following resampling procedure is used to correct the ParticleNet score shape for QCD MC. 
+Only the scores for the QCD jets undergo this procedure, and the data distributions used for the resampling are data with the rest of the minor backgrounds subtracted.
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/noqcdfix_hbbfatjet_xbb_data_vs_mc_log_objsel.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/noqcdfix_ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/noqcdfix_tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
+    \caption{
+        The ParticleNet scores for the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) fat jets are plotted after the analysis objects are selected. 
+        The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
+    }
+    \label{fig:vbsvvh_dataMC_fatjet_scores_noCorr}
+\end{figure}
+
+First, the following assumptions are made:
+\begin{enumerate}
+    \item A mass-decorrelated ParticleNet score for a given fat jet should be fundamentally described by a probability density function (\textit{PDF}), where \textit{PDF} is \textit{italicized} to distinguish it from the parton distribution function.
+    \item This \textit{PDF} should be the same regardless of how many fat jets are in the event. This is the case because in our resampling we opt to use events with only two selected fatjets to model the scores in our phase space, where three fatjets are selected.
+    \item The ParticleNet score is not correlated to the jet kimatic properties used later in the analysis. In case some features are correlated to ParticleNet score, the resampling can be done in bins of the correlated feature.
+\end{enumerate}
+
+Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the ParticleNet score for every fat jet in an event and normalizing it to unity. 
+Assumption 2 is less trivial. 
+In our case, we need to verify that events with 3 fatjets to contain the same kinds of fatjets as an event with 2 fat jets. 
+This is not guaranteed, as events with different fat jet multiplicity may involve different physics. 
+For QCD events in this analysis, however, it can be seen in Fig.~\ref{fig:vbsvvh_pnetpdf} that Assumption 2 holds, as the \textit{PDFs} in 3 fat jet events approximately match the 2 fat jet events in data (with non-QCD events taken from MC subtracted out).
+Therefore, the properly binned \textit{PDF} derived in data for 2-fat-jet events can be sampled to replace the ParticleNet scores in 3-fat-jet events. 
+
+As for the correlation, for this resampling, we bin the ParticleNet \Xtobb score in \pt. 
+We found this to be sufficient to avoid correlation effects.
+
+The ParticleNet \XWtoqq score, on the other hand, must be binned in the \Xtobb score and \pt, as the \Xtobb score is included indirectly in the calculation of the \XWtoqq score. 
+The leading \Xtobb score is also picked first, thus potentially biasing even more the correlation among the scores.
+
+The replacement is performed for each fat jet via the following prescription:
+\begin{enumerate}
+    \item Get fat jet \pt
+    \item Sample \Xtobb score \textit{PDF} for the appropriate \pt bin
+    \item Replace fat jet \Xtobb score with one randomly sampled from the \Xtobb score \textit{PDF}
+    \item Get \XWtoqq score \textit{PDF} for the appropriate \pt, \Xtobb score bin
+    \item Replace fat jet \XWtoqq score with one randomly sampled from the \XWtoqq score \textit{PDF}
+\end{enumerate}
+
+After replacing the fat jet scores in events with 3 fat jets, the ParticleNet score distribution agreement between data and MC improves significantly (Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores}), doubling the number of raw QCD MC events that pass the Preselection.
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin0.pdf}}
+    \caption{
+        The approximation of the ParticleNet \textit{PDF}s are plotted for the \Xtobb score in one bin of \pt (left) and the \XWtoqq score in one bin of \pt and \Xtobb (right). 
+    }
+    \label{fig:vbsvvh_pnetpdf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/hbbfatjet_xbb_data_vs_mc_log_objsel.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.3\textwidth]{fig/vbsvvh/tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
+    \caption{
+        The ParticleNet scores for the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) fat jets are plotted after the analysis objects are selected. 
+        The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
+    }
+    \label{fig:vbsvvh_dataMC_fatjet_scores}
+\end{figure}
+
 \section{Event selection}
-\section{ABCDNet}
+
+\subsection{Triggers and preselection}
+Because the entire final state is composed of jets, the jet \HT triggers are applied, where \HT is ``hadronic transverse energy,'' or the sum of the \pt of every jet in the event. 
+Moreover, since the jets considered in this analysis are expected to be highly boosted, these triggers are 100\% efficient for signal events. 
+The same event-level filters used to remove detector noise and unphysical events in the analysis described in the previous chapter are applied also in this analysis. 
+
+Also like the previous analysis, a loose selection referred to as the ``Preselection'' is applied to select the final state of interest. 
+First, events are required to have zero leptons passing the veto working point of the ttH lepton ID. 
+This orthogonalizes the all-hadronic channel from the other channels that are analyzed separately. 
+The event must have at least three AK8 jets, where the leading AK8 jet is required to have $\pt > 500\GeV$ (while for all of them the \pt threshold is 250\GeV) such that the analysis is on the \HT-binned trigger threshold. 
+Finally, the event is also required to have two AK4 jets following the VBS jet selection scheme detailed in Section~\ref{sec:vbsjets}.
+Then, the fat jet with the highest ParticleNet Xbb score is selected as the \Htobb candidate. 
+The next two fat jets are selected as the \Vtoqq candidates, sorted (leading vs. trailing) by \pt.
+With the fat jets thus tagged, a very loose selection is applied to the ParticleNet scores: the \Htobb candidate is required to have a ParticleNet \Xtobb score greater than 0.5, while the \Vtoqq candidates are each required to have a ParticleNet \XWtoqq score greater than 0.3.
+
+\subsection{ABCDNet}
+The signal region must preferably be accompied by a valid data-driven background estimation method while also being optimized for maximal significance, since the dominant background is multijet QCD.
+Because this is a common analysis scenario, a machine learning (ML) method has been proposed to satisfy both requirements at once~\cite{AutoABCD}. 
+In particular, a Deep Neural Network (DNN) is trained to serve as one of the ``arms'' of a traditional ABCD background estimation, which described in more detail in the next section. 
+Critically, a term \dCorrSq is added to the loss function that trains the DNN to be decorrelated with the other arm. More information regarding the loss funtion can be found in appendix \ref{app:abcdnet}.
+
+For this analysis, a DNN hereafter referred to as ``ABCDNet'' was trained to be decorrelated from $|\detajj|$.
+While there are many configurations of this technique that were considered, it was found that using $|\detajj|$ as the decorrelation target provided the most stable result and the best closure for this analysis. 
+A simple architecture was selected for ABCDNet: 3 hidden layers with 64 nodes each. % TODO: add reference to ABCDNet architecture cartoon  (Fig.~\ref{fig:vbsvvh_abcdnet_arch})
+Additional hyperparameters are tabulated in Table~\ref{tab:vbsvvh_abcdnet_params}. 
+A total of 13 features (Fig.~\ref{fig:vbsvvh_abcdnet_inputs}) are given to ABCDNet as inputs:
+\begin{itemize}
+    \item \Htobb candidate \pt, $\eta$, $\phi$, \MPNet
+    \item Leading \Vtoqq candidate \pt, $\eta$, $\phi$, \MPNet
+    \item Trailing \Vtoqq candidate \pt, $\eta$, $\phi$, \MPNet
+    \item \Mjj
+\end{itemize}
+In short, the 4-vectors for the Higgs candidate and two V candidates are supplied, along with \Mjj. 
+While the decorrelation term in the loss is able to train the DNN to decorrelate even fundamentally correlated variables, like \Mjj and \detajj, adding any additional VBS variables harmed the final closure. 
+In addition, the background and signal event weights were renormalized such that the total integral for each were equal to the total number of raw background events.
+The input features were all normalized to be of order 1--this helps the model converge. 
+Specifically, the \pt is log-normalized ($\pt \rightarrow \log(\pt)$) and the other variables are normalized as follows:
+\begin{equation}
+    x \rightarrow \frac{x - x_\text{min}}{x_\text{max} - x_\text{min}}
+\end{equation}
+That is, the range of a variable $x$ is normalized such that a chosen minimum ($x_\text{min}$) and maximum ($x_\text{max}$) value are scaled to 0 and 1 respectively. 
+This range is selected to be within a reasonable window; for example, \Mjj is normalized such that 0 remains 0 and 3000 is scaled to 1.
+
+\begin{table}[htbp]
+    \begin{center}
+
+    \begin{tabular}{ccc}
+    \toprule
+    Parameter & Setting \\
+    \midrule
+    Number of hidden layers    & 3          \\
+    Hidden layer size          & 64         \\
+    Activation function        & Leaky ReLU \\
+    Learning rate (constant)   & 0.001      \\
+    Test/train split           & 80/20      \\
+    Number of training batches & 10         \\
+    Number of testing batches  & 5          \\
+    DisCo $\lambda$            & 30         \\
+    \bottomrule
+    \end{tabular}
+
+    \end{center}
+    \caption{
+        The hyperparameters for ABCDNet. 
+        Many values of $\lambda$ were tried, where the best value was determined by comparing the correlation between the ABCDNet discriminator and \detajj, as well as comparing the ABCD closure directly. 
+    }
+    \label{tab:vbsvvh_abcdnet_params}
+\end{table}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/vbsvvh/all_features.pdf}
+    \caption{
+        The input features for ABCDNet are plotted as histograms normalized to unity. 
+        It can be seen that the features have been re-scaled to values of order 1.
+    }
+    \label{fig:vbsvvh_abcdnet_inputs}
+\end{figure}
+
+ABCDNet was trained for 3000 epochs with a constant learning rate. 
+Once training was complete, the model was selected before the average testing and training loss start to diverge. 
+Notably, the decorrelation term tends to overfit faster than BCE, and preference must be given to less overfitting in the decorrelation than in the overall performance. 
+For this analysis, epoch 700 was deemed optimal (Fig.~\ref{fig:vbsvvh_abcdnet_history}).
+The selected model shows no signs of overfitting and sufficient performance (Fig.~\ref{fig:vbsvvh_abcdnet_roc}). 
+Moreover, the ABCDNet discriminant (Fig.~\ref{fig:vbsvvh_abcdnet_score}) and $|\detajj|$ are indeed decorrelated (Fig.~\ref{fig:vbsvvh_abcdnet_decorr}).
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.5\textwidth]{fig/vbsvvh/loss_epoch900.pdf}\label{fig:vbsvvh_abcdnet_history}}\qquad
+    \subfloat[]{\includegraphics[width=0.4\textwidth]{fig/vbsvvh/abcdnet_roc_logx.pdf}\label{fig:vbsvvh_abcdnet_roc}}
+    \caption{
+        The average loss at each epoch is plotted on the left. 
+        In particular, the total loss, which is the sum of the Binary Cross Entropy (BCE) plus the decorrelation term, is plotted as a solid line, the BCE is plotted as a dashed line, and the decorrelation term is plotted as a dotted line. 
+        The testing loss is plotted in blue and the training loss is plotted in orange. 
+        On the right, the Receiver Operating Characteristic (ROC) curve for the final selected model is plotted. 
+    }
+    \label{fig:vbsvvh_abcdnet_perf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf}}
+    \caption{
+        A two-dimensional histogram binned in ABCDNet score and \detajj is plotted. 
+        The one-dimensional profile of the x-axis is overlayed such that the correlation between the two variables appears as a trend in the profile. 
+        The signal region selections on the fatjet ParticleNet scores are applied, so the left plot is equivalent to Fig.~\ref{fig:vbsvvh_abcd}.
+    }
+    \label{fig:vbsvvh_abcdnet_decorr}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/vbsvvh/abcdnet_score_data_vs_mc_log_presel.pdf}
+    \caption{
+        The ABCDNet score is plotted in data and MC at the Preselection. 
+        The data beyond the cut used in the signal region is kept blind. 
+    }
+    \label{fig:vbsvvh_abcdnet_score}
+\end{figure}
+
+\subsection{Signal region}
+Ultimately, the signal region for this analysis is formed from cuts on five variables: ABCDNet score, $|\detajj|$, and ParticleNet scores for the three fat jets. 
+A brute-force scan was performed, where over fifty thousands regions were tested. 
+The regions were ranked by a rough estimation of the significance: $S/\sqrt{B}$, where $S$ is the signal yield taken from MC and $B$ is the background yield predicted using data via the ABCD method described in Secion~\ref{allhad:sec:estimation}.
+The final signal region was required to have at least 0.5 predicted background events, as cutting tighter on the signal region variables resulted in larger uncertainties. 
+Ultimately, the following signal region was determined:
+\begin{itemize}
+    \item ABCDNet $> 0.89$
+    \item $|\detajj| > 5$
+    \item Xbb(\Htobb) $> 0.8$
+    \item XWqq(leading \Vtoqq) $> 0.8$
+    \item XWqq(trailing \Vtoqq) $> 0.7$
+\end{itemize}
+
 \section{Background estimation}
+The background in the signal region is estimated entirely from data by using the ``ABCD'' method, where regions A, B, C, and D are illustrated in Fig.~\ref{fig:vbsvvh_abcd}. % and Fig.~\ref{fig:vbsvvh_abcdFlowchart}. 
+These regions are formed by selecting two cuts in the signal region (Region A), then inverting them to form regions B, C, and D. 
+So long as the two cuts are independent, the following method holds. 
+As in the previous analysis, the background yield in regions A, B, C, and D in Monte Carlo are defined as \AMC, \BMC, \CMC, and \DMC.
+Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
+Again, the estimated background yield in the signal region \AdataPred can be computed using Eq.~\ref{eq:vbswh_abcd}, reproduced here for convenience:
+\begin{equation*}
+    \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
+\end{equation*}
+\noindent where the same can be done in MC, yielding \AMCPred. 
+The two cuts used to define the ABCD method are ABCDNet $> 0.89$ and $|\detajj| > 5$. 
+Because ABCDNet was trained to be decorrelated with \detajj, the method holds by construction. 
+Now, it can be seen in Fig.~\ref{fig:vbsvvh_abcd_closureMass} that data and MC agree reasonably well in regions A, B, and C which have already been unblinded since they have nearly zero contribution from signal by design. 
+% More plots comparing data and MC can be found in Appendix~\ref{app:estimation}. 
+The statistical uncertainty \Estat on the method is again simply the propagation of statistical uncertainties on the data yields for Regions B, C, and D:
+\begin{equation}\label{eq:vbsvvh_statUnc}
+    \Estat = \frac{\sqrt{\Bdata}}{\Bdata} \oplus \frac{\sqrt{\Cdata}}{\Cdata} \oplus \frac{\sqrt{\Ddata}}{\Ddata} \approx 34\% % TODO: add alias for this
+\end{equation}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABCD_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}
+    \caption{
+        A cartoon of the ABCD regions is plotted. 
+        The signal region selections on the fatjet ParticleNet scores are applied to all regions. 
+        Region B has the \detajj cut inverted, region C has the ABCDNet score inverted, and region D has both cuts inverted. 
+    }
+    \label{fig:vbsvvh_abcd}
+\end{figure}
+
+% TODO: add flowchart for ABCD regions (like in VBSWH AN)
+\begin{table}[htbp]
+    \begin{center}
+
+    \begin{tabular}{ccc}
+    \toprule
+    \textbf{Region} & Data Yield & Prediction \\
+    \midrule
+    A               & --         & 1.07       \\
+    B               & 10         &            \\
+    C               & 72         &            \\
+    D               & 672        &            \\
+    \bottomrule
+    \end{tabular}
+
+    \end{center}
+    \caption{
+        Data yields and Region A prediction for the control region used for the ABCD closure test. 
+        The region A yield is kept blind, while $A_{pred}$ is reported.
+    }
+    \label{table:0lepABCDregion}
+
+\end{table}
+
+
+Assessing the closure in MC, we obtain:
+\begin{equation*}
+    \AMCPred = \BMC\times\frac{\CMC}{\DMC} = 1.12\pm0.29 \qquad \AMC = 2.34\pm0.82 % TODO: add alias for this
+\end{equation*}
+\noindent However, the conclusion from this test is not clear, given the large uncertainty on the MC prediction in Region A. 
+Instead, a systematic uncertainty on the method \Esyst can be derived using MC as follows:
+\begin{equation}
+    \Esyst = 
+        \frac{2}{\AMC + \AMCPred}
+        \sqrt{\bigg(\frac{\AMC^\text{err}}{\AMC}\bigg)^2 + \bigg(\frac{\Estat^\mathrm{MC}}{\AMCPred}\bigg)^2} \approx 25\% % TODO: add alias for this
+\end{equation}
+\noindent This effectively takes the relative error on the non-closure in MC as the systematic uncertainty, where $\AMC^\text{err}$ is the statistical error on the MC yield and $\Estat^\mathrm{MC}$ is the equivalent of Eq.~\ref{eq:vbsvvh_statUnc} for MC.
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABC1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck1}}\qquad
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/AB1B2C1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck2}}
+    \caption{
+        The ABCD regions used for closure tests are plotted. 
+        Again, the cuts on the fatjet ParticleNet scores are applied to all regions. 
+        Regions C and D can each be split into two sub-regions by introducing a looser cut on the ABCDNet score (a). 
+        Region B can similarly be split into two sub-regions by introducing a looser cut on \detajj, which also divides D into 4 sub-regions total (b).
+    }
+    \label{fig:vbsvvh_abcd_extra}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsAC_closure_signal.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsBD_closure_signal.pdf}}
+    \caption{
+        Regions A and C are plotted on the left, and regions B and D are plotted on the right.
+    }
+    \label{fig:vbsvvh_abcd_closureMass}
+\end{figure}
+
+Ultimately, the ABCD method will be applied exclusively in data, so showing good closure only in MC would not fully ensure the validity of the method in data. 
+Moreover, the MC statistics are limited in the signal region, so the exact quality of the closure is not clear from MC alone. 
+In order to verify that the method is valid in data, the sidebands B, C, and D can be divided into sub-regions as shown in Fig.~\ref{fig:vbsvvh_abcdCheck2}. 
+The ABCD method should still hold in these sub-regions, and because regions B, C, and D exclude the signal region, closure can be evaluated in data. 
+In total, 5 such checks are done, and the results are tabulated in Table~\ref{tab:vbsvvh_closureTests}. 
+In each test, good closure is seen in data, supporting the validity of the method.
+
+\begin{table}[htbp]
+    \begin{center}
+    \subfloat{
+        \begin{tabular}{ccc}
+        \toprule
+        \textbf{Region} & Data Yield    & Prediction    \\
+        \midrule
+        B$_1$           & $  3\pm1.7 $ & $ 5.6\pm2.5 $ \\
+        B$_2$           & $  7\pm2.7 $ &               \\
+        D$_1$           & $ 27\pm5.2 $ &               \\
+        D$_2$           & $ 34\pm5.8 $ &               \\
+        \bottomrule
+        \end{tabular}
+    }
+    \subfloat{
+        \begin{tabular}{ccc}
+        \toprule
+        \textbf{Region} & Data Yield    & Prediction    \\
+        \midrule
+        D$_1$           & $  27\pm5.2 $ & $ 24\pm4.6 $  \\
+        D$_2$           & $  34\pm5.8 $ &               \\
+        D$_3$           & $ 255\pm16  $ &               \\
+        D$_4$           & $ 356\pm19  $ &               \\
+        \bottomrule
+        \end{tabular}
+    }
+
+    \subfloat{
+        \begin{tabular}{ccc}
+        \toprule
+        \textbf{Region} & Data Yield    & Prediction    \\
+        \midrule
+        C$_1$           & $   5\pm2.2 $ & $ 7.1\pm1.7 $ \\
+        D$_1$           & $  27\pm5.2 $ &               \\
+        C$_2$           & $  67\pm8.2 $ &               \\
+        D$_3$           & $ 255\pm16  $ &               \\
+        \bottomrule
+        \end{tabular}
+    }
+    \end{center}
+    \caption{
+        Data yields and signal-like region prediction for the ABCD closure tests. 
+        Regions B$_i$, C$_i$, and D$_i$ are described in Fig.~\ref{fig:vbsvvh_abcd_extra}.
+    }
+    \label{tab:vbsvvh_closureTests}
+
+\end{table}
+
+\clearpage
+
 \section{Results}
+We fit the signal and predicted background yield in the signal region to data for the analysis described here as well as all other channels.
+The B, C and D region data yields are included in the the fit together with their respective signal contamination.
+We set upper limits at the 95\% \CL on the cross-section of the VBS VVH process for each \kVV generated data point.
+
+The upper limits are calculated using the AymptoticLimits method in the Combine toolkit~\cite{Art:CombineAsymp}.
+The full list of systematic uncertainties are included as nuisance parameters during the fitting procedure.
+The result of the fit is shown in Figure~\ref{fig:vbsvvh_limit}, and the regions where the expected limit is smaller than the theoretical prediction on the cross section are taken to be excluded values for \kVV.
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/C2V_Limit.pdf}}
+    \caption{The 95\% confidence level limit as a function of \kVV for the all-hadronic channel. 
+    }
+    \label{fig:vbsvvh_limit}
+\end{figure}

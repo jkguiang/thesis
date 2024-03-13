@@ -106,7 +106,7 @@ In any case, this interoperation model provides a flexible testbed for evaluatin
   \label{fig:rucio_sense_basic}
 \end{figure}
 
-\section{Demonstration}
+\section{Demonstrations}
 The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech. 
 These instutions were selected because they each maintain highly active ``Tier-2'' computing facilities, which are the endpoints of real CMS production data transfers. 
 In order to simulate this kind of network traffic, the IPerf tool was used to emulate activity across best effort network services. 
@@ -120,11 +120,37 @@ The throughput for best effort traffic, meanwhile, was suppressed until the prio
 This test shows the fundamental action of the Rucio-SENSE interoperation model from end to end, demonstrating that the two technologies could successfully work in concert. 
 Though simple, the test was the result of many months of work, as many aspects of the implementation of this model are novel, and therefore non-trivial. 
 
+A more complicated test was recently performed involving a testbed site at Fermilab (FNAL) in addition to the existing Caltech and UCSD sites. 
+In this test, high-priority data transfers are started between UCSD and Caltech---in particular, they are assigned a priority of 5. 
+Then, data transfers between FNAL and Caltech are initiated with a middling priority of 3. 
+Finally, we began another set of data transfers between UCSD and Caltech with a low priority of 2. 
+All sites had 100 Gb/s connectivity between each other, so the priorities correspond to 50 Gb/s, 30 Gb/s, and 2 Gb/s, respectively---there was no best-effort traffic in this test. 
+As the data moved from source to destination, we swapped the priority assignments every one to two hours. 
+In Fig.~\ref{fig:rucio_sense_demo_big}, it can be seen that the bandwidth is appropriately limited for the three data transfers at any one time. 
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo.png}
-  \caption{Lorem ipsum}
+  \caption{
+      Throughput measurements of the first demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD and Caltech. 
+      Background traffic is simulated with the IPerf tool, emulating activity across best effort network services. 
+      Then, a set of priority data transfers are initialized between the two sites with at least 7 Gb/s of requested bandwidth. 
+      This throttles the best effort traffic until the priority transfers are complete and the reservation is released. 
+  }
   \label{fig:rucio_sense_demo}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo_big.png}
+  \caption{
+      Throughput measurements of a demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD, FNAL, and Caltech. 
+      Three sets of data transfers are started simultaneously: one from UCSD to Caltech with priority 5, another from FNAL to Caltech with priority 3, and one more from UCSD to Caltech with a priority of 2. 
+      Every one to two hours, the priorities are swapped between the three. 
+      The throughput for each transfer correctly reflects the appropriate bandwidth for its priority at any one time. 
+      In particular, the priorities 5, 3, and 2 correspond to 50 Gb/s, 30 Gb/s, and 20 Gb/s, respectively.
+    }
+  \label{fig:rucio_sense_demo_big}
 \end{figure}
 
 \section{Next steps}

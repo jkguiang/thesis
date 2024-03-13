@@ -1,0 +1,243 @@
+function curlfiles {
+    url=$1
+    if [[ "${url:0:4}" != "http" ]]; then
+        prefix=$url
+        shift 1
+        url=$1
+    else
+        prefix=""
+    fi
+    shift 1
+    for file in $@; do
+        echo "Downloading $url/$file"
+        if [[ "$prefix" != "" ]]; then
+            curl --fail --silent --show-error -o ${prefix}$(basename $file) $url/$file
+        else
+            curl --fail --silent --show-error -O $url/$file
+        fi
+        if [[ "$?" != "0" ]]; then
+            exit 1;
+        fi
+    done
+}
+
+function scpfiles {
+    base=$1
+    shift 1
+    for file in $@; do
+        scp jguiang@uaf-1.t2.ucsd.edu:$base/$file .
+    done
+}
+
+MAIN_TAG="abcdnet_v3"
+
+curlfiles http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/limits '
+C2V_Limit.pdf
+'
+
+curlfiles http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/$MAIN_TAG/opt '
+HT_fat_sig_vs_bkg_stacked_logy.pdf
+M_jj_sig_vs_bkg_stacked_logy.pdf
+abs_deta_jj_sig_vs_bkg_stacked_logy.pdf
+hbbfatjet_pt_sig_vs_bkg_stacked_logy.pdf
+hbbfatjet_mass_sig_vs_bkg_stacked_logy.pdf
+ld_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf
+ld_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf
+tr_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf
+tr_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf
+correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf
+correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf
+abcdnet_score_sig_vs_bkg_stacked_logy.pdf
+abcdnet_roc_logx.pdf
+'
+
+curlfiles http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/$MAIN_TAG/bfscan '
+ABCD_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf
+ABC1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf
+AB1B2C1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf
+'
+
+curlfiles noqcdfix http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/abcdnet_v1_nofix/val '
+hbbfatjet_xbb_data_vs_mc_log_objsel.pdf
+ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf
+tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf
+'
+
+curlfiles http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/$MAIN_TAG/val '
+ST_data_vs_mc_log_objsel.pdf
+HT_data_vs_mc_log_objsel.pdf
+HT_fat_data_vs_mc_log_objsel.pdf
+M_jj_data_vs_mc_log_objsel.pdf
+abs_deta_jj_data_vs_mc_log_objsel.pdf
+hbbfatjet_xbb_data_vs_mc_log_objsel.pdf
+ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf
+tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf
+hbbfatjet_mass_data_vs_mc_log_objsel.pdf
+ld_vqqfatjet_mass_data_vs_mc_log_objsel.pdf
+tr_vqqfatjet_mass_data_vs_mc_log_objsel.pdf
+hbbfatjet_pt_data_vs_mc_log_objsel.pdf
+ld_vqqfatjet_pt_data_vs_mc_log_objsel.pdf
+tr_vqqfatjet_pt_data_vs_mc_log_objsel.pdf
+abcdnet_score_data_vs_mc_log_presel.pdf
+regionsAC_closure.pdf
+regionsBD_closure.pdf
+regionsAB_closure.pdf
+regionsCD_closure.pdf
+regionsAC_closure_signal.pdf
+regionsBD_closure_signal.pdf
+regionsAB_closure_signal.pdf
+regionsCD_closure_signal.pdf
+'
+
+curlfiles http://uaf-10.t2.ucsd.edu/~jguiang/gator_plots/ABCDNet_30DisCo_mediumPresel_newSignal_veryLongRun_qcdNorm_allFeatNorm_leakyReLU_dCorr '
+all_features.pdf
+loss_epoch900.pdf
+'
+
+mkdir qcdfix
+curlfiles qcdfix/ http://uaf-10.t2.ucsd.edu/~jguiang/vbsvvhjets_plots/qcdcorr_xbbbins '
+data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin1.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin2.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin3.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin4.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin5.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin6.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin7.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin8.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin9.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin10.pdf
+data_minus_nonqcd_xbb_1D_pdf_xbin11.pdf
+nonqcd_frac_xbb_1D_pdf_xbin0.pdf
+nonqcd_frac_xbb_1D_pdf_xbin1.pdf
+nonqcd_frac_xbb_1D_pdf_xbin2.pdf
+nonqcd_frac_xbb_1D_pdf_xbin3.pdf
+nonqcd_frac_xbb_1D_pdf_xbin4.pdf
+nonqcd_frac_xbb_1D_pdf_xbin5.pdf
+nonqcd_frac_xbb_1D_pdf_xbin6.pdf
+nonqcd_frac_xbb_1D_pdf_xbin7.pdf
+nonqcd_frac_xbb_1D_pdf_xbin8.pdf
+nonqcd_frac_xbb_1D_pdf_xbin9.pdf
+nonqcd_frac_xbb_1D_pdf_xbin10.pdf
+nonqcd_frac_xbb_1D_pdf_xbin11.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin1_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin1_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin1_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin1_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin1_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin2_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin2_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin2_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin2_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin2_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin3_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin3_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin3_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin3_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin3_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin4_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin4_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin4_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin4_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin4_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin5_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin5_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin5_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin5_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin5_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin6_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin6_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin6_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin6_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin6_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin7_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin7_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin7_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin7_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin7_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin8_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin8_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin8_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin8_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin8_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin9_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin9_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin9_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin9_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin9_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin10_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin10_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin10_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin10_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin10_ybin4.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin11_ybin0.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin11_ybin1.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin11_ybin2.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin11_ybin3.pdf
+data_minus_nonqcd_xwqq_2D_pdf_xbin11_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin0_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin0_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin0_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin0_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin0_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin1_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin1_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin1_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin1_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin1_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin2_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin2_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin2_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin2_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin2_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin3_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin3_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin3_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin3_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin3_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin4_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin4_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin4_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin4_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin4_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin5_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin5_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin5_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin5_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin5_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin6_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin6_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin6_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin6_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin6_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin7_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin7_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin7_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin7_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin7_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin8_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin8_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin8_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin8_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin8_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin9_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin9_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin9_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin9_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin9_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin10_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin10_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin10_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin10_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin10_ybin4.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin11_ybin0.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin11_ybin1.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin11_ybin2.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin11_ybin3.pdf
+nonqcd_frac_xwqq_2D_pdf_xbin11_ybin4.pdf
+'

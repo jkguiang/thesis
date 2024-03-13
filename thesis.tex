@@ -39,9 +39,6 @@
 \overfullrule5pt
 % ---
 % Reference for quotes
-% \def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
-%   \hbox{}\nobreak\hfil(#1)%
-%   \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
 \def\signed #1{{\\ \hspace*{\fill}(#1)}}
 % Custom quote environments
 \newsavebox\mybox
@@ -61,8 +58,8 @@
 % If Professor is not the correct title for one, then titles should be
 % omitted entirely.
 \chair{Professor Frank W\"urthwein}
-\cochair{Professor Avi Yagil} % Optional
 % Your committee members (other than the chairs) must be in alphabetical order
+\committee{Professor Avi Yagil}
 \committee{Professor Sekhar Chivukula}
 \committee{Professor Albert Hsiao}
 \committee{Professor Arun Kumar}
@@ -93,33 +90,33 @@
 \listoftables
 
 % --- Preface ---
-% \include{tex/preface}
+% \input{tex/preface}
 
 % --- Acknowledgements ---
-\include{tex/acknowledgements}
+\input{tex/acknowledgements}
 
 % --- Vita ---
-\include{tex/vita}
+\input{tex/vita}
 
 % --- Abstract ---
-\include{tex/abstract}
+\input{tex/abstract}
 
 % --- Chapters ---
 \mainmatter
-\include{tex/introduction}
-\include{tex/standard_model}
-\include{tex/lhc_cms}
-\include{tex/higgs_and_vbs}
-\include{tex/vbswh}
-\include{tex/vbsvvh}
-\include{tex/lst}
-\include{tex/cyber}
+\input{tex/introduction}
+\input{tex/standard_model}
+\input{tex/lhc_cms}
+\input{tex/higgs_and_vbs}
+\input{tex/vbswh}
+\input{tex/vbsvvh}
+\input{tex/lst}
+\input{tex/cyber}
 
 % --- Appendices ---
 \appendix
-\include{tex/appendices/example_text}
-\include{tex/appendices/example_figs}
-\include{tex/appendices/example_misc}
+\input{tex/appendices/example_text}
+\input{tex/appendices/example_figs}
+\input{tex/appendices/example_misc}
 
 % --- Bibliography ---
 \backmatter
