@@ -46,12 +46,12 @@
   {\savebox\mybox{#1}\begin{quote}}
   {\signed{\usebox\mybox}\end{quote}}
 \newenvironment{epiquote}[1]
-  {\savebox\mybox{#1}\noindent\ignorespaces}
-  {\signed{\usebox\mybox}\vfil}
+  {\savebox\mybox{#1}\noindent\ignorespaces\begin{flushright}\itshape}
+  {\signed{\usebox\mybox}\vfil\end{flushright}}
 % ---
 
 % Required information
-\title{Measurements of the Higgs Boson through Vector Boson Scattering with the CMS Detector and Software and Computing for Exascale Data Science}
+\title{Measurements of the Higgs Boson through Vector Boson Scattering and Software and Computing for Exascale Data Science}
 \author{Jonathan Kasuke Guiang}
 \degree{Physics}{Doctor of Philosophy}
 % Each member of the committee should be listed as Professor Foo Bar.
@@ -59,11 +59,11 @@
 % omitted entirely.
 \chair{Professor Frank W\"urthwein}
 % Your committee members (other than the chairs) must be in alphabetical order
-\committee{Professor Avi Yagil}
 \committee{Professor Sekhar Chivukula}
 \committee{Professor Albert Hsiao}
 \committee{Professor Arun Kumar}
 \committee{Professor Michael Norman}
+\committee{Professor Avi Yagil}
 \degreeyear{2024}
 
 % Start the document
@@ -88,9 +88,6 @@
 \tableofcontents
 \listoffigures
 \listoftables
-
-% --- Preface ---
-% \input{tex/preface}
 
 % --- Acknowledgements ---
 \input{tex/acknowledgements}
