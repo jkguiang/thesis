@@ -7,8 +7,9 @@
 The stage is set: over a century of particle physics has yielded a beautiful theory of \textit{almost} everything, the Standard Model, and a grand coalition of nations has built the largest and most complex scientific instrument in human history, the LHC, to test it. 
 The most recent act in this drama concluded in 2012, when the Higgs boson was discovered at CMS and ATLAS~\cite{CMSdisc, ATLASdisc}. 
 In the years following its discovery, the LHC experiments have measured many of its properties to great precision and found no significant deviations from SM predictions~\cite{NatureHiggsCMS2022, NatureHiggsATLAS2022}. 
-Nevertheless, the confounding mysteries still surrounding the Higgs boson at the time of writing suggest that there may be some beyond Standard Model (BSM) physics that is not yet understood. 
-Given the existential importance of the Higgs boson, this kind of new physics would have profound implications towards a better understanding of the past, present, and future of the entire universe. 
+However, there are many features yet to be measured precisely. 
+This implies that studies of the Higgs boson have incredible potential for discovery: a better understanding of the Higgs boson immediately yields a better understanding of the origin, operation, and continued existence of the entire universe. 
+Moreover, the Higgs boson can uniquely interact with all known matter, so by producing many Higgs bosons in the lab, we may be able to access physics beyond the Standard Model. % citation needed
 
 There are many educated guesses, called theories, aimed at addressing the open questions involving the Higgs boson. 
 Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}, and experimentalists can search for their existence directly: either by looking for the SM particles that they might decay into, or by checking for what is missing after everything is else accounted for. 
@@ -24,7 +25,7 @@ One commonly used framework used to quantify these deviations from the SM is the
 While there are myriad theoretical nuances to the statement above, it is sufficient to state the obvious: $\kappa_X = 1$ represents the SM scenario and significant deviations from 1 represent BSM scenarios. 
 The $\kappa$-framework is not the only framework used to understand and quantify modifications to the SM, however, with the most notable alternative being Effective Field Theory~\cite{EFT, DimSix}. 
 
-\subsection{Vector boson scattering}
+\section{Making Higgs bosons with vector boson scattering}
 The dominant Higgs boson production mechanism at the LHC is gluon-gluon fusion through a top quark loop. % TODO: add feynman diagrams, cite PDG?
 Through these processes, the Higgs boson was discovered and many of its branching ratios and couplings have been measured precisely. 
 However, additional production mechanisms can yield unique insights. 
@@ -38,7 +39,7 @@ Second, but equally important, modifications to the Higgs couplings induce effec
 \begin{figure}[htb]
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}\qquad
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}} % TODO: label another plot, maybe VBSVVH, and replace this one
     \caption{
         Event display for a simulated VBS WH signal event. 
         The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
@@ -47,7 +48,11 @@ Second, but equally important, modifications to the Higgs couplings induce effec
     \label{fig:vbs_fireworks}
 \end{figure}
 
-\subsection{Search strategy}
+\section{Finding and studying VBS-produced Higgs bosons}
+VBS provides a unique way of producing Higgs bosons, with an easily identifiable signature, and there are myriad VBS processes involving a Higgs, each involving different couplings. 
+The rarer couplings are of particular interest, including the $\HHVV$ and $\HHH$ couplings (Ch.~\ref{ch:vbsvvh}). 
+While these are more difficult features of the Higgs boson to measure, doing so precisely would yield great insights into the fundamental workings of the Higgs boson, and therefore on those questions related to it. 
+Also of interest are some of the more obscure properties of the Higgs boson, like the relative sign between the $\HWW$ and $\HZZ$ couplings (Ch.~\ref{ch:vbswh}). 
 
 \section{Reconstruction}
 \subsection{Leptons}
@@ -69,18 +74,18 @@ We do this in a particular order, however, because of the sheer size of our data
 Since the background estimation strategy is data-driven, the systematics on the Monte Carlo, which are more numerous, only need to be evaluated for the signal yield. 
 Most sources of systematic uncertainty are derived by varying individual theoretical scales and experimental corrections by one standard deviation and taking the maximal difference in yield as the error. 
 In particular, the corrections and their uncertainties are typically derived centrally in order to augment the efficiency of a specific selection in MC to match that measured in data.
-In general, these corrections are applied as an event weight $w$, such that the weighted contribution $W$ of each raw Monte Carlo event is given by the product of the event weights for that same event. 
+In general, these corrections are applied as an event weight $\omega$, such that the weighted contribution $\Omega$ of each raw Monte Carlo event is given by the product of the event weights for that same event. 
 The yield in a given signal region $y$ containing $N$ raw Monte Carlo events is therefore given by
 \begin{equation}
-    y = \sum_{i = 1}^{N}W_i
+    y = \sum_{i = 1}^{N}\Omega_i
 \end{equation}
-Then, the yield $y_{var}$ is computed after applying a systematic variation (up or down) of each source of systematic uncertainty independently:
+Then, the yield $y_\text{var}$ is computed after applying a systematic variation (up or down) of each source of systematic uncertainty independently:
 \begin{equation}\label{eq:systs}
-    y_{var} = \sum_{i = 1}^{N}W_i\times\frac{w_{var}}{w}
+    y_\text{var} = \sum_{i = 1}^{N}\Omega_i\times\frac{\omega_\text{var}}{\omega}
 \end{equation}
-Finally, the maximum of the percent differences $\delta_{up}$ or $\delta_{down}$ are taken as the systematic uncertainty for that source, where
+Finally, the maximum of the percent differences $\delta_\text{up}$ or $\delta_\text{down}$ are taken as the systematic uncertainty for that source, where
 \begin{equation}
-    \delta_{var} = \bigg| 1-\frac{y_{var}}{y} \bigg|
+    \delta_\text{var} = \bigg| 1-\frac{y_\text{var}}{y} \bigg|
 \end{equation}
 
 \section{Statistical interpretation}
