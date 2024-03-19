@@ -183,8 +183,11 @@ That is, the range of a variable $x$ is normalized such that a chosen minimum ($
 This range is selected to be within a reasonable window; for example, \Mjj is normalized such that 0 remains 0 and 3000 is scaled to 1.
 
 \begin{table}[htbp]
-    \begin{center}
-
+    \centering
+    \caption[ABCDNet hyperparameters]{
+        The hyperparameters for ABCDNet. 
+        Many values of $\lambda$ were tried, where the best value was determined by comparing the correlation between the ABCDNet discriminator and \detajj, as well as comparing the ABCD closure directly. 
+    }
     \begin{tabular}{ccc}
     \toprule
     Parameter & Setting \\
@@ -199,12 +202,6 @@ This range is selected to be within a reasonable window; for example, \Mjj is no
     DisCo $\lambda$            & 30         \\
     \bottomrule
     \end{tabular}
-
-    \end{center}
-    \caption{
-        The hyperparameters for ABCDNet. 
-        Many values of $\lambda$ were tried, where the best value was determined by comparing the correlation between the ABCDNet discriminator and \detajj, as well as comparing the ABCD closure directly. 
-    }
     \label{tab:vbsvvh_abcdnet_params}
 \end{table}
 
@@ -307,8 +304,11 @@ The statistical uncertainty \Estat on the method is again simply the propagation
 
 % TODO: add flowchart for ABCD regions (like in VBSWH AN)
 \begin{table}[htbp]
-    \begin{center}
-
+    \centering
+    \caption[VBS $\VVH$ ABCD yields]{
+        Data yields and Region A prediction for the control region used for the ABCD closure test. 
+        The region A yield is kept blind, while $A_{pred}$ is reported.
+    }
     \begin{tabular}{ccc}
     \toprule
     \textbf{Region} & Data Yield & Prediction \\
@@ -319,13 +319,7 @@ The statistical uncertainty \Estat on the method is again simply the propagation
     D               & 672        &            \\
     \bottomrule
     \end{tabular}
-
-    \end{center}
-    \caption{
-        Data yields and Region A prediction for the control region used for the ABCD closure test. 
-        The region A yield is kept blind, while $A_{pred}$ is reported.
-    }
-    \label{table:0lepABCDregion}
+    \label{tab:0lepABCDregion}
 
 \end{table}
 
@@ -374,7 +368,11 @@ In total, 5 such checks are done, and the results are tabulated in Table~\ref{ta
 In each test, good closure is seen in data, supporting the validity of the method.
 
 \begin{table}[htbp]
-    \begin{center}
+    \centering
+    \caption[VBS $\VVH$ ABCD cross-check yields]{
+        Data yields and signal-like region prediction for the ABCD closure tests. 
+        Regions B$_i$, C$_i$, and D$_i$ are described in Fig.~\ref{fig:vbsvvh_abcd_extra}.
+    }
     \subfloat{
         \begin{tabular}{ccc}
         \toprule
@@ -412,13 +410,7 @@ In each test, good closure is seen in data, supporting the validity of the metho
         \bottomrule
         \end{tabular}
     }
-    \end{center}
-    \caption{
-        Data yields and signal-like region prediction for the ABCD closure tests. 
-        Regions B$_i$, C$_i$, and D$_i$ are described in Fig.~\ref{fig:vbsvvh_abcd_extra}.
-    }
     \label{tab:vbsvvh_closureTests}
-
 \end{table}
 
 \clearpage

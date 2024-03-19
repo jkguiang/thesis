@@ -43,7 +43,7 @@
 % Custom quote environments
 \newsavebox\mybox
 \newenvironment{aquote}[1]
-  {\savebox\mybox{#1}\begin{quote}}
+  {\savebox\mybox{#1}\begin{quote}\itshape}
   {\signed{\usebox\mybox}\end{quote}}
 \newenvironment{epiquote}[1]
   {\savebox\mybox{#1}\noindent\ignorespaces\begin{flushright}\itshape}
