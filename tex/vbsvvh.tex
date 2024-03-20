@@ -158,7 +158,8 @@ With the fat jets thus tagged, a very loose selection is applied to the Particle
 The signal region must preferably be accompied by a valid data-driven background estimation method while also being optimized for maximal significance, since the dominant background is multijet QCD.
 Because this is a common analysis scenario, a machine learning (ML) method has been proposed to satisfy both requirements at once~\cite{AutoABCD}. 
 In particular, a Deep Neural Network (DNN) is trained to serve as one of the ``arms'' of a traditional ABCD background estimation, which described in more detail in the next section. 
-Critically, a term \dCorrSq is added to the loss function that trains the DNN to be decorrelated with the other arm. More information regarding the loss funtion can be found in appendix \ref{app:abcdnet}.
+Critically, a term \dCorrSq is added to the loss function that trains the DNN to be decorrelated with the other arm. 
+% TODO: add info from the AN appendix here
 
 For this analysis, a DNN hereafter referred to as ``ABCDNet'' was trained to be decorrelated from $|\detajj|$.
 While there are many configurations of this technique that were considered, it was found that using $|\detajj|$ as the decorrelation target provided the most stable result and the best closure for this analysis. 
@@ -260,7 +261,7 @@ Moreover, the ABCDNet discriminant (Fig.~\ref{fig:vbsvvh_abcdnet_score}) and $|\
 \subsection{Signal region}
 Ultimately, the signal region for this analysis is formed from cuts on five variables: ABCDNet score, $|\detajj|$, and ParticleNet scores for the three fat jets. 
 A brute-force scan was performed, where over fifty thousands regions were tested. 
-The regions were ranked by a rough estimation of the significance: $S/\sqrt{B}$, where $S$ is the signal yield taken from MC and $B$ is the background yield predicted using data via the ABCD method described in Secion~\ref{allhad:sec:estimation}.
+The regions were ranked by a rough estimation of the significance: $S/\sqrt{B}$, where $S$ is the signal yield taken from MC and $B$ is the background yield predicted using data via the ABCD method described in the next section.
 The final signal region was required to have at least 0.5 predicted background events, as cutting tighter on the signal region variables resulted in larger uncertainties. 
 Ultimately, the following signal region was determined:
 \begin{itemize}
