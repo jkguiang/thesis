@@ -6,19 +6,30 @@
 
 \section{The Large Hadron Collider}
 The Large Hadron Collider (LHC) is the largest particle accelerator ever built. 
-Its most striking feature is a 27 km ring buried 175 m beneath the Franco-Swiss border (Fig.~\ref{fig:cern_aerial}) in which two beams of protons (or heavy ions like lead), after going through several smaller stages (Fig.~\ref{fig:cern_complex}), are accelerated to 99.9999991\% of the speed of light in opposite directions. 
-The beams are steered by thousands of magnets, including 1232 superconducting dipole magnets, placed along the circumference of the ring. 
+Its most striking feature is a 27 km ring buried 100 m beneath the Franco-Swiss border (Fig.~\ref{fig:lhc_depth}) in which two beams of protons (or heavy ions like lead), after going through several smaller stages (Fig.~\ref{fig:cern_complex}), are accelerated to 99.9999991\% of the speed of light in opposite directions. 
+The beams are steered by thousands of magnets, including 1232 superconducting dipole magnets (Fig.~\ref{fig:lhc_dipole}), placed along the circumference of the ring. 
 At various points, the proton beams are directed towards each other, allowing the protons to collide. 
 These collision points are surrounded by enormous, multi-layered particle detectors which record snapshots of the collisions. 
 
 The protons are accelerated in bunches of 115 billion, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
 However, only a small portion of them actually collide. 
-During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: define pileup somehow, citation needed, plot or something of pileup needed
+During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
 A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
 To increase our odds of producing something truly interesting, the bunch crossings are spaced close together, with only 25 nanoseconds of separation. 
 To put this into context, the speed of light is roughly 1 ft/ns, so the next bunch crossing will occur before the light from a screen on one side of the CMS control room can reach the eyes of someone standing on the other side (approximately 39 feet~\cite{CMSP5Layout}).
 Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
 That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/lhc/lhc_depth.jpg}}\quad
+    \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/lhc/cern_aerial_view.jpg}}
+    \caption{
+        A diagram illustrating the depth of the LHC beneath the surface (left), from Ref.~\cite{Servicegraphique:1708849}, and an aerial photograph of the entire CERN complex (right), from Ref.~\cite{Maximilien:1295244}. 
+        The SPS and LHC tunnels illustrated in both figures. 
+    }
+    \label{fig:lhc_depth}
+\end{figure}
 
 \begin{figure}[htb]
     \centering
@@ -36,13 +47,15 @@ That is, they must be able to resolve the particles from the primary vertex amon
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{fig/lhc/cern_aerial_view.jpg}
+    \subfloat{\includegraphics[width=0.475\textwidth,valign=c]{fig/lhc/dipole_cutaway.png}}\quad
+    \subfloat{\includegraphics[width=0.425\textwidth,valign=c]{fig/lhc/dipole_jguiang.png}}
     \caption{
-        The CERN complex pictured from a ``bird's eye'' view, from Ref.~\cite{Maximilien:1295244}. 
-        The SPS and LHC tunnels are drawn on top of the landscape in light blue and yellow, respectively, and the Franco-Swiss border is drawn as a dashed white line. 
+        A cutaway diagram illustrating the internals of a dipole magnet inside the LHC tunnel (left), from Ref.~\cite{Dominguez:1741036}, and a photograph of a dipole magnet with a physicist for scale (right).
     }
-    \label{fig:cern_aerial}
+    \label{fig:lhc_dipole}
 \end{figure}
+
+\clearpage
 
 \section{The Compact Muon Solenoid}
 The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisons, and LHCb, for studying b quarks. 
@@ -50,6 +63,7 @@ The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC exp
 Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoid magnets~\cite{ATLASWeb, CMSWeb}. 
 See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fig:cms_pics} and \ref{fig:cms_jguiang} for some beauty shots. 
 
+\subsection{Overview}
 CMS is composed of subdetectors arranged in concentric layers, where each layer interacts with, or completely absorbs, certain particles, producing an electric signal that can be used to infer some property of those particles. 
 The innermost layer is the silicon tracker, which allows for the reconstruction of the trajectory of throughgoing charged particles. 
 Next is the electromagnetic calorimeter (ECAL), which absorbs electrons and photons and records their individual energies. 
@@ -57,7 +71,8 @@ After the ECAL, there is the hadronic calorimeter (HCAL), which instead absorbs 
 These first three layers---the tracker, ECAL, and HCAL---are surrounded by the superconducting solenoid, which immerses them in an approximately uniform magnetic field that runs parallel to the beamline. 
 This is critical: because charged particles fly along curved trajectories in a magentic field according to their charge and momentum, those properties can be inferred from a high-quality measurement of each particle's trajectory. 
 Finally, there are alternating layers of muon chambers and iron support structures. 
-The former detects throughgoing muons, which pass through all of the inner layers mostly unperturbed, while the latter conveniently helps absorb any stray particles that should have been absorbed by the ECAL or HCAL. 
+The former, as the name suggests, detects throughgoing muons, which pass through all of the inner layers mostly unperturbed.
+However, the latter is equally important: the iron ``return yoke'' guides the magnetic field outside of the solenoid, absorbs stray particles that make it past the inner layers, and supports the immense weight of CMS itself. 
 In a perfect world, where the detector is 100\% efficient, the exact identity of any individual particle can be inferred based on which detectors registered a signal (Fig.~\ref{fig:cms_particle_id}). 
 For example, a photon only leaves a deposit in the ECAL, while a charged hadron leaves behind ``hits'' in the tracker as well as a deposit in the HCAL. 
 The exact function of each subdetector layer described here is detailed below.
@@ -66,15 +81,15 @@ The exact function of each subdetector layer described here is detailed below.
     \centering
     \includegraphics[width=0.9\textwidth]{fig/cms/cms_labeled.jpg}
     \caption{
-        Lorem ipsum.
+        A detailed cutaway diagram of CMS, with each subdetector labeled with its name and some its characteristics. 
     }
     \label{fig:cms_labeled}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.465\textwidth]{fig/cms/particle_id_sandwich.png}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth]{fig/cms/cms_slice.png}}
+    \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/particle_id_sandwich.png}}\quad
+    \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/cms_slice.png}}
     \caption{
         A generic, general-purpose particle detector (left) and CMS (right), showing the signals left by different kinds of particles.
     }
@@ -82,9 +97,22 @@ The exact function of each subdetector layer described here is detailed below.
 \end{figure}
 
 \subsection{Superconducting solenoid}
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/solenoid_section.jpg}}\quad
+    \subfloat{\includegraphics[width=0.6\textwidth,valign=c]{fig/cms/solenoid_cable.png}}
+    \caption{
+        A photograph of a section of the CMS magent, from Ref.~\cite{CourierSolenoid}, showing the cross section of the solenoid windings (left), and a diagram of a single winding, from Ref.~\cite{CERN-LHCC-97-010} (right). 
+    }
+    \label{fig:cms_magnet}
+\end{figure}
+
 \subsection{Silicon tracker}
+
 \subsection{Electromagnetic calorimeter}
+
 \subsection{Hadronic calorimeter}
+
 \subsection{Muon chambers}
 
 \begin{figure}[htb]
@@ -99,15 +127,27 @@ The exact function of each subdetector layer described here is detailed below.
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.482\textwidth]{fig/cms/cms_picture3.jpg}}\quad
-    \subfloat{\includegraphics[width=0.4\textwidth]{fig/cms/cms_jguiang.jpg}}
+    \subfloat{\includegraphics[width=0.482\textwidth,valign=c]{fig/cms/cms_picture3.jpg}}\quad
+    \subfloat{\includegraphics[width=0.4\textwidth,valign=c]{fig/cms/cms_jguiang.jpg}}
     \caption{
         The Compact Muon Solenoid in the closed configuration, pictured from the top (left) and side, with a physicist in the foreground for scale (right).
     }
     \label{fig:cms_jguiang}
 \end{figure}
 
+\clearpage
+
 \section{The high lumonisity era}
+\begin{figure}[!htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/cms/high_PU_30vtx_side.png}\label{fig:normal_pu}}\qquad
+    \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/cms/high_PU_130vtx.png}\label{fig:high_pu}}
+    \caption{
+        A collision event with standard pileup (a) recorded at CMS in 2016 is shown next to an event with HL-LHC-like pileup (b) recorded at CMS in the same year, from Refs.~\cite{NormalPU2016, HighPU2016}.
+        The dots are proton-proton collisions and the thin lines are the reconstructed particle tracks.
+    }
+    \label{fig:pileup}
+\end{figure}
 % What is HL?
 %    - show pileup plots, maybe side AND 3D volume
 % What benefits does it bring?
