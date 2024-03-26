@@ -99,7 +99,7 @@ The exact function of each subdetector layer described here is detailed below.
 \subsection{Superconducting solenoid}
 The curve of a track is critical, as it allows us to infer the charge and momentum of a particle. 
 However, in a weak magnetic field, the particles produced at the LHC would have nearly straight tracks, due to the large proton-proton collision energy. 
-The magnetic field inside of CMS must therefore be very large. 
+The magnetic field inside of CMS must therefore be very large~\cite{CMSWebMagnet}. 
 It should also be nearly uniform everywhere in order to make the computation of each particle's charge and momentum as simple as possible. 
 The CMS magnet must also be large in dimension, however, as it must surround the tracker, ECAL, and HCAL, since it would otherwise block outgoing particles. 
 
@@ -107,15 +107,16 @@ By winding copper wire into a helix and passing a current through it, we can gen
 Within the volume of the helix, the magnetic field will be almost uniformly oriented in a single direction, determined by the orientation of the helix and direction of the current (Fig.~\ref{fig:cms_magnet_ideal}). 
 This is not true outside of the helix where the magnetic field lines curve in space. 
 
-The CMS magnet~\cite{CERN-LHCC-97-010} is a massive realization of a solenoid. 
+The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization of a solenoid. 
+\footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 m in order ot be transported via the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
 It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
-In operation, it is cooled to superconducting temperatures, such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
+In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
 \footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
 This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
 That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
 Outside of the solenoid volume, however, we still want a fairly uniform magnetic field in order to maintain good momentum resolution for muons. 
 To achieve this, the iron support structures that hold CMS together are also designed to guide the magnetic field lines (Fig.~\ref{fig:cms_magnet_field}). 
-Inside of the iron, the magnetic field runs uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
+Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
 
 \begin{figure}[htb]
     \centering
@@ -139,6 +140,19 @@ Inside of the iron, the magnetic field runs uniformly parallel to the field insi
 \end{figure}
 
 \subsection{Silicon tracker}
+In order to reconstruct the track of any particle, we need its position at multiple points in time. 
+A tracker records these positions. 
+Mechanically, this can be done in a variety of ways. 
+Some of the earliest particle physics experiments used bubble chambers, a device that maintains (for a brief instance) a volume of superheated liquid immersed in a magnetic field in which throughgoing charged particles leave helical trails of bubbles. 
+Photographs of these trails were used to infer properties of each particle. 
+Still others used even more exotic non-electric solutions, like the OPERA Experiment, which used enormous layers of nuclear emulsion film (modified photography film) in which throughgoing particles would leave tiny black dots after the film was developed\footnotemark{}~\cite{Acquafredda:2009zz}---the experiment used over 100\,000 m$^2$ of emulsion film in total. 
+\footnotetext{Developing the film was quite an operation, and a large robotic arm was used to remove and replace the layers.}
+Because multiple layers of the film were stacked together, the track could be reconstructed in three dimensions. 
+
+The leading challenge in designed the CMS tracker was the unprecedented amount of throughgoing particles, due to the high frequency of proton-proton collisions which each produce many thousands of particles. 
+Existing tracker designs, like the CDF Experiment's beautiful gas-and-wire tracker~\cite{CDF:2003xbh}, could thus not be used\footnotemark{}.
+\footnotetext{In fact, the tracker section was left blank in the first CMS design document, since there were no known solutions at the time~\cite{CMSWebTracker}.}
+Thankfully, advances in silicon manufacturing yielded a new solution. 
 
 \begin{figure}[htb]
     \centering
