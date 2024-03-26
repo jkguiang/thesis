@@ -63,6 +63,35 @@ The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC exp
 Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoid magnets~\cite{ATLASWeb, CMSWeb}. 
 See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fig:cms_pics} and \ref{fig:cms_jguiang} for some beauty shots. 
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig/cms/cms_labeled.jpg}
+    \caption{
+        A detailed cutaway diagram of CMS, with each subdetector labeled with its name and some its characteristics, from Ref.~\cite{Sakuma:2665537}. 
+    }
+    \label{fig:cms_labeled}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.465\textwidth]{fig/cms/cms_picture1.jpg}}\quad
+    \subfloat{\includegraphics[width=0.435\textwidth]{fig/cms/cms_picture2.jpg}}
+    \caption{
+        The Compact Muon Solenoid in all of its glory, with one of the endcaps separated from the main body of the experiment, pictured from the top (left) and side (right). 
+    }
+    \label{fig:cms_pics}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.492\textwidth,valign=c]{fig/cms/cms_picture3.jpg}}\quad
+    \subfloat{\includegraphics[width=0.408\textwidth,valign=c]{fig/cms/cms_jguiang.jpg}}
+    \caption{
+        The Compact Muon Solenoid in the closed configuration, pictured from the top (left) and side, with a physicist in the foreground for scale (right).
+    }
+    \label{fig:cms_jguiang}
+\end{figure}
+
 \subsection{Overview}
 CMS is composed of subdetectors arranged in concentric layers, where each layer interacts with, or completely absorbs, certain particles, producing an electric signal that can be used to measure some property of those particles. 
 The innermost layer is the silicon tracker, which allows for the reconstruction of the trajectories of throughgoing charged particles (``tracks''). 
@@ -79,28 +108,21 @@ The exact function of each subdetector layer described here is detailed below.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{fig/cms/cms_labeled.jpg}
-    \caption{
-        A detailed cutaway diagram of CMS, with each subdetector labeled with its name and some its characteristics. 
-    }
-    \label{fig:cms_labeled}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
     \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/particle_id_sandwich.png}}\quad
     \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/cms_slice.png}}
     \caption{
-        A generic, general-purpose particle detector (left) and a transverse slice of CMS (right), from Ref.~\cite{Barney:2120661}, showing the signals left by different kinds of particles.
+        A schematic of a generic, general-purpose particle detector (left) and a transverse slice of CMS (right), from Ref.~\cite{Barney:2120661}, showing the signals left by different kinds of particles.
     }
     \label{fig:cms_particle_id}
 \end{figure}
+
+\clearpage
 
 \subsection{Superconducting solenoid}
 The curve of a track is critical, as it allows us to infer the charge and momentum of a particle. 
 However, in a weak magnetic field, the particles produced at the LHC would have nearly straight tracks, due to the large proton-proton collision energy. 
 The magnetic field inside of CMS must therefore be very large~\cite{CMSWebMagnet}. 
-It should also be nearly uniform everywhere in order to make the computation of each particle's charge and momentum as simple as possible. 
+It should also be nearly uniform everywhere in order to make the determination of each particle's charge and momentum as simple as possible. 
 The CMS magnet must also be large in dimension, however, as it must surround the tracker, ECAL, and HCAL, since it would otherwise block outgoing particles. 
 
 By winding copper wire into a helix and passing a current through it, we can generate an magnetic field whose strength is directly proportional to the current and number of turns of the wire, but inversely proportional to the length of the helix. 
@@ -108,7 +130,7 @@ Within the volume of the helix, the magnetic field will be almost uniformly orie
 This is not true outside of the helix where the magnetic field lines curve in space. 
 
 The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization of a solenoid. 
-\footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 m in order ot be transported via the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
+\footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 such that it could be wheeled through the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
 It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
 In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
 \footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
@@ -131,7 +153,7 @@ Inside of the iron, the magnetic field runs almost uniformly parallel to the fie
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/solenoid_section.jpg}}\quad
+    \subfloat{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/solenoid_wedge.jpg}}\quad
     \subfloat{\includegraphics[width=0.6\textwidth,valign=c]{fig/cms/solenoid_cable.png}}
     \caption{
         A photograph of a section of the CMS magnet, from Ref.~\cite{CourierSolenoid}, showing the cross section of the solenoid windings (left), and a diagram of a single winding, from Ref.~\cite{CERN-LHCC-97-010} (right). 
@@ -144,34 +166,54 @@ In order to reconstruct the track of any particle, we need its position at multi
 A tracker records these positions. 
 Mechanically, this can be done in a variety of ways. 
 Some of the earliest particle physics experiments used bubble chambers, a device that maintains (for a brief instance) a volume of superheated liquid immersed in a magnetic field in which throughgoing charged particles leave helical trails of bubbles. 
-Photographs of these trails were used to infer properties of each particle. 
+Photographs of these trails were used to infer the identities of each particle. 
 Still others used even more exotic non-electric solutions, like the OPERA Experiment, which used enormous layers of nuclear emulsion film (modified photography film) in which throughgoing particles would leave tiny black dots after the film was developed\footnotemark{}~\cite{Acquafredda:2009zz}---the experiment used over 100\,000 m$^2$ of emulsion film in total. 
 \footnotetext{Developing the film was quite an operation, and a large robotic arm was used to remove and replace the layers.}
-Because multiple layers of the film were stacked together, the track could be reconstructed in three dimensions. 
 
-The leading challenge in designed the CMS tracker was the unprecedented amount of throughgoing particles, due to the high frequency of proton-proton collisions which each produce many thousands of particles. 
-Existing tracker designs, like the CDF Experiment's beautiful gas-and-wire tracker~\cite{CDF:2003xbh}, could thus not be used\footnotemark{}.
+The leading challenge in designing the CMS tracker was the unprecedented level of radiation, due to the high frequency of proton-proton collisions which each produce many thousands of particles. 
+Existing tracker designs, like the CDF Experiment's beautiful gas-and-wire tracker~\cite{CDF:2003xbh}, would quickly break down\footnotemark{} in this kind of environment.
 \footnotetext{In fact, the tracker section was left blank in the first CMS design document, since there were no known solutions at the time~\cite{CMSWebTracker}.}
-Thankfully, advances in silicon manufacturing yielded a new solution. 
+Thankfully, advances in radiation-hard electronics yielded a new solution. 
+In particular, a silicon-based tracking module was devised. 
+When charged particles pass through the module, they liberate electrons from the silicon atoms. 
+These electrons are collected one of several small readout plates, which results in a localized electric signal called a ``hit,'' giving excellent spatial resolution. 
+
+The CMS tracker is composed of multiple layers of silicon tracker modules (Fig.~\ref{fig:cms_tracker_layout}), such that each throughgoing particle leaves multiple hits that can then be used to reconstruct its track. 
+The layers are grouped into different sections according to their proximity to the beamline and their geometry. 
+The innermost layers comprise the ``inner tracker'' (Fig.~\ref{fig:cms_tracker_inner}). 
+In these layers, pixel modules are used because they have superior spatial resolution, allowing us to measure the first portion of each track precisely. 
+The outermost layers comprise the ``outer tracker'' (Fig.~\ref{fig:cms_tracker_outer}). 
+These layers use strip modules, which have worse spatial resolution than the pixel modules, but are easier to produce. 
+Both the inner and outer tracker have two regions: a barrel and forward, or ``endcap,'' region. 
+In the barrel region, the modules are arranged in a cylindrical geometry parallel to the beamline, while in the forward region, the modules tile a circular region perpendicular to the beamline. 
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/tracker_rainbow.jpg}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/tracker_install.jpg}}
+    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/tracker_pixels.jpg}\label{fig:cms_tracker_inner}}\quad
+    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/tracker_rainbow.jpg}\label{fig:cms_tracker_outer}}
     \caption{
-        A photograph of the CMS outer tracker (left), from Ref.~\cite{Maximilien:995912}, and the installation of the entire tracker (right), from Ref~\cite{Hoch:1275108}. 
+        A photograph of the inner forward pixel modules (left), from Ref.~\cite{Hoch:2017264}, and the outer barrel layers with a physicist for scale (right), from Ref.~\cite{Maximilien:995912}, of the CMS tracker. 
     }
-    \label{fig:cms_tracker}
+    \label{fig:cms_tracker_pictures}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth,valign=c]{fig/cms/tracker_detailed.png}
+    \caption{
+        A detailed cutaway diagram of the CMS Phase-1 tracker, from Ref.~\cite{Sakuma:2630160}. 
+    }
+    \label{fig:cms_tracker_layout}
 \end{figure}
 
 \subsection{Electromagnetic calorimeter}
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/ecal_installed.jpg}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/ecal_crystals.jpg}}
+    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_install.jpg}\label{fig:cms_ecal_intsall}}\quad
+    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_crystal.jpg}\label{fig:cms_ecal_crystal}}
     \caption{
-        A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed (left) and physicist Lucas Taylor posed with the lead tungstade scintillator crystals used in the ECAL (right). 
+        A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed (left) and a physicist posed with the lead tungstade scintillator crystals used in the ECAL (right). 
         Both photographs are from Ref.~\cite{Brice:1431477}.
     }
     \label{fig:cms_ecal}
@@ -190,26 +232,6 @@ Thankfully, advances in silicon manufacturing yielded a new solution.
 \end{figure}
 
 \subsection{Muon chambers}
-
-\begin{figure}[htb]
-    \centering
-    \subfloat{\includegraphics[width=0.465\textwidth]{fig/cms/cms_picture1.jpg}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth]{fig/cms/cms_picture2.jpg}}
-    \caption{
-        The Compact Muon Solenoid in all of its glory, with one of the endcaps separated from the main body of the experiment, pictured from the top (left) and side (right). 
-    }
-    \label{fig:cms_pics}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \subfloat{\includegraphics[width=0.482\textwidth,valign=c]{fig/cms/cms_picture3.jpg}}\quad
-    \subfloat{\includegraphics[width=0.4\textwidth,valign=c]{fig/cms/cms_jguiang.jpg}}
-    \caption{
-        The Compact Muon Solenoid in the closed configuration, pictured from the top (left) and side, with a physicist in the foreground for scale (right).
-    }
-    \label{fig:cms_jguiang}
-\end{figure}
 
 \clearpage
 
