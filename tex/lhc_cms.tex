@@ -11,15 +11,6 @@ The beams are steered by thousands of magnets, including 1232 superconducting di
 At various points, the proton beams are directed towards each other, allowing the protons to collide. 
 These collision points are surrounded by enormous, multi-layered particle detectors which record snapshots of the collisions. 
 
-The protons are accelerated in bunches of 115 billion, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
-However, only a small portion of them actually collide. 
-During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
-A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
-To increase our odds of producing something truly interesting, the bunch crossings are spaced close together, with only 25 nanoseconds of separation. 
-To put this into context, the speed of light is roughly 1 ft/ns, so the next bunch crossing will occur before the light from a screen on one side of the CMS control room can reach the eyes of someone standing on the other side (approximately 39 feet~\cite{CMSP5Layout}).
-Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
-That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
-
 \begin{figure}[htb]
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/lhc/lhc_depth.jpg}}\quad
@@ -54,6 +45,15 @@ That is, they must be able to resolve the particles from the primary vertex amon
     }
     \label{fig:lhc_dipole}
 \end{figure}
+
+The protons are accelerated in bunches of 115 billion, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
+However, only a small portion of them actually collide. 
+During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
+A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
+To increase our odds of producing something truly interesting, the bunch crossings are spaced close together, with only 25 nanoseconds of separation. 
+To put this into context, the speed of light is roughly 1 ft/ns, so the next bunch crossing will occur before the light from a screen on one side of the CMS control room can reach the eyes of someone standing on the other side (approximately 39 feet~\cite{CMSP5Layout}).
+Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
+That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
 
 \clearpage
 
@@ -129,17 +129,6 @@ By winding copper wire into a helix and passing a current through it, we can gen
 Within the volume of the helix, the magnetic field will be almost uniformly oriented in a single direction, determined by the orientation of the helix and direction of the current (Fig.~\ref{fig:cms_magnet_ideal}). 
 This is not true outside of the helix where the magnetic field lines curve in space. 
 
-The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization of a solenoid. 
-\footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 such that it could be wheeled through the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
-It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
-In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
-\footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
-This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
-That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
-Outside of the solenoid volume, however, we still want a fairly uniform magnetic field in order to maintain good momentum resolution for muons. 
-To achieve this, the iron support structures that hold CMS together are also designed to guide the magnetic field lines (Fig.~\ref{fig:cms_magnet_field}). 
-Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
-
 \begin{figure}[htb]
     \centering
     \subfloat[]{\includegraphics[width=0.4\textwidth,valign=c]{fig/cms/solenoid_ideal.png}\label{fig:cms_magnet_ideal}}\quad
@@ -150,6 +139,17 @@ Inside of the iron, the magnetic field runs almost uniformly parallel to the fie
     }
     \label{fig:cms_fields}
 \end{figure}
+
+The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization of a solenoid. 
+\footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 such that it could be wheeled through the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
+It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
+In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
+\footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
+This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
+That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
+Outside of the solenoid volume, however, we still want a fairly uniform magnetic field in order to maintain good momentum resolution for muons. 
+To achieve this, the iron support structures that hold CMS together are also designed to guide the magnetic field lines (Fig.~\ref{fig:cms_magnet_field}). 
+Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
 
 \begin{figure}[htb]
     \centering
