@@ -97,26 +97,14 @@ CMS is composed of subdetectors arranged in concentric layers, where each layer 
 The innermost layer is the silicon tracker, which allows for the reconstruction of the trajectories of throughgoing charged particles (``tracks''). 
 Next is the electromagnetic calorimeter (ECAL), which absorbs electrons and photons and records their individual energies. 
 After the ECAL, there is the hadronic calorimeter (HCAL), which instead absorbs hadrons and records their individual energies. 
-These first three layers---the tracker, ECAL, and HCAL---are surrounded by the superconducting solenoid, which immerses them in an approximately uniform magnetic field that runs parallel to the beamline. 
-This is critical: because charged particles fly along curved trajectories in a magnetic field according to their charge and momentum, those properties can be inferred from a high-quality measurement of each particle's trajectory. 
-Finally, there are alternating layers of muon chambers and iron support structures. 
+These first three layers---the tracker, ECAL, and HCAL---are surrounded by the eponymous superconducting solenoid, which immerses them in an approximately uniform magnetic field that runs parallel to the beamline. 
+This is critical: charged particles fly along curved trajectories in a magnetic field according to their charge and momentum, so those properties can be inferred from a high-quality measurement of each particle's trajectory. 
+Finally, there are alternating layers of muon chambers, the other half of the experiment's namesake, and iron support structures. 
 The former, as the name suggests, detects throughgoing muons, which pass through all of the inner layers mostly unperturbed.
 However, the latter is equally important: the iron ``return yoke'' guides the magnetic field outside of the solenoid, absorbs stray particles that make it past the inner layers, and supports the immense weight of CMS itself. 
-In a perfect world, where the detector is 100\% efficient, the exact identity of any individual particle can be inferred based on which detectors registered a signal (Fig.~\ref{fig:cms_particle_id}). 
-For example, a photon only leaves a deposit in the ECAL, while a charged hadron leaves behind ``hits'' in the tracker as well as a deposit in the HCAL. 
+By combining information from all of these detectors, the exact identity of any individual particle can, in principle, be inferred based on which detectors registered a signal. 
+Therefore, a full ``picture'' of each proton-proton collision event is recorded by CMS for further study. 
 The exact function of each subdetector layer described here is detailed below.
-
-\begin{figure}[htb]
-    \centering
-    \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/particle_id_sandwich.png}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/cms_slice.png}}
-    \caption{
-        A schematic of a generic, general-purpose particle detector (left) and a transverse slice of CMS (right), from Ref.~\cite{Barney:2120661}, showing the signals left by different kinds of particles.
-    }
-    \label{fig:cms_particle_id}
-\end{figure}
-
-\clearpage
 
 \subsection{Superconducting solenoid}
 The curve of a track is critical, as it allows us to infer the charge and momentum of a particle. 
@@ -147,7 +135,7 @@ In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or on
 \footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
 This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
 That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
-Outside of the solenoid volume, however, we still want a fairly uniform magnetic field in order to maintain good momentum resolution for muons. 
+We must also, however, have a fairly uniform magnetic field outside of the solenoid in order to maintain good momentum resolution for muons. 
 To achieve this, the iron support structures that hold CMS together are also designed to guide the magnetic field lines (Fig.~\ref{fig:cms_magnet_field}). 
 Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
 
@@ -207,10 +195,14 @@ In the barrel region, the modules are arranged in a cylindrical geometry paralle
 \end{figure}
 
 \subsection{Electromagnetic calorimeter}
+The ECAL consists of nearly 80\,000 lead tungstate crystals (Fig.~\ref{fig:cms_ecal_crystal})~\cite{CMSWebECAL}. 
+When an electron or photon passes through one of these crystals, they interact with the atoms in the crystal lattice, producing a cascading burst of photons. 
+This process is called ``scintillation,'' and the amount of light produced from one of these interactions is proportional to the energy of the impinging particle. 
+Each crystal is therefore connected to a photodetector that collects the light produced by the attached crystal and outputs an electric signal proportional to the amount of light collected. 
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_install.jpg}\label{fig:cms_ecal_intsall}}\quad
+    \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_install.jpg}\label{fig:cms_ecal_install}}\quad
     \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_crystal.jpg}\label{fig:cms_ecal_crystal}}
     \caption{
         A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed (left) and a physicist posed with the lead tungstade scintillator crystals used in the ECAL (right). 
@@ -226,16 +218,27 @@ In the barrel region, the modules are arranged in a cylindrical geometry paralle
     \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/hcal_removed.jpg}}\quad
     \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/hcal_russian.jpg}}
     \caption{
-        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decomissioned WWII artillery shells used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
+        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decomissioned World War II artillery shells used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
     }
     \label{fig:cms_hcal}
 \end{figure}
 
 \subsection{Muon chambers}
 
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/muon_DT_section.jpg}\label{fig:cms_muon_section}}\quad
+    \subfloat[]{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/muon_DT_diagram.png}\label{fig:cms_muon_diagram}}
+    \caption{
+        A photograph of a section of the barrel muon chambers (drift tubes) before they were installed (left), from Ref.~\cite{Hoch:1274451}, and a diagram of a drift tube muon detector (right), from Ref.~\cite{CMSWebMuonDT}. 
+    }
+    \label{fig:cms_muon}
+\end{figure}
+
 \clearpage
 
 \section{The high lumonisity era}
+
 \begin{figure}[!htb]
     \centering
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/cms/high_PU_30vtx_side.png}\label{fig:normal_pu}}\qquad
