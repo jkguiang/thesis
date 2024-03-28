@@ -132,7 +132,7 @@ The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization o
 \footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 such that it could be wheeled through the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
 It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
 In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
-\footnotetext{For scale, this is $100\,000$ times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
+\footnotetext{For scale, this is 100\,000 times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
 This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
 That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
 We must also, however, have a fairly uniform magnetic field outside of the solenoid in order to maintain good momentum resolution for muons. 
@@ -195,10 +195,17 @@ In the barrel region, the modules are arranged in a cylindrical geometry paralle
 \end{figure}
 
 \subsection{Electromagnetic calorimeter}
-The ECAL consists of nearly 80\,000 lead tungstate crystals (Fig.~\ref{fig:cms_ecal_crystal})~\cite{CMSWebECAL}. 
-When an electron or photon passes through one of these crystals, they interact with the atoms in the crystal lattice, producing a cascading burst of photons. 
-This process is called ``scintillation,'' and the amount of light produced from one of these interactions is proportional to the energy of the impinging particle. 
-Each crystal is therefore connected to a photodetector that collects the light produced by the attached crystal and outputs an electric signal proportional to the amount of light collected. 
+The ECAL (Fig.~\ref{fig:cms_ecal_install}) consists of nearly 80\,000 lead tungstate (PbWO$_4$) crystals\footnotemark{} (Fig.~\ref{fig:cms_ecal_crystal})~\cite{CMSWebECAL}. 
+\footnotetext{These crystals were grown in manufacturing plants in Russia and China and took roughly a decade to produce~\cite{CMSWebECAL}.}
+When an electron or photon passes through one of these crystals, they interact through the electromagnetic force with the atoms in the crystal lattice, producing a shower of photons. 
+This process is called ``scintillation'' and the amount of light produced from one of these interactions is proportional to the energy of the impinging particle. 
+Each PbWO$_4$ crystal is glued to a photodetector that collects the scintillation light by the attached crystal and outputs an electric signal proportional to the amount of light collected. 
+This signal can then be used to measure the energy of electrons and photons. 
+
+The probability of material interactions ocurring as well as the shape of the shower varies amongst scintillating materials. 
+Ultimately, PbWO$_4$ was selected for its short radiation length and small Moli\`ere radius~\cite{CERN-LHCC-97-033}, corresponding to a high probability of interactions and localized showers, respectively. 
+The former property is most obviously useful: a high probability of scintillation means electrons and photons are more efficiently collected by the ECAL. 
+The latter property, however, is also vital: localized showers are less likely to overlap, so individual particles can be resolved. 
 
 \begin{figure}[htb]
     \centering
@@ -212,15 +219,25 @@ Each crystal is therefore connected to a photodetector that collects the light p
 \end{figure}
 
 \subsection{Hadronic calorimeter}
+The HCAL (Fig.~\ref{fig:cms_hcal_removed}) is composed of interwoven layers of solid brass or steel plates and plastic scintillator tiles. 
+When a hadron interacts with one of the brass and steel ``absorber'' layers, a shower of secondary particles are created. % TODO: add some sort of shower pic, there is one in Kolanoski & Wermes (particle detectors book)
+The secondary particles pass through the next scintillator layer, creating scintillation light, then proceed to the next absober layer. 
+In this way, large cascading showers of secondary particles are produced according to the energy of the impinging particle, where each scintillator layer gives some measurement, or ``sample,'' of the original particle's energy. 
+
+This kind of calorimeter, which has alternating absorber and scintillator layers, is called a ``sampling'' calorimeter as opposed to a ``homogenous'' calorimeter, wherein a single medium is used to both create the shower and measure the energy. 
+Sampling calorimeters are typically less costly and give some information on the shape of the shower, whereas homogenous calorimeters have superior energy resolution. 
+In addition, almost all hadronic calorimeters are sampling calorimeters, since hadronic showers are typically very large, so a homogenous hadronic calorimeter would need to be infeasibly large. 
+At CMS, it is even more critical that the HCAL be compact, as every increase in size of the inner layers results in large increases in volume of the solenoid and muon chambers, resulting in enormous increases in energy and material costs. 
+In fact, the HCAL itself was already projected to be too costly due to the sheer amount of high-quality brass needed to create the absorber plates. 
+To save on costs, the Russian Navy was convinced---without much difficulty---to recycle over one million World War II artillery shells (Fig.~\ref{fig:cms_hcal_russian}), which were designed to withstand large amount of stress (read: explosions) and years at sea, for the cause. 
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/hcal_removed.jpg}}\quad
-    \subfloat{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/hcal_russian.jpg}}
+    \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/hcal_removed.jpg}\label{fig:cms_hcal_removed}}\quad
+    \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/hcal_russian.jpg}\label{fig:cms_hcal_russian}}
     \caption{
-        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decomissioned World War II artillery shells used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
+        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decomissioned World War II artillery shell casings used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
     }
-    \label{fig:cms_hcal}
 \end{figure}
 
 \subsection{Muon chambers}
