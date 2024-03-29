@@ -46,7 +46,7 @@ These collision points are surrounded by enormous, multi-layered particle detect
     \label{fig:lhc_dipole}
 \end{figure}
 
-The protons are accelerated in bunches of 115 billion, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
+The protons are accelerated in bunches, composed of approximately 115 billion protons each, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
 However, only a small portion of them actually collide. 
 During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
 A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
@@ -93,7 +93,7 @@ See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fi
 \end{figure}
 
 \subsection{Overview}
-CMS is composed of subdetectors arranged in concentric layers, where each layer interacts with, or completely absorbs, certain particles, producing an electric signal that can be used to measure some property of those particles. 
+The CMS Experiment is composed of subdetectors arranged in layers, where each layer interacts with or completely absorbs certain particles, producing an electric signal that can be used to measure some property of those particles. 
 The innermost layer is the silicon tracker, which allows for the reconstruction of the trajectories of throughgoing charged particles (``tracks''). 
 Next is the electromagnetic calorimeter (ECAL), which absorbs electrons and photons and records their individual energies. 
 After the ECAL, there is the hadronic calorimeter (HCAL), which instead absorbs hadrons and records their individual energies. 
@@ -172,8 +172,6 @@ The innermost layers comprise the ``inner tracker'' (Fig.~\ref{fig:cms_tracker_i
 In these layers, pixel modules are used because they have superior spatial resolution, allowing us to measure the first portion of each track precisely. 
 The outermost layers comprise the ``outer tracker'' (Fig.~\ref{fig:cms_tracker_outer}). 
 These layers use strip modules, which have worse spatial resolution than the pixel modules, but are easier to produce. 
-Both the inner and outer tracker have two regions: a barrel and forward, or ``endcap,'' region. 
-In the barrel region, the modules are arranged in a cylindrical geometry parallel to the beamline, while in the forward region, the modules tile a circular region perpendicular to the beamline. 
 
 \begin{figure}[htb]
     \centering
@@ -243,17 +241,21 @@ To save on costs, the Russian Navy was convinced---without much difficulty---to 
 
 \subsection{Muon chambers}
 The CMS muon system (Fig.~\ref{fig:cms_subdetector_layout}) was originally composed of three different kinds of detectors: drift tubes (DTs) in the barrel, cathode strip chambers (CSCs) in the endcaps, and resistive plate chambers (RPCs) interwoven between the layers of DTs or CSCs. 
-The DTs (Fig.~\ref{fig:cms_muon_DT}) and CSCs effectively serve as layers of an enormous tracker, where throughgoing muons leaves hits that can be used to reconstruct a track, and they operate on the same principle: muons pass through a chamber filled with gas, liberating electrons from the gas atoms; those electrons are then collected on conductive wires, resulting in an electric signal. % TODO: check this
-The RPCs, meanwhile, serve a separate purpose. % TODO: elaborate... used for triggering
+All of the different types of muon chambers operate on a similar principle: muons pass through a chamber filled with gas, liberating electrons from the gas atoms; those electrons are then collected on a conductive surface, resulting in an electric signal~\cite{CERN-LHCC-97-032}. 
+The DTs (Fig.~\ref{fig:cms_muon_DT}) and CSCs are assembled into multiple layers that serve as an enormous outer tracker (Fig.~\ref{fig:cms_muon_stations}) exclusively for muons. 
+DT and CSC modules also both have multiple inner layers in order to give a measurement of a muon's outer track accurate enough to be matched to its inner track in the silicon tracker. 
+The RPCs, meanwhile, are designed to give a much faster, if less accurate, measurement of each muon's momentum. 
+This measurement can be used to determine whether the proton-proton collision is interesting or not.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth,valign=c]{fig/cms/subdetector_layout.png}
+    \subfloat[]{\includegraphics[width=0.6\textwidth,valign=c]{fig/cms/subdetector_layout.png}\label{fig:cms_subdetector_layout}}\quad
+    \subfloat[]{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/muon_stations.png}\label{fig:cms_muon_stations}}
     \caption{
-        One quadrant of the cross section of CMS in the $r$-$z$ plane, showing the layout of the subdetectors, from Ref.~\cite{CMS:2018rym}. 
-        The DTs, CSCs, and RPCs are drawn in light green, dark green, and blue, respectively.
+        The cross section of CMS in the $r$-$z$ plane (left), from Ref.~\cite{CMS:2018rym}, and $r$-$\phi$ plane (right), from Ref.~\cite{CMSWebMuons}. 
+        In the $r$-$z$ plane, the DTs, CSCs, and RPCs are drawn in light green, dark green, and blue, respectively, showing the layout of the muon system as well as the other subdetectors. 
+        In the $r$-$\phi$ plane, the muon ``stations'' in the barrel are depicted with the DT internals exposed for stations with a throughgoing muon, showing the activation of the individual DT cells (blue) as well as the activiation of a section of the RPC (red).
     }
-    \label{fig:cms_subdetector_layout}
 \end{figure}
 
 \begin{figure}[htb]
