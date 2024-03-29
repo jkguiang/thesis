@@ -100,7 +100,7 @@ After the ECAL, there is the hadronic calorimeter (HCAL), which instead absorbs 
 These first three layers---the tracker, ECAL, and HCAL---are surrounded by the eponymous superconducting solenoid, which immerses them in an approximately uniform magnetic field that runs parallel to the beamline. 
 This is critical: charged particles fly along curved trajectories in a magnetic field according to their charge and momentum, so those properties can be inferred from a high-quality measurement of each particle's trajectory. 
 Finally, there are alternating layers of muon chambers, the other half of the experiment's namesake, and iron support structures. 
-The former, as the name suggests, detects throughgoing muons, which pass through all of the inner layers mostly unperturbed.
+The former detects throughgoing muons, which pass through all of the inner layers mostly unperturbed, and measures an additional portion of their tracks.
 However, the latter is equally important: the iron ``return yoke'' guides the magnetic field outside of the solenoid, absorbs stray particles that make it past the inner layers, and supports the immense weight of CMS itself. 
 By combining information from all of these detectors, the exact identity of any individual particle can, in principle, be inferred based on which detectors registered a signal. 
 Therefore, a full ``picture'' of each proton-proton collision event is recorded by CMS for further study. 
@@ -203,7 +203,7 @@ Each PbWO$_4$ crystal is glued to a photodetector that collects the scintillatio
 This signal can then be used to measure the energy of electrons and photons. 
 
 The probability of material interactions ocurring as well as the shape of the shower varies amongst scintillating materials. 
-Ultimately, PbWO$_4$ was selected for its short radiation length and small Moli\`ere radius~\cite{CERN-LHCC-97-033}, corresponding to a high probability of interactions and localized showers, respectively. 
+Ultimately, PbWO$_4$ was selected for its short radiation length and small Moli\`ere radius~\cite{CERN-LHCC-97-033}, corresponding to a high probability of interactions and showers localized mostly to a single crystal, respectively. 
 The former property is most obviously useful: a high probability of scintillation means electrons and photons are more efficiently collected by the ECAL. 
 The latter property, however, is also vital: localized showers are less likely to overlap, so individual particles can be resolved. 
 
@@ -219,17 +219,18 @@ The latter property, however, is also vital: localized showers are less likely t
 \end{figure}
 
 \subsection{Hadronic calorimeter}
-The HCAL (Fig.~\ref{fig:cms_hcal_removed}) is composed of interwoven layers of solid brass or steel plates and plastic scintillator tiles. 
+The HCAL (Fig.~\ref{fig:cms_hcal_removed}) is composed of interwoven layers of solid brass or steel plates and plastic scintillator tiles~\cite{CERN-LHCC-97-031}. 
 When a hadron interacts with one of the brass and steel ``absorber'' layers, a shower of secondary particles are created. % TODO: add some sort of shower pic, there is one in Kolanoski & Wermes (particle detectors book)
 The secondary particles pass through the next scintillator layer, creating scintillation light, then proceed to the next absober layer. 
 In this way, large cascading showers of secondary particles are produced according to the energy of the impinging particle, where each scintillator layer gives some measurement, or ``sample,'' of the original particle's energy. 
 
 This kind of calorimeter, which has alternating absorber and scintillator layers, is called a ``sampling'' calorimeter as opposed to a ``homogenous'' calorimeter, wherein a single medium is used to both create the shower and measure the energy. 
 Sampling calorimeters are typically less costly and give some information on the shape of the shower, whereas homogenous calorimeters have superior energy resolution. 
-In addition, almost all hadronic calorimeters are sampling calorimeters, since hadronic showers are typically very large, so a homogenous hadronic calorimeter would need to be infeasibly large. 
-At CMS, it is even more critical that the HCAL be compact, as every increase in size of the inner layers results in large increases in volume of the solenoid and muon chambers, resulting in enormous increases in energy and material costs. 
-In fact, the HCAL itself was already projected to be too costly due to the sheer amount of high-quality brass needed to create the absorber plates. 
-To save on costs, the Russian Navy was convinced---without much difficulty---to recycle over one million World War II artillery shells (Fig.~\ref{fig:cms_hcal_russian}), which were designed to withstand large amount of stress (read: explosions) and years at sea, for the cause. 
+In addition, almost all hadronic calorimeters are sampling calorimeters, homogenous hadronic calorimeter would need to be infeasibly large in order to contain a hadronic shower~\cite{KolanoskiWermesDetectors}. 
+It is even more critical that the HCAL be compact for CMS, as every increase in size of the inner layers results in large increases in volume of the solenoid and muon chambers, resulting in enormous increases in energy and material costs. 
+Due to these space constraints, an additional layer of the HCAL needed to be placed outside of the magnet in order to measure, and absorb, anything that made it past the bulk of the HCAL. 
+In fact, the HCAL was already projected to be too costly due to the sheer amount of high-quality brass needed to create the absorber plates. 
+To save on costs, the Russian Navy was convinced---without much difficulty---to recycle over one million World War II artillery shells (Fig.~\ref{fig:cms_hcal_russian}), which were designed to withstand large amount of stress (read: explosions) and years at sea, for the cause~\cite{CMSWebHCAL}. 
 
 \begin{figure}[htb]
     \centering
@@ -241,6 +242,19 @@ To save on costs, the Russian Navy was convinced---without much difficulty---to 
 \end{figure}
 
 \subsection{Muon chambers}
+The CMS muon system (Fig.~\ref{fig:cms_subdetector_layout}) was originally composed of three different kinds of detectors: drift tubes (DTs) in the barrel, cathode strip chambers (CSCs) in the endcaps, and resistive plate chambers (RPCs) interwoven between the layers of DTs or CSCs. 
+The DTs (Fig.~\ref{fig:cms_muon_DT}) and CSCs effectively serve as layers of an enormous tracker, where throughgoing muons leaves hits that can be used to reconstruct a track, and they operate on the same principle: muons pass through a chamber filled with gas, liberating electrons from the gas atoms; those electrons are then collected on conductive wires, resulting in an electric signal. % TODO: check this
+The RPCs, meanwhile, serve a separate purpose. % TODO: elaborate... used for triggering
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth,valign=c]{fig/cms/subdetector_layout.png}
+    \caption{
+        One quadrant of the cross section of CMS in the $r$-$z$ plane, showing the layout of the subdetectors, from Ref.~\cite{CMS:2018rym}. 
+        The DTs, CSCs, and RPCs are drawn in light green, dark green, and blue, respectively.
+    }
+    \label{fig:cms_subdetector_layout}
+\end{figure}
 
 \begin{figure}[htb]
     \centering
@@ -249,7 +263,7 @@ To save on costs, the Russian Navy was convinced---without much difficulty---to 
     \caption{
         A photograph of a section of the barrel muon chambers (drift tubes) before they were installed (left), from Ref.~\cite{Hoch:1274451}, and a diagram of a drift tube muon detector (right), from Ref.~\cite{CMSWebMuonDT}. 
     }
-    \label{fig:cms_muon}
+    \label{fig:cms_muon_DT}
 \end{figure}
 
 \clearpage
