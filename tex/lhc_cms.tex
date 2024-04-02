@@ -48,12 +48,23 @@ These collision points are surrounded by enormous, multi-layered particle detect
 
 The protons are accelerated in bunches, composed of approximately 115 billion protons each, so when the bunches are brought together (called a ``bunch crossing''), over 200 billion protons are brought very close together.
 However, only a small portion of them actually collide. 
-During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
+During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proton-proton (pp) collisions (e.g. Fig.~\ref{fig:normal_pu}) per bunch crossing on average, typically with only a single ``interesting'' collision (the ``primary vertex'') amongst them. % TODO: citation needed, plot or something of pileup needed
 A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
 To increase our odds of producing something truly interesting, the bunch crossings are spaced close together, with only 25 nanoseconds of separation. 
 To put this into context, the speed of light is roughly 1 ft/ns, so the next bunch crossing will occur before the light from a screen on one side of the CMS control room can reach the eyes of someone standing on the other side (approximately 39 feet~\cite{CMSP5Layout}).
 Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
 That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
+
+\subsection{Collision energy}
+The collision energy, often written as $\sqrt{s}$, is measured in electronvolts (eV), the standard unit of energy in particle physics---more specifically, teraelectronvolts (TeV), or trillions of eV. 
+In Run I of the LHC (2011--2012) the collision energy was ramped up to a maximum of 8\TeV, much lower than what the LHC was designed for. % TODO: citation needed
+This was done out of an abundance of caution due to the fact that the LHC exploded when it was first turned on in 2008. % TODO: citation needed
+Then, in Run II (2016--2018), the collision energy was increased to 13\TeV. 
+Over the course of Run III, the collision energy will be ramped up to 14\TeV, where it will be held for the remainder of the LHC's lifetime (Fig.~\ref{fig:hl_lhc_timeline}). 
+
+\subsection{Luminosity}
+The luminosity ($\Lumi$) is measured in the inverse of the units of a cross section---inverse femptobarns ($\fbinv$), in particular. 
+This allows for a quick calculation of how many pp collisions one can expect: simply multiply the lumonisity by the pp inelastic scattering cross section. 
 
 \clearpage
 
@@ -103,12 +114,12 @@ Finally, there are alternating layers of muon chambers, the other half of the ex
 The former detects throughgoing muons, which pass through all of the inner layers mostly unperturbed, and measures an additional portion of their tracks.
 However, the latter is equally important: the iron ``return yoke'' guides the magnetic field outside of the solenoid, absorbs stray particles that make it past the inner layers, and supports the immense weight of CMS itself. 
 By combining information from all of these detectors, the exact identity of any individual particle can, in principle, be inferred based on which detectors registered a signal. 
-Therefore, a full ``picture'' of each proton-proton collision event is recorded by CMS for further study. 
+Therefore, a full ``picture'' of each pp collision event is recorded by CMS for further study. 
 The exact function of each subdetector layer described here is detailed below.
 
 \subsection{Superconducting solenoid}
 The curve of a track is critical, as it allows us to infer the charge and momentum of a particle. 
-However, in a weak magnetic field, the particles produced at the LHC would have nearly straight tracks, due to the large proton-proton collision energy. 
+However, in a weak magnetic field, the particles produced at the LHC would have nearly straight tracks, due to the large pp collision energy. 
 The magnetic field inside of CMS must therefore be very large~\cite{CMSWebMagnet}. 
 It should also be nearly uniform everywhere in order to make the determination of each particle's charge and momentum as simple as possible. 
 The CMS magnet must also be large in dimension, however, as it must surround the tracker, ECAL, and HCAL, since it would otherwise block outgoing particles. 
@@ -158,7 +169,7 @@ Photographs of these trails were used to infer the identities of each particle.
 Still others used even more exotic non-electric solutions, like the OPERA Experiment, which used enormous layers of nuclear emulsion film (modified photography film) in which throughgoing particles would leave tiny black dots after the film was developed\footnotemark{}~\cite{Acquafredda:2009zz}---the experiment used over 100\,000 m$^2$ of emulsion film in total. 
 \footnotetext{Developing the film was quite an operation, and a large robotic arm was used to remove and replace the layers.}
 
-The leading challenge in designing the CMS tracker was the unprecedented level of radiation, due to the high frequency of proton-proton collisions which each produce many thousands of particles. 
+The leading challenge in designing the CMS tracker was the unprecedented level of radiation, due to the high frequency of pp collisions which each produce many thousands of particles. 
 Existing tracker designs, like the CDF Experiment's beautiful gas-and-wire tracker~\cite{CDF:2003xbh}, would quickly break down\footnotemark{} in this kind of environment.
 \footnotetext{In fact, the tracker section was left blank in the first CMS design document, since there were no known solutions at the time~\cite{CMSWebTracker}.}
 Thankfully, advances in radiation-hard electronics yielded a new solution. 
@@ -245,7 +256,7 @@ All of the different types of muon chambers operate on a similar principle: muon
 The DTs (Fig.~\ref{fig:cms_muon_DT}) and CSCs are assembled into multiple layers that serve as an enormous outer tracker (Fig.~\ref{fig:cms_muon_stations}) exclusively for muons. 
 DT and CSC modules also both have multiple inner layers in order to give a measurement of a muon's outer track accurate enough to be matched to its inner track in the silicon tracker. 
 The RPCs, meanwhile, are designed to give a much faster, if less accurate, measurement of each muon's momentum. 
-This measurement can be used to determine whether the proton-proton collision is interesting or not.
+This measurement can be used to determine whether the pp collision is interesting or not.
 
 \begin{figure}[htb]
     \centering
@@ -271,6 +282,20 @@ This measurement can be used to determine whether the proton-proton collision is
 \clearpage
 
 \section{The high lumonisity era}
+There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once, or the luminosity. 
+Since most of the experiments serviced by the LHC were designed for pp collisions, and because the LHC is designed only for 14\TeV collision energies, the final era of LHC physics will see a massive increase in luminosity. 
+That is, at the ``high luminosity'' LHC (HL-LHC), there will be 100--200 concurrent pp collisions per bunch crossing (Fig.~\ref{fig:high_pu}), corresponding to an increase by a factor of 5--7.5.
+More collisions means more opportunities for interesting physics. 
+For example, in 2017, the LHC produced 3 million Higgs bosons per year, whereas the HL-LHC will produce over 15 million per year~\cite{HighLumiWebFacts}. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth,valign=c]{fig/lhc/hl_lhc_timeline.png}
+    \caption{
+        Lorem ipsum.
+    }
+    \label{fig:hl_lhc_timeline}
+\end{figure}
 
 \begin{figure}[!htb]
     \centering
@@ -278,13 +303,7 @@ This measurement can be used to determine whether the proton-proton collision is
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/cms/high_PU_130vtx.png}\label{fig:high_pu}}
     \caption{
         A collision event with standard pileup (a) recorded at CMS in 2016 is shown next to an event with HL-LHC-like pileup (b) recorded at CMS in the same year, from Refs.~\cite{NormalPU2016, HighPU2016}.
-        The dots are proton-proton collisions and the thin lines are the reconstructed particle tracks.
+        The dots are pp collisions and the thin lines are the reconstructed particle tracks.
     }
     \label{fig:pileup}
 \end{figure}
-% What is HL?
-%    - show pileup plots, maybe side AND 3D volume
-% What upgrades?
-%    - Give a basic overview: MTD, ph2 tracker, HGCAL
-% What benefits does it bring?
-%    - Find some papers...
