@@ -22,7 +22,7 @@ These collision points are surrounded by enormous, multi-layered particle detect
     \label{fig:lhc_depth}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/lhc/lhc_complex.png}
     \caption{
@@ -57,16 +57,29 @@ That is, they must be able to resolve the particles from the primary vertex amon
 
 \subsection{Collision energy}
 The collision energy, often written as $\sqrt{s}$, is measured in electronvolts (eV), the standard unit of energy in particle physics---more specifically, teraelectronvolts (TeV), or trillions of eV. 
-In Run I of the LHC (2011--2012) the collision energy was ramped up to a maximum of 8\TeV, much lower than what the LHC was designed for. % TODO: citation needed
+In Run I of the LHC (2009--2013) the collision energy was ramped up to a maximum of 8\TeV, much lower than what the LHC was designed for. % TODO: citation needed
 This was done out of an abundance of caution due to the fact that the LHC exploded when it was first turned on in 2008. % TODO: citation needed
 Then, in Run II (2016--2018), the collision energy was increased to 13\TeV. 
-Over the course of Run III, the collision energy will be ramped up to 14\TeV, where it will be held for the remainder of the LHC's lifetime (Fig.~\ref{fig:hl_lhc_timeline}). 
+Over the course of Run III, the collision energy will be ramped up to 14\TeV, where it will be held for the remainder of the LHC's lifetime. 
 
 \subsection{Luminosity}
-The luminosity ($\Lumi$) is measured in the inverse of the units of a cross section---inverse femptobarns ($\fbinv$), in particular. 
-This allows for a quick calculation of how many pp collisions one can expect: simply multiply the lumonisity by the pp inelastic scattering cross section. 
+The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the desired particle interactions. 
+It is thus measured in the inverse units of a cross section, namely cm$^{-2}$ or inverse barns (b$^{-2}$)---or, at LHC scales, inverse femptobarns (\fbinv).
+At the LHC, \Lumi is a measure of the ability to initiate pp collisions. 
+Immediately, it is clear that \Lumi should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
+This is called the \textit{instantaneous} lumonisity, or how many interactions are initiated at any one time. 
+We can also consider the \textit{integrated} luminosity, or the total number of interactions initiated over some period of time---as the name suggests, this is simply an integral of the instantaneous luminosity. 
+Put simply, the integrated lumonisity represents the rate at which interactions occur at the LHC, while the integrated luminosity is a compact shorthand for how many interactions occured at the LHC during some period of data-taking. 
+For example, With the LHC operating at an instantaneous luminosity of $\Lumi = 1\times10^{34}$ cm$^{-2}$s$^{-1}$, given the pp inelastic scattering cross section at 13\TeV ($\sigma = 71.3$ millibarns~\cite{CMS-PAS-FSQ-15-005}), we can expect $\Lumi\times\sigma = 713$ million pp collisions per second, or 11.24 quadrillion pp collisions over 6 months. 
+Importantly, a more specific cross section $\sigma$---the cross section for a Higgs boson to be produced in a pp collision, for instance---can be used. 
 
-\clearpage
+Based on intuition, we can guess that the luminosity must be a function of the number of protons in a bunch, the bunch spacing, and the exact dynamics of the bunch crossing. 
+Indeed, at the LHC, we define the instantaneous lumonisity as follows:
+\begin{equation}
+    \Lumi = \gamma\frac{n_\mathrm{b}N^2f_\text{rev}}{4\pi\beta^{*}\epsilon_\mathrm{n}}R
+\end{equation}
+where $n_\mathrm{b}$ is the number of bunches per beam, $N$ is the number of protons per bunch, and $f_\text{rev}$ is the frequency at which bunches revolve around the LHC ring, while $\gamma$ comes from special relativity and $\beta^{*}$, $R$, and $\epsilon_\mathrm{n}$ represent physical properties of the proton beams. 
+Therefore, in order to modify the rate at which interactions may occur, we have several parameters that we can tune.
 
 \section{The Compact Muon Solenoid}
 The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisons, and LHCb, for studying b quarks. 
@@ -279,7 +292,20 @@ This measurement can be used to determine whether the pp collision is interestin
     \label{fig:cms_muon_DT}
 \end{figure}
 
-\clearpage
+\section{Trigger system}
+With bunch crossings every 25 ns, the CMS Experiment would produce 30 terabytes per second (TB/s) if every bunch crossing was recorded. 
+Within 24 hours, CMS alone would produce over 2 \textit{exabytes} of data---within a week, CMS could thus easily overwhelm CERN's storage capacity. 
+However, pp collisions rarely produce something worth studying like a Higgs boson, vector boson (\PW or \PZ), or something new, which had better be rare, else we should have seen it already. 
+We can therefore discard most of the data recorded by CMS, making its continued operation sustainable. 
+
+The CMS Experiment has a two-stage trigger system for identifying interesting events. 
+The first stage, called the ``Level 1'' (L1) trigger, takes raw data from the calorimeters and muon chambers and makes a decision on whether to keep or discard the event. 
+This decision making is implemented with dedicated hardware (FPGAs), so it can run synchonously with the pp collisions. 
+Although it can only make very simple decisions, the L1 trigger reduces the output of CMS from 40 million events per second down to 100\,000 by discarding events that are obviously uninteresting. 
+The second stage, called the ``high level'' trigger (HLT), relies on high-throughput software (written in C++), rather than specialized hardware, to reduce the event rate from 100\,000 events per second to 1\,000. 
+The HLT is designed to ingest more sophisticated input and thus make more precise decisions. 
+In particular, events are processed along trigger ``paths,'' representing different sets of selections. 
+Passing events are then sorted and written to disk for further processing. 
 
 \section{The high lumonisity era}
 There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once, or the luminosity. 
@@ -287,15 +313,6 @@ Since most of the experiments serviced by the LHC were designed for pp collision
 That is, at the ``high luminosity'' LHC (HL-LHC), there will be 100--200 concurrent pp collisions per bunch crossing (Fig.~\ref{fig:high_pu}), corresponding to an increase by a factor of 5--7.5.
 More collisions means more opportunities for interesting physics. 
 For example, in 2017, the LHC produced 3 million Higgs bosons per year, whereas the HL-LHC will produce over 15 million per year~\cite{HighLumiWebFacts}. 
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.9\textwidth,valign=c]{fig/lhc/hl_lhc_timeline.png}
-    \caption{
-        Lorem ipsum.
-    }
-    \label{fig:hl_lhc_timeline}
-\end{figure}
 
 \begin{figure}[!htb]
     \centering
@@ -307,3 +324,24 @@ For example, in 2017, the LHC produced 3 million Higgs bosons per year, whereas 
     }
     \label{fig:pileup}
 \end{figure}
+
+Significant upgrades to the LHC as well as its experiments are needed to enable HL-LHC operations. 
+The CMS Experiment, in particular, will receive several enhancements: 
+\begin{itemize}
+    \item{
+        \textit{Enhanced silicon tracker}: 
+        The tracking modules in the outer tracker will be replaced with bilayer modules that give an approximation of a throughgoing particle's \pt. 
+        These modules will give new information to the L1 trigger as well as providing an opportunity for an entirely new paradigm for offline track reconstruction (Ch.~\ref{ch:lst}). 
+    }
+    \item{
+        \textit{Timing detector}: 
+        A new detector will be added between the tracker and ECAL that provides a precise measurement of when each particle passed through it. 
+        This effectively adds another dimension (time) to particle identification, allowing for greater mitigation of pileup. 
+    }
+    \item{
+        \textit{High granularity calorimeter}: 
+        The forward sections of the ECAL and HCAL will be entirely replaced with a new calorimeter that incorporates layers of silicon detectors. 
+        This will give timing information for PU mitigation, higher resolution, and more. 
+    }
+\end{itemize}
+The muon chambers and trigger system will also see significant upgrades, along with a major overhaul of much of the less glorious hardware.
