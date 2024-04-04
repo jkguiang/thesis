@@ -63,7 +63,7 @@ Then, in Run II (2016--2018), the collision energy was increased to 13\TeV.
 Over the course of Run III, the collision energy will be ramped up to 14\TeV, where it will be held for the remainder of the LHC's lifetime. 
 
 \subsection{Luminosity}
-The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the desired particle interactions. 
+The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the desired particle interactions~\cite{Herr:941318}. 
 It is thus measured in the inverse units of a cross section, namely cm$^{-2}$ or inverse barns (b$^{-2}$)---or, at LHC scales, inverse femptobarns (\fbinv).
 At the LHC, \Lumi is a measure of the ability to initiate pp collisions. 
 Immediately, it is clear that \Lumi should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
@@ -78,10 +78,10 @@ Indeed, at the LHC, we define the instantaneous lumonisity as follows:
 \begin{equation}
     \Lumi = \gamma\frac{n_\mathrm{b}N^2f_\text{rev}}{4\pi\beta^{*}\epsilon_\mathrm{n}}R
 \end{equation}
-where $n_\mathrm{b}$ is the number of bunches per beam, $N$ is the number of protons per bunch, and $f_\text{rev}$ is the frequency at which bunches revolve around the LHC ring, while $\gamma$ comes from special relativity and $\beta^{*}$, $R$, and $\epsilon_\mathrm{n}$ represent physical properties of the proton beams. 
+where $n_\mathrm{b}$ is the number of bunches per beam, $N$ is the number of protons per bunch, and $f_\text{rev}$ is the frequency at which bunches revolve around the LHC ring, while $\gamma$ comes from special relativity and $\beta^{*}$, $R$, and $\epsilon_\mathrm{n}$ represent physical properties of the proton beams~\cite{Aberle:2749422}. 
 Therefore, in order to modify the rate at which interactions may occur, we have several parameters that we can tune.
 
-\section{The Compact Muon Solenoid}
+\section{The Compact Muon Solenoid}\label{sec:cms}
 The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisons, and LHCb, for studying b quarks. 
 \footnotetext{Whereas ATLAS is, putting it politely, a rather creative acronym: ``A Toroidal LHC ApparatuS.''}
 Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoid magnets~\cite{ATLASWeb, CMSWeb}. 
@@ -309,7 +309,7 @@ Passing events are then sorted and written to disk for further processing.
 
 \section{The high lumonisity era}
 There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once, or the luminosity. 
-Since most of the experiments serviced by the LHC were designed for pp collisions, and because the LHC is designed only for 14\TeV collision energies, the final era of LHC physics will see a massive increase in luminosity. 
+Since most of the experiments serviced by the LHC were designed for pp collisions, and because the LHC is designed only for $\sqrt{s} = 14\TeV$, the final era of LHC physics will see a massive increase in luminosity. 
 That is, at the ``high luminosity'' LHC (HL-LHC), there will be 100--200 concurrent pp collisions per bunch crossing (Fig.~\ref{fig:high_pu}), corresponding to an increase by a factor of 5--7.5.
 More collisions means more opportunities for interesting physics. 
 For example, in 2017, the LHC produced 3 million Higgs bosons per year, whereas the HL-LHC will produce over 15 million per year~\cite{HighLumiWebFacts}. 
@@ -325,21 +325,21 @@ For example, in 2017, the LHC produced 3 million Higgs bosons per year, whereas 
     \label{fig:pileup}
 \end{figure}
 
-Significant upgrades to the LHC as well as its experiments are needed to enable HL-LHC operations. 
-The CMS Experiment, in particular, will receive several enhancements: 
+Significant modifications to the LHC as well as its experiments are needed to enable HL-LHC operations. 
+The CMS Experiment, in particular, will receive several upgrades: 
 \begin{itemize}
     \item{
-        \textit{Enhanced silicon tracker}: 
+        \textit{Enhanced silicon tracker}~\cite{CERN-LHCC-2017-009}: 
         The tracking modules in the outer tracker will be replaced with bilayer modules that give an approximation of a throughgoing particle's \pt. 
-        These modules will give new information to the L1 trigger as well as providing an opportunity for an entirely new paradigm for offline track reconstruction (Ch.~\ref{ch:lst}). 
+        These modules will give the L1 trigger new information as well as provide an opportunity for an entirely new paradigm for offline track reconstruction (Ch.~\ref{ch:lst}). 
     }
     \item{
-        \textit{Timing detector}: 
+        \textit{Timing detector}~\cite{CERN-LHCC-2017-027}: 
         A new detector will be added between the tracker and ECAL that provides a precise measurement of when each particle passed through it. 
         This effectively adds another dimension (time) to particle identification, allowing for greater mitigation of pileup. 
     }
     \item{
-        \textit{High granularity calorimeter}: 
+            \textit{High granularity calorimeter}~\cite{CERN-LHCC-2017-023, CERN-LHCC-2017-011}: 
         The forward sections of the ECAL and HCAL will be entirely replaced with a new calorimeter that incorporates layers of silicon detectors. 
         This will give timing information for PU mitigation, higher resolution, and more. 
     }

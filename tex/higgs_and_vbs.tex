@@ -29,7 +29,7 @@ The $\kappa$-framework is not the only framework used to understand and quantify
 The dominant Higgs boson production mechanism at the LHC is gluon-gluon fusion through a top quark loop. % TODO: add feynman diagrams, cite PDG?
 Through these processes, the Higgs boson was discovered and many of its branching ratios and couplings have been measured precisely. 
 However, additional production mechanisms can yield unique insights. 
-Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off of each other by the exchange of vector bosons ($\PV = \PW$ or $\PZ$). % TODO: add feynman diagram, ideally with "here there be monsters" circle with stuff coming out
+Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off of each other by the exchange of vector bosons ($\PV = \PW$ or \PZ). % TODO: add feynman diagram, ideally with "here there be monsters" circle with stuff coming out
 \footnotetext{Although VBS specifically implies the production of two vector bosons, while vector boson fusion (VBF) implies the production of a single Higgs or vector boson~\cite{RauchVBSVBF2016}, the names VBS and VBF are used interchangeably; since we are interested in the production of a Higgs boson and one or two vector bosons, the naming is anyway ambiguous.}
 This exchange can, in turn, produce a variety of physics, most notably the production of at least one Higgs boson. 
 This process also has two important features. 
@@ -58,24 +58,26 @@ We call the selected processes our ``signal.''
 For example, if we are interested in $\HHVV$, as in Ch.~\ref{ch:vbsvvh}, our signal might be VBS production of a Higgs boson and two vector bosons. 
 We must then find our signal, which is often incredibly rare, amongst petabytes of data recorded by CMS. 
 
-\section{Overview of a VBS Higgs analysis}
-We must first consider how it is recorded by CMS in the first place. 
-Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
-This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
-The presence of VBS quarks is therefore inferred from two jets, rather than neatly isolated objects, that are back-to-back. 
-The Higgs boson and vector bosons, however, decay almost immediately to quarks (which become jets), leptons (which \textit{are} nicely isolated objects), or sometimes to a pair of vector bosons\footnotemark{} (which again immediately decay). 
-\footnotetext{Of course, the Higgs boson can, uniquely, also decay to a pair of Higgs bosons through the $\HHH$ coupling.}
+\section{Choosing a final state}
+The final collection of particles that are actually recorded by CMS are called the ``final state.'' 
+As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and photons. % TODO: continue; talk about how H and V decay, we choose those decays, etc.
+All other SM particles---Higgs bosons, vector bosons, and gluons---decay to these particles, and we hope that BSM particles might as well. 
+% However, the Higgs boson decays almost immediately to, in order of likelihood, quarks, leptons, a pair of vector bosons, or a pair of Higgs bosons.  
+% Vector bosons, namely the \PW and \PZ bosons, similarly decay almost immediately to leptons, quarks, or a pair of vector bosons. 
+% There are therefore a large variety of final states to choose from
+% The presence of VBS quarks is therefore inferred from the presence of two jets, rather than neatly isolated objects, that are back-to-back. 
+% The Higgs boson and vector bosons, meanwhile, decay almost immediately to quarks (which become jets), leptons (which \textit{are} nicely isolated objects), or sometimes to a pair of vector bosons\footnotemark{} (which again immediately decay). 
+% \footnotetext{Of course, the Higgs boson can, uniquely, also decay to a pair of Higgs bosons through the $\HHH$ coupling.}
 We must therefore decide on which Higgs boson and vector boson decays to target. 
-For convenience, we often prefer to look for $\Htobb$, since that decay has the highest branching ratio (i.e. a Higgs boson is most likely to decay to a $\bbbar$). 
+For convenience, we often prefer to look for \Htobb, since that decay has the highest branching ratio (i.e. a Higgs boson is most likely to decay to a \bbbar). 
 The choice for the decay of the vector bosons is less clear. 
 The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are easier to spot, but are more rare. 
 On the other hand, the hadronic decays ($\PV\to\qq$) are more plentiful, but are difficult to distinguish from far more abundant processes. 
-This final collection of particles that are actually recorded by CMS are called the ``final state.'' 
-In Chapter~\ref{ch:vbsvvh}, for example, there are two VBS jets, $\bbbar$ from the Higgs, and a pair of quarks from the hadronic decay of each vector boson. 
+In Chapter~\ref{ch:vbsvvh}, for example, there are two VBS jets, \bbbar from the Higgs, and a pair of quarks from the hadronic decay of each vector boson. 
 
-\subsection{Common backgrounds}
+\section{Common backgrounds}
 
-\subsection{Isolating the signal}
+\section{Isolating the signal}
 With our signal selected, and the background composition understood, we may begin our analysis of the hundreds of petabytes of data collected by CMS. 
 First, we try to ``reconstruct'' each particle produced in a given proton-proton collision, namely leptons and jets. 
 Then, we develop an optimized selection strategy, using only simulated signal and background events to start, that picks out proton-proton collision events containing the final state of our signal. 
@@ -104,16 +106,28 @@ In Chapters~\ref{ch:vbswh} and \ref{ch:vbsvvh}, we will see them implemented in 
 \subsubsection{Electrons and muons}
 \subsubsection{Tau leptons}
 \subsubsection{Neutrinos}
+
 \subsection{Jets}
+Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
+This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
+
 \subsubsection{Jets originating from VBS quarks}\label{sec:vbsjets}
+The presence of VBS quarks is inferred from the presence of two jets that are back-to-back. % TODO: add event display or something showing this, maybe detajj histogram
+
 \subsubsection{Jets originating from b quarks}
 
 \section{Simulation}
 
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
-We do this in a particular order, however, because of the sheer size of our data. 
+We do this in a particular order, however, because of the sheer size of our data. % TODO: maybe add a diagram here, showing some sort of cut flow or logical flow for data and MC
+
 \subsection{Triggers}
+We first select the HLT paths most relevant to the chosen final state. 
+For example, if the final state includes one lepton---say, from the leptonic decay of a \PW boson---then then we would select the single-lepton HLT paths. 
+This isolates a portion of the petabytes of CMS data that are relevant for analysis. 
+The HLT paths are also implemented in the simulation, so we will require that simulated events pass the same HLT paths as the data. 
+
 \subsection{Signal regions}
 \subsection{Control regions}
 \subsection{Background estimation}
