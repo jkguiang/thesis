@@ -52,11 +52,11 @@ During ``Run 2'' of the LHC from 2016 to 2018, for instance, there were 30 proto
 A collision is deemed interesting if it initiates a process that a physicist at the LHC wants to study (e.g. Fig.~\ref{fig:vbswh_feynman})---the non-interesting collisions are called ``pileup.'' 
 To increase our odds of producing something truly interesting, the bunch crossings are spaced close together, with only 25 nanoseconds of separation. 
 To put this into context, the speed of light is roughly 1 ft/ns, so the next bunch crossing will occur before the light from a screen on one side of the CMS control room can reach the eyes of someone standing on the other side (approximately 39 feet~\cite{CMSP5Layout}).
-Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
-That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
+% Therefore, particle detectors on the LHC must be capable of excellent resolution \textit{and} high throughput. 
+% That is, they must be able to resolve the particles from the primary vertex amongst the many others produced by the pileup, all within the 25 ns between bunch crossings. 
 
 \subsection{Collision energy}
-The collision energy, often written as $\sqrt{s}$, is measured in electronvolts (eV), the standard unit of energy in particle physics---more specifically, teraelectronvolts (TeV), or trillions of eV. 
+The collision energy, often written as $\sqrt{s}$, is measured in electronvolts (eV), the standard unit of energy in particle physics---at LHC scales, teraelectronvolts (\TeVns), or trillions of eV, are the relevant units. 
 In Run I of the LHC (2009--2013) the collision energy was ramped up to a maximum of 8\TeV, much lower than what the LHC was designed for. % TODO: citation needed
 This was done out of an abundance of caution due to the fact that the LHC exploded when it was first turned on in 2008. % TODO: citation needed
 Then, in Run II (2016--2018), the collision energy was increased to 13\TeV. 
@@ -64,13 +64,13 @@ Over the course of Run III, the collision energy will be ramped up to 14\TeV, wh
 
 \subsection{Luminosity}
 The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the desired particle interactions~\cite{Herr:941318}. 
-It is thus measured in the inverse units of a cross section, namely cm$^{-2}$ or inverse barns (b$^{-2}$)---or, at LHC scales, inverse femptobarns (\fbinv).
+It is thus measured in the inverse units of a cross section, namely cm$^{-2}$ or inverse barns (b$^{-1}$)---or, at LHC scales, inverse femptobarns (\fbinv).
 At the LHC, \Lumi is a measure of the ability to initiate pp collisions. 
 Immediately, it is clear that \Lumi should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
 This is called the \textit{instantaneous} lumonisity, or how many interactions are initiated at any one time. 
 We can also consider the \textit{integrated} luminosity, or the total number of interactions initiated over some period of time---as the name suggests, this is simply an integral of the instantaneous luminosity. 
 Put simply, the integrated lumonisity represents the rate at which interactions occur at the LHC, while the integrated luminosity is a compact shorthand for how many interactions occured at the LHC during some period of data-taking. 
-For example, With the LHC operating at an instantaneous luminosity of $\Lumi = 1\times10^{34}$ cm$^{-2}$s$^{-1}$, given the pp inelastic scattering cross section at 13\TeV ($\sigma = 71.3$ millibarns~\cite{CMS-PAS-FSQ-15-005}), we can expect $\Lumi\times\sigma = 713$ million pp collisions per second, or 11.24 quadrillion pp collisions over 6 months. 
+For example, with the LHC operating at an instantaneous luminosity of $\Lumi = 1\times10^{34}$ cm$^{-2}$s$^{-1}$, given the pp inelastic scattering cross section at 13\TeV ($\sigma = 71.3$ millibarns~\cite{CMS-PAS-FSQ-15-005}), we can expect $\Lumi\times\sigma = 713$ million pp collisions per second, or 11.24 quadrillion pp collisions over 6 months. 
 Importantly, a more specific cross section $\sigma$---the cross section for a Higgs boson to be produced in a pp collision, for instance---can be used. 
 
 Based on intuition, we can guess that the luminosity must be a function of the number of protons in a bunch, the bunch spacing, and the exact dynamics of the bunch crossing. 
@@ -84,7 +84,7 @@ Therefore, in order to modify the rate at which interactions may occur, we have 
 \section{The Compact Muon Solenoid}\label{sec:cms}
 The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisons, and LHCb, for studying b quarks. 
 \footnotetext{Whereas ATLAS is, putting it politely, a rather creative acronym: ``A Toroidal LHC ApparatuS.''}
-Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoid magnets~\cite{ATLASWeb, CMSWeb}. 
+Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoids~\cite{ATLASWeb, CMSWeb}. 
 See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fig:cms_pics} and \ref{fig:cms_jguiang} for some beauty shots. 
 
 \begin{figure}[htb]
@@ -155,13 +155,13 @@ This is not true outside of the helix where the magnetic field lines curve in sp
 The CMS magnet~\cite{CERN-LHCC-97-010} is a massive\footnotemark{} realization of a solenoid. 
 \footnotetext{It was built offsite, however, so it needed to be designed to fit within 7 such that it could be wheeled through the streets in Cessy, France (under which CMS is situated)~\cite{CMSWebMagnet}.}
 It is comprised of over 2000 turns of Rutherford wire, which has a rectangular cross section (Fig.~\ref{fig:cms_magnet}). 
-In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current of 20 kiloamperes\footnotemark{} can be passed through the coil without destroying it. 
+In operation, it is cooled to superconducting temperatures (-268.5 \de{}C, or one degree warmer than outer space), such that a high current (20 kiloamperes\footnotemark{}) can be passed through the coil without violently destroying it. 
 \footnotetext{For scale, this is 100\,000 times larger than the minimum fatal current for humans (100--200 milliamperes)~\cite{10.1093/ptj/46.9.968}.}
 This configuration allows the CMS magnet to produce a mostly uniform magnetic field of 4 T inside of the solenoid volume. 
 That is 2--4 times larger than an MRI, which are typically 0.5--1.5 T~\cite{Berger2002-gs}, within a volume that is 1000 times larger. % TODO: citation needed for volume of an MRI?
 We must also, however, have a fairly uniform magnetic field outside of the solenoid in order to maintain good momentum resolution for muons. 
 To achieve this, the iron support structures that hold CMS together are also designed to guide the magnetic field lines (Fig.~\ref{fig:cms_magnet_field}). 
-Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane. 
+Inside of the iron, the magnetic field runs almost uniformly parallel to the field inside of the solenoid, but in the opposite direction---this gives muon tracks a characteristic S-shape in the transverse plane (Fig.~\ref{fig:cms_muon_diagram}). 
 
 \begin{figure}[htb]
     \centering

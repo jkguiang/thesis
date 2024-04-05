@@ -60,38 +60,24 @@ We must then find our signal, which is often incredibly rare, amongst petabytes 
 
 \section{Choosing a final state}
 The final collection of particles that are actually recorded by CMS are called the ``final state.'' 
-As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and photons. % TODO: continue; talk about how H and V decay, we choose those decays, etc.
+As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and photons. 
 All other SM particles---Higgs bosons, vector bosons, and gluons---decay to these particles, and we hope that BSM particles might as well. 
-% However, the Higgs boson decays almost immediately to, in order of likelihood, quarks, leptons, a pair of vector bosons, or a pair of Higgs bosons.  
-% Vector bosons, namely the \PW and \PZ bosons, similarly decay almost immediately to leptons, quarks, or a pair of vector bosons. 
-% There are therefore a large variety of final states to choose from
-% The presence of VBS quarks is therefore inferred from the presence of two jets, rather than neatly isolated objects, that are back-to-back. 
-% The Higgs boson and vector bosons, meanwhile, decay almost immediately to quarks (which become jets), leptons (which \textit{are} nicely isolated objects), or sometimes to a pair of vector bosons\footnotemark{} (which again immediately decay). 
-% \footnotetext{Of course, the Higgs boson can, uniquely, also decay to a pair of Higgs bosons through the $\HHH$ coupling.}
-We must therefore decide on which Higgs boson and vector boson decays to target. 
-For convenience, we often prefer to look for \Htobb, since that decay has the highest branching ratio (i.e. a Higgs boson is most likely to decay to a \bbbar). 
+Importantly, SM particles can also decay to neutrinos, which pass through CMS completely undetected, and it is possible that BSM particles are similarly missed. 
+The presence of these particles can be inferred, however (Sec.~\ref{sec:met}). 
+
+When we say we are looking for VBS production of a Higgs boson and two vector bosons, for example, we are really looking for two quarks (VBS) and the decay products of the bosons. 
+Some final states are preferable over others, however. 
+For convenience, we often prefer to look for \Htobb, since a Higgs boson is most likely to decay to \bbbar (i.e. \Htobb has the highest ``branching ratio''). 
 The choice for the decay of the vector bosons is less clear. 
 The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are easier to spot, but are more rare. 
 On the other hand, the hadronic decays ($\PV\to\qq$) are more plentiful, but are difficult to distinguish from far more abundant processes. 
-In Chapter~\ref{ch:vbsvvh}, for example, there are two VBS jets, \bbbar from the Higgs, and a pair of quarks from the hadronic decay of each vector boson. 
-
-\section{Common backgrounds}
-
-\section{Isolating the signal}
-With our signal selected, and the background composition understood, we may begin our analysis of the hundreds of petabytes of data collected by CMS. 
-First, we try to ``reconstruct'' each particle produced in a given proton-proton collision, namely leptons and jets. 
-Then, we develop an optimized selection strategy, using only simulated signal and background events to start, that picks out proton-proton collision events containing the final state of our signal. 
-Once we are satisfied, we can count how many signal events we expect to pass our selection. 
-We must also evaluate a thorough set of systematic uncertainties on that count. 
-Depending on how we predict how many background events pass our selection, we may also need to evaluate systematic uncertainties on the background count. 
-Finally, we take the expected signal count $S$ and predicted background count $B$ and compare them to the number of real proton-proton collisions that pass our selections. 
-If the signal exists, then the real count should be roughly equal to $S+B$.
-Otherwise, if we did our accounting correctly, the real count should be roughly equal to $B$. 
-We use statistics (formally called ``hypothesis testing'') to do this comparison rigorously. 
-The steps outlined here are detailed in the sections below. 
-In Chapters~\ref{ch:vbswh} and \ref{ch:vbsvvh}, we will see them implemented in real analyses. 
 
 \section{Reconstruction}
+The subdetectors that comprise CMS produce a set of electric signals that are digitized into data that can be used as measurements of physical quantities. 
+Moreover, when associated to one another, these measurements can also be used to ascertain the identity of detectable throughgoing particles (Fig.~\ref{fig:cms_particle_id}). 
+Electrons have a track associated with a hit in the ECAL whereas photons only leave a hit in the ECAL. 
+All hadrons leave a hit in the HCAL, while charged hadrons also have a track that can be associated to it. 
+Finally, muons have a track in the silicon tracker, pass through both calorimeters, and have a track in the muon chambers. 
 
 \begin{figure}[htb]
     \centering
@@ -105,7 +91,6 @@ In Chapters~\ref{ch:vbswh} and \ref{ch:vbsvvh}, we will see them implemented in 
 \subsection{Leptons}
 \subsubsection{Electrons and muons}
 \subsubsection{Tau leptons}
-\subsubsection{Neutrinos}
 
 \subsection{Jets}
 Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
@@ -116,7 +101,16 @@ The presence of VBS quarks is inferred from the presence of two jets that are ba
 
 \subsubsection{Jets originating from b quarks}
 
+\subsection{Missing energy}\label{sec:met}
+Protons collide along the z-axis with equal but opposite momenta so the system has a total momentum of zero. 
+Because of the conservation of momentum, the sum of the momenta of all produced particles must still be zero. 
+This is as true in the classical world as the quantum world. 
+The shrapnel from two colliding bullets, for instance, leaves the collision in a disk, so the total momentum is conserved~\cite{SmarterEveryDayBullets}. 
+Therefore, if an invisible particle is produced, its momentum will not be recorded, and the sum of momenta will be non-zero. 
+
 \section{Simulation}
+
+\section{Identifying backgrounds}
 
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
@@ -152,3 +146,23 @@ Finally, the maximum of the percent differences $\delta_\text{up}$ or $\delta_\t
 
 \section{Statistical interpretation}
 \subsection{Maximum likelihood estimate}
+
+% \section{Common backgrounds}
+% Of course, final states are not unique. 
+% For example, if we were searching for $\PZ\to\Pellp\Pellm$, and thus asked for collision events with two leptons with opposite charge, we would also get events where a \PWp and \PWm were produced and both decayed leptonically. 
+% We could also pick up events where \PW and \PZ boson were produced, and both decayed leptonically, but the lepton from the \PW was not recorded by CMS. 
+% These processes that produce the same final state, but are not the signal, are referred to as ``backgrounds.'' 
+
+% \section{Isolating the signal}
+% With our signal selected, and the background composition understood, we may begin our analysis of the hundreds of petabytes of data collected by CMS. 
+% First, we try to ``reconstruct'' each particle produced in a given pp collision, namely leptons and jets. 
+% Then, we develop an optimized selection strategy, using only simulated signal and background events to start, that picks out pp collision events containing the final state of our signal. 
+% Once we are satisfied, we can count how many signal events we expect to pass our selection. 
+% We must also evaluate a thorough set of systematic uncertainties on that count. 
+% Depending on how we predict how many background events pass our selection, we may also need to evaluate systematic uncertainties on the background count. 
+% Finally, we take the expected signal count $S$ and predicted background count $B$ and compare them to the number of real pp collisions that pass our selections. 
+% If the signal exists, then the real count should be roughly equal to $S+B$.
+% Otherwise, if we did our accounting correctly, the real count should be roughly equal to $B$. 
+% We use statistics (formally called ``hypothesis testing'') to do this comparison rigorously. 
+% The steps outlined here are detailed in the sections below. 
+% In Chapters~\ref{ch:vbswh} and \ref{ch:vbsvvh}, we will see them implemented in real analyses. 
