@@ -33,7 +33,7 @@ Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off
 \footnotetext{Although VBS specifically implies the production of two vector bosons, while vector boson fusion (VBF) implies the production of a single Higgs or vector boson~\cite{RauchVBSVBF2016}, the names VBS and VBF are used interchangeably; since we are interested in the production of a Higgs boson and one or two vector bosons, the naming is anyway ambiguous.}
 This exchange can, in turn, produce a variety of physics, most notably the production of at least one Higgs boson. 
 This process also has two important features. 
-First, it has a unique signature: the two scattered quarks fly out of the collision back-to-back, typically in the forward regions of the detector (Fig.~\ref{fig:vbs_fireworks}), with a large combined invariant mass. 
+First, it has a unique signature: the two scattered quarks fly out of the collision back-to-back, typically in the forward regions of the detector (Fig.~\ref{fig:vbs_fireworks}), with a large energies. 
 Second, but equally important, modifications to the Higgs couplings induce effects that grow with energy~\cite{HiggsWithoutHiggs}---at the LHC, where energy is plentiful, this makes BSM scenarios easier to spot. 
 
 \begin{figure}[htb]
@@ -91,7 +91,11 @@ These hits do not correspond to individual quarks---like the VBS quarks, for exa
 Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
 This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
 Fortunately, jets tend to be concentrated in relatively narrow cones, meaning individual jets---and thus, individual quarks---can usually be distinguished from one another. 
-Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters deposits in the calorimeters according to a configurable ``distance parameter,'' which corresponds to the size of the jet cone. % TODO: maybe explain deltaR = sqrt(dphi^2 + deta^2) and have a diagrame of a cone in CMS coordinates
+Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters deposits in the calorimeters according to a configurable ``distance parameter,'' which determines the size of the jet cone. % TODO: add a diagrame of a cone in CMS coordinates
+For normal jets, the distance parameter is set to 0.4, corresponding to $\DeltaR = 0.4$, where
+\begin{equation}
+    \DeltaR = \sqrt{\Delta\phi^2 + \Delta\eta^2}
+\end{equation}
 
 \subsubsection{Jets originating from \Pb quarks}
 While the presence of quarks can be inferred from the presence of jets, the identity (flavor) of each quark is less obvious. 
@@ -100,7 +104,7 @@ The B meson lifetime is sufficiently long such that it passes the first few laye
 When it decays, it produces several quarks and, potentially, a lepton. 
 This results in ``displaced'' tracks in the tracker that point to a ``secondary vertex'' (Fig.~\ref{fig:btagging_step2}) as opposed to the ``primary vertex,'' or the original pp collision. 
 The presence of a secondary vertex within a jet therefore gives a unique indication that it originated from a \Pb quark (Fig.~\ref{fig:btagging_step3}). 
-For CMS analysis, a deep neural network called \DeepJet was trained to use the presence of a secondary vertex, along with additional kinematic information about the jet and its constituents, to ``tag'' jets as originating from a \Pb quark. 
+For CMS analysis, a deep neural network called \DeepJet was trained to use the presence of a secondary vertex, along with additional kinematic information about the jet and its constituents, to ``tag'' jets as originating from a \Pb quark~\cite{Bols:2020bkb}. 
 
 \begin{figure}[htb]
     \centering
@@ -113,12 +117,20 @@ For CMS analysis, a deep neural network called \DeepJet was trained to use the p
     \label{fig:btagging}
 \end{figure}
 
+\subsubsection{Merged jets originating from \Htobb}
+In cases where a highly energetic particle decays to a pair of quarks, the resulting jets overlap or are near enough to each other to be difficult to separate. 
+This presents a unique signal: the two nearby jets can instead be found as a single, large-cone jet. 
+At CMS, a separate collection of jets is created, where the anti-\kt algorithm is used with a wider distance parameter---0.8, rather than 0.4. 
+In the work presented in this dissertation, we search for Higgs bosons decaying to \bbbar at high energies, tagged as a single merged jet. 
+This is made possible by a graph neural network, called \ParticleNet, trained for CMS analysis to identify the origins of merged jets based on the properties of its constituents, arranged in a graph-like data structure according to their proximity to one another~\cite{Qu:2019gqs}. 
+The merged jet with a mass similar to the Higgs boson, and a highest \ParticleNet \Xtobb score is considered as the best Higgs boson candidate.
+
 \subsubsection{Jets originating from VBS quarks}\label{sec:vbsjets}
 The presence of VBS quarks is inferred from the presence of two jets that are back-to-back. % TODO: add event display or something showing this, maybe detajj histogram
-
-\subsubsection{Merged jets}
-In cases where a highly energetic particle decays to a pair of quarks, however, the resulting jets overlap or are near enough to each other to be difficult to separate. 
-This presents a unique signal: the two nearby jets can instead be found as a single, large-cone jet. 
+In events where there are more than two additional jets that do not overlap with the Higgs boson candidate jet, the two best VBS jet candidates must be selected. 
+A unique VBS selection technique was derived for the work presented in this dissertation: 
+if all of the jets are in one hemisphere of $\eta$, then the two jets with the largest momenta are selected; 
+otherwise, the jet with the largest momentum in each $\eta$ hemisphere are selected. 
 
 \subsection{Leptons}
 For simplicity, when we consider ``leptons,'' we will exclusively mean those leptons that are directly detected by CMS, namely electrons and muons. 
