@@ -104,6 +104,7 @@ The B meson lifetime is sufficiently long such that it passes the first few laye
 When it decays, it produces several quarks and, potentially, a lepton. 
 This results in ``displaced'' tracks in the tracker that point to a ``secondary vertex'' (Fig.~\ref{fig:btagging_step2}) as opposed to the ``primary vertex,'' or the original pp collision. 
 The presence of a secondary vertex within a jet therefore gives a unique indication that it originated from a \Pb quark (Fig.~\ref{fig:btagging_step3}). 
+Particle tracks are therefore vital for \Pb-tagging, so \Pb-tagged jets must be within the fiducial region of the tracker ($\abs{\eta} < 2.5$). 
 For CMS analysis, a deep neural network called \DeepJet was trained to use the presence of a secondary vertex, along with additional kinematic information about the jet and its constituents, to ``tag'' jets as originating from a \Pb quark~\cite{Bols:2020bkb}. 
 
 \begin{figure}[htb]
@@ -123,6 +124,7 @@ This presents a unique signal: the two nearby jets can instead be found as a sin
 At CMS, a separate collection of jets is created, where the anti-\kt algorithm is used with a wider distance parameter---0.8, rather than 0.4. 
 In the work presented in this dissertation, we search for Higgs bosons decaying to \bbbar at high energies, tagged as a single merged jet. 
 This is made possible by a graph neural network, called \ParticleNet, trained for CMS analysis to identify the origins of merged jets based on the properties of its constituents, arranged in a graph-like data structure according to their proximity to one another~\cite{Qu:2019gqs}. 
+Similar to \Pb-tagging, merged jets considered for \Xtobb tagging, for instance, must be within the fiducial region of the tracker. 
 The merged jet with a mass similar to the Higgs boson, and a highest \ParticleNet \Xtobb score is considered as the best Higgs boson candidate.
 
 \subsubsection{Jets originating from VBS quarks}\label{sec:vbsjets}
@@ -149,7 +151,8 @@ Protons collide along the z-axis with equal but opposite momenta so the system h
 Because of the conservation of momentum, the sum of the momenta of all produced particles must still be zero. 
 This is as true in the classical world as the quantum world. 
 The shrapnel from two colliding bullets, for instance, is thrown from the collision in a disk, so the total momentum is conserved~\cite{SmarterEveryDayBullets}. 
-Therefore, if an invisible particle is produced, its momentum will not be recorded, and the sum of momenta will be non-zero. 
+Therefore, if an invisible particle (a neutrino or possibly something new) is produced, its momentum will not be recorded, and the sum of momenta will be non-zero. 
+Since the missing momentum will be entirely in the transverse plane, the plane perpendicular to the beamline, it is referred to as \ptmiss, or missing transverse momentum. 
 
 \section{Simulation}
 
@@ -170,7 +173,9 @@ This isolates a portion of the petabytes of CMS data that are relevant for analy
 The HLT paths are also implemented in the simulation, so we will require that simulated events pass the same HLT paths as the data. 
 
 \subsection{Signal regions}
+
 \subsection{Control regions}
+
 \subsection{Background estimation}
 
 \section{Systematic uncertainties}
