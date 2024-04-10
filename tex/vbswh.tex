@@ -178,7 +178,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
 \end{figure}
 
 \section{Background estimation}
-The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, \MSD, requirement, or both inverted. % TODO: add cartoon and reference here
+The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, the \MSD requirement, and both inverted, respectively (Fig.~\ref{fig:abcd_cartoon}). 
 First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as \AMC, \BMC, \CMC, and \DMC.
 Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
 Under these definitions, the estimated background yield in region A, referred to as \AdataPred, can be computed with data as follows:
@@ -235,6 +235,15 @@ Therefore, the final estimated background yield in the signal region is given by
     \AdataPred = \PredBkg \pm \PredBkgStatErr \pm \PredBkgSystErr
 \end{equation*}
 where the systematic and statistical uncertainties are kept as \BkgEstTotalSystErr\% and \BkgEstStatErr\% respectively.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/abcd_cartoon.png}
+    \caption{
+        A sketch of regions A, B, C, and D.
+    }
+    \label{fig:abcd_cartoon}
+\end{figure}
 
 \begin{figure}[htb]
     \centering

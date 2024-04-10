@@ -61,7 +61,7 @@ The ParticleNet regressed mass \MPNet is used in particular, as it has been show
 \end{figure}
 
 \section{The backgrounds}
-The main background in this analysis comes from QCD multijet production. 
+The main background in this analysis comes from QCD multijet production. % TODO: finish this
 
 \subsection{QCD ParticleNet resampling}
 From Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores_noCorr}, it looks like that the data and MC distributions for the ParticleNet scores used in this analysis do not fully agree. 
@@ -91,8 +91,7 @@ First, the following assumptions are made:
     \item This \textit{PDF} should be the same regardless of how many fat jets are in the event. This is the case because in our resampling we opt to use events with only two selected fatjets to model the scores in our phase space, where three fatjets are selected.
     \item The ParticleNet score is not correlated to the jet kimatic properties used later in the analysis. In case some features are correlated to ParticleNet score, the resampling can be done in bins of the correlated feature.
 \end{enumerate}
-
-Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the ParticleNet score for every fat jet in an event and normalizing it to unity. 
+\noindent Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the ParticleNet score for every fat jet in an event and normalizing it to unity. 
 Assumption 2 is less trivial. 
 In our case, we need to verify that events with 3 fatjets to contain the same kinds of fatjets as an event with 2 fat jets. 
 This is not guaranteed, as events with different fat jet multiplicity may involve different physics. 
