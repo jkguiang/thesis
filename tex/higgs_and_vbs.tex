@@ -75,6 +75,8 @@ On the other hand, the hadronic decays ($\PV\to\qq$) are more plentiful, but are
 \section{Reconstruction}
 The subdetectors that comprise CMS produce a set of electric signals digitized into data that can be used as measurements of physical quantities. 
 Moreover, when associated to one another, these measurements can also be used to ascertain the identity of detectable throughgoing particles (Fig.~\ref{fig:cms_particle_id}). 
+This is done via a global ``particle-flow'' (PF) algorithm~\cite{CMS:2017yfk}, which combines the information from each of the CMS subdetectors to reconstruct all individual particles in an event. 
+Particles reconstructed by the PF algorithm are called PF ``candidates'' and are used to build jets, which originate from hadrons, \PGt leptons, and in the computation of the missing transverse momentum (\ptmiss). 
 
 \begin{figure}[htb]
     \centering
@@ -91,7 +93,7 @@ These hits do not correspond to individual quarks---like the VBS quarks, for exa
 Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
 This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
 Fortunately, jets tend to be concentrated in relatively narrow cones, meaning individual jets---and thus, individual quarks---can usually be distinguished from one another. 
-Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters deposits in the calorimeters according to a configurable ``distance parameter,'' which determines the size of the jet cone. % TODO: add a diagrame of a cone in CMS coordinates
+Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters PF candidates according to a configurable ``distance parameter,'' which determines the size of the jet cone. % TODO: add a diagrame of a cone in CMS coordinates
 For normal jets, the distance parameter is set to 0.4, corresponding to $\DeltaR = 0.4$, where
 \begin{equation}
     \DeltaR = \sqrt{\Delta\phi^2 + \Delta\eta^2}
@@ -109,9 +111,9 @@ For CMS analysis, a deep neural network called \DeepJet was trained to use the p
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.28\textwidth]{fig/cms/btagging_step1.png}\label{fig:btagging_step1}}\qquad
-    \subfloat[]{\includegraphics[width=0.28\textwidth]{fig/cms/btagging_step2.png}\label{fig:btagging_step2}}\qquad
-    \subfloat[]{\includegraphics[width=0.28\textwidth]{fig/cms/btagging_step3.png}\label{fig:btagging_step3}}
+    \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step1.png}\label{fig:btagging_step1}}
+    \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step2.png}\label{fig:btagging_step2}}
+    \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step3.png}\label{fig:btagging_step3}}
     \caption{
         A sketch of the hadronization of a \Pb quark (left), the subsequent hadronization of the produced B meson (center), and the identification of each jet (right). 
     }
@@ -144,7 +146,7 @@ In the SM, the lepton family also includes tau leptons and neutrinos.
 Tau leptons decay almost immediately to hadrons or to a tau neutrino and \PW boson. 
 The latter decay is difficult to reconstruct, because it is easily confused with a lone \PW boson. 
 The hadronic decay, however, has a unique ``multi-prong'' structure, allowing it to be distinguished from other jets. 
-Neutrinos, meanwhile, pass through the entire detector. 
+Neutrinos, meanwhile, pass through the entire detector, so their presence can only be inferred by first accounting for everything else, then asking for what is missing. 
 
 \subsection{Missing energy}\label{sec:met}
 Protons collide along the beamline with equal but opposite momenta so the system has a total momentum of zero. 
@@ -154,13 +156,17 @@ The shrapnel from two colliding bullets, for instance, is thrown from the collis
 Therefore, if an invisible particle (a neutrino or possibly something new) is produced, its momentum will not be recorded, and the sum of momenta will be non-zero. 
 Since the missing momentum will be entirely in the transverse plane, the plane perpendicular to the beamline, it is referred to as \ptmiss, or missing transverse momentum. 
 
-\section{Simulation}
-
 \section{Identifying backgrounds}
 Of course, final states are not unique. 
 For example, if we were searching for $\PZ\to\Pellp\Pellm$, and thus asked for collision events with two leptons with opposite charge, we would also get events where a \PWp and \PWm were produced and both decayed leptonically. 
 We could also pick up events where \PW and \PZ boson were produced, and both decayed leptonically, but the lepton from the \PW was not recorded by CMS. 
 These processes that produce the same final state, but are not the signal, are referred to as ``backgrounds.'' % TODO: add details about common VBS backgrounds (ttbar), hadronic backgrounds (QCD), and so on
+
+\section{Simulation}
+Some experiments can control when interesting data is being recorded, so background noise can be directly measured by simply turning the source of interesting data off, but leaving the experiment on. 
+The CMS Experiment does not have this luxury: interesting collision events are buried amidst billions of uninteresting ones---the L1 trigger and HLT can only do so much. 
+Moreover, as covered in the previous section, the signal final state is not unique, so although the PF algorithm is capable of reconstructing each particle produced in a proton-proton collision, we must carefully examine those produced by signal versus background such that we may separate them in our analysis. 
+This cannot be done easily using only data, since we do not know a priori what really happened---we can only know what was produced. 
 
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
@@ -170,6 +176,15 @@ We first select the HLT paths most relevant to the chosen final state.
 For example, if the final state includes one lepton---say, from the leptonic decay of a \PW boson---then then we would select the single-lepton HLT paths. 
 This isolates a portion of the petabytes of CMS data that are relevant for analysis. 
 The HLT paths are also implemented in the simulation, so we will require that simulated events pass the same HLT paths as the data. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.90\textwidth]{fig/pp_to_HLT.png}
+    \caption{
+        Lorem ipsum.
+    }
+    \label{fig:pp_to_HLT}
+\end{figure}
 
 Next, a series of selections are placed on the events passing the HLTs in order to narrow in on a set of events most relevant for analysis. 
 For VBS Higgs boson analyses, these will select for at least two jets that look like VBS jets, and \Htobb reconstructed as one merged jet or two separate jets. 
@@ -182,6 +197,15 @@ Ultimately, we select a final set of events that comprise the so-called ``signal
 We will compare the number of actual collision events that enter this region to the number of events predicted by simulation. 
 However, we must first derive the best possible estimate of the background in this region and compute all relevant systematic uncertainties. 
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.90\textwidth]{fig/HLT_to_SR.png}
+    \caption{
+        Lorem ipsum.
+    }
+    \label{fig:HLT_to_SR}
+\end{figure}
+
 \section{Background estimation}
 Although the predicted number of background events in the signal region can be taken directly from the simulation, the simulation is not perfect. 
 Instead, there is a strategy---the famous ``ABCD'' method---in which only real data is used. 
@@ -192,25 +216,17 @@ Then, provided that the two selections are indeed decorrelated and that there is
     \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
 \end{equation}
 \noindent where \AMC, \BMC, \CMC, and \DMC are the simulated background yield in region A, B, C, and D, respectively, and \Adata, \Bdata, \Cdata, and \Ddata are the yields in data. 
-By estimating the background yield in the signal region in this way, we avoid computing relying on imperfect simulation.
+By estimating the background yield in the signal region in this way, we rely entirely on nature, which has no associated systematic uncertainties.
 
 \section{Systematic uncertainties}
-Since the background estimation strategy is data-driven, the systematics on the simulation, which are more numerous, only need to be evaluated for the signal yield. 
-Most sources of systematic uncertainty are derived by varying individual theoretical scales and experimental corrections by one standard deviation and taking the maximal difference in yield as the error. 
-In particular, the corrections and their uncertainties are typically derived centrally in order to augment the efficiency of a specific selection in MC to match that measured in data.
-In general, these corrections are applied as an event weight $\omega$, such that the weighted contribution $\Omega$ of each raw Monte Carlo event is given by the product of the event weights for that same event. 
-The yield in a given signal region $y$ containing $N$ raw Monte Carlo events is therefore given by
-\begin{equation}
-    y = \sum_{i = 1}^{N}\Omega_i
-\end{equation}
-Then, the yield $y_\text{var}$ is computed after applying a systematic variation (up or down) of each source of systematic uncertainty independently:
-\begin{equation}\label{eq:systs}
-    y_\text{var} = \sum_{i = 1}^{N}\Omega_i\times\frac{\omega_\text{var}}{\omega}
-\end{equation}
-Finally, the maximum of the percent differences $\delta_\text{up}$ or $\delta_\text{down}$ are taken as the systematic uncertainty for that source, where
-\begin{equation}
-    \delta_\text{var} = \bigg| 1-\frac{y_\text{var}}{y} \bigg|
-\end{equation}
+Since the background estimation strategy is data-driven, the systematics on the simulation, which are numerous, only need to be evaluated for the signal yield. 
+Systematic uncertainties in CMS statistical analysis come in two flavors: theoretical and experimental uncertainties. 
+Sources of experimental uncertainty include the efficiency of the HLT, lepton identification, and \PQb tagging as well as the scale and resolution of the jet energies. 
+For each of these sources, a correction has been derived to make simulation behave more like data. 
+The HLT efficiency, for example, can be directly compared to data; 90\% pass in simulation, versus 95\% in data, then each passing event can be considered instead as 1.056 events, forcing the overall yields to match. 
+Then, the associated experimental uncertainty is quantified by taking the correction, varying it up and down by one standard deviation\footnotemark{}, and assessing the impact on the final measurement. 
+\footnotetext{This uncertainty is derived differently for each correction.}
+Theoretical uncertainties, meanwhile, are quantified by varying parameters of the simulation up and down and assessing the impact on the final measurement. 
 
 \section{Statistical interpretation}
 \subsection{Maximum likelihood estimate}
