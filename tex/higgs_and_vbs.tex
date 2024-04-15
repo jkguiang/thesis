@@ -164,22 +164,43 @@ These processes that produce the same final state, but are not the signal, are r
 
 \section{Simulation}
 Some experiments can control when interesting data is being recorded, so background noise can be directly measured by simply turning the source of interesting data off, but leaving the experiment on. 
-The CMS Experiment does not have this luxury: interesting collision events are buried amidst billions of uninteresting ones---the L1 trigger and HLT can only do so much. 
+The CMS Experiment does not have this luxury: interesting collision events are buried amidst billions of uninteresting ones---the L1 trigger and HLT only make very general selections. 
 Moreover, as covered in the previous section, the signal final state is not unique, so although the PF algorithm is capable of reconstructing each particle produced in a proton-proton collision, we must carefully examine those produced by signal versus background such that we may separate them in our analysis. 
 This cannot be done easily using only data, since we do not know a priori what really happened---we can only know what was produced. 
 
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\textwidth, valign=c]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:ttbarH_feynman}}\qquad % TODO: make this feynman diagram (https://cds.cern.ch/record/2312113/plots)
+    \subfloat[]{\includegraphics[width=0.45\textwidth, valign=c]{fig/mc_diagram.pdf}\label{fig:ttbarH_hadronize}}
+    \caption{
+        Lorem ipsum. Right from~\cite{Gleisberg:2008ta}.
+    }
+    \label{fig:simulation}
+\end{figure}
+
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
-We do this in a particular order, however, because of the sheer size of our data. % TODO: maybe add a diagram here, showing some sort of cut flow for data and MC
+We do this in a particular order, however, because of the sheer size of our data---200 TB of recorded data and 900 TB of simulation in the smallest data format (Fig.~\ref{fig:data_infographic}). 
+Starting with triggers, progressively strict selections are placed that are optimized to prefer events that contain our signal. 
+This process, orchestrated across 170 computing clusters in over 40 countries (i.e. 1000s of distributed CPUs), reduces 1.1 PB of data down to a few histograms. % TODO: cite WLCG website where these numbers are given
 
-We first select the HLT paths most relevant to the chosen final state. 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/data_infographic.png}
+    \caption{
+        Lorem ipsum.
+    }
+    \label{fig:data_infographic}
+\end{figure}
+
+We first select the HLT paths most relevant to the chosen final state (Fig.~\ref{fig:pp_to_HLT}). 
 For example, if the final state includes one lepton---say, from the leptonic decay of a \PW boson---then then we would select the single-lepton HLT paths. 
 This isolates a portion of the petabytes of CMS data that are relevant for analysis. 
 The HLT paths are also implemented in the simulation, so we will require that simulated events pass the same HLT paths as the data. 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.90\textwidth]{fig/pp_to_HLT.png}
+    \includegraphics[width=0.95\textwidth]{fig/pp_to_HLT.png}
     \caption{
         Lorem ipsum.
     }
@@ -193,13 +214,13 @@ These selections are referred to as the ``Preselection'' in this dissertation.
 The final set of selections are optimized using events that pass the Preselection. 
 The simplest analyses, like that presented in Chapter~\ref{ch:vbswh}, these selections will be on properties of each particle in the signal final state. 
 Other analyses, like that presented in Chapter~\ref{ch:vbsvvh}, use these variables as input to a machine learning algorithm trained to select signal events. 
-Ultimately, we select a final set of events that comprise the so-called ``signal region.'' 
+Ultimately, we select a final set of events that comprise the so-called ``signal region'' (Fig.~\ref{fig:HLT_to_SR}). 
 We will compare the number of actual collision events that enter this region to the number of events predicted by simulation. 
 However, we must first derive the best possible estimate of the background in this region and compute all relevant systematic uncertainties. 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.90\textwidth]{fig/HLT_to_SR.png}
+    \includegraphics[width=0.95\textwidth]{fig/HLT_to_SR.png}
     \caption{
         Lorem ipsum.
     }
