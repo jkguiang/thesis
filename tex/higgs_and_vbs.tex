@@ -291,7 +291,7 @@ Then, the associated experimental uncertainty is quantified by taking the correc
 \footnotetext{This uncertainty is derived differently for each correction.}
 Theoretical uncertainties, meanwhile, are quantified by varying parameters of the simulation up and down and assessing the impact on the final measurement. 
 
-\section{Statistical interpretation}
+\section{Statistical interpretation} % quote PDG on section statistics or something
 The analyses presented in this dissertation are ``counting experiments'', meaning we take the expected signal yield \Asignal and predicted background yield \AdataPred in the signal region and compare them to the yield of real collision events \Adata. 
 Intuitively, if $\Adata = \AdataPred$, then our signal most likely does not exist in nature; conversely, if $\Adata = \Asignal+\AdataPred$, then we have just confirmed that our signal does exist! 
 We have just enumerated, however, through the many systematic uncertainties on \Asignal and \AdataPred which affect our ability to make this comparison exactly. 
@@ -371,4 +371,20 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
     \label{fig:CL_examples}
 \end{figure}
 
-
+So far, we have not considered the uncertainty in $s$ or $b$, which are critical to the accuracy of our confidence interval. 
+Focusing on the signal yield, we can decompose $s$ into multiple components:
+\begin{equation}
+    s = \big(\underbrace{\substack{\text{detector} \\ \text{acceptance}}}_A\big)
+        \times\big(\underbrace{\substack{\text{detection} \\ \text{efficiency}}}_\epsilon\big)
+        \times\big(\underbrace{\substack{\text{integrated} \\ \text{luminosity}}}_\mathcal{L}\big)
+        \times\big(\underbrace{\substack{\text{cross} \\ \text{section}}}_\sigma\big)
+\end{equation}
+At CMS, we are able to measure the integrated luminosity for all of Run 2 with an uncertainty of around 1.6\%. 
+If we wanted to include this uncertainty in our statistical analysis, we could rewrite the luminosity term \Lumi
+\begin{equation}
+    s = A\epsilon\Lumi_0(1 + 1.016)^\eta\sigma
+\end{equation}
+where $\Lumi_0$ is the measured value of the integrated luminosity and $\eta$ is typically a Gaussian-distributed number between 0 and 1. 
+Before we compute our confidence interval, we must find some $\hat{\eta}(\mu)$ that minimizes $q(\mu, \nu(\mu))$. 
+For each systematic uncertainty we add, we add an additional ``nuisance parameter'' that must first be minimized before the final result is produced. 
+In this dissertation, this operation---along with the maximum likelihood estimation---is performed by the \COMBINE tool~\cite{CombinePaper}. 
