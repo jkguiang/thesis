@@ -83,7 +83,7 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rphi_gen_labeled.png}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
     \caption{
-        Event display for a simulated VBS WH signal event. 
+        Event display for a simulated VBS \WH event. 
         The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
     }
@@ -116,8 +116,8 @@ In single-top production, the top quark again decays to a \PW boson and b quark,
 
 \begin{figure}[htb]
     \centering
-    \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:w_jets}}\quad
-    \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf}\label{fig:single_t}}
+    \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:w_jets}}\quad             % TODO: make this
+    \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf}\label{fig:single_t}} % TODO: make this
     \caption{
         Lorem ipsum
     }
@@ -178,7 +178,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
 \end{figure}
 
 \section{Background estimation}
-The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, the \MSD requirement, and both inverted, respectively (Fig.~\ref{fig:abcd_cartoon}). 
+The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, the \MSD requirement, and both inverted, respectively (Fig.~\ref{fig:vbswh_abcd_cartoon}). 
 First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as \AMC, \BMC, \CMC, and \DMC.
 Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
 Under these definitions, the estimated background yield in region A, referred to as \AdataPred, can be computed with data as follows:
@@ -242,7 +242,7 @@ where the systematic and statistical uncertainties are kept as \BkgEstTotalSystE
     \caption{
         A sketch of regions A, B, C, and D.
     }
-    \label{fig:abcd_cartoon}
+    \label{fig:vbswh_abcd_cartoon}
 \end{figure}
 
 \begin{figure}[htb]
