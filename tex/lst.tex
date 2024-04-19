@@ -101,6 +101,13 @@ A complete taxonomy of the LST objects, along with a summary of the steps detail
     \end{tabular}
 \end{table}
 
+We benchmark LST with a variety of MC simulation samples. 
+Primarily, we use simulated \ttbar events, which have displaced tracks (from \PQb quarks) and multiple jets, and therefore a high tracker occupancy, with a pileup of 200 (PU200) and the Phase-II tracker geometry. 
+In order to measure the performance of LST, we look at each simulated track and try to match it to a TC: if more than 75\% of the hits in a TC belong to a single simulated track, it is considered as real. 
+Then, the efficiency is defined as the fraction of simulated tracks that are matched in this way to a TC, whereas the fake rate is defined as the fraction of TCs that are not matched to any simulated tracks. 
+These two metrics are plotted in Fig.~\ref{fig:lst_performance}, where it is clear that the fake TCs in the barrel are mostly T5s, which also contribute the largest fraction of the overall efficiency. 
+In the baseline version of LST, there is therefore an opportunity for massive improvement. 
+
 \begin{figure}[!htb]
     \centering
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_eff_etacourse.pdf}}
@@ -116,7 +123,10 @@ A complete taxonomy of the LST objects, along with a summary of the steps detail
 \end{figure}
 
 \section{Improving LST with machine learning}
+We trained a DNN on the set of T5s built by LST running on 175 \ttbar PU200 events with the selections on a custom heuristic on the quality of a circular fit to the T5 in the $r$-$\phi$ plane removed under the assumption that the DNN could better use the same information. 
+In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s shuffled into two datasets, 80\% for training and 20\% for testing. 
 
+\subsection{Training}
 \begin{figure}[!htb]
     \centering
     \subfloat[]{\includegraphics[width=0.35\linewidth]{fig/lst/T5_anatomy.pdf}\label{fig:t5_anatomy}}
@@ -138,6 +148,7 @@ A complete taxonomy of the LST objects, along with a summary of the steps detail
     }
 \end{figure}
 
+\subsection{Results}
 \begin{figure}[!htb]
     \centering
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_pt_logx_logy.pdf}}
@@ -178,7 +189,7 @@ A complete taxonomy of the LST objects, along with a summary of the steps detail
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.85\linewidth]{fig/lst/throughput_vs_streams.pdf}
+    \includegraphics[width=0.75\linewidth]{fig/lst/throughput_vs_streams.pdf}
     \caption{
         Lorem ipsum}
     \label{fig:streams-vs-throughput}

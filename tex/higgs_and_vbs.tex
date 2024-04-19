@@ -38,7 +38,8 @@ Second, but equally important, modifications to the Higgs couplings induce effec
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
+    \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}} % TODO: label another plot, maybe VBSVVH, and replace this one
     \caption{
         Event display for a simulated VBS WH signal event. 
@@ -94,10 +95,11 @@ Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons.
 This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
 Fortunately, jets tend to be concentrated in relatively narrow cones, meaning individual jets---and thus, individual quarks---can usually be distinguished from one another. 
 Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters PF candidates according to a configurable ``distance parameter,'' which determines the size of the jet cone. % TODO: add a diagrame of a cone in CMS coordinates
-For normal jets, the distance parameter is set to 0.4, corresponding to $\DeltaR = 0.4$, where
+For AK4 jets, the distance parameter is set to 0.4, corresponding to $\DeltaR = 0.4$, where
 \begin{equation}
     \DeltaR = \sqrt{\Delta\phi^2 + \Delta\eta^2}
 \end{equation}
+There is also a collection of AK8 jets, which have the distance parameter set to 0.8, which captures merged jets.
 
 \subsubsection{Jets originating from \Pb quarks}
 While the presence of quarks can be inferred from the presence of jets, the identity (flavor) of each quark is less obvious. 
@@ -124,7 +126,7 @@ For CMS analysis, a deep neural network called \DeepJet was trained to use the p
 \subsubsection{Merged jets originating from \Htobb}
 In cases where a highly energetic particle decays to a pair of quarks, the resulting jets overlap or are near enough to each other to be difficult to separate. 
 This presents a unique signal: the two nearby jets can instead be found as a single, large-cone jet. 
-At CMS, a separate collection of jets is created, where the anti-\kt algorithm is used with a wider distance parameter---0.8, rather than 0.4. 
+That is, these merged jets will appear in the AK8 jet collection. 
 In the work presented in this dissertation, we search for Higgs bosons decaying to \bbbar at high energies, tagged as a single merged jet. 
 This is made possible by a graph neural network, called \ParticleNet, trained for CMS analysis to identify the origins of merged jets based on the properties of its constituents, arranged in a graph-like data structure according to their proximity to one another~\cite{Qu:2019gqs}. 
 Similar to \Pb-tagging, merged jets considered for \Xtobb tagging, for instance, must be within the fiducial region of the tracker. 
@@ -161,7 +163,25 @@ Since the missing momentum will be entirely in the transverse plane, the plane p
 Of course, final states are not unique. 
 For example, if we were searching for $\PZ\to\Pellp\Pellm$, and thus asked for collision events with two leptons with opposite charge, we would also get events where a \PWp and \PWm were produced and both decayed leptonically. 
 We could also pick up events where \PW and \PZ boson were produced, and both decayed leptonically, but the lepton from the \PW was not recorded by CMS. 
-These processes that produce the same final state, but are not the signal, are referred to as ``backgrounds.'' % TODO: add details about common VBS backgrounds (ttbar), hadronic backgrounds (QCD), and so on
+These processes that produce the same final state, but are not the signal, are referred to as ``backgrounds.'' 
+
+One common background for VBS Higgs boson analyses is \ttbar production. 
+Both top quarks decay to a \PW boson and \PQb quark. 
+With either the hadronic or leptonic decay of the \PW bosons, and the two genuine \PQb jets, there is a large potential for trickery. 
+For example, the \PW boson could decay to two quarks that overlap with each other and one of the \PQb jets, resulting in a jet with a large invariant mass and displaced tracks that could be mistaken for a \Htobb jet (e.g. Fig.~\ref{fig:vbs_vs_ttbar}). 
+Backgrounds including genuine VBS jets or a genuine Higgs boson are typically much more rare than a more populous background like \ttbar generating a fake signature. 
+
+\begin{figure}[htb]
+    \centering
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131107_rz.png}}
+    \qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/bkg/ttbar_rz.png}}
+    \caption{
+        Event display for a simulated VBS WH signal event (left) and \ttbar event (right). 
+        Both events contain two forward jets, a single muon, and two \PQb jets. 
+    }
+    \label{fig:vbs_vs_ttbar}
+\end{figure}
 
 \section{Simulation}
 Some experiments can control when interesting data is being recorded, so background noise can be directly measured by simply turning the source of interesting data off, but leaving the experiment on. 
@@ -169,15 +189,6 @@ The CMS Experiment does not have this luxury: interesting collision events are b
 Moreover, as covered in the previous section, the signal final state is not unique, so although the PF algorithm is capable of reconstructing each particle produced in a proton-proton collision, we must carefully examine those produced by signal versus background such that we may separate them in our analysis. 
 This cannot be done easily using only data, since we do not know a priori what really happened---we can only know what was produced. 
 Instead, we use Monte Carlo (MC) simulation software that ``generates'' proton-proton collisions, where we can specify exactly what physics processes occur~\cite{Buckley:2011ms}. 
-
-Taking $\Pp\Pp\to\ttbar+\PH$ as an example (Fig.~\ref{fig:ttbarH_mc}), the first step of generating a MC simulation is to calculate the kinematics (the energy and the momentum vector) for the top quark, anti-top quark, and Higgs boson. 
-This is often done with the \MGvATNLO ``matrix-element'' generator, which finds the relevant Feynman diagrams, including very rare ones, and randomly generates different realizations of the final state based on an approximation of the underlying theory. % TODO: cite MadGraph AMC@NLO paper
-Better accuracy comes from including more Feynman diagrams and a more fine-grained approximation of QFT at a the cost of computational complexity. 
-Next, a ``general-purpose'' generator (e.g. \PYTHIA or \POWHEG) takes the event generated by the previous step\footnotemark{} and promotes it to something closer to what we would observe in nature. % TODO: cite Pythia and POWHEG papers
-That is, it generates the particles that actually impinge onto our detector, including an approximation of the hadronization of quarks and gluons into jets. 
-\footnotetext{Notably, general-purpose generators are also capable of doing the first step.}
-The output of this step is then interfaced with a highly detailed \GEANTfour simulation of the CMS Experiment---from material interactions, to the digitization of the electrical signals from the subdetectors, to the decisions of the L1 trigger and HLT. 
-The result is a sample of simulated data that is a very close match to the signals produced by CMS for $\Pp\Pp\to\ttbar+\PH$. 
 
 \begin{figure}[htb]
     \centering
@@ -189,7 +200,16 @@ The result is a sample of simulated data that is a very close match to the signa
     \label{fig:ttbarH_mc}
 \end{figure}
 
-Because it is simulated all of the way to the trigger decisions, the simulation can be passed through the PF algorithm and all other data postprocessing steps performed on data. 
+Taking $\Pp\Pp\to\ttbar+\PH$ as an example (Fig.~\ref{fig:ttbarH_mc}), the first step of generating a MC simulation is to calculate the kinematics (the energy and the momentum vector) for the top quark, anti-top quark, and Higgs boson. 
+This is often done with the \MGvATNLO ``matrix-element'' generator, which finds the relevant Feynman diagrams, including very rare ones, and randomly generates different realizations of the final state based on an approximation of the underlying theory. % TODO: cite MadGraph AMC@NLO paper
+Better accuracy comes from including more Feynman diagrams and a more fine-grained approximation of QFT at a the cost of computational complexity. 
+Next, a ``general-purpose'' generator (e.g. \PYTHIA or \POWHEG) takes the event generated by the previous step\footnotemark{} and promotes it to something closer to what we would observe in nature. % TODO: cite Pythia and POWHEG papers
+That is, it generates the particles that actually impinge onto our detector, including an approximation of the hadronization of quarks and gluons into jets. 
+\footnotetext{Notably, general-purpose generators are also capable of doing the first step.}
+The output of this step is then interfaced with a highly detailed \GEANTfour simulation of the CMS Experiment---from material interactions, to the digitization of the electrical signals from the subdetectors, to the decisions of the L1 trigger and HLT. 
+The result is a sample of simulated data that is a very close match to the signals produced by CMS for $\Pp\Pp\to\ttbar+\PH$. 
+
+Because it is simulated all of the way to the trigger decisions, the simulation can be passed through the PF algorithm and all other data postprocessing steps performed on data (Fig.~\ref{fig:mcgen_diagram}). 
 This results in samples of simulated data that appear effectively identical to real collision data, except with some truth-level information available for further study. 
 Analyzers can then use these simulated samples to optimize their analysis for preferring signal processes over background processes.
 
