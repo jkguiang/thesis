@@ -45,6 +45,7 @@ Many new physics candidates are also expected to have long lifetimes (e.g. Ref.~
 Finally, with the massive increase in pileup, track finding also becomes a problem of computational scalability, adding yet another dimension to the problem of track finding: proposed algorithms must meet or exceed critical efficiency milestones while being robust to vital edge cases and delivering massive gains in throughput all at once.
 
 Traditional track-finding algorithms, namely the Kalman filter, proceed sequentially, building tracks from the innermost to the outermost layer of the silicon tracker. 
+Moreover, this means that track-finding at CMS is currently completely reliant on the pixel detector, which is more prone to failures due to its proximity to the beamline, and displaced tracks that begin in the outer tracker are more easily missed.
 
 \section{The line segment tracking algorithm}
 Proposed originally as a drastic redesign of the silicon tracker layers, the line segment tracking (LST) algorithm makes use of the bi-layer ``\pt-modules'' that will replace the single-layer tracking modules currently used in the outer tracker. 
@@ -60,6 +61,17 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     }
     \label{fig:ph2_tracker}
 \end{figure}
+
+Rather than build every track hit-by-hit, LST builds track segments of increasing size in parallel, leveraging GPUs for a massive speedup. 
+Starting in the outer tracker, LST first builds ``mini-doublets'' (MDs) in each \pt-module, filtering out low-\pt tracks. 
+Then, line segments (LSs) are built from each pair of MDs in  adjacent tracker layers, and each LS is required to contain MDs with consisten \pt estimates. 
+Progressively longer track segments are built in this way: ``triplets'' (T3s) are formed from LSs that share a MD, and ``quintuplets'' (T5s) are formed from T3s that share a MD. 
+At each step, the track segments are required to be approximately consistent with a single helical trajectory. 
+Finally, the track segments in the pixel layer (pLSs) are taken from an upstream algorithm and matched to the LST track segments, resulting in four mutually exclusive collections of track candidates (TCs). 
+First, pLSs are matched to T5s, forming pT5s. 
+Next, the unmatched T5s are set aside, and the T3s that are not in a pT5 are matched to pLSs, forming pT3s. 
+Last, all unused pLSs are collected and considered also as track candidates. 
+A complete taxonomy of the LST objects, along with a summary of the steps detailed here, is presented in Table~\ref{tab:lst}.
 
 \begin{table}[htb]
     \centering
@@ -95,7 +107,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_fr_etacourse.pdf}}
     \caption{
-        The LST track-finding efficiency (left) and fake rate (right) are plotted as a function of the pseudorapidity $\eta$ of the simulated track and track candidate respectively.
+        The LST track-finding efficiency (left) and fake rate (right) plotted as a function of the pseudorapidity $\eta$ of the simulated track and track candidate respectively.
         For both plots, five histograms are overlayed: all track candidates (black), pT5s (red), pT3s (blue), T5s (magenta), and pLSs that are not used in a pT5 or pT3 (green).
         On the left, it can be seen that T5s comprise the majority of the LST track-finding efficiency, either as pT5s or T5s.
         On the right, it can also be seen that the T5s make up the bulk of the LST fake rate in the barrel region.
@@ -121,7 +133,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     \qquad
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/roc.png}\label{fig:t5dnn_roc}}
     \caption{
-        The average loss after each epoch is plotted (a) next to the Receiver Operating Characteristic (ROC) curves for the model after epoch 500 (b). 
+        The average loss after each epoch plotted (a) next to the Receiver Operating Characteristic (ROC) curves for the model after epoch 500 (b). 
         For the ROC curve, the signal efficiency is plotted on the y-axis, while the background efficiency, or fake rate, is plotted on the x-axis. 
     }
 \end{figure}
@@ -132,7 +144,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_etacourse.pdf}}
     \caption{
-        The LST fake rate for all TCs is plotted as a function of \pt (left) and $\eta$ (right).
+        The LST fake rate for all TCs plotted as a function of \pt (left) and $\eta$ (right).
         Notably, there is a 40\% reduction in the fake rate in the barrel, where the T5 fake rate was previously dominant.
     }
   \label{fig:t5dnn_fkr}
@@ -144,7 +156,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_eff_etacourse.pdf}}
     \caption{
-        The LST efficiency for all TCs is plotted as a function of \pt (left) and $\eta$ (right).
+        The LST efficiency for all TCs plotted as a function of \pt (left) and $\eta$ (right).
         The working point for the DNN was selected to match the efficiency of LST, and it is clear that no efficiency is lost.
     }
     \label{fig:t5dnn_eff}
@@ -156,7 +168,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
     \qquad
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_cube5_loweta_eff_vxy.pdf}\label{fig:t5dnn_eff_rvertex_cube}}
     \caption{
-        The LST efficiency for all TCs is plotted as a function of $r_\text{vertex}$, i.e. the distance to the production vertex measured in the plane transverse to the beamline.
+        The LST efficiency for all TCs plotted as a function of $r_\text{vertex}$, i.e. the distance to the production vertex measured in the plane transverse to the beamline.
         This plot is made with 1000 \ttbar events with HL-LHC pile-up (a) and 10,000 ``muon-cube'' events where muons are produced at points uniformly distributed across a 5 cm cube (b).
         In both plots, it is clear that the T5-DNN recovers a significant amount of efficiency for displaced tracks.
         In the plot made for \ttbar events, there is a notable peak in the 18 to 20 cm $r_\text{vertex}$ bin.
