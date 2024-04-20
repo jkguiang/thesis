@@ -123,10 +123,19 @@ In the baseline version of LST, there is therefore an opportunity for massive im
 \end{figure}
 
 \section{Improving LST with machine learning}
+
+\subsection{Training}
 We trained a DNN on the set of T5s built by LST running on 175 \ttbar PU200 events with the selections on a custom heuristic on the quality of a circular fit to the T5 in the $r$-$\phi$ plane removed under the assumption that the DNN could better use the same information. 
 In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s shuffled into two datasets, 80\% for training and 20\% for testing. 
 
-\subsection{Training}
+The DNN receives input features describing the orientation and \pt of each T3, the T5 itself, and the ``bridge T3'' that connects the three MDs at the center of the T5 (Fig.~\ref{fig:t5_anatomy}). 
+The coordinates of the ``anchor'' hit in each MD are also provided---for PS \pt-modules, the hit in the P-layer is taken as the anchor hit, whereas the innermost hit is taken as the anchor hit for 2S modules. 
+There are 38 input features in total: the \pt estimate and radius of a circular fit to the hits in each of the T3s; 
+the $(r, \phi, z)$ coordinates, $\eta$, and layer of each anchor hit; 
+the \pt estimate, $\eta$, and $\phi$ of the T5; 
+and the radius of a circular fit to the hits in the bridge T3. 
+Because the DNN will classify T5s as fake or real, binary cross entropy is used as the loss function. 
+
 \begin{figure}[!htb]
     \centering
     \subfloat[]{\includegraphics[width=0.35\linewidth]{fig/lst/T5_anatomy.pdf}\label{fig:t5_anatomy}}
@@ -136,6 +145,11 @@ In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s
         Lorem ipsum.
     }
 \end{figure}
+
+Given the relatively simple input, and the intense throughput requirements of LST, we selected a simple DNN architecture: a two-layer DNN with 32 nodes per hidden layer. 
+The DNN was trained for over 600 epochs, but the loss plateaued after epoch 400 (Fig.~\ref{fig:t5dnn_history}). 
+The ROC curve at epoch 500 is shown in Fig.~\ref{fig:t5dnn_roc}; larger architectures were explored, but we found that they did not give significantly better performance. 
+Compared to LST, the DNN is able to reduce the number of false positives---fake T5s incorrectly classified as real---by nearly 50\%. 
 
 \begin{figure}[!htb]
     \centering
@@ -149,17 +163,12 @@ In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s
 \end{figure}
 
 \subsection{Results}
-\begin{figure}[!htb]
-    \centering
-    \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_pt_logx_logy.pdf}}
-    \qquad
-    \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_etacourse.pdf}}
-    \caption{
-        The LST fake rate for all TCs plotted as a function of \pt (left) and $\eta$ (right).
-        Notably, there is a 40\% reduction in the fake rate in the barrel, where the T5 fake rate was previously dominant.
-    }
-  \label{fig:t5dnn_fkr}
-\end{figure}
+After verifying that the DNN could classify T5s better than the cuts removed from LST, it was integrated into the LST algorithm so the effect on the final collection of TCs could be evaluated. 
+A working point for the DNN was selected to match the baseline LST true positive rate---the number of T5s correctly classified as real. 
+As such, no loss of efficiency is observed with the DNN integrated into the algorithm (Fig.~\ref{fig:t5dnn_eff}). 
+However, the efficiency binned in the displacement of the track tells a different story (Fig.~\ref{fig:t5dnn_dis}): the DNN recovers displaced tracks that were being dropped by LST. 
+Meanwhile, the fake rate (Fig.~\ref{fig:t5dnn_fkr}) is reduced by 40\% on average in the barrel, addressing the motivation for this work. 
+These performance enhancements come at no cost in throughput (Fig.~\ref{fig:streams-vs-throughput}).
 
 \begin{figure}[!htb]
     \centering
@@ -175,6 +184,18 @@ In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s
 
 \begin{figure}[!htb]
     \centering
+    \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_pt_logx_logy.pdf}}
+    \qquad
+    \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_etacourse.pdf}}
+    \caption{
+        The LST fake rate for all TCs plotted as a function of \pt (left) and $\eta$ (right).
+        Notably, there is a 40\% reduction in the fake rate in the barrel, where the T5 fake rate was previously dominant.
+    }
+  \label{fig:t5dnn_fkr}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_loweta_eff_vxycoarse.pdf}\label{fig:t5dnn_eff_rvertex_ttbar}}
     \qquad
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_cube5_loweta_eff_vxy.pdf}\label{fig:t5dnn_eff_rvertex_cube}}
@@ -185,14 +206,23 @@ In total, this yielded approximately 840\,000 real T5s and 1.26 million fake T5s
         In the plot made for \ttbar events, there is a notable peak in the 18 to 20 cm $r_\text{vertex}$ bin.
         This spike in efficiency is due to the detector geometry: there is less detector material in that region, so contributions from material interactions there are lower than in neighboring bins.
     }
+    \label{fig:t5dnn_dis}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.75\linewidth]{fig/lst/throughput_vs_streams.pdf}
     \caption{
-        Lorem ipsum}
+        Lorem ipsum
+    }
     \label{fig:streams-vs-throughput}
 \end{figure}
 
 \section{Next steps}
+Immediately, the success of the DNN begs the question, ``what is it doing so much better than what was done before?'' 
+We are thus currently dissecting the DNN, determining which input features are most important and understanding how they are used to achieve the observed performance boost. 
+At the same time, there are a number of additional opportunities for leveraging ML to improve LST. 
+The same classification task can be improved for T3s, for instance, and duplicate removal---discerning between overlapping tracks---is a difficult, but vital step where efficiency is critical. 
+Finally, more ambitious ML models could also be envisioned. 
+Recent work suggests that graph neural networks (GNNs) could be used to do end-to-end track-finding and possibly track-fitting as well~\cite{Ju2021, DeZoortNature2023, lieret2023object}. 
+We foresee these efforts integrated into LST, where LST provides a fast graph-building step---which is the slowest step in the current GNN tracking efforts---that feeds into a robust GNN-based tracking algorithm.

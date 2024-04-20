@@ -353,9 +353,9 @@ Our task can now be expressed in the proper language of statistics: the most pro
 Fortunately, this is basic calculus: take the derivative of $L$ with respect to $\mu$, set it equal to zero, and solve. 
 For simplicity, we will instead consider $q(\mu) = -2\ln{L(\mu)}$:
 \begin{align}
-    q(\mu) &= -2[n\ln(\mu s + b) - (\mu s + b) - \ln{(n!)}] \\
-    \frac{\partial q}{\partial \mu} &= \frac{ns}{\mu s + b}\qquad\text{where }\frac{\partial q}{\partial \mu}\bigg|_{\mu=\hat{\mu}} \equiv 0 \\
-    0 &= \frac{ns}{\hat{\mu} s + b} \\
+    q(\mu) &= -2[n\ln(\mu s + b) - (\mu s + b) - \ln{(n!)}] \nonumber \\
+    \frac{\partial q}{\partial \mu} &= \frac{ns}{\mu s + b}\qquad\text{where }\frac{\partial q}{\partial \mu}\bigg|_{\mu=\hat{\mu}} \equiv 0 \nonumber \\
+    0 &= \frac{ns}{\hat{\mu} s + b} \nonumber \\
     \hat{\mu} &= \frac{n - b}{s}
 \end{align}
 In our simple setup, this is rather intuitive: pluggin $\hat{\mu}$ into $\mu s + b$ gives $n$ exactly. 
