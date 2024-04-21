@@ -10,16 +10,16 @@ Put simply, the Standard Model (Fig.~\ref{fig:standard_model}) attempts to descr
 So far, the content of the model is as follows: the universe is made of fermions (quarks and leptons), and it operates through the exchange of bosons (photons, gluons, W, Z, and H). 
 That is, matter\footnotemark{} is composed of assemblies of fermions, which are held together, pushed apart, and otherwise interact via the fundamental forces ``transmitted'' by bosons. 
 \footnotetext{With the current exception of ``dark'' matter, which is discussed later in this chapter.}
-The most familiar of these is the electromagnetic (EM) force, because its carrier, the photon, is absorbed by the retinas in our eyes, enabling the fortunate majority of us sight. 
-Then, there is the weak force, carried by the W and Z bosons, which is responsible for the radioactive decay of certain elements. 
+The most familiar of these is the electromagnetic (EM) force, because its carrier, the photon, is absorbed by the retinas in our eyes, enabling the fortunate majority of us with sight. 
+Then, there is the weak force, carried by the \PW and \PZ bosons, which is responsible for the radioactive decay of certain elements. 
 These first two forces are, today, understood to be unified into the ``electroweak'' (EW) force. 
-Finally, there is the strong force, which holds the nuclei of atoms together. 
+Finally, there is the strong force, carried by the gluon, which holds the nuclei of atoms together. 
 Alongside the forces, there is the Higgs mechanism, carried by the Higgs boson, which is responsible for giving the fundamental particles mass. 
 Together, these forces and the Higgs mechanism---and gravity, whose omission here is left as a topic for another time---describe how \textit{everything} came to be and continues to be: from the sight of the sun in the sky, to the nuclear fusion causing the sun to shine, to the formation of the sun and all of the other stars in the universe, to the first instance of creation itself. 
 The entire universe is, we believe, the structure that emerges from the elegant, infinite dance of these fundamental particles. 
 
 Of course, a rigorous description of the Standard Model could only be properly treated alongside a stack of textbooks. 
-The concepts of fermions and bosons carry deeply insightful mathematical meaning derived originally in statistical mechanics, which was developed to describe the behavior of large ensembles of microscopic objects (like gases). 
+The concepts of fermions and bosons carry deeply insightful mathematics derived originally in statistical mechanics, which was developed to describe the behavior of large ensembles of microscopic objects (like gases). 
 Moreover, the particle ``zoo'' has been herded into the confines of the mathematical framework called quantum field theory (QFT), wherein particles are described as excitations of quantum ``fields'' and physical laws are realized as mathematical symmetries. 
 Unfortunately, four to five years of attentive instruction and rigorous study across multiple subjects---including quantum mechanics, statistical mechanics, special relativity, and a bevy of mathematical formalism---are required to even begin reading QFT textbooks, and well over a lifetime may be required to fully understand them\footnotemark{}. 
 \footnotetext{Even still, paraphrasing the great Prof. Aneesh Manohar, ``all QFT textbooks are wrong.''}
@@ -39,7 +39,7 @@ Fortunately, there is way to encode essential Standard Model calculations in a s
 In these pictures, time flows from left to right, while space is abstractly represented on the vertical axis\footnotemark{}. 
 \footnotetext{In some dark corners of the physics community, these axes are switched, but this dissertation will not deviate from the configuration described here.}
 The fundamental particles are represented by lines, and the intersections of three or four of these lines (Fig.~\ref{fig:sm_vertices}) represent interactions between the corresponding particles, so at least one of them must be a boson. 
-For example, an electron emitting a photon (Fig.~\ref{fig:qed1}) is represented by an electron coming in from the left, the turning into a photon and an electron leaving the picture to the right. 
+For example, an electron emitting a photon (Fig.~\ref{fig:qed1}) is represented by an electron coming in from the left, then turning into a photon and an electron leaving the picture to the right. 
 This same vertex can be rotated clockwise, such that it instead depicts the annihilation of an electron and positron into a photon (Fig.~\ref{fig:ee_to_g})---one of the electrons had to be replaced with its anti-particle (a positron) to conserve charge. 
 Rotating it again, we see that it now represents an electron absorbing a photon (Fig.~\ref{fig:eg_to_e}). 
 These vertices act as building blocks that can be rotated and fit together according to a set of rules that correspond to real physical laws. 
@@ -189,15 +189,40 @@ While every piece of the Standard Model is important, just as every link in a ch
 
 \section{Selected open questions}\label{sec:open_questions}
 \subsection{What is dark matter?}
+In the 1970s Vera Rubin, among others, was making careful observations of the rate at which distant galaxies spun on their axes~\cite{VeraRubin}.  
+By also recording the light emitted by each galaxy, she could estimate the distribution of mass within it, and therefore calculate the expected rotational velocity due to the gravitational pull of a galaxy's constituents. 
+The observation and prediction did not align, leading us to believe that there is some ``dark'' matter that we cannot see and is therefore missing from our calculations. 
+In fact, based on the observable mass in a galaxy, we would expect it to fly apart~\cite{GalaxyDM}. 
+Today, as we probe the subatomic world at unprecedented scales, we have yet to observe any new particle that might be the right candidate for dark matter---really, we have yet to observe any new particle whatsoever. 
+Dark matter is therefore an enormous missing piece---26\% of the universe~\cite{PlanckDM}---in the Standard Model.
+
 \subsection{What is dark energy?}
-\subsection{Is the Higgs boson really a fundamental particle?}
-\subsection{Is there only one Higgs boson?}
-\subsection{Why is the Higgs boson mass so small?}
-% Higgs sector:
-%    - naturalness?
-%    - other higgses?? Gell-Mann said something like "it would be weird if 
-%      there was only one Higgs boson" in 2012 CERN interview
-%    - other problems... I guess introduce problem of not yet measuring 
-%      higgs couplings well
-% More generic:
-%    - dark matter
+Cosmology yields yet another missing piece in the Standard Model, but at a completely different scale than dark matter. 
+Measurements of the cosmic microwave background (CMB) radiation, light from the early universe, and of distant galaxies shows clear indication that the universe is expanding: all of this light is red, having been stretched in this cosmic expansion. % TODO: citation needed
+But what is driving this expansion? 
+With no known answer to this question, we have yet another invisible quantity---this time some ``dark'' energy that constitutes 69\% of the universe~\cite{PlanckDM}---as a placeholder.
+
+\subsection{What is the true nature of the Higgs boson?}
+The Higgs boson holds many secrets yet to be uncovered, despite being discovered over a decade before the publication of this dissertation. 
+It is one of the central physics targets of the LHC for the coming decades, and only a few of the most interesting questions are summarized here:
+\begin{itemize}
+    \item{
+        \textit{Is the Higgs boson really a fundamental particle?}
+        Pursuing an ever-reductive line of reasoning, it is important to always ask if a particle is in fact a composite particle, rather than a fundamental one. 
+        A number of theories that predict a composite Higgs boson exist, e.g. Refs.~\cite{Kaplan:1983sm, Arkani-Hamed:2002ikv, Contino:2003ve}, and, if true, they may explain other open questions around the nature of the Higgs boson.
+    }
+    \item{
+        \textit{Is there only one Higgs boson?}
+        In a 2012 interview at CERN, only 6 months before the discovery of the Higgs boson, Murray Gell-Mann mused
+        \begin{quote}
+            As to there being one boson that results from this Higgs process, it's not quite so certain because there could be more than one... 
+            and [CMS and ATLAS] might not be looking for it in the right way for that.
+        \end{quote}
+        Although only a single Higgs boson was discovered, the existence of others, e.g. Refs.~\cite{Branco:2011iw, Gunion:2005ja, Grzadkowski:2009bt}, could again answer other open questions around the nature of the Higgs boson.
+    }
+    \item{
+        \textit{Why is the Higgs boson mass so small?}
+        While nearly as heavy as the most massive SM particle, the top quark, the Higgs boson is not nearly as massive as it ``should'' be. 
+        Corrections from heavier particles---even unknown ones---could make the Higgs boson over 16 orders of magnitude heavier, so some new physics should correct this somehow~\cite{Susskind:1978ms, tHooft:1979rat}.
+    }
+\end{itemize}

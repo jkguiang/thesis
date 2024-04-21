@@ -1,7 +1,7 @@
 \chapter{Exascale Cyberinfrastructure}\label{ch:cyber}
 
 \section{The HL-LHC data challenge}
-In the high lumonisty era of the LHC, the CMS Experiment alone is expected to produce roughly 0.5 exabytes of data every year\footnotemark{} (Fig.~\ref{fig:tape_projections}). 
+In the high lumonisty era of the LHC, the CMS Experiment alone is expected to produce roughly 0.5 exabytes (EB) of data every year\footnotemark{} (Fig.~\ref{fig:tape_projections}). 
 \footnotetext{For context, the CMS Experiment produced roughly half as much data across the three years of data-taking in Run 2.}
 The data will need to be distributed across the worldwide LHC computing grid (WLCG), as it is now, to be accessed by thousands of scientists. 
 This defines two important classifications of network traffic: the \textit{distribution} of LHC data, referred to as ``production'' traffic, and the \textit{access} and final processing of that data, referred to as ``user'' traffic. 
@@ -10,11 +10,11 @@ Crucially, CMS data movement is entirely driven by the production data transfers
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.9\textwidth]{fig/cyber/tape_cms2022.pdf}
-  \caption{Lorem ipsum~\cite{CMSComputingReport2022}.}
+  \caption{The HL-LHC tape usage projections at CMS as a function of time, showing data production rates of over 0.5 EB per year after 2030~\cite{CMSComputingReport2022}.}
   \label{fig:tape_projections}
 \end{figure}
 
-With many petabytes, soon to be exabytes, of data that needs to be distrubted all over the world, National Research and Education Networks (NRENs) are critical to the continued operation of CMS, and the LHC in general. 
+With many PB, soon to be EB, of data that needs to be distrubted all over the world, National Research and Education Networks (NRENs) are critical to the continued operation of CMS, and the LHC in general. 
 However, NRENs are entirely opaque to their users---that is, users have no control over the share of the network that they receive---resulting in highly variable networking performance. 
 This kind of unmanaged networking is reffered to as ``best effort'' service, and it already presents significant challenges to CMS operators running production data transfers. 
 For example, high priority data transfers will unpredictably slow down, or even fail, making any precise coordination impossible. 
@@ -28,7 +28,7 @@ Meanwhile, lower priority data transfers, including user traffic, could share th
 This functionality is exactly provided by software defined networking (SDN)~\cite{SDNSurvey}, which enables the allocation of networking resources in the same way that CPUs and memory are allocated on shared computing clusters. 
 With this model, CMS operators could hold the network accountable for the ``promises'' (bandwidth guarantees) it has made. 
 By comparing data movement speed against the network promise and storage site diagnostics, which are already maintained, CMS operators could easily determine, and therefore more quickly address, bottlenecks in throughput. 
-Therefore, by incorporating SDN into the existing data movement infrastructure, CMS would be able to efficiently and reliably move exabytes of data around the world. 
+Therefore, by incorporating SDN into the existing data movement infrastructure, CMS would be able to efficiently and reliably move EB of data around the world. 
 Furthermore, while described in the context of CMS, SDN could be used to address the data movement requirements for other LHC experiments like ATLAS, or even other large-scale science experiments. 
 
 \section{Rucio}
@@ -45,10 +45,13 @@ SENSE provides this interactivity through a novel configuration of the data stor
 These subnets logically divide the network traffic which, in turn, enables SENSE to allocate bandwidth. 
 
 \begin{figure}[htb]
-  \centering
-  \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_site.png}
-  \caption{Lorem ipsum}
-  \label{fig:sense_site}
+    \centering
+    \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_site.png}
+    \caption[Rucio-SENSE site configuration]{
+        A generic site configuration that enables SENSE capabilities, where each ``redirector'' services a different bandwidth allocation by directing traffic for that allocation to one of the data servers connected to it. 
+        Each data server has equal access to the underlying filesystem.
+    }
+    \label{fig:sense_site}
 \end{figure}
 
 \section{Rucio-SENSE interoperation model}
@@ -91,20 +94,20 @@ Alternatively, the decision could pack the maximum available bandwidth between t
 In any case, this interoperation model provides a flexible testbed for evaluating these ideas and producing concrete metrics on their scalability, practicality, and efficiency.
 
 \begin{figure}[htb]
-  \centering
-  \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_basic.png}
-  \caption{
-      A simplified diagram of the Rucio-SENSE interoperation workflow, taken from Ref.~\cite{Guiang:2022tgi}, with numbered steps: 
-    (1) a rule is initialized; 
-    (2) Rucio sends transfer description to DMM; 
-    (3) DMM translates Rucio request into SENSE provision; 
-    (4) DMM sends provision request to SENSE; 
-    (5) DMM sends a source IPv6 and destination IPv6 to Rucio;
-    (6) Rucio injects IPv6s from previous step into the FTS request;
-    (7) Either (a) SENSE builds dedicated service or (b) default to best effort service; 
-    (8) SENSE sends service metadata to DMM.
-  }
-  \label{fig:rucio_sense_basic}
+    \centering
+    \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_basic.png}
+    \caption[Rucio-SENSE interoperation workflow]{
+        A simplified diagram of the Rucio-SENSE interoperation workflow, taken from Ref.~\cite{Guiang:2022tgi}, with numbered steps: 
+        (1) a rule is initialized; 
+        (2) Rucio sends transfer description to DMM; 
+        (3) DMM translates Rucio request into SENSE provision; 
+        (4) DMM sends provision request to SENSE; 
+        (5) DMM sends a source IPv6 and destination IPv6 to Rucio;
+        (6) Rucio injects IPv6s from previous step into the FTS request;
+        (7) Either (a) SENSE builds dedicated service or (b) default to best effort service; 
+        (8) SENSE sends service metadata to DMM.
+    }
+    \label{fig:rucio_sense_basic}
 \end{figure}
 
 \section{Demonstrations}
@@ -130,28 +133,28 @@ As the data moved from source to destination, we swapped the priority assignment
 In Fig.~\ref{fig:rucio_sense_demo_big}, it can be seen that the bandwidth is appropriately limited for the three data transfers at any one time. 
 
 \begin{figure}[htb]
-  \centering
-  \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo.png}
-  \caption{
-      Throughput measurements of the first demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD and Caltech. 
-      Background traffic is simulated with the IPerf tool, emulating activity across best effort network services. 
-      Then, a set of priority data transfers are initialized between the two sites with at least 7 Gb/s of requested bandwidth. 
-      This throttles the best effort traffic until the priority transfers are complete and the reservation is released. 
-  }
-  \label{fig:rucio_sense_demo}
+    \centering
+    \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo.png}
+    \caption[Rucio-SENSE interoperation throughput with 2 sites in the testbed]{
+        Throughput measurements of the first demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD and Caltech. 
+        Background traffic is simulated with the IPerf tool, emulating activity across best effort network services. 
+        Then, a set of priority data transfers are initialized between the two sites with at least 7 Gb/s of requested bandwidth. 
+        This throttles the best effort traffic until the priority transfers are complete and the reservation is released. 
+    }
+    \label{fig:rucio_sense_demo}
 \end{figure}
 
 \begin{figure}[htb]
-  \centering
-  \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo_big.png}
-  \caption{
-      Throughput measurements of a demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD, FNAL, and Caltech. 
-      Three sets of data transfers are started simultaneously: one from UCSD to Caltech with priority 5, another from FNAL to Caltech with priority 3, and one more from UCSD to Caltech with a priority of 2. 
-      Every one to two hours, the priorities are swapped between the three. 
-      The throughput for each transfer correctly reflects the appropriate bandwidth for its priority at any one time. 
-      In particular, the priorities 5, 3, and 2 correspond to 50 Gb/s, 30 Gb/s, and 20 Gb/s, respectively.
-    }
-  \label{fig:rucio_sense_demo_big}
+    \centering
+    \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo_big.png}
+    \caption[Rucio-SENSE interoperation throughput with 3 sites in the testbed]{
+        Throughput measurements of a demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD, FNAL, and Caltech. 
+        Three sets of data transfers are started simultaneously: one from UCSD to Caltech with priority 5, another from FNAL to Caltech with priority 3, and one more from UCSD to Caltech with a priority of 2. 
+        Every one to two hours, the priorities are swapped between the three. 
+        The throughput for each transfer correctly reflects the appropriate bandwidth for its priority at any one time. 
+        In particular, the priorities 5, 3, and 2 correspond to 50 Gb/s, 30 Gb/s, and 20 Gb/s, respectively.
+      }
+    \label{fig:rucio_sense_demo_big}
 \end{figure}
 
 \section{Next steps}
