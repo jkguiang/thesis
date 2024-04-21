@@ -43,7 +43,7 @@ Second, but equally important, modifications to the Higgs couplings induce effec
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}} % TODO: label another plot, maybe VBSVVH, and replace this one
     \caption{
         Event display for a simulated VBS WH signal event. 
-        The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
+        The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
     }
     \label{fig:vbs_fireworks}
@@ -233,7 +233,9 @@ This process, orchestrated across 170 computing clusters in over 40 countries (i
     \centering
     \includegraphics[width=0.95\textwidth]{fig/cms/pp_to_nano.png}
     \caption{
-        Lorem ipsum.
+        Diagram of the evolution of CMS data from collection (top) to post-processing into the data used in analysis (bottom). 
+        The 30 TB/s of data that are produced by the 40 MHz proton-proton collisions is reduced to 6 GB/s by the trigger system, which discards uninteresting events. 
+        Over the course of Run 2, this yielded over 200 PB of recorded data that was then processed into different data ``tiers'' for further analysis. 
     }
     \label{fig:pp_to_nano}
 \end{figure}
@@ -258,7 +260,9 @@ However, we must first derive the best possible estimate of the background in th
     \centering
     \includegraphics[width=0.95\textwidth]{fig/cms/nano_to_SR.png}
     \caption{
-        Lorem ipsum.
+        Diagram showing the steps of data processing for a typical physics measurement. 
+        Starting from NanoAOD (200 PB of real collision data, 900 PB of simulation), ``skimming'' jobs are distributed across thousands of GPUs, each taking a few NanoAOD files (around 1 GB each) and removing all of the unnecessary information. 
+        Then, progressively strict selections are placed until the signal region is reached, wherein the measurement will be made. 
     }
     \label{fig:nano_to_SR}
 \end{figure}
@@ -297,7 +301,8 @@ By estimating the background yield in the signal region in this way, we rely ent
     \centering
     \includegraphics[width=0.45\textwidth]{fig/generic_abcd_cartoon.png}
     \caption{
-        Lorem ipsum.
+        A generic ABCD configuration where selections on the quantities $x$ and $y$ are used to form the signal region (region A), and three ``control'' regions (regions B, C, and D) used to estimate the background in the signal region. 
+        In the toy example shown, the method closes exactly for background (blue): $B\times C/D = 3 = A$. 
     }
     \label{fig:abcd}
 \end{figure}
@@ -343,7 +348,7 @@ $P$ and $L$ are supercifically similar, but, in reality, they are related, but d
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/prob_vs_like.png}
     \caption{
-        Lorem ipsum.
+        The probability for different values of $\mu$ (left) and the likelihood for $n = 1$ (right), showing how $L(\mu)|_{n=1}$ is given by computing $P(1|\mu)$. 
     }
     \label{fig:prob_vs_like}
 \end{figure}
@@ -378,7 +383,7 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/like_gauss_approx.png}
     \caption{
-        Lorem ipsum.
+        The likelihood overlayed by the Gaussian approximation of the likelihood for different values of $n$, showing poor agreement for small $n$ (left), decent agreement for $n = 56$, and good agreement for $n = 550$.
     }
     \label{fig:like_gauss_approx}
 \end{figure}
@@ -387,7 +392,8 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/CL_examples.png}
     \caption{
-        Lorem ipsum.
+        The likelihood (left) and confidence interval (right) plotted for two different scenarios: $n \approx s$, or the signal exists, (top) and $n \approx b$, or the signal does not exist (bottom). 
+        In the first scenario, the signal strength is measured to be within $[0.88, 1.10]$ at the 95\% CL, whereas in the other scenario, it is measured to be within $[0, 0.06]$ at the 95\% CL.
     }
     \label{fig:CL_examples}
 \end{figure}
