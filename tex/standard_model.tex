@@ -48,15 +48,15 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:qed1}}\quad % TODO: make these
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:ewk1}}\quad
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:ewk2}}\\
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:weak}}\quad
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:qcd1}}\quad
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:qcd2}}\\
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:qcd3}}\quad
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:hig1}}\quad
-    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:hig2}}
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qed_vertex_2.pdf}\label{fig:qed1}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/ewk_vertex_WWZ.pdf}\label{fig:ewk1}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/ewk_vertex_VVVV.pdf}\label{fig:ewk2}}\\
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/ewk_vertex_Vff.pdf}\label{fig:weak}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qcd_vertex_gqq.pdf}\label{fig:qcd1}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qcd_vertex_ggg.pdf}\label{fig:qcd2}}\\
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qcd_vertex_gggg.pdf}\label{fig:qcd3}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/hig_vertex_HXX.pdf}\label{fig:hig1}}\quad
+    \subfloat[]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/hig_vertex_HHHH.pdf}\label{fig:hig2}}
     \caption{
         The fundamental vertices in the Standard Model. 
         From left to right, top to bottom: 
@@ -67,18 +67,18 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
 
 \begin{figure}[htb]
     \centering
-    \subfloat[$\Pem\to\PGg+\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:e_to_ge}}\quad % TODO: make these
-    \subfloat[$\Pep+\Pem\to\PGg$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:ee_to_g}}\quad
-    \subfloat[$\Pem+\PGg\to\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/forces/qed_vertex.pdf}\label{fig:eg_to_e}}
+    \subfloat[$\Pep+\Pem\to\PGg$]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qed_vertex_1.pdf}\label{fig:ee_to_g}}\quad
+    \subfloat[$\Pem+\PGg\to\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qed_vertex_2.pdf}\label{fig:eg_to_e}}\quad
+    \subfloat[$\Pem\to\PGg+\Pem$]{\includegraphics[width=0.25\textwidth]{fig/feynman/vertices/qed_vertex_0.pdf}\label{fig:e_to_ge}}
     \caption{
-        Rotations of the QED vertex, showing (a) an electron emitting a photon, (b) an electron and positron annihilating and producing a photon, and (c) an electron absorbing a photon. 
+        Rotations of the QED vertex, (a) an electron and positron annihilating and producing a photon, (b) an electron absorbing a photon, and showing (c) an electron emitting a photon.
     }
     \label{fig:qed_rotations}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % TODO: make this
+    \includegraphics[width=0.6\textwidth]{fig/feynman/beta_decay.png}
     \caption{
         Feynman diagram for beta decay, which is mechanism behind the radioactive decay of certain elements. 
     }
@@ -110,7 +110,7 @@ Moreover, this feature of QFT---the ability to compute cross sections---is absol
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{fig/feynman/ttbar/ttbar_onelep.pdf} % TODO: make this
+    \includegraphics[width=0.6\textwidth]{fig/feynman/other/ee_scattering.pdf}
     \caption{
         Feynman diagram for electron-electron scattering. 
     }
@@ -129,7 +129,7 @@ However, we will also mention some additional open questions to illustrate the m
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{fig/cms/cms_xsecs_2023.pdf}
+    \includegraphics[width=0.95\textwidth]{fig/cms/cms_xsecs_2023.pdf}
     \caption{
         The totality of the cross section measurements performed with data from the CMS Experiment compared to the Standard Model predictions, from Ref.~\cite{CMSXSecs}. 
         Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
@@ -139,7 +139,7 @@ However, we will also mention some additional open questions to illustrate the m
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{fig/atlas/atlas_xsecs_2023.pdf}
+    \includegraphics[width=0.95\textwidth]{fig/atlas/atlas_xsecs_2023.pdf}
     \caption{
         A selection of cross section measurements performed with data from the ATLAS Experiment compared to the Standard Model predictions, from Ref.~\cite{ATL-PHYS-PUB-2023-039}. 
         Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
@@ -189,7 +189,7 @@ While every piece of the Standard Model is important, just as every link in a ch
 
 \section{Selected open questions}\label{sec:open_questions}
 \subsection{What is dark matter?}
-In the 1970s Vera Rubin, among others, was making careful observations of the rate at which distant galaxies spun on their axes~\cite{VeraRubin}.  
+In the 1970s, Vera Rubin, among others, was making careful observations of the rate at which distant galaxies spun on their axes~\cite{VeraRubin}.  
 By also recording the light emitted by each galaxy, she could estimate the distribution of mass within it, and therefore calculate the expected rotational velocity due to the gravitational pull of a galaxy's constituents. 
 The observation and prediction did not align, leading us to believe that there is some ``dark'' matter that we cannot see and is therefore missing from our calculations. 
 In fact, based on the observable mass in a galaxy, we would expect it to fly apart~\cite{GalaxyDM}. 
