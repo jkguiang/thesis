@@ -26,7 +26,7 @@ Therefore, this channel provides the opportunity to determine the sign of \lambd
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbswh/vbswh_1.pdf}}\quad
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbswh/vbswh_2.pdf}}\quad
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbswh/vbswh_3.pdf}}
-    \caption{
+    \caption[Leading-order Feynman diagrams for VBS \WH production]{
         Leading-order Feynman diagrams for VBS production of a W and Higgs boson, where the W decays leptonically and the Higgs decays to b quarks. 
         The Higgs coupling to W bosons \kW and Z bosons \kZ is denoted by a red circle (\textcolor{red}{\ding{108}}). 
     }
@@ -58,8 +58,8 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_ST_1p0kZ_kWpoints_norm.pdf}\label{fig:lheST_kWpoints}}\\
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_M_WH_1p0kW_kZpoints_norm.pdf}\label{fig:lheMWH_kZpoints}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_ST_1p0kW_kZpoints_norm.pdf}\label{fig:lheST_kZpoints}}
-    \caption{
-        Histograms of the invariant mass of the \WH system (left) and \ST (right) plotted from \VBSWH Monte Carlo simulation for $\kZ = +1$ (top) and $\kW = +1$ (bottom), demonstrating the Lorentz boost in the final state due to modifications to \lambdaWZ. 
+    \caption[Histograms of the invariant mass of the \WH system and \ST]{
+        Histograms of the invariant mass of the \WH system (left) and \ST (right) plotted at the generator level for $\kZ = +1$ (top) and $\kW = +1$ (bottom), demonstrating the Lorentz boost in the final state due to modifications to \lambdaWZ. 
     }
     \label{fig:vbswh_lhe}
 \end{figure}
@@ -68,7 +68,7 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/kW_xsecs.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/kZ_xsecs.pdf}}
-    \caption{
+    \caption[The signal cross section plotted as a function of enhancements to \kW]{
         The signal cross section plotted as a function of enhancements to \kW, keeping $\kZ = +1$ (left) and to \kZ, keeping $\kW = +1$ (right). 
         The black points are taken from \MGvATNLO, and the blue curve is the best fit of a 2nd order polynomial to those points. 
         The errors are also plotted, but are smaller than the width of the black points. 
@@ -81,7 +81,7 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rphi_gen_labeled.png}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
-    \caption{
+    \caption[Event display for a simulated VBS \WH event]{
         Event display for a simulated VBS \WH event. 
         The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled with their true labels. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
@@ -105,9 +105,9 @@ In single-top production, the top quark again decays to a \PW boson and b quark,
 
 \begin{figure}[htb]
     \centering
-    \subfloat[$\ttbar + \text{jet}$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet.pdf}\label{fig:ttbar1l}}\quad
+    \subfloat[$\ttbar + \text{jet}$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet_ggF.pdf}\label{fig:ttbar1l}}\quad
     \subfloat[$\ttbar + \PV$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:ttV1l}}
-    \caption{
+    \caption[Feynman diagrams for \ttbar production]{
         Feynman diagram for \ttbar production in the single-lepton final state with (a) an extra jet from a gluon or (b) an extra vector boson ($\PV = \PW$ or \PZ) radiated from one of the incoming partons.  
     }
     \label{fig:vbswh_lead_bkg} % leading background (ttbar)
@@ -117,7 +117,7 @@ In single-top production, the top quark again decays to a \PW boson and b quark,
     \centering
     \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/wjets.pdf}\label{fig:w_jets}}\quad
     \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/singletop_tW.pdf}\label{fig:single_t}}
-    \caption{
+    \caption[Feynman diagrams for \wjets and $\PQt\PW$ production]{
         Feynman diagram for \wjets production in the single-lepton final state (left) and the production of a single top quark and \PW boson (right). 
     }
     \label{fig:vbswh_subl_bkg} % sub-leading background (W+jets and single top)
@@ -151,8 +151,8 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/M_jj_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/deta_jj_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
-    \caption{
-        The VBS jet combined invariant mass (left) and absolute difference in pseudorapidity (right) plotted after applying the Preselection.
+    \caption[The \Mjj and \detajj distributions for the VBS jets]{
+        The VBS jet combined invariant mass \Mjj (left) and absolute difference in pseudorapidity $\abs{\detajj}$ (right) plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_vbs}
 \end{figure}
@@ -160,7 +160,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbswh/ST_sig_vs_bkg_stacked_logy_presel_noDetaJJ.pdf}
-    \caption{
+    \caption[The \ST distribution]{
         The variable $\ST = \pt(\PH) + \pt(\ell) + \ptmiss$ plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_st}
@@ -170,8 +170,8 @@ Therefore, the signal region selections are not optimized for maximal purity, th
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_msoftdrop_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/hbbjet_score_sig_vs_bkg_stacked_presel_noDetaJJ.pdf}}
-    \caption{
-        The \Htobb fat jet candidate soft drop mass (left) and ParticleNet \Xtobb score (right) plotted after applying the Preselection.
+    \caption[The \Htobb fat jet candidate soft drop mass and \ParticleNet \Xtobb score distributions]{
+        The \Htobb fat jet candidate soft drop mass (left) and \ParticleNet \Xtobb score (right) plotted after applying the Preselection.
     }
     \label{fig:vbswh_presel_hbb}
 \end{figure}
@@ -200,7 +200,7 @@ The difference between the predicted and actual yield in MC is therefore taken a
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbswh/regionsABCD_closure_unblinded.pdf}
-    \caption{
+    \caption[The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram]{
         The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram. 
         In region A, the signal region, the background yield estimated from data is plotted instead of that predicted by MC. 
         Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding 2\std. 
@@ -248,7 +248,7 @@ where the systematic and statistical uncertainties are kept as \BkgEstTotalSystE
     \centering
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_flipped.pdf}\label{fig:vbswh_abcd_corr}}\qquad
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_data_vs_mc.pdf}\label{fig:vbswh_abcd_corr_data_mc}}
-    \caption{
+    \caption[A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD]{
         A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlayed using only MC (left). 
         The downward trend in the profile plot indicates that there is a minor correlation between \MSD and \detajj. 
         The profile is compared between data and MC (right), and good agreement suggests that the correlation is at least well-modeled. 
@@ -286,7 +286,7 @@ The results of this analysis therefore strongly indicate that \kW and \kZ have t
     \centering
     \subfloat[1D exclusion of $\lambdaWZ = -1$]{\includegraphics[width=0.445\textwidth,valign=c]{fig/vbswh/boosted_r_vs_m2deltaLogL_unblinded_zoom.pdf}\label{fig:vbswh_limit_1D}}
     \subfloat[2D exclusion of \lambdaWZ values]{\includegraphics[width=0.455\textwidth,valign=c]{fig/vbswh/exclusion_2D_contours_unblinded.pdf}\label{fig:vbswh_limit_2D}}
-    \caption{
+    \caption[The 1D and 2D exclusion significance for BSM \lambdaWZ scenarios]{
         The negative-log-likelihood plotted as a function of the signal strength ($r$) for $\lambdaWZ = -1$ (a).
         The exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped errorbars (b).
         It is clear from these two plots (a) the $\lambdaWZ = -1$ scenario is excluded well at 8.3\std and (b) opposite-sign scenarios ($\lambdaWZ < 0$) within previous CMS limits are excluded well beyond 5\std. 

@@ -11,7 +11,7 @@ In particular, reconstruction will represent 61\% of CPU usage at CMS when the H
     \subfloat[]{\includegraphics[width=0.55\linewidth,valign=c]{fig/lst/cpu_cms2022.pdf}\label{fig:cpu_curve}}
     % No \qquad needed because there is so much whitespace in these PDFs
     \subfloat[]{\includegraphics[width=0.4\linewidth,valign=c]{fig/lst/cpu_pie_cms2022.pdf}\label{fig:cpu_pie}}
-    \caption{
+    \caption[HL-LHC CPU usage projections at CMS]{
         The HL-LHC CPU usage projections at CMS as a function of time (left) and broken down by computing tasks (right), from Ref.~\cite{CMSComputingReport2022}. 
     }
     \label{fig:cpu_projections}
@@ -28,7 +28,7 @@ Then, a track-fitting algorithm takes each track candidate and fits a trajectory
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.45\linewidth]{fig/lst/tracking_cartoon.png}
-    \caption{
+    \caption[Simple illustration of particles leaving hits in a multi-layered tracker]{
         Simple illustration of particles (grey lines) leaving hits (black dots) in a multi-layered tracker. 
     }
     \label{fig:tracking_cartoon}
@@ -113,7 +113,7 @@ In the baseline version of LST, there is therefore an opportunity for massive im
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_eff_etacourse.pdf}}
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_fr_etacourse.pdf}}
-    \caption{
+    \caption[LST track-finding effiency and fake rate plotted as a function of $\eta$]{
         The LST track-finding efficiency (left) and fake rate (right) plotted as a function of the pseudorapidity $\eta$ of the simulated track and track candidate respectively.
         For both plots, five histograms are overlayed: all track candidates (black), pT5s (red), pT3s (blue), T5s (magenta), and pLSs that are not used in a pT5 or pT3 (green).
         On the left, it can be seen that T5s comprise the majority of the LST track-finding efficiency, either as pT5s or T5s.
@@ -141,7 +141,7 @@ Because the DNN will classify T5s as fake or real, binary cross entropy is used 
     \subfloat[]{\includegraphics[width=0.35\linewidth]{fig/lst/T5_anatomy.pdf}\label{fig:t5_anatomy}}
     \qquad
     \subfloat[]{\includegraphics[width=0.55\linewidth]{fig/lst/T5_DNN_architecture.pdf}\label{fig:t5dnn_arch}}
-    \caption{
+    \caption[The components of a T5 and the DNN architecture]{
         The components of a T5 in the $r$-$\phi$ plane, including the ``bridge'' T3, the circular fit, and the anchor hit in a MD (left) alongside the DNN architecture used in this work (right). 
     }
 \end{figure}
@@ -156,7 +156,7 @@ Compared to LST, the DNN is able to reduce the number of false positives---fake 
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/main_history.png}\label{fig:t5dnn_history}}
     \qquad
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/roc.png}\label{fig:t5dnn_roc}}
-    \caption{
+    \caption[The average loss after each epoch and ROC curve for the DNN]{
         The average loss after each epoch plotted (a) next to the Receiver Operating Characteristic (ROC) curves for the model after epoch 500 (b). 
         For the ROC curve, the signal efficiency is plotted on the y-axis, while the background efficiency, or fake rate, is plotted on the x-axis. 
     }
@@ -175,7 +175,7 @@ These performance enhancements come at no cost in throughput (Fig.~\ref{fig:stre
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_eff_pt_logx.pdf}}
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_eff_etacourse.pdf}}
-    \caption{
+    \caption[LST efficiency for all TCs plotted as a function of \pt and $\eta$]{
         The LST efficiency for all TCs plotted as a function of \pt (left) and $\eta$ (right).
         The working point for the DNN was selected to match the efficiency of LST, and it is clear that no efficiency is lost.
     }
@@ -187,7 +187,7 @@ These performance enhancements come at no cost in throughput (Fig.~\ref{fig:stre
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_pt_logx_logy.pdf}}
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_fr_etacourse.pdf}}
-    \caption{
+    \caption[LST fake rate for all TCs plotted as a function of \pt and $\eta$]{
         The LST fake rate for all TCs plotted as a function of \pt (left) and $\eta$ (right).
         Notably, there is a 40\% reduction in the fake rate in the barrel, where the T5 fake rate was previously dominant.
     }
@@ -199,7 +199,7 @@ These performance enhancements come at no cost in throughput (Fig.~\ref{fig:stre
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_pu200_loweta_eff_vxycoarse.pdf}\label{fig:t5dnn_eff_rvertex_ttbar}}
     \qquad
     \subfloat[]{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_DNNvsMaster_cube5_loweta_eff_vxy.pdf}\label{fig:t5dnn_eff_rvertex_cube}}
-    \caption{
+    \caption[LST efficiency for all TCs plotted as a function of $r_\text{vertex}$]{
         The LST efficiency for all TCs plotted as a function of $r_\text{vertex}$, i.e. the distance to the production vertex measured in the plane transverse to the beamline.
         This plot is made with 1000 \ttbar events with HL-LHC pile-up (left) and 10,000 ``muon-cube'' events where muons are produced at points uniformly distributed across a 5 cm cube (right).
         In both plots, it is clear that the T5-DNN recovers a significant amount of efficiency for displaced tracks.
@@ -212,7 +212,7 @@ These performance enhancements come at no cost in throughput (Fig.~\ref{fig:stre
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.75\linewidth]{fig/lst/throughput_vs_streams.pdf}
-    \caption{
+    \caption[LST throughput plotted for different numbers of parallel CUDA streams]{
         The LST throughput plotted for different numbers of parallel CUDA streams that are each opportunistically processing different events concurrently. 
         The throughput is measured before (dark grey) and after (light grey) the DNN is integrated into LST, showing no significant difference.
     }

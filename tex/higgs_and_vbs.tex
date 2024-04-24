@@ -41,7 +41,7 @@ Second, but equally important, modifications to the Higgs couplings induce effec
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
     \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}} % TODO: label another plot, maybe VBSVVH, and replace this one
-    \caption{
+    \caption[Event display for a simulated VBS WH signal event]{
         Event display for a simulated VBS WH signal event. 
         The event is shown in the x-y plane (left) and x-z plane (right), and the final-state particles (thick red lines) are labeled. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
@@ -116,7 +116,7 @@ For CMS analysis, a deep neural network called \DeepJet was trained to use the p
     \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step1.png}\label{fig:btagging_step1}}
     \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step2.png}\label{fig:btagging_step2}}
     \subfloat[]{\includegraphics[width=0.33\textwidth]{fig/cms/btagging_step3.png}\label{fig:btagging_step3}}
-    \caption{
+    \caption[A sketch of the hadronization and identification of a \Pb quark]{
         A sketch of the hadronization of a \Pb quark (left), the subsequent hadronization of the produced B meson (center), and the identification of each jet (right). 
         Based on Ref.~\cite{BTaggingDiagramOrig}.
     }
@@ -176,8 +176,8 @@ Backgrounds including genuine VBS jets or a genuine Higgs boson are typically mu
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131107_rz.png}}
     \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/bkg/ttbar_rz.png}}
-    \caption{
-        Event display for a simulated VBS WH signal event (left) and \ttbar event (right). 
+    \caption[Event display for a simulated VBS \WH signal and \ttbar event]{
+        Event display for a simulated VBS \WH signal event (left) and \ttbar event (right). 
         Both events contain two forward jets, a single muon, and two \PQb jets. 
     }
     \label{fig:vbs_vs_ttbar}
@@ -193,7 +193,7 @@ Instead, we use Monte Carlo (MC) simulation software that ``generates'' proton-p
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.85\textwidth]{fig/mc_diagram_labeled.png}
-    \caption{
+    \caption[Detailed diagram of the generation of a single $\Pp\Pp\to\ttbar+\PH$ event]{
         Detailed diagram of the generation of a single $\Pp\Pp\to\ttbar+\PH$ event, based on ~\cite{Gleisberg:2008ta}, starting from hard scattering (circled), to the decay of the top quark, anti-top quark, and Higgs boson (black arrows and text), to the hadronization of the final state into jets (red triangles). 
         Also included are jets from final-state radiation, i.e. gluons radiated from the final state quarks, and initial-state radiation, i.e. jets from the other constituents of the colliding protons. 
     }
@@ -216,8 +216,8 @@ Analyzers can then use these simulated samples to optimize their analysis for pr
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{fig/cms/mcgen_diagram.png}
-    \caption{
-        Diagram of the CMS workflow, from~\cite{CMSOpenDataMC}, for generating MC simulation showing the postprocessing steps that are shared between MC simulation and real collision data. 
+    \caption[Diagram of the CMS collision data and simulation processing workflow]{
+        Diagram of the CMS collision data and simulation processing workflow, from~\cite{CMSOpenDataMC}, for generating MC simulation showing the postprocessing steps that are shared between MC simulation and real collision data. 
     }
     \label{fig:mcgen_diagram}
 \end{figure}
@@ -232,7 +232,7 @@ This process, orchestrated across 170 computing clusters in over 40 countries (i
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/cms/pp_to_nano.png}
-    \caption{
+    \caption[Diagram of the evolution of CMS data from collection to post-processing into the data used in analysis]{
         Diagram of the evolution of CMS data from collection (top) to post-processing into the data used in analysis (bottom). 
         The 30 TB/s of data that are produced by the 40 MHz proton-proton collisions is reduced to 6 GB/s by the trigger system, which discards uninteresting events. 
         Over the course of Run 2, this yielded over 200 PB of recorded data that was then processed into different data ``tiers'' for further analysis. 
@@ -259,8 +259,8 @@ However, we must first derive the best possible estimate of the background in th
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/cms/nano_to_SR.png}
-    \caption{
-        Diagram showing the steps of data processing for a typical physics measurement. 
+    \caption[Diagram of the data processing workflow for a typical physics measurement]{
+        Diagram of the data processing workflow for a typical physics measurement. 
         Starting from NanoAOD (200 PB of real collision data, 900 PB of simulation), ``skimming'' jobs are distributed across thousands of GPUs, each taking a few NanoAOD files (around 1 GB each) and removing all of the unnecessary information. 
         Then, progressively strict selections are placed until the signal region is reached, wherein the measurement will be made. 
     }
@@ -300,7 +300,7 @@ By estimating the background yield in the signal region in this way, we rely ent
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/generic_abcd_cartoon.png}
-    \caption{
+    \caption[A generic ABCD configuration]{
         A generic ABCD configuration where selections on the quantities $x$ and $y$ are used to form the signal region (region A), and three ``control'' regions (regions B, C, and D) used to estimate the background in the signal region. 
         In the toy example shown, the method closes exactly for background (blue): $B\times C/D = 3 = A$. 
     }
@@ -347,7 +347,7 @@ $P$ and $L$ are supercifically similar, but, in reality, they are related, but d
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/prob_vs_like.png}
-    \caption{
+    \caption[The probability and likelihood]{
         The probability for different values of $\mu$ (left) and the likelihood for $n = 1$ (right), showing how $L(\mu)|_{n=1}$ is given by computing $P(1|\mu)$. 
     }
     \label{fig:prob_vs_like}
@@ -382,8 +382,8 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/like_gauss_approx.png}
-    \caption{
-        The likelihood overlayed by the Gaussian approximation of the likelihood for different values of $n$, showing poor agreement for small $n$ (left), decent agreement for $n = 56$, and good agreement for $n = 550$.
+    \caption[The likelihood with the Gaussian approximation of the likelihood overlayed]{
+        The likelihood with the Gaussian approximation of the likelihood overlayed for different values of $n$, showing poor agreement for small $n$ (left), decent agreement for $n = 56$, and good agreement for $n = 550$.
     }
     \label{fig:like_gauss_approx}
 \end{figure}
@@ -391,7 +391,7 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/CL_examples.png}
-    \caption{
+    \caption[The likelihood and confidence interval plotted for the ``signal exists'' and ``signal does not exist'' scenarios]{
         The likelihood (left) and confidence interval (right) plotted for two different scenarios: $n \approx s$, or the signal exists, (top) and $n \approx b$, or the signal does not exist (bottom). 
         In the first scenario, the signal strength is measured to be within $[0.88, 1.10]$ at the 95\% CL, whereas in the other scenario, it is measured to be within $[0, 0.06]$ at the 95\% CL.
     }

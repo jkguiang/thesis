@@ -17,7 +17,7 @@ This chapter focuses on the all-hadronic final state.
     \centering
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbsvvh/vbsvvh_c2v_allhad.pdf}}\quad
     \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbsvvh/vbsvvh_c3_allhad.pdf}}
-    \caption{
+    \caption[Leading-order Feynman diagrams for VBS \VVH in the all-hadronic final state]{
         Leading-order Feynman diagrams for VBS production of two vector bosons (V) and one Higgs boson, where the vector bosons decay hadronically and the Higgs boson decays specifically to \PQb quarks. 
         The HHVV coupling \kVV is denoted by a blue circle (\textcolor{blue}{\ding{108}}), and the \HHH coupling \kHHH is denoted by a magenta circle (\textcolor{magenta}{\ding{108}}). 
     }
@@ -34,7 +34,7 @@ The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/M_jj_sig_vs_bkg_stacked_logy.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/abs_deta_jj_sig_vs_bkg_stacked_logy.pdf}}
-    \caption{
+    \caption[The \Mjj and \detajj distribution for the VBS jets]{
         The invariant mass \Mjj (left) and pseudorapidity separation \detajj (right) of the VBS jets plotted after the Preselection is applied. 
         The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
     }
@@ -46,7 +46,7 @@ The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/hbbfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/ld_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/tr_vqqfatjet_pt_sig_vs_bkg_stacked_logy.pdf}}
-    \caption{
+    \caption[The \pt distribution for each of the three VBS \VVH AK8 jets]{
         The \pt of the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) AK8 jets plotted after the Preselection is applied. 
         The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
     }
@@ -58,7 +58,7 @@ The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/hbbfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/ld_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/tr_vqqfatjet_mass_sig_vs_bkg_stacked_logy.pdf}}
-    \caption{
+    \caption[The \ParticleNet regressed mass distribution for each of the three VBS \VVH AK8 jets]{
         The \ParticleNet regressed masses \MPNet of the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) AK8 jets plotted after the Preselection is applied. 
         The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
     }
@@ -66,10 +66,20 @@ The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 
 \end{figure}
 
 \section{The backgrounds}
-The main background in this analysis comes from QCD multijet production, wherein the quarks and gluons in the colliding protons interact and produce more quarks and gluons. 
+The main background in this analysis comes from QCD multijet production (Fig.~\ref{fig:qcd_multijet}), wherein the quarks and gluons in the colliding protons interact and produce more quarks and gluons. 
 This is the most common process at the LHC, and it dominates the background for many analyses that target an all-hadronic final state. 
-The largest sub-leading backgrounds are \ttbar production and multi-boson production in all-hadronic final states. 
-All of these backgrounds simply produce many jets that can, by random chance, pass our \Htobb selections, or have genuine vector bosons that decay hadronically. % TODO: add QCD multijet feynman diagram
+The largest sub-leading backgrounds are \ttbar production (Fig.~\ref{fig:ttbar_allhad}) and multi-boson production in all-hadronic final states. 
+All of these backgrounds simply produce many jets that can, by random chance, pass our \Htobb selections, or have genuine vector bosons that decay hadronically. 
+
+\begin{figure}[htb]
+    \centering
+    \subfloat[QCD multijet]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/qcd_multijet.pdf}\label{fig:qcd_multijet}}\quad
+    \subfloat[\ttbar in the all-hadronic final state]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_allhad_extraJet_ggF.pdf}\label{fig:ttbar_allhad}}
+    \caption[Feynman diagrams for QCD multijet and \ttbar production]{
+        Feynman diagram for QCD multijet production (left) and \ttbar production in the all-hadronic final state (right), the leading and subleading backgrounds, respetively, for the VBS \VVH all-hadronic analysis. 
+    }
+    \label{fig:vbsvvh_bkgs} % sub-leading background (W+jets and single top)
+\end{figure}
 
 \subsection{QCD \ParticleNet resampling}
 From Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores_noCorr}, it is clear that the data and MC distributions for the \ParticleNet scores used in this analysis do not fully agree. 
@@ -81,7 +91,7 @@ However, for training any classifier for this analysis, such as a boosted decisi
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/noqcdfix_hbbfatjet_xbb_data_vs_mc_log_objsel.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/noqcdfix_ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/noqcdfix_tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
-    \caption{
+    \caption[The \ParticleNet score distribution for each of the three VBS \VVH AK8 jets plotted in data and MC before QCD resampling]{
         The \ParticleNet scores for the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) AK8 jets plotted after the analysis objects are selected. 
         The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
     }
@@ -121,7 +131,7 @@ After replacing the AK8 jet scores in events with 3 AK8 jets, the \ParticleNet s
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin0.pdf}}
-    \caption{
+    \caption[The approximation of the \ParticleNet \textit{PDF}s]{
         The approximation of the \ParticleNet \textit{PDF}s plotted for the \Xtobb score in one bin of \pt (left) and the \XWtoqq score in one bin of \pt and \Xtobb (right). 
     }
     \label{fig:vbsvvh_pnetpdf}
@@ -132,8 +142,8 @@ After replacing the AK8 jet scores in events with 3 AK8 jets, the \ParticleNet s
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/hbbfatjet_xbb_data_vs_mc_log_objsel.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/ld_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
     \subfloat{\includegraphics[width=0.32\textwidth]{fig/vbsvvh/tr_vqqfatjet_xwqq_data_vs_mc_log_objsel.pdf}}
-    \caption{
-        The \ParticleNet scores for the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) AK8 jets plotted after the analysis objects are selected. 
+    \caption[The \ParticleNet score distribution for each of the three VBS \VVH AK8 jets plotted in data and MC after QCD resampling]{
+        The \ParticleNet scores for the \Htobb (left), leading \Vtoqq (center), and trailing \Vtoqq (right) AK8 jets plotted after the analysis objects are selected and the QCD resampling is applied. 
         The main signal MC ($\kVV = 2$) is plotted in red alongside $\kVV = 1.5$ and $\kVV = 1.3$ for comparison. 
     }
     \label{fig:vbsvvh_dataMC_fatjet_scores}
@@ -219,7 +229,7 @@ This range is selected to be within a reasonable window; for example, \Mjj is no
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.75\textwidth]{fig/vbsvvh/all_features.pdf}
-    \caption{
+    \caption[The input features for ABCDNet plotted as histograms normalized to unity]{
         The input features for ABCDNet plotted as histograms normalized to unity. 
         It can be seen that the features have been re-scaled to values of order 1.
     }
@@ -237,11 +247,10 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
     \centering
     \subfloat[]{\includegraphics[width=0.5\textwidth]{fig/vbsvvh/loss_epoch900.pdf}\label{fig:vbsvvh_abcdnet_history}}\qquad
     \subfloat[]{\includegraphics[width=0.4\textwidth]{fig/vbsvvh/abcdnet_roc_logx.pdf}\label{fig:vbsvvh_abcdnet_roc}}
-    \caption{
-        The average loss at each epoch is plotted on the left. 
-        In particular, the total loss, which is the sum of the Binary Cross Entropy (BCE) plus the decorrelation term, is plotted as a solid line, the BCE is plotted as a dashed line, and the decorrelation term is plotted as a dotted line. 
+    \caption[The average loss at each epoch and ROC curve for the selected ABCDNet model]{
+        The average loss at each epoch (left) and ROC curve for the selected model (right). 
+        The total loss, which is the sum of the Binary Cross Entropy (BCE) plus the decorrelation term, is plotted as a solid line, the BCE is plotted as a dashed line, and the decorrelation term is plotted as a dotted line. 
         The testing loss is plotted in blue and the training loss is plotted in orange. 
-        On the right, the Receiver Operating Characteristic (ROC) curve for the final selected model is plotted. 
     }
     \label{fig:vbsvvh_abcdnet_perf}
 \end{figure}
@@ -250,8 +259,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf}}
-    \caption{
-        A two-dimensional histogram binned in ABCDNet score and \detajj is plotted. 
+    \caption[A two-dimensional histogram binned in ABCDNet score and \detajj]{
+        A two-dimensional histogram binned in ABCDNet score and \detajj. 
         The one-dimensional profile of the x-axis is overlayed such that the correlation between the two variables appears as a trend in the profile. 
         The signal region selections on the fatjet \ParticleNet scores are applied, so the left plot is equivalent to Fig.~\ref{fig:vbsvvh_abcd}.
     }
@@ -261,8 +270,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbsvvh/abcdnet_score_data_vs_mc_log_presel.pdf}
-    \caption{
-        The ABCDNet score is plotted in data and MC at the Preselection. 
+    \caption[The ABCDNet score plotted in data and MC at the Preselection]{
+        The ABCDNet score plotted in data and MC at the Preselection. 
         The data beyond the cut used in the signal region is kept blind. 
     }
     \label{fig:vbsvvh_abcdnet_score}
@@ -304,8 +313,8 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABCD_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}
-    \caption{
-        A cartoon of the ABCD regions is plotted. 
+    \caption[A cartoon of the ABCD regions]{
+        A cartoon of the ABCD regions. 
         The signal region selections on the fatjet \ParticleNet scores are applied to all regions. 
         Region B has the \detajj cut inverted, region C has the ABCDNet score inverted, and region D has both cuts inverted. 
     }
@@ -349,7 +358,7 @@ This effectively takes the relative error on the non-closure in MC as the system
     \centering
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABC1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck1}}\qquad
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/AB1B2C1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck2}}
-    \caption{
+    \caption[The ABCD regions used for closure tests]{
         The ABCD regions used for closure tests. 
         Again, the cuts on the fatjet \ParticleNet scores are applied to all regions. 
         Regions C and D can each be split into two sub-regions by introducing a looser cut on the ABCDNet score (a). 
@@ -362,7 +371,7 @@ This effectively takes the relative error on the non-closure in MC as the system
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsAC_closure_signal.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsBD_closure_signal.pdf}}
-    \caption{
+    \caption[Regions A, B, C, and D used in the ABCD method]{
         Regions A and C (left) and regions B and D (right) used in the ABCD method.
     }
     \label{fig:vbsvvh_abcd_closureMass}
@@ -435,7 +444,7 @@ The result of the fit is shown in Figure~\ref{fig:vbsvvh_limit}, and the regions
 \begin{figure}[htb]
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/C2V_Limit.pdf}}
-    \caption{The 95\% confidence level limit as a function of \kVV for the all-hadronic channel. 
+    \caption{The 95\% confidence level limit plotted as a function of \kVV for the all-hadronic channel. 
     }
     \label{fig:vbsvvh_limit}
 \end{figure}
