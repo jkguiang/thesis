@@ -1,7 +1,7 @@
 \chapter{Measurement of \kVV through VBS VVH production}\label{ch:vbsvvh}
 
 \section{Chasing couplings}
-The precise determination of the Higgs boson couplings to other particles is essential to establishing our understanding of the Higgs mechanism with empirical data. 
+The precise determination of the Higgs boson couplings to other particles is essential to establishing our understanding of the Higgs mechanism with emperical data. 
 However, the more exotic the coupling, the more rare it is in nature. 
 Among these are the \HHVV and \HHH couplings, whose modifiers are represented by \kVV and \kHHH in the $\kappa$ framework, respectively. 
 At the time of writing, the value of \kVV has been constrained to $[0.67, 1.38]$ and the value of \kHHH has been constrained to $[-1.24, 6.49]$ at the 95\% \CL. 
@@ -27,7 +27,7 @@ This chapter focuses on the all-hadronic final state.
 \subsection{Signal characteristics}
 The VBS quarks provide the usual signature: two nearly back-to-back VBS jets have large $|\detajj|$ and \Mjj (Fig.~\ref{fig:vbsvvh_vbs_vars}). 
 The boost from BSM values of \kVV is also evident when the \VVH system is reconstructed as three AK8 jets (Fig.~\ref{fig:vbsvvh_fatjet_pts}). 
-Moreover, a graph neural network called \ParticleNet can be used to classify each AK8 jet, with negligible misidentification for signal, providing a strong handle for removing the dominant QCD background.
+Moreover, a graph neural network called \ParticleNet can be used to classify each AK8 jet, with negligable misidentification for signal, providing a strong handle for removing the dominant QCD background.
 The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 jet, as it has been shown to have better resolution than the other methods, and the clear resonance peaks around the Higgs boson and vector boson masses can be used to separate signal from background, which, in general, does not have such resonances (Fig.~\ref{fig:vbsvvh_fatjet_masses}). 
 
 \begin{figure}[htb]
@@ -76,7 +76,7 @@ All of these backgrounds simply produce many jets that can, by random chance, pa
     \subfloat[QCD multijet]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/qcd_multijet.pdf}\label{fig:qcd_multijet}}\quad
     \subfloat[\ttbar in the all-hadronic final state]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_allhad_extraJet_ggF.pdf}\label{fig:ttbar_allhad}}
     \caption[Feynman diagrams for QCD multijet and \ttbar production]{
-        Feynman diagram for QCD multijet production (left) and \ttbar production in the all-hadronic final state (right), the leading and subleading backgrounds, respectively, for the VBS \VVH all-hadronic analysis. 
+        Feynman diagram for QCD multijet production (left) and \ttbar production in the all-hadronic final state (right), the leading and subleading backgrounds, respetively, for the VBS \VVH all-hadronic analysis. 
     }
     \label{fig:vbsvvh_bkgs} % sub-leading background (W+jets and single top)
 \end{figure}
@@ -103,12 +103,12 @@ Only the scores for the QCD jets undergo this procedure, and the rest of the min
 First, the following assumptions are made:
 \begin{enumerate}
     \item A mass-decorrelated \ParticleNet score for a given AK8 jet should be fundamentally described by a probability density function (\textit{PDF}), where \textit{PDF} is \textit{italicized} to distinguish it from the parton distribution function.
-    \item This \textit{PDF} should be the same regardless of how many AK8 jets are in the event. This is the case because in our resampling we opt to use events with only two selected AK8 jets to model the scores in our phase space, where three AK8 jets are selected.
-    \item The \ParticleNet score is not correlated to the jet kinematic properties used later in the analysis. In case some features are correlated to \ParticleNet score, the resampling can be done in bins of the correlated feature.
+    \item This \textit{PDF} should be the same regardless of how many AK8 jets are in the event. This is the case because in our resampling we opt to use events with only two selected fatjets to model the scores in our phase space, where three fatjets are selected.
+    \item The \ParticleNet score is not correlated to the jet kimatic properties used later in the analysis. In case some features are correlated to \ParticleNet score, the resampling can be done in bins of the correlated feature.
 \end{enumerate}
 Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the \ParticleNet score for every AK8 jet in an event and normalizing it to unity. 
 Assumption 2 is less trivial. 
-In our case, we need to verify that events with 3 AK8 jets to contain the same kinds of AK8 jets as an event with 2 AK8 jets. 
+In our case, we need to verify that events with 3 fatjets to contain the same kinds of fatjets as an event with 2 AK8 jets. 
 This is not guaranteed, as events with different AK8 jet multiplicity may involve different physics. 
 For QCD events in this analysis, however, it can be seen in Fig.~\ref{fig:vbsvvh_pnetpdf} that Assumption 2 holds, as the \textit{PDFs} in 3 AK8 jet events approximately match the 2 AK8 jet events in data (with non-QCD events taken from MC subtracted out).
 Therefore, the properly binned \textit{PDF} derived in data for 2-AK8-jet events can be sampled to replace the \ParticleNet scores in 3-AK8-jet events. 
@@ -173,7 +173,7 @@ Critically, a \dCorrSq term is added to the loss function that trains the DNN to
 \begin{equation}
     \mathcal{L}[f(\vec{x})] = \mathcal{L}_\mathrm{BCE}[f(\vec{x}, y)] + \lambda\dCorrSq_{y=0}[f(\vec{x}), X_0]
 \end{equation}
-where $\vec{x}$ is the input vector, $y$ is the truth label (1 for signal, 0 for background), $\lambda$ is a tunable parameter for controlling the size of the decorrelation term, and $X_0$ is the decorrelation target, which the analyzer is free to choose.
+where $\vec{x}$ is the input vector, $y$ is the truth label (1 for signal, 0 for background), $\lambda$ is a tunable parameter for controling the size of the decorrelation term, and $X_0$ is the decorrelation target, which the analyzer is free to choose.
 Binary Cross Entropy ($\mathcal{L}_\mathrm{BCE}$) is used in our analysis, however any loss function $\mathcal{L}$ could in principle be used in its place.
 The \dCorrSq term is the ``distance correlation,'' a statistical quantity that measures the dependence of two variables $f$ and $g$, based on the ``distance covariance'' dCov$^2$ between them:
 \begin{align}
@@ -261,8 +261,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf}}
     \caption[A two-dimensional histogram binned in ABCDNet score and \detajj]{
         A two-dimensional histogram binned in ABCDNet score and \detajj. 
-        The one-dimensional profile of the x-axis is overlaid such that the correlation between the two variables appears as a trend in the profile. 
-        The signal region selections on the AK8 jet \ParticleNet scores are applied, so the left plot is equivalent to Fig.~\ref{fig:vbsvvh_abcd}.
+        The one-dimensional profile of the x-axis is overlayed such that the correlation between the two variables appears as a trend in the profile. 
+        The signal region selections on the fatjet \ParticleNet scores are applied, so the left plot is equivalent to Fig.~\ref{fig:vbsvvh_abcd}.
     }
     \label{fig:vbsvvh_abcdnet_decorr}
 \end{figure}
@@ -315,7 +315,7 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
     \includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABCD_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}
     \caption[A cartoon of the ABCD regions]{
         A cartoon of the ABCD regions. 
-        The signal region selections on the AK8 jet \ParticleNet scores are applied to all regions. 
+        The signal region selections on the fatjet \ParticleNet scores are applied to all regions. 
         Region B has the \detajj cut inverted, region C has the ABCDNet score inverted, and region D has both cuts inverted. 
     }
     \label{fig:vbsvvh_abcd}
@@ -360,7 +360,7 @@ This effectively takes the relative error on the non-closure in MC as the system
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/AB1B2C1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck2}}
     \caption[The ABCD regions used for closure tests]{
         The ABCD regions used for closure tests. 
-        Again, the cuts on the AK8 jet \ParticleNet scores are applied to all regions. 
+        Again, the cuts on the fatjet \ParticleNet scores are applied to all regions. 
         Regions C and D can each be split into two sub-regions by introducing a looser cut on the ABCDNet score (a). 
         Region B can similarly be split into two sub-regions by introducing a looser cut on \detajj, which also divides D into 4 sub-regions total (b).
     }

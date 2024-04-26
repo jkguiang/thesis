@@ -40,8 +40,8 @@ These collision points are surrounded by enormous, multi-layered particle detect
     \centering
     \subfloat{\includegraphics[width=0.475\textwidth,valign=c]{fig/lhc/dipole_cutaway.png}}\quad
     \subfloat{\includegraphics[width=0.425\textwidth,valign=c]{fig/lhc/dipole_jguiang.png}}
-    \caption[A cutaway diagram illustrating the internals of a dipole magnet inside the LHC tunnel, from Ref.~\cite{Dominguez:1741036}, and a photograph of a decommissioned dipole magnet with a physicist for scale]{
-        A cutaway diagram illustrating the internals of a dipole magnet inside the LHC tunnel (left), from Ref.~\cite{Dominguez:1741036}, and a photograph of a decommissioned dipole magnet with a physicist for scale (right).
+    \caption[A cutaway diagram illustrating the internals of a dipole magnet inside the LHC tunnel, from Ref.~\cite{Dominguez:1741036}, and a photograph of a decomissioned dipole magnet with a physicist for scale]{
+        A cutaway diagram illustrating the internals of a dipole magnet inside the LHC tunnel (left), from Ref.~\cite{Dominguez:1741036}, and a photograph of a decomissioned dipole magnet with a physicist for scale (right).
     }
     \label{fig:lhc_dipole}
 \end{figure}
@@ -66,14 +66,14 @@ The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the 
 It is thus measured in the inverse units of a cross section, namely cm$^{-2}$ or inverse barns (b$^{-1}$)---or, at LHC scales, inverse femptobarns (\fbinv).
 At the LHC, \Lumi is a measure of the ability to initiate pp collisions. 
 Immediately, it is clear that \Lumi should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
-This is called the \textit{instantaneous} luminosity, or how many interactions are initiated at any one time. 
+This is called the \textit{instantaneous} lumonisity, or how many interactions are initiated at any one time. 
 We can also consider the \textit{integrated} luminosity, or the total number of interactions initiated over some period of time---as the name suggests, this is simply an integral of the instantaneous luminosity. 
-Put simply, the integrated luminosity represents the rate at which interactions occur at the LHC, while the integrated luminosity is a compact shorthand for how many interactions occurred at the LHC during some period of data-taking. 
+Put simply, the integrated lumonisity represents the rate at which interactions occur at the LHC, while the integrated luminosity is a compact shorthand for how many interactions occured at the LHC during some period of data-taking. 
 For example, with the LHC operating at an instantaneous luminosity of $\Lumi = 1\times10^{34}$ cm$^{-2}$s$^{-1}$, given the pp inelastic scattering cross section at 13\TeV ($\sigma = 71.3$ millibarns~\cite{CMS-PAS-FSQ-15-005}), we can expect $\Lumi\times\sigma = 713$ million pp collisions per second, or 11.24 quadrillion pp collisions over 6 months. 
 Importantly, a more specific cross section $\sigma$---the cross section for a Higgs boson to be produced in a pp collision, for instance---can be used. 
 
 Based on intuition, we can guess that the luminosity must be a function of the number of protons in a bunch, the bunch spacing, and the exact dynamics of the bunch crossing. 
-Indeed, at the LHC, we define the instantaneous luminosity as follows:
+Indeed, at the LHC, we define the instantaneous lumonisity as follows:
 \begin{equation}
     \Lumi = \gamma\frac{n_\mathrm{b}N^2f_\text{rev}}{4\pi\beta^{*}\epsilon_\mathrm{n}}R
 \end{equation}
@@ -81,7 +81,7 @@ where $n_\mathrm{b}$ is the number of bunches per beam, $N$ is the number of pro
 Therefore, in order to modify the rate at which interactions may occur, we have several parameters that we can tune.
 
 \section{The Compact Muon Solenoid}\label{sec:cms}
-The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisions, and LHCb, for studying b quarks. 
+The Compact Muon Solenoid (CMS) Experiment is one of two general purpose LHC experiments, the other being the ATLAS\footnotemark{} Experiment, among the four major experiments supported by the LHC~\cite{LHCWeb}, where the other two are more specialized: ALICE, for studying heavy ion collisons, and LHCb, for studying b quarks. 
 \footnotetext{Whereas ATLAS is, putting it politely, a rather creative acronym: ``A Toroidal LHC ApparatuS.''}
 Compared to ATLAS, which stands at a mighty $46\times25\times25$ meters in dimension, CMS is ``compact'' at a stout $21\times15\times15$ m, with a dedicated muon system and one of the world's largest solenoids~\cite{ATLASWeb, CMSWeb}. 
 See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fig:cms_pics} and \ref{fig:cms_jguiang} for some beauty shots. 
@@ -167,7 +167,7 @@ Inside of the iron, the magnetic field runs almost uniformly parallel to the fie
     \subfloat{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/solenoid_wedge.jpg}}\quad
     \subfloat{\includegraphics[width=0.6\textwidth,valign=c]{fig/cms/solenoid_cable.png}}
     \caption[A photograph of a section of the CMS magnet, from Ref.~\cite{CourierSolenoid}, and a diagram of a single winding, from Ref.~\cite{CERN-LHCC-97-010}]{
-        A photograph of a section of the CMS magnet, from Ref.~\cite{CourierSolenoid}, showing the cross section of the solenoid winding (left), and a diagram of a single winding, from Ref.~\cite{CERN-LHCC-97-010} (right). 
+        A photograph of a section of the CMS magnet, from Ref.~\cite{CourierSolenoid}, showing the cross section of the solenoid windings (left), and a diagram of a single winding, from Ref.~\cite{CERN-LHCC-97-010} (right). 
     }
     \label{fig:cms_magnet}
 \end{figure}
@@ -223,7 +223,7 @@ This process is called ``scintillation'' and the amount of light produced from o
 Each PbWO$_4$ crystal is glued to a photodetector that collects the scintillation light by the attached crystal and outputs an electric signal proportional to the amount of light collected. 
 This signal can then be used to measure the energy of electrons and photons. 
 
-The probability of material interactions occurring as well as the shape of the shower varies amongst scintillating materials. 
+The probability of material interactions ocurring as well as the shape of the shower varies amongst scintillating materials. 
 Ultimately, PbWO$_4$ was selected for its short radiation length and small Moli\`ere radius~\cite{CERN-LHCC-97-033}, corresponding to a high probability of interactions and showers localized mostly to a single crystal, respectively. 
 The former property is most obviously useful: a high probability of scintillation means electrons and photons are more efficiently collected by the ECAL. 
 The latter property, however, is also vital: localized showers are less likely to overlap, so individual particles can be resolved. 
@@ -232,8 +232,8 @@ The latter property, however, is also vital: localized showers are less likely t
     \centering
     \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_install.jpg}\label{fig:cms_ecal_install}}\quad
     \subfloat[]{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/ecal_crystal.jpg}\label{fig:cms_ecal_crystal}}
-    \caption[A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed and a physicist posed with the lead tungstate scintillator crystals used in the ECAL]{
-        A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed (left) and a physicist posed with the lead tungstate scintillator crystals used in the ECAL (right). 
+    \caption[A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed and a physicist posed with the lead tungstade scintillator crystals used in the ECAL]{
+        A photograph of the CMS electromagnetic calorimeter (ECAL) after half of the modules had been installed (left) and a physicist posed with the lead tungstade scintillator crystals used in the ECAL (right). 
         Both photographs are from Ref.~\cite{Brice:1431477}.
     }
     \label{fig:cms_ecal}
@@ -242,12 +242,12 @@ The latter property, however, is also vital: localized showers are less likely t
 \subsection{Hadronic calorimeter}
 The HCAL (Fig.~\ref{fig:cms_hcal_removed}) is composed of interwoven layers of solid brass or steel plates and plastic scintillator tiles~\cite{CERN-LHCC-97-031}. 
 When a hadron interacts with one of the brass and steel ``absorber'' layers, a shower of secondary particles are created. % TODO: add some sort of shower pic, there is one in Kolanoski & Wermes (particle detectors book)
-The secondary particles pass through the next scintillator layer, creating scintillation light, then proceed to the next absorber layer. 
+The secondary particles pass through the next scintillator layer, creating scintillation light, then proceed to the next absober layer. 
 In this way, large cascading showers of secondary particles are produced according to the energy of the impinging particle, where each scintillator layer gives some measurement, or ``sample,'' of the original particle's energy. 
 
-This kind of calorimeter, which has alternating absorber and scintillator layers, is called a ``sampling'' calorimeter as opposed to a ``homogeneous'' calorimeter, wherein a single medium is used to both create the shower and measure the energy. 
-Sampling calorimeters are typically less costly and give some information on the shape of the shower, whereas homogeneous calorimeters have superior energy resolution. 
-In addition, almost all hadronic calorimeters are sampling calorimeters, homogeneous hadronic calorimeter would need to be infeasibly large in order to contain a hadronic shower~\cite{KolanoskiWermesDetectors}. 
+This kind of calorimeter, which has alternating absorber and scintillator layers, is called a ``sampling'' calorimeter as opposed to a ``homogenous'' calorimeter, wherein a single medium is used to both create the shower and measure the energy. 
+Sampling calorimeters are typically less costly and give some information on the shape of the shower, whereas homogenous calorimeters have superior energy resolution. 
+In addition, almost all hadronic calorimeters are sampling calorimeters, homogenous hadronic calorimeter would need to be infeasibly large in order to contain a hadronic shower~\cite{KolanoskiWermesDetectors}. 
 It is even more critical that the HCAL be compact for CMS, as every increase in size of the inner layers results in large increases in volume of the solenoid and muon chambers, resulting in enormous increases in energy and material costs. 
 Due to these space constraints, an additional layer of the HCAL needed to be placed outside of the magnet in order to measure, and absorb, anything that made it past the bulk of the HCAL. 
 In fact, the HCAL was already projected to be too costly due to the sheer amount of high-quality brass needed to create the absorber plates. 
@@ -258,7 +258,7 @@ To save on costs, the Russian Navy was convinced---without much difficulty---to 
     \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/hcal_removed.jpg}\label{fig:cms_hcal_removed}}\quad
     \subfloat{\includegraphics[width=0.45\textwidth,valign=c]{fig/cms/hcal_russian.jpg}\label{fig:cms_hcal_russian}}
     \caption[A photograph of the CMS hadronic calorimeter (HCAL) and the World War II artillery shell casings that were melted down to supply the brass]{
-        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decommissioned World War II artillery shell casings used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
+        A photograph of the CMS hadronic calorimeter (HCAL) in front of the magnet and muon chambers before the detector was installed in the experiment cavern (left), from Ref.~\cite{Brice:1431485}, and workers in Mormansk sitting on the decomissioned World War II artillery shell casings used to supply the brass for the HCAL (right), from Ref.~\cite{GinterRussianDudes}.
     }
 \end{figure}
 
@@ -277,7 +277,7 @@ This measurement can be used to determine whether the pp collision is interestin
     \caption[The cross section of CMS in the $r$-$z$ plane, from Ref.~\cite{CMS:2018rym}, and $r$-$\phi$ plane, from Ref.~\cite{CMSWebMuons}]{
         The cross section of CMS in the $r$-$z$ plane (left), from Ref.~\cite{CMS:2018rym}, and $r$-$\phi$ plane (right), from Ref.~\cite{CMSWebMuons}. 
         In the $r$-$z$ plane, the DTs, CSCs, and RPCs are drawn in light green, dark green, and blue, respectively, showing the layout of the muon system as well as the other subdetectors. 
-        In the $r$-$\phi$ plane, the muon ``stations'' in the barrel are depicted with the DT internals exposed for stations with a throughgoing muon, showing the activation of the individual DT cells (blue) as well as the activation of a section of the RPC (red).
+        In the $r$-$\phi$ plane, the muon ``stations'' in the barrel are depicted with the DT internals exposed for stations with a throughgoing muon, showing the activation of the individual DT cells (blue) as well as the activiation of a section of the RPC (red).
     }
 \end{figure}
 
@@ -299,14 +299,14 @@ We can therefore discard most of the data recorded by CMS, making its continued 
 
 The CMS Experiment has a two-stage trigger system for identifying interesting events. 
 The first stage, called the ``Level 1'' (L1) trigger, takes raw data from the calorimeters and muon chambers and makes a decision on whether to keep or discard the event. 
-This decision making is implemented with dedicated hardware (FPGAs), so it can run synchronously with the pp collisions. 
+This decision making is implemented with dedicated hardware (FPGAs), so it can run synchonously with the pp collisions. 
 Although it can only make very simple decisions, the L1 trigger reduces the output of CMS from 40 million events per second down to 100\,000 by discarding events that are obviously uninteresting. 
 The second stage, called the ``high level'' trigger (HLT), relies on high-throughput software (written in C++), rather than specialized hardware, to reduce the event rate from 100\,000 events per second to 1\,000. 
 The HLT is designed to ingest more sophisticated input and thus make more precise decisions. 
 In particular, events are processed along trigger ``paths,'' representing different sets of selections. 
 Passing events are then sorted and written to disk for further processing. 
 
-\section{The high luminosity era}
+\section{The high lumonisity era}
 There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once, or the luminosity. 
 Since most of the experiments serviced by the LHC were designed for pp collisions, and because the LHC is designed only for $\sqrt{s} = 14\TeV$, the final era of LHC physics will see a massive increase in luminosity. 
 That is, at the ``high luminosity'' LHC (HL-LHC), there will be 100--200 concurrent pp collisions per bunch crossing (Fig.~\ref{fig:high_pu}), corresponding to an increase by a factor of 5--7.5.

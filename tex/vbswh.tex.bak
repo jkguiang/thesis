@@ -221,12 +221,12 @@ and the estimated background yield in the signal region is therefore given by
     \Adata^\text{pred} = \PredBkgNoCorrection \pm \PredBkgNoCorrectionStatErr \pm \PredBkgNoCorrectionSystErr
 \end{equation*}
 However, it can be seen in Fig.~\ref{fig:vbswh_abcd_corr} that the ABCD variables \detajj and \MSD are correlated.
-This correlation is not evident in MC closure because it happens to ``cancel out,'' leading to the mild systematic over-prediction quantified above. 
+This correlation is not evident in MC closure because it happens to ``cancel out,'' leading to the mild systematic overprediction quantified above. 
 To improve the reliability and accuracy of the method, a correction is computed in MC and applied to the transfer factor $\Cdata/\Ddata$ as follows:
 \begin{equation*}
     \Adata^\text{pred} = \Bdata\times\frac{\Cdata}{\Ddata}\times\bigg(\frac{\AMC}{\CMC/\DMC}\bigg)
 \end{equation*}
-That is, the over-prediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $\Cdata/\Ddata$ to account for the correlation between \MSD and \detajj. 
+That is, the overprediction of the ABCD method is measured in MC, i.e. the \BkgEstTotalSystErr\% computed before, but it is now used to adjust the transfer factor $\Cdata/\Ddata$ to account for the correlation between \MSD and \detajj. 
 Moreover, in the $\MSD \geq 150\GeV$ sideband, comparison between data and MC shows that the correlation is well-modeled by MC (Fig.~\ref{fig:vbswh_abcd_corr_data_mc}), thus validating this correction. 
 This trivially makes the method close exactly in MC, but by applying it to ABCD in data, the predicted background yield in the signal region is made more accurate, as the correlation was previously biasing the result.
 Therefore, the final estimated background yield in the signal region is given by
@@ -249,7 +249,7 @@ where the systematic and statistical uncertainties are kept as \BkgEstTotalSystE
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_flipped.pdf}\label{fig:vbswh_abcd_corr}}\qquad
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_data_vs_mc.pdf}\label{fig:vbswh_abcd_corr_data_mc}}
     \caption[A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD]{
-        A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlaid using only MC (left). 
+        A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlayed using only MC (left). 
         The downward trend in the profile plot indicates that there is a minor correlation between \MSD and \detajj. 
         The profile is compared between data and MC (right), and good agreement suggests that the correlation is at least well-modeled. 
         This correlation can thus be addressed with a correction derived from MC when applying the method in data, such that the background yield in the signal region is more accurately predicted.
@@ -267,7 +267,7 @@ The results of this analysis therefore strongly indicate that \kW and \kZ have t
     \centering
     \caption[VBS $\WH$ signal region yields]{
         Table of the signal region yields from signal MC, background estimated from data, and observed data along with their respective statistical and systematic uncertainties. 
-        The systematic uncertainty for signal quoted here is the sum in quadrature of all of the independent systematic uncertainties (percent errors) multiplied by the total yield.
+        The systematic uncertainty for signal quoted here is the sum in quadrature of all of the independent systematics (percent errors) multiplied by the total yield.
         The observed yield is also tabulated. 
     }
     \label{tab:vbswh_yields}

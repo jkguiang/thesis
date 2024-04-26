@@ -5,14 +5,14 @@
 
 \section*{Infinity in the palm of your hand}
 This dissertation is based entirely on a simple question: what is everything made of? 
-For the vast majority of human history, all answers to this question were equally immaterial, yet for millennia, people with enough time on their hands and food in their bellies have wondered about it---from the Greek philosopher Democritus~\cite{Taylor1419554}, to the Hindu scholar Kan\=ada (or, ``atom-eater''), and probably long before them. 
+For the vast majority of human history, all answers to this question were equally immaterial, yet for millenia, people with enough time on their hands and food in their bellies have wondered about it---from the Greek philosopher Democritus~\cite{Taylor1419554}, to the Hindu scholar Kan\=ada (or, ``atom-eater''), and probably long before them. 
 Over time, philosophical musing transformed into scientific inquiry as we linked the question of \textit{what} to \textit{how} and \textit{why}. 
 How does water turn to ice? 
 Why are metals different? 
 How does charcoal and iron form steel? 
 Why does the sun shine? 
 How did everything come to be? 
-And as science progressed, faltered, corrected, and progressed again (and again, and again), patterns began to emerge around these questions, presented here as what David Griffiths calls a ``folk history'' for brevity, with inspiration taken heavily from the first chapter of his revered textbook~\cite{GriffithsParticle}.  
+And as science progressed, faltered, corrected, and progressed again (and again, and again), patterns began to emerge around these questions, presented here as what David Griffiths calls a ``folk history'' for brevety, with inspiration taken heavily from the first chapter of his revered textbook~\cite{GriffithsParticle}.  
 
 In 1808, the chemist John Dalton published the first\footnotemark{} atomic theory~\cite{Dalton1805, Dalton1808}, but the existence of the atom itself could not be directly verified. 
 \footnotetext{
@@ -20,7 +20,7 @@ In 1808, the chemist John Dalton published the first\footnotemark{} atomic theor
 }
 However, nearly a century later, physicists including Henri Becquerel, Marie Curie, and J.J. Thompson found that certain elements and electronic apparatuses emitted different kinds of invisible radiation~\cite{Becquerel, Curie, RADVANYI2017544, Thompson}. 
 In the decades following, they further realized that this radiation consisted of tiny particles\footnotemark{}, and Ernest Rutherford directed rays of these particles at thin sheets of metals, probing the subatomic scale for the first time. 
-Based on these seminal experiments, Rutherford made a groundbreaking observation and two key deductions: % citations needed for Rutherford
+Based on these seminal experiments, Rutherford made a groudbreaking observation and two key deductions: % citations needed for Rutherford
 \footnotetext{
     Namely photons (X-rays or $\gamma$ rays), electrons ($\beta$ rays), and helium ions (He$^{2+}$ or $\alpha$ rays). 
 }
@@ -43,12 +43,12 @@ anti-matter was produced in the lab; % citation needed
 electrons were joined by muons and neutrinos in the ``lepton'' family; % citations needed
 an enormous crowd of more massive particles (baryons and mesons which together comprise the families of hadrons) akin to protons and neutrons were observed. % select citations needed
 While some of these particles were already thought to exist, experimental results had, momentarily, outpaced theory. 
-Theorists were developing new ideas on how to classify or relate different particles, but the ever-growing ``particle zoo'' was otherwise in disarray. 
+Theorists were developing new ideas on how to classify or relate different particles, but the ever-growing ``particle zoo'' was otherwise in dissarray. 
 However, as is a consistent pattern in history, science progressed, faltered, corrected, and progressed again (and again, and again), and patterns began to emerge. 
 
 \section*{A glorious victory parade}
 It began with Murray Gell-Mann, who, among others, saw a pattern in the deluge of new particles being discovered. 
-He arranged the numerous hadrons in geometric patterns---octagons, triangles, and so forth---according to their properties~\cite{Gell-Mann:1961omu}, and found that his unusual diagrams held predictive power: some of his shapes were missing vertices, which were later found to be particles exactly matching the expectations from Gell-Mann's theory~\cite{PhysRevLett.12.204}. 
+He arranged the numerous hadrons in geometric patterns---octogons, triangles, and so forth---according to their properties~\cite{Gell-Mann:1961omu}, and found that his unusual diagrams held predictive power: some of his shapes were missing vertices, which were later found to be particles exactly matching the expectations from Gell-Mann's theory~\cite{PhysRevLett.12.204}. 
 With confidence in Gell-Mann's so-called ``Eightfold Way'' established, a natural question arose: what is the significance of these patterns? 
 Gell-Mann himself, and, separately, George Zweig, arrived at the answer: hadrons are not themselves fundamental particles; instead, they are composed of truly fundamental particles called ``quarks''~\cite{Lichtenberg:784713}, and the Eightfold Way diagrams corresponded to different configurations of quarks and the properties of those configurations.
 Similar to Rutherford's experiments 50 years prior, wherein beams of particles were used to probe the structure of the atom, the reality of quarks could be probed by firing beams of electrons at protons, revealing their inner structure~\cite{PhysRevLett.23.930, PhysRevLett.23.935}. 
@@ -78,5 +78,5 @@ We will take general direction from the theory, then construct experiments to re
 
 This work is based on the proton-proton collision data collected by the Compact Muon Solenoid (CMS), a multi-billion dollar particle detector situated on the beamline of the Large Hadron Collider (LHC)---the most powerful particle collider and the single largest scientific instrument ever built, at the time of writing. 
 At the risk of losing the reader who is not committed to reading the many pages that lie beyond this introduction, no new physics is documented here.
-Instead, this humble submission, amongst over one thousand publications from the CMS Collaboration alone, represents a small contribution to the rich history documented above, demonstrating the continued success of a theory that dares to describe the entire universe.
+Instead, this humble subission, amongst over one thousand publications from the CMS Collaboration alone, represents a small contribution to the rich history documented above, demonstrating the continued success of a theory that dares to describe the entire universe.
 \end{dissertationintroduction}

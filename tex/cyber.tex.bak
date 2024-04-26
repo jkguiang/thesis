@@ -1,7 +1,7 @@
 \chapter{Exascale Cyberinfrastructure}\label{ch:cyber}
 
 \section{The HL-LHC data challenge}
-In the high luminosity era of the LHC, the CMS Experiment alone is expected to produce roughly 0.5 exabytes (EB) of data every year\footnotemark{} (Fig.~\ref{fig:tape_projections}). 
+In the high lumonisty era of the LHC, the CMS Experiment alone is expected to produce roughly 0.5 exabytes (EB) of data every year\footnotemark{} (Fig.~\ref{fig:tape_projections}). 
 \footnotetext{For context, the CMS Experiment produced roughly half as much data across the three years of data-taking in Run 2.}
 The data will need to be distributed across the worldwide LHC computing grid (WLCG), as it is now, to be accessed by thousands of scientists. 
 This defines two important classifications of network traffic: the \textit{distribution} of LHC data, referred to as ``production'' traffic, and the \textit{access} and final processing of that data, referred to as ``user'' traffic. 
@@ -16,9 +16,9 @@ Crucially, CMS data movement is entirely driven by the production data transfers
     \label{fig:tape_projections}
 \end{figure}
 
-With many PB, soon to be EB, of data that needs to be distributed all over the world, National Research and Education Networks (NRENs) are critical to the continued operation of CMS, and the LHC in general. 
+With many PB, soon to be EB, of data that needs to be distrubted all over the world, National Research and Education Networks (NRENs) are critical to the continued operation of CMS, and the LHC in general. 
 However, NRENs are entirely opaque to their users---that is, users have no control over the share of the network that they receive---resulting in highly variable networking performance. 
-This kind of unmanaged networking is referred to as ``best effort'' service, and it already presents significant challenges to CMS operators running production data transfers. 
+This kind of unmanaged networking is reffered to as ``best effort'' service, and it already presents significant challenges to CMS operators running production data transfers. 
 For example, high priority data transfers will unpredictably slow down, or even fail, making any precise coordination impossible. 
 These kinds of issues are furthermore difficult to diagnose: with an opaque network, operators must coordinate between the data storage site administrators and network engineers just to gain a preliminary understanding of where the problem may lie. 
 An increase in data volumes by an order of magnitude would inflate these challenges into significant barriers for the data operation at CMS, and the LHC in general. 
@@ -114,7 +114,7 @@ In any case, this interoperation model provides a flexible testbed for evaluatin
 
 \section{Demonstrations}
 The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech. 
-These institutions were selected because they each maintain highly active ``\Tier{2}'' computing facilities, which are the endpoints of real CMS production data transfers. 
+These instutions were selected because they each maintain highly active ``\Tier{2}'' computing facilities, which are the endpoints of real CMS production data transfers. 
 In order to simulate this kind of network traffic, the IPerf tool was used to emulate activity across best effort network services. 
 At the same time, a private instance of Rucio was deployed with only UCSD and Caltech as known sites. 
 After the best effort network traffic saturated the 10 Gb/s network link between the two sites, we initialized a rule in Rucio that requested a replica of 750 GB of data stored at UCSD to be made at Caltech. 
@@ -161,4 +161,4 @@ In Fig.~\ref{fig:rucio_sense_demo_big}, it can be seen that the bandwidth is app
 
 \section{Next steps}
 With the Rucio-SENSE interoperation model now demonstrated successfully multiple times, we are now interested in including more sites in the existing testbed as we walk the project closer to production. 
-In addition, the intelligence of the DMM priority allocation will continue to be refined, with special attention given to the possibility of data transfer scheduling. 
+In addition, the intelligence of the DMM priority allocation will continue to be refined, with special attention given to the possiblity of data transfer scheduling. 

@@ -13,14 +13,14 @@ Moreover, the Higgs boson can uniquely interact with all known matter, so by pro
 
 There are many educated guesses, called theories, as to the mysterious nature of the Higgs boson. 
 Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}, and experimentalists can search for their existence directly: either by looking for the SM particles that they might decay into, or by checking for what is missing after everything is else accounted for. 
-\footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may have obtained that mass through the Higgs mechanism.}
+\footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may haved obtained that mass through the Higgs mechanism.}
 Experimentalists can also search for new physics indirectly by making precise measurements of SM predictions; any significant deviation from the prediction would poke another hole in the Standard Model or even confirm a prediction of a new theory. 
 The physics analyses described in this document both follow the latter strategy.
 
 \subsection{The $\kappa$-framework}
 One commonly used framework used to quantify these deviations from the SM is the so-called $\kappa$-framework~\cite{KFrame}, which introduces modifiers $\kappa_X$ to the Higgs boson couplings to some particle $X$:
 \begin{equation}
-    \kappa_X = \frac{\text{modified coupling value}}{\text{SM coupling value}}.
+    \kappa_X = \frac{\text{modifed coupling value}}{\text{SM coupling value}}.
 \end{equation}
 While there are myriad theoretical nuances to the statement above, it is sufficient to state the obvious: $\kappa_X = 1$ represents the SM scenario and significant deviations from 1 represent BSM scenarios. 
 The $\kappa$-framework is not the only framework used to understand and quantify modifications to the SM, however, with the most notable alternative being Effective Field Theory~\cite{EFT, DimSix}. 
@@ -224,7 +224,7 @@ Analyzers can then use these simulated samples to optimize their analysis for pr
 \section{Event selection}
 In order to isolate the signal, we must place a set of selections on our data that prefer events that look like signal. 
 We do this in a particular order, however, because of the sheer size of our data: over the course of Run 2, the CMS Experiment collected over 200 PB of data! 
-This data is processed and re-processed into more and more condensed descriptions of the same recorded events---the simulation is identically re-processed---but even at the smallest so-called ``data tier'', there is 200 TB of data and 900 TB of simulation (Fig.~\ref{fig:pp_to_nano}). 
+This data is processed and re-processed into more and more condensed descriptions of the same recorded events---the simulation is identically re-processed---but even at the smalled so-called ``data tier'', there is 200 TB of data and 900 TB of simulation (Fig.~\ref{fig:pp_to_nano}). 
 Starting with triggers, progressively strict selections are placed that are optimized to prefer events that contain our signal. 
 This process, orchestrated across 170 computing clusters in over 40 countries (i.e. 1000s of distributed CPUs), reduces 1.1 PB of data down to a few histograms. % TODO: cite WLCG website where these numbers are given
 
@@ -307,7 +307,7 @@ By estimating the background yield in the signal region in this way, we rely ent
 \end{figure}
 
 \section{Systematic uncertainties}
-Since the background estimation strategy is data-driven, the systematic uncertainties on the simulation, which are numerous, only need to be evaluated for the signal yield. 
+Since the background estimation strategy is data-driven, the systematics on the simulation, which are numerous, only need to be evaluated for the signal yield. 
 Systematic uncertainties in CMS statistical analysis come in two flavors: theoretical and experimental uncertainties. 
 Sources of experimental uncertainty include the efficiency of the HLT, lepton identification, and \PQb tagging as well as the scale and resolution of the jet energies. 
 For each of these sources, a correction has been derived to make simulation behave more like data. 
@@ -341,7 +341,7 @@ We call this the likelihood $L$, or
 \begin{equation}
     L(\mu) = \frac{(\mu s + b)^n e^{-(\mu s + b)}}{n!}
 \end{equation}
-$P$ and $L$ are superficially similar, but, in reality, they are related, but distinct measures (Fig.~\ref{fig:prob_vs_like}). 
+$P$ and $L$ are supercifically similar, but, in reality, they are related, but distinct measures (Fig.~\ref{fig:prob_vs_like}). 
 
 \begin{figure}[htb]
     \centering
@@ -362,7 +362,7 @@ For simplicity, we will instead consider $q(\mu) = -2\ln{L(\mu)}$:
     0 &= \frac{ns}{\hat{\mu} s + b} \nonumber \\
     \hat{\mu} &= \frac{n - b}{s}
 \end{align}
-In our simple setup, this is rather intuitive: plugging $\hat{\mu}$ into $\mu s + b$ gives $n$ exactly. 
+In our simple setup, this is rather intuitive: pluggin $\hat{\mu}$ into $\mu s + b$ gives $n$ exactly. 
 We can now easily compute $\hat{mu}$ for a given value of $n$, $s$, and $b$, but we must also declare how confident we are in our measurement.
 
 Assuming the likelihood is approximately Gaussian\footnotemark{} with an amplitude $\mathcal{N}$ and standard deviation of $\sigma_\mu$---which is true for large $s$, $b$, and $n$ (Fig.~\ref{fig:like_gauss_approx})---we can express $L(\mu)$ as
@@ -381,8 +381,8 @@ If, for example, we had 413 expected signal events, 128 predicted background eve
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/stats/like_gauss_approx.png}
-    \caption[The likelihood with the Gaussian approximation of the likelihood overlaid]{
-        The likelihood with the Gaussian approximation of the likelihood overloaded for different values of $n$, showing poor agreement for small $n$ (left), decent agreement for $n = 56$, and good agreement for $n = 550$.
+    \caption[The likelihood with the Gaussian approximation of the likelihood overlayed]{
+        The likelihood with the Gaussian approximation of the likelihood overlayed for different values of $n$, showing poor agreement for small $n$ (left), decent agreement for $n = 56$, and good agreement for $n = 550$.
     }
     \label{fig:like_gauss_approx}
 \end{figure}

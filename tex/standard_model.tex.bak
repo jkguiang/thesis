@@ -91,7 +91,7 @@ In the classical picture, the electrons glance off one another and fly off to in
 This can be represented as a Feynman diagram (Fig.~\ref{fig:ee_scattering}) which is assembled from two EM vertices. 
 Again, time flows from left to right, showing the two electrons entering, then the exchange of a photon, followed by the two electrons leaving, much like the classical picture. 
 Now, suppose we construct two beams of electrons, aim them at each other, then turn them on (preferably after we leave the room). 
-In this scenario, we may well want to know the probability that the two electrons will bounce off each other (``scatter''). 
+In this scenario, we may well want to know the probability that the two electrons will bounce off hach other (``scatter''). 
 This probability is called the ``cross section,'' because it is mathematically similar to the classical picture\footnotemark{}, where we would compute the cross-sectional area presented to either of the colliding objects. 
 \footnotetext{
     In fact, the answer to this question is expressed in the units of ``barns,'' literally as in ``hitting the broad side of a barn,'' coined by Manhattan Project scientists during World War II. % citatin needed
@@ -104,7 +104,7 @@ For the electron-electron scattering example, this would look like
 \end{equation}
 where $\sigma$ is the cross section, $p_1$ and $p_2$ are the four-momenta of the incoming electrons, $p_3, p_4$ are the four-momenta of the outgoing electrons, and $g_e$ is the EM coupling constant. 
 This exercise, and the compact answer above, serves to demonstrate the sheer complexity of QFT calculations. 
-Many details were left out beyond the computation itself (which is already a glaring omission), including details surrounding the spin of the electron, the definition of spin, the definition of four-momentum (and special relativity), and so on. 
+Many details were left out beyond the computation itself (which is already a glaring omission), including details surrounding the spin of the electron, the definition of spin, the defition of four-momentum (and special relativity), and so on. 
 Those details, and much more, can be found in the illustrious textbook from which this entire example was borrowed~\cite{GriffithsParticle}. 
 Moreover, this feature of QFT---the ability to compute cross sections---is absolutely vital because it offers a way of testing the theory with observation: compute the probability that the event is expected to occur, then try to reproduce that event many times in the lab and see how many times it really happens. 
 
@@ -119,7 +119,7 @@ Moreover, this feature of QFT---the ability to compute cross sections---is absol
 
 The validity of any model is a precarious condition: the model must exactly describe reality, else it is not a realization of the truth, but rather only approximately---or worse, accidentally---correct. 
 That is, \textit{every} SM cross section value must be accurate for the validity of the model to hold. 
-And so generations of physicists have made diligent, and highly accurate, measurements of a dozens of cross sections---spanning orders of magnitude of rarity. 
+And so generations of physicists have made dilligent, and highly accurate, measurements of a dozens of cross sections---spanning orders of magnitude of rarity. 
 Tabulated in grand tables (Fig.~\ref{fig:cms_xsecs} and \ref{fig:atlas_xsecs}), it is evident that the Standard Model has so far withstood every test derived from CMS data and ATLAS data. 
 This is an incredible feat: a ``simple'' model seems to describe subatomic physics, which drove the creation of the universe and continues to drive the mechanics of everything, with incredible accuracy. 
 Lingering beyond these shining trophies, however, are a number of glaring inconsistencies and enormous missing pieces. 
@@ -171,7 +171,7 @@ For example, the Lagrangian
     \mathcal{L} = \underbrace{\frac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi)}_{\text{kinetic term}} - \underbrace{\frac{1}{2}\big(\frac{mc}{\hbar}\big)^2}_\text{mass term}
 \end{equation}
 represents a spin-0 particle with mass $m$. 
-As in classical mechanics, plugging the appropriate Lagrangian density into the Euler-Lagrange equation yields the precise descriptions of the dynamics of fundamental particles. 
+As in classical machanics, plugging the appropriate Lagrangian density into the Euler-Lagrange equation yields the precise descriptions of the dynamics of fundamental particles. 
 
 The Higgs mechanism arises when we try to write down a Lagrangian density $\mathcal{L}$ that accounts for the existence of the \PW and \PZ bosons. 
 In doing so, we find that we must demand that $\mathcal{L}$ does not change under certain transformations of the fields $\phi$, which, at face value, equates to demanding that the field is massless---the finer details here are far beyond the scope of this dissertation. 
@@ -183,7 +183,7 @@ The Higgs \textit{mechanism} itself refers to the appearance of the \PW and \PZ 
 
 Beyond the blackboard, the Higgs boson gives us a picture of how the universe came to be: in the first moments of time, the universe cooled, allowing the Higgs field saturated all of space, and the fundamental particles were thereby endowed with mass by the Higgs mechanism. 
 Thus, rather than fly off to infinity at the speed of light, they formed atoms, and the universe as we know it bloomed.  
-The Higgs boson is therefore essential to the origin and continued existence of the known universe---in fact, if the Higgs field were to spontaneously disappear, the entire universe would evaporate in a nanosecond~\cite{P5Report}. 
+The Higgs boson is therefore essential to the origin and continued existence of the known universe---in fact, if the Higgs field were to spontaneously dissappear, the entire universe would evaporate in a nanosecond~\cite{P5Report}. 
 It is also, however, a key to understanding the universe's distant future~\cite{Bass2021}: will the universe collapse or explode or something else entirely? 
 We shall spare ourselves of existential crisis and instead simply appreciate the specific importance of the Higgs boson. 
 While every piece of the Standard Model is important, like links in a chain, the Higgs boson is also one of the less well-understood particles, so further study of this latest addition to the Standard Model could shed crucial light on the many open questions in particle physics. 

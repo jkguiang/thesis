@@ -64,7 +64,7 @@ This massively reduces the occupancy (number of hits) in the tracker due to pile
 
 Rather than build every track hit-by-hit, LST builds track segments of increasing size in parallel, leveraging GPUs for a massive speedup. 
 Starting in the outer tracker, LST first builds ``mini-doublets'' (MDs) in each \pt-module, filtering out low-\pt tracks. 
-Then, line segments (LSs) are built from each pair of MDs in  adjacent tracker layers, and each LS is required to contain MDs with consistent \pt estimates. 
+Then, line segments (LSs) are built from each pair of MDs in  adjacent tracker layers, and each LS is required to contain MDs with consisten \pt estimates. 
 Progressively longer track segments are built in this way: ``triplets'' (T3s) are formed from LSs that share a MD, and ``quintuplets'' (T5s) are formed from T3s that share a MD. 
 At each step, the track segments are required to be approximately consistent with a single helical trajectory. 
 Finally, the track segments in the pixel layer (pLSs) are taken from an upstream algorithm and matched to the LST track segments, resulting in four mutually exclusive collections of track candidates (TCs). 
@@ -113,9 +113,9 @@ In the baseline version of LST, there is therefore an opportunity for massive im
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_eff_etacourse.pdf}}
     \qquad
     \subfloat{\includegraphics[width=0.45\linewidth]{fig/lst/standalone_Master_fr_etacourse.pdf}}
-    \caption[LST track-finding efficiency and fake rate plotted as a function of $\eta$]{
+    \caption[LST track-finding effiency and fake rate plotted as a function of $\eta$]{
         The LST track-finding efficiency (left) and fake rate (right) plotted as a function of the pseudorapidity $\eta$ of the simulated track and track candidate respectively.
-        For both plots, five histograms are overlaid: all track candidates (black), pT5s (red), pT3s (blue), T5s (magenta), and pLSs that are not used in a pT5 or pT3 (green).
+        For both plots, five histograms are overlayed: all track candidates (black), pT5s (red), pT3s (blue), T5s (magenta), and pLSs that are not used in a pT5 or pT3 (green).
         On the left, it can be seen that T5s comprise the majority of the LST track-finding efficiency, either as pT5s or T5s.
         On the right, it can also be seen that the T5s make up the bulk of the LST fake rate in the barrel region.
     }
