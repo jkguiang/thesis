@@ -23,7 +23,9 @@ image:
 	- docker build -t thesis-workspace .
 container-start:
 	- docker run --name=thesis --volume=${PWD}:/thesis --detach thesis-workspace
+	- docker exec -it thesis /bin/bash -c "cp .aspell.en.pws ~/"
 container-stop:
+	- docker exec -it thesis /bin/bash -c "cp ~/.aspell.en.pws ."
 	- docker stop thesis
 	- docker rm thesis
 	- docker system prune -f --volumes
