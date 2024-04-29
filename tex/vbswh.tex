@@ -15,7 +15,7 @@ Therefore, in the absence of a significant experimental measurement of the sign 
 The precise determinations of the magnitudes of \kW and \kZ~\cite{NatureHiggsCMS2022} were obtained in studies of processes that are predominantly quadratic in \kV---that is, \kW or \kZ enter the Feynman diagram twice. % add a feynman diagram?
 While there were some with a linear dependence, they did not give a strong exclusion of opposite-sign scenarios~\cite{BestCMSLambdaWZ}---in fact they slightly preferred the $\lambdaWZ < 0$ scenario. 
 A promising channel to directly probe \lambdaWZ at the LHC is the production of \VH via vector-boson scattering (VBS)~\cite{Theory2LambdaWZ}.
-Such a channel is sensitive to the relative sign of \kW and \kZ since the since the cross-section $\sigma$ has an interference term that is linear in both \kW and \kZ~\cite{Theory2LambdaWZ}: 
+Such a channel is sensitive to the relative sign of \kW and \kZ since the cross-section $\sigma$ has an interference term that is linear in both \kW and \kZ~\cite{Theory2LambdaWZ}: 
 \begin{equation}\label{eq:vbswh_matrix_elem}
     \sigma \propto \abs{\mathcal{M}}^2 = \kW^2\abs{\mathcal{M}_W}^2 + \kW\kZ\mathcal{M}_{WZ}^2 + \kZ^2\abs{\mathcal{M}_Z}^2
 \end{equation}
@@ -131,8 +131,8 @@ A number of additional event-level filters are applied to remove detector noise 
 
 Then, a loose selection, referred to as the ``Preselection,'' is applied to select the final state of interest. 
 First, a loose selection is made on the combined VBS jet invariant mass: $\Mjj > 500\GeV$.
-Next, the ParticleNet \Xtobb score of the \Htobb fat jet candidate is required to be greater than 0.3.
-The event is also required to have no AK4 jets passing the Medium DeepJet working point.
+Next, the \ParticleNet \Xtobb score of the \Htobb fat jet candidate is required to be greater than 0.3.
+The event is also required to have no AK4 jets passing the Medium \DeepJet working point.
 The event must furthermore have one and only one lepton with $\pt > 40\GeV$ that passes the Tight lepton ID. 
 If there are any additional leptons that pass the Veto lepton ID, the event is vetoed--these leptons are not required pass the \pt threshold. 
 Finally, the event must have $\ST > 800\GeV$ (where \ST is defined in Eq.~\ref{eq:vbswh_st}).
@@ -141,7 +141,7 @@ Finally, the event must have $\ST > 800\GeV$ (where \ST is defined in Eq.~\ref{e
 The signal region for this analysis is defined on top of the Preselection with similar, but tighter selections. 
 First, the \ST threshold is increased to $\ST > 900\GeV$. 
 Then, the selections on the VBS jet variables are tightened to $\Mjj > 600 \GeV$ and $|\detajj| > 4$. 
-Finally, the selections on the \Htobb fat jet candidate are made much more strict, where the ParticleNet \Xtobb score is required to be greater than 0.9 and \MSD is required to be less than 150\GeV. 
+Finally, the selections on the \Htobb fat jet candidate are made much more stringent, where the \ParticleNet \Xtobb score is required to be greater than 0.9 and \MSD is required to be less than 150\GeV. 
 
 The background in this region is estimated using a data-driven technique, described in the next section, that the signal region was specifically designed to enable. 
 Looser cuts are preferred in particular, as it was found that the variables used for the background estimation become correlated in a more restricted phase space. 
@@ -179,7 +179,7 @@ Therefore, the signal region selections are not optimized for maximal purity, th
 \section{Background estimation}
 The background in the signal region is estimated using the ``ABCD'' method, where region A is the signal region, and regions B, C, and D have the \detajj requirement, the \MSD requirement, and both inverted, respectively (Fig.~\ref{fig:vbswh_abcd_cartoon}). 
 First, let the background yield in regions A, B, C, and D in Monte Carlo be defined as \AMC, \BMC, \CMC, and \DMC.
-Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
+Likewise, let the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
 Under these definitions, the estimated background yield in region A, referred to as \AdataPred, can be computed with data as follows:
 \begin{equation}\label{eq:vbswh_abcd}
     \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
@@ -267,7 +267,7 @@ The results of this analysis therefore strongly indicate that \kW and \kZ have t
     \centering
     \caption[VBS $\WH$ signal region yields]{
         Table of the signal region yields from signal MC, background estimated from data, and observed data along with their respective statistical and systematic uncertainties. 
-        The systematic uncertainty for signal quoted here is the sum in quadrature of all of the independent systematic uncertainties (percent errors) multiplied by the total yield.
+        The systematic uncertainty for the signal quoted here is the sum in quadrature of all of the independent systematic uncertainties (percent errors) multiplied by the total yield.
         The observed yield is also tabulated. 
     }
     \label{tab:vbswh_yields}
@@ -288,7 +288,7 @@ The results of this analysis therefore strongly indicate that \kW and \kZ have t
     \subfloat[2D exclusion of \lambdaWZ values]{\includegraphics[width=0.455\textwidth,valign=c]{fig/vbswh/exclusion_2D_contours_unblinded.pdf}\label{fig:vbswh_limit_2D}}
     \caption[The 1D and 2D exclusion significance for BSM \lambdaWZ scenarios]{
         The negative-log-likelihood plotted as a function of the signal strength ($r$) for $\lambdaWZ = -1$ (a).
-        The exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped errorbars (b).
+        The exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped error bars (b).
         It is clear from these two plots (a) the $\lambdaWZ = -1$ scenario is excluded well at 8.3\std and (b) opposite-sign scenarios ($\lambdaWZ < 0$) within previous CMS limits are excluded well beyond 5\std. 
     }
 \end{figure}

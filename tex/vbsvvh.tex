@@ -83,8 +83,8 @@ All of these backgrounds simply produce many jets that can, by random chance, pa
 
 \subsection{QCD \ParticleNet resampling}
 From Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores_noCorr}, it is clear that the data and MC distributions for the \ParticleNet scores used in this analysis do not fully agree. 
-This is not an issue for the final result as the background estimation is fully data-driven. 
-However, for training any classifier for this analysis, such as a boosted decision tree (BDT) or deep neural network (DNN), better modeling would result in a more events passing the Preselection, and therefore being available for training.
+This is not an issue for the final result, as the background estimation is fully data-driven. 
+However, for training any classifier for this analysis, such as a boosted decision tree (BDT) or deep neural network (DNN), better modeling would result in more events passing the Preselection, and therefore being available for training.
 
 \begin{figure}[htb]
     \centering
@@ -103,7 +103,7 @@ Only the scores for the QCD jets undergo this procedure, and the rest of the min
 First, the following assumptions are made:
 \begin{enumerate}
     \item A mass-decorrelated \ParticleNet score for a given AK8 jet should be fundamentally described by a probability density function (\textit{PDF}), where \textit{PDF} is \textit{italicized} to distinguish it from the parton distribution function.
-    \item This \textit{PDF} should be the same regardless of how many AK8 jets are in the event. This is the case because in our resampling we opt to use events with only two selected AK8 jets to model the scores in our phase space, where three AK8 jets are selected.
+    \item This \textit{PDF} should be the same regardless of how many AK8 jets are in the event.
     \item The \ParticleNet score is not correlated to the jet kinematic properties used later in the analysis. In case some features are correlated to \ParticleNet score, the resampling can be done in bins of the correlated feature.
 \end{enumerate}
 Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the \ParticleNet score for every AK8 jet in an event and normalizing it to unity. 
@@ -160,7 +160,7 @@ Also like the previous analysis, a loose selection referred to as the ``Preselec
 First, events are required to have zero leptons passing the veto lepton ID. 
 This orthogonalizes the all-hadronic channel from the other channels that are analyzed separately. 
 The event must have at least three AK8 jets, where the leading AK8 jet is required to have $\pt > 500\GeV$ (while for all of them the \pt threshold is 250\GeV) such that the analysis is on the \HT-binned trigger threshold. 
-Finally, the event is also required to have two AK4 jets following the VBS jet selection scheme detailed in Section~\ref{sec:vbsjets}.
+Finally, the event is also required to have two AK4 jets, following the VBS jet selection scheme detailed in Section~\ref{sec:vbsjets}.
 Then, the AK8 jet with the highest \ParticleNet Xbb score is selected as the \Htobb candidate. 
 The next two AK8 jets are selected as the \Vtoqq candidates, sorted (leading vs. trailing) by \pt.
 With the AK8 jets thus tagged, a very loose selection is applied to the \ParticleNet scores: the \Htobb candidate is required to have a \ParticleNet \Xtobb score greater than 0.5, while the \Vtoqq candidates are each required to have a \ParticleNet \XWtoqq score greater than 0.3.
@@ -296,7 +296,7 @@ The background in the signal region is estimated entirely from data by using the
 These regions are formed by selecting two cuts in the signal region (Region A), then inverting them to form regions B, C, and D. 
 So long as the two cuts are independent, the following method holds. 
 As in the previous analysis, the background yield in regions A, B, C, and D in Monte Carlo are defined as \AMC, \BMC, \CMC, and \DMC.
-Likewise, let the the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
+Likewise, let the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
 Again, the estimated background yield in the signal region \AdataPred can be computed using Eq.~\ref{eq:vbswh_abcd}, reproduced here for convenience:
 \begin{equation*}
     \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
@@ -434,7 +434,7 @@ In each test, good closure is seen in data, supporting the validity of the metho
 
 \section{Results}
 We fit the signal and predicted background yield in the signal region to data for the analysis described here as well as all other channels.
-The B, C and D region data yields are included in the the fit together with their respective signal contamination.
+The B, C and D region data yields are included in the fit together with their respective signal contamination.
 We set upper limits at the 95\% \CL on the cross-section of the VBS VVH process for each \kVV generated data point.
 
 The upper limits are calculated using the AymptoticLimits method in the \COMBINE toolkit~\cite{CombinePaper}.

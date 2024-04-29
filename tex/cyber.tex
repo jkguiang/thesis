@@ -35,7 +35,7 @@ Furthermore, while described in the context of CMS, SDN could be used to address
 
 \section{Rucio}
 The distribution of CMS data is managed through Rucio, an open-source data management framework designed specifically for large-scale science~\cite{Rucio2019}. 
-In practice, CMS operators define ``rules'' which represent the replication of one or more datasets one or more data storage sites. 
+In practice, CMS operators define ``rules'' which represent the replication of one or more datasets at one or more data storage sites. 
 The operator also assigns a priority to each rule that can be changed at any time. 
 Until the replication is complete, the requisite data transfers are organized for each rule. 
 These data transfers are initialized and managed by the File Transfer Service (FTS)~\cite{FTS3}, starting with the transfers belonging to the highest priority rule. 
@@ -116,7 +116,7 @@ In any case, this interoperation model provides a flexible testbed for evaluatin
 The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech. 
 These institutions were selected because they each maintain highly active ``\Tier{2}'' computing facilities, which are the endpoints of real CMS production data transfers. 
 In order to simulate this kind of network traffic, the IPerf tool was used to emulate activity across best effort network services. 
-At the same time, a private instance of Rucio was deployed with only UCSD and Caltech as known sites. 
+At the same time, a private instance of Rucio was deployed, with only UCSD and Caltech as known sites. 
 After the best effort network traffic saturated the 10 Gb/s network link between the two sites, we initialized a rule in Rucio that requested a replica of 750 GB of data stored at UCSD to be made at Caltech. 
 This rule was assigned a high priority. 
 Once the rule was initialized, DMM requested bandwidth reservation of 7 Gb/s for the data transfers. 
