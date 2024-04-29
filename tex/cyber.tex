@@ -87,13 +87,11 @@ DMM is therefore the keystone of the Rucio-SENSE interoperation model (Fig.~\ref
     \end{enumerate}
     \item SENSE sends identifying metadata for the link back to DMM
 \end{enumerate}
-Several of these steps offer the opportunity for further optimization. % TODO: rephrase this section
-In particular, it is clear that a future implementation may see the integration of DMM into Rucio such that the operations in steps (2) through (5) can be implemented to better handle a large number of transfers.
-Before then, however, DMM provides an isolated testbed in which the fundamental design of the interoperation model can be prototyped.
-Step (3c) is of particular interest, because it implements the bandwidth provisioning--the central deliverable of this work.
-The provisioning decision could be designed, for example, to allow Rucio operators to schedule transfers: e.g. \textit{move Dataset A to Site B in one week}.
-Alternatively, the decision could pack the maximum available bandwidth between two sites as a function of each transfer's priority.
-In any case, this interoperation model provides a flexible testbed for evaluating these ideas and producing concrete metrics on their scalability, practicality, and efficiency.
+There are multiple opportunities for optimization in the steps above that we are currently evaluating in our testbed as it evolves. 
+For example, a future implementation of the Rucio-SENSE interoperation model will see the integration of DMM into Rucio, such that steps (2) through (5) can be implemented to better handle a large number of transfers.
+In addition, the bandwidth provisioning decision, step (3c), is of particular interest. 
+It could be designed to allow for scheduling---e.g. \textit{move Dataset A to Site B in one week}---for instance. 
+Alternatively, transfers could be allocated bandwidth according to their priorities. 
 
 \begin{figure}[htb]
     \centering

@@ -58,16 +58,15 @@ We must then find our signal, which is often incredibly rare, amongst petabytes 
 \section{Choosing a final state}
 The final collection of particles that are actually recorded by CMS are called the ``final state.'' 
 As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and photons. 
-All other SM particles---including Higgs bosons, vector bosons, and gluons---decay to these particles, and we hope that BSM particles might as well. 
-Importantly, SM particles can also decay to neutrinos, which pass through CMS completely undetected, and it is possible that BSM particles are similarly missed. 
-The presence of these particles can be inferred, however (Sec.~\ref{sec:met}). 
-
-When we say we are looking for VBS production of a Higgs boson and two vector bosons, for example, we are really looking for two quarks (VBS) and the decay products of the bosons. 
+Higgs bosons, vector bosons, gluons, and tau leptons decay to these particles. 
+Therefore, when we say we are looking for VBS production of a Higgs boson and two vector bosons, we are really looking for two quarks (VBS) and the decay products of the bosons. 
 Some final states are preferable over others, however. 
-For convenience, we often prefer to look for \Htobb, since a Higgs boson is most likely to decay to \bbbar (i.e. \Htobb has the highest ``branching ratio''). 
+For convenience, we often prefer to look for \Htobb, since it occurs 58\% of the time---the next-largest ``branching ratio'' is $\PH\to\PWp\PWm$ at 21\%. 
 The choice for the decay of the vector bosons is less clear. 
 The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are more unique, but are rarer. 
 On the other hand, the hadronic decays ($\PV\to\qq$) are more plentiful, but are difficult to distinguish from far more abundant processes. 
+The \textit{reconstruction} of the final state of each proton-proton collision, based on the electronic readout of CMS, is thus crucial for the entire physics operation at CMS---and any other experiment at the LHC. 
+Importantly, many SM particles decay to neutrinos, which pass through CMS completely undetected, and it is possible that BSM particles are similarly missed, but the presence of these partices can be inferred if the reconstruction is performed with high precision. 
 
 \section{Reconstruction}
 The subdetectors that comprise CMS produce a set of electric signals digitized into data that can be used as measurements of physical quantities. 
@@ -318,7 +317,7 @@ The analyses presented in this dissertation are counting experiments.
 That is, for the final result, we take the expected signal yield \Asignal and predicted background yield \AdataPred in the signal region and compare them to the yield of real collision events \Adata. 
 Intuitively, if $\Adata = \AdataPred$, then our signal most likely does not exist in nature; conversely, if $\Adata = \Asignal+\AdataPred$, then we have just confirmed that our signal does exist. 
 But what can we say if \Adata is somewhere between \AdataPred and $\Asignal+\AdataPred$? 
-We have also just enumerated through the many systematic uncertainties on \Asignal and \AdataPred which affect our ability to make this comparison exactly. 
+We have also just enumerated through the many systematic uncertainties on \Asignal and \AdataPred that affect our ability to make this comparison exactly. 
 For example, \AdataPred may have, by chance, fluctuated upward by just enough to make it seem as though our signal exists---or worse, it may have fluctuated downward and made us think our signal is not real. 
 Using statistics, we can make a more precise statement about our measurement, taking all of the uncertainties into account. 
 
@@ -340,7 +339,7 @@ We call this the likelihood $L$, or
 \begin{equation}
     L(\mu) = \frac{(\mu s + b)^n e^{-(\mu s + b)}}{n!}
 \end{equation}
-$P$ and $L$ are superficially similar, but, in reality, they are related, but distinct measures (Fig.~\ref{fig:prob_vs_like}). 
+Importantly, $P$ and $L$ are related, and thus superficially similar, but they are distinct quantities (Fig.~\ref{fig:prob_vs_like}). 
 
 \begin{figure}[htb]
     \centering
@@ -357,8 +356,8 @@ Fortunately, this is basic calculus: take the derivative of $L$ with respect to 
 For simplicity, we will instead consider $q(\mu) = -2\ln{L(\mu)}$:
 \begin{align}
     q(\mu) &= -2[n\ln(\mu s + b) - (\mu s + b) - \ln{(n!)}] \nonumber \\
-    \frac{\partial q}{\partial \mu} &= \frac{ns}{\mu s + b}\qquad\text{where }\frac{\partial q}{\partial \mu}\bigg|_{\mu=\hat{\mu}} \equiv 0 \nonumber \\
-    0 &= \frac{ns}{\hat{\mu} s + b} \nonumber \\
+    \frac{\partial q}{\partial \mu} &= 1 - \frac{n}{\mu s + b}\qquad\text{where }\frac{\partial q}{\partial \mu}\bigg|_{\mu=\hat{\mu}} \equiv 0 \nonumber \\
+    0 &= 1 - \frac{n}{\hat{\mu} s + b} \nonumber \\
     \hat{\mu} &= \frac{n - b}{s}
 \end{align}
 In our simple setup, this is rather intuitive: plugging $\hat{\mu}$ into $\mu s + b$ gives $n$ exactly. 

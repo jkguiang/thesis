@@ -165,7 +165,7 @@ Then, the AK8 jet with the highest \ParticleNet Xbb score is selected as the \Ht
 The next two AK8 jets are selected as the \Vtoqq candidates, sorted (leading vs. trailing) by \pt.
 With the AK8 jets thus tagged, a very loose selection is applied to the \ParticleNet scores: the \Htobb candidate is required to have a \ParticleNet \Xtobb score greater than 0.5, while the \Vtoqq candidates are each required to have a \ParticleNet \XWtoqq score greater than 0.3.
 
-\subsection{ABCDNet}
+\subsection{\ABCDNet}
 The signal region would preferably be accompanied by a valid data-driven background estimation method while also being optimized for maximal significance, since the dominant background is multijet QCD.
 Because this is a common analysis scenario, a machine learning (ML) method has been proposed to satisfy both requirements at once~\cite{AutoABCD}. 
 In particular, a DNN is trained to serve as one of the ``arms'' of a traditional ABCD background estimation. 
@@ -181,11 +181,11 @@ The \dCorrSq term is the ``distance correlation,'' a statistical quantity that m
     \dCorrSq[f,g] &= \frac{\text{dCov}^2[f, g]}{\text{dCov}[f, f]\text{dCov}[g, g]} \label{dCorrEq}
 \end{align}
 
-For this analysis, a DNN hereafter referred to as ``ABCDNet'' was trained to be decorrelated from $|\detajj|$.
+For this analysis, a DNN hereafter referred to as \ABCDNet was trained to be decorrelated from $|\detajj|$.
 While there are many configurations of this technique that were considered, we found that using $|\detajj|$ as the decorrelation target provided the most stable result and the best closure for this analysis. 
-A simple architecture was selected for ABCDNet: 3 hidden layers with 64 nodes each. % TODO: add reference to ABCDNet architecture cartoon  (Fig.~\ref{fig:vbsvvh_abcdnet_arch})
+A simple architecture was selected for \ABCDNet: 3 hidden layers with 64 nodes each. % TODO: add reference to ABCDNet architecture cartoon  (Fig.~\ref{fig:vbsvvh_abcdnet_arch})
 Additional hyperparameters are tabulated in Table~\ref{tab:vbsvvh_abcdnet_params}. 
-A total of 13 features (Fig.~\ref{fig:vbsvvh_abcdnet_inputs}) are provided to ABCDNet as inputs:
+A total of 13 features (Fig.~\ref{fig:vbsvvh_abcdnet_inputs}) are provided to \ABCDNet as inputs:
 \begin{itemize}
     \item \Htobb candidate \pt, $\eta$, $\phi$, \MPNet
     \item Leading \Vtoqq candidate \pt, $\eta$, $\phi$, \MPNet
@@ -205,9 +205,9 @@ This range is selected to be within a reasonable window; for example, \Mjj is no
 
 \begin{table}[htbp]
     \centering
-    \caption[ABCDNet hyperparameters]{
-        The hyperparameters for ABCDNet. 
-        Many values of $\lambda$ were tried, where the best value was determined by comparing the correlation between the ABCDNet discriminator and \detajj, as well as comparing the ABCD closure directly. 
+    \caption[\ABCDNet hyperparameters]{
+        The hyperparameters for \ABCDNet. 
+        Many values of $\lambda$ were tried, where the best value was determined by comparing the correlation between the \ABCDNet discriminator and \detajj, as well as comparing the ABCD closure directly. 
     }
     \begin{tabular}{ccc}
     \toprule
@@ -229,25 +229,25 @@ This range is selected to be within a reasonable window; for example, \Mjj is no
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.75\textwidth]{fig/vbsvvh/all_features.pdf}
-    \caption[The input features for ABCDNet plotted as histograms normalized to unity]{
-        The input features for ABCDNet plotted as histograms normalized to unity. 
+    \caption[The input features for \ABCDNet plotted as histograms normalized to unity]{
+        The input features for \ABCDNet plotted as histograms normalized to unity. 
         It can be seen that the features have been re-scaled to values of order 1.
     }
     \label{fig:vbsvvh_abcdnet_inputs}
 \end{figure}
 
-ABCDNet was trained for 3000 epochs with a constant learning rate. 
+\ABCDNet was trained for 3000 epochs with a constant learning rate. 
 Once training was complete, the model was selected before the average testing and training loss start to diverge. 
 Notably, the decorrelation term tends to overfit faster than BCE, and preference must be given to less overfitting in the decorrelation than in the overall performance. 
 For this analysis, epoch 700 was deemed optimal (Fig.~\ref{fig:vbsvvh_abcdnet_history}).
 The selected model shows no signs of overfitting and sufficient performance (Fig.~\ref{fig:vbsvvh_abcdnet_roc}). 
-Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNet discriminant (Fig.~\ref{fig:vbsvvh_abcdnet_score}) and $|\detajj|$ are indeed decorrelated.
+Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the \ABCDNet discriminant (Fig.~\ref{fig:vbsvvh_abcdnet_score}) and $|\detajj|$ are indeed decorrelated.
 
 \begin{figure}[htb]
     \centering
     \subfloat[]{\includegraphics[width=0.5\textwidth]{fig/vbsvvh/loss_epoch900.pdf}\label{fig:vbsvvh_abcdnet_history}}\qquad
     \subfloat[]{\includegraphics[width=0.4\textwidth]{fig/vbsvvh/abcdnet_roc_logx.pdf}\label{fig:vbsvvh_abcdnet_roc}}
-    \caption[The average loss at each epoch and ROC curve for the selected ABCDNet model]{
+    \caption[The average loss at each epoch and ROC curve for the selected \ABCDNet model]{
         The average loss at each epoch (left) and ROC curve for the selected model (right). 
         The total loss, which is the sum of the Binary Cross Entropy (BCE) plus the decorrelation term, is plotted as a solid line, the BCE is plotted as a dashed line, and the decorrelation term is plotted as a dotted line. 
         The testing loss is plotted in blue and the training loss is plotted in orange. 
@@ -259,8 +259,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
     \centering
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf}}\qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf}}
-    \caption[A two-dimensional histogram binned in ABCDNet score and \detajj]{
-        A two-dimensional histogram binned in ABCDNet score and \detajj. 
+    \caption[A two-dimensional histogram binned in \ABCDNet score and \detajj]{
+        A two-dimensional histogram binned in \ABCDNet score and \detajj. 
         The one-dimensional profile of the x-axis is overlaid such that the correlation between the two variables appears as a trend in the profile. 
         The signal region selections on the AK8 jet \ParticleNet scores are applied, so the left plot is equivalent to Fig.~\ref{fig:vbsvvh_abcd}.
     }
@@ -270,21 +270,21 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the ABCDNe
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/vbsvvh/abcdnet_score_data_vs_mc_log_presel.pdf}
-    \caption[The ABCDNet score plotted in data and MC at the Preselection]{
-        The ABCDNet score plotted in data and MC at the Preselection. 
+    \caption[The \ABCDNet score plotted in data and MC at the Preselection]{
+        The \ABCDNet score plotted in data and MC at the Preselection. 
         The data beyond the cut used in the signal region is kept blind. 
     }
     \label{fig:vbsvvh_abcdnet_score}
 \end{figure}
 
 \subsection{Signal region}
-Ultimately, the signal region for this analysis is formed from cuts on five variables: ABCDNet score, $|\detajj|$, and \ParticleNet scores for the three AK8 jets. 
+Ultimately, the signal region for this analysis is formed from cuts on five variables: \ABCDNet score, $|\detajj|$, and \ParticleNet scores for the three AK8 jets. 
 A brute-force scan was performed, where over fifty thousands regions were tested. 
 The regions were ranked by a rough estimation of the significance: $S/\sqrt{B}$, where $S$ is the signal yield taken from MC and $B$ is the background yield predicted using data via the ABCD method described in the next section.
 The final signal region was required to have at least 0.5 predicted background events, as cutting tighter on the signal region variables resulted in larger uncertainties. 
 Ultimately, the following signal region was determined:
 \begin{itemize}
-    \item ABCDNet $> 0.89$
+    \item \ABCDNet $> 0.89$
     \item $|\detajj| > 5$
     \item Xbb(\Htobb) $> 0.8$
     \item XWqq(leading \Vtoqq) $> 0.8$
@@ -302,8 +302,8 @@ Again, the estimated background yield in the signal region \AdataPred can be com
     \AdataPred = \Bdata\times\frac{\Cdata}{\Ddata}
 \end{equation*}
 where the same can be done in MC, yielding \AMCPred. 
-The two cuts used to define the ABCD method are ABCDNet $> 0.89$ and $|\detajj| > 5$. 
-Because ABCDNet was trained to be decorrelated with \detajj, the method holds by construction. 
+The two cuts used to define the ABCD method are \ABCDNet $> 0.89$ and $|\detajj| > 5$. 
+Because \ABCDNet was trained to be decorrelated with \detajj, the method holds by construction. 
 Now, it can be seen in Fig.~\ref{fig:vbsvvh_abcd_closureMass} that data and MC agree reasonably well in regions A, B, and C which have already been unblinded since they have nearly zero contribution from signal by design. 
 The statistical uncertainty \Estat on the method is simply the propagation of statistical uncertainties on the data yields for Regions B, C, and D:
 \begin{equation}\label{eq:vbsvvh_statUnc}
@@ -316,7 +316,7 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
     \caption[A cartoon of the ABCD regions]{
         A cartoon of the ABCD regions. 
         The signal region selections on the AK8 jet \ParticleNet scores are applied to all regions. 
-        Region B has the \detajj cut inverted, region C has the ABCDNet score inverted, and region D has both cuts inverted. 
+        Region B has the \detajj cut inverted, region C has the \ABCDNet score inverted, and region D has both cuts inverted. 
     }
     \label{fig:vbsvvh_abcd}
 \end{figure}
@@ -361,7 +361,7 @@ This effectively takes the relative error on the non-closure in MC as the system
     \caption[The ABCD regions used for closure tests]{
         The ABCD regions used for closure tests. 
         Again, the cuts on the AK8 jet \ParticleNet scores are applied to all regions. 
-        Regions C and D can each be split into two sub-regions by introducing a looser cut on the ABCDNet score (a). 
+        Regions C and D can each be split into two sub-regions by introducing a looser cut on the \ABCDNet score (a). 
         Region B can similarly be split into two sub-regions by introducing a looser cut on \detajj, which also divides D into 4 sub-regions total (b).
     }
     \label{fig:vbsvvh_abcd_extra}
