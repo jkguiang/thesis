@@ -33,14 +33,14 @@ Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off
 \footnotetext{Although VBS specifically implies the production of two vector bosons, while vector boson fusion (VBF) implies the production of a single Higgs or vector boson~\cite{RauchVBSVBF2016}, the names VBS and VBF are used interchangeably; since we are interested in the production of a Higgs boson and one or two vector bosons, the naming is anyway ambiguous.}
 This exchange can, in turn, produce a variety of physics, most notably the production of at least one Higgs boson. 
 This process also has two important features. 
-First, it has a unique signature: the two scattered quarks fly out of the collision back-to-back, typically in the forward regions of the detector (Fig.~\ref{fig:vbs_fireworks}), with a large energies. 
+First, it has a unique signature: the two scattered quarks fly out of the collision back-to-back, typically in the forward regions of the detector (Fig.~\ref{fig:vbs_fireworks}), with large energies. 
 Second, but equally important, modifications to the Higgs couplings induce effects that grow with energy~\cite{HiggsWithoutHiggs}---at the LHC, where energy is plentiful, this makes BSM scenarios easier to spot. 
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{fig/vbs_signature.png}
     \caption[VBS jets signature]{
-        Typical VBS jet \Mjj and $\abs{\detajj}$ distributions (left) next to an event display for a simulated VBS WH signal event in the $r$-$z$ plane with the VBS jets labeled (right). 
+        Typical VBS jet \Mjj and $\abs{\detajj}$ distributions (left) next to an event display for a simulated VBS WH signal event in the $r$-$z$ plane, with the VBS jets labeled (right). 
     }
     \label{fig:vbs_fireworks}
 \end{figure}
@@ -48,7 +48,7 @@ Second, but equally important, modifications to the Higgs couplings induce effec
 VBS provides a unique way of producing Higgs bosons, with an easily identifiable signature, and there are myriad VBS processes involving a Higgs, each involving different couplings. 
 The rarer couplings are of particular interest, including the $\HHVV$ and $\HHH$ couplings (Ch.~\ref{ch:vbsvvh}). 
 Also of interest are some of the more obscure properties of the Higgs boson, like the relative sign between the $\HWW$ and $\HZZ$ couplings (Ch.~\ref{ch:vbswh}). 
-In all of these measurements, if we confirm SM predictions, we exclude possible BSM directions, and if find a significant deviation from the SM, we will have opened an entirely new chapter of physics. 
+In all of these measurements, if we confirm SM predictions, we exclude possible BSM directions, and if we find a significant deviation from the SM, we will have opened an entirely new chapter of physics. 
 
 We begin by selecting the Feynman diagrams that involve the couplings of interest---here, we focus on VBS processes. 
 We call the selected processes our ``signal.'' 
@@ -66,7 +66,7 @@ When we say we are looking for VBS production of a Higgs boson and two vector bo
 Some final states are preferable over others, however. 
 For convenience, we often prefer to look for \Htobb, since a Higgs boson is most likely to decay to \bbbar (i.e. \Htobb has the highest ``branching ratio''). 
 The choice for the decay of the vector bosons is less clear. 
-The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are more unique, but are more rare. 
+The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are more unique, but are rarer. 
 On the other hand, the hadronic decays ($\PV\to\qq$) are more plentiful, but are difficult to distinguish from far more abundant processes. 
 
 \section{Reconstruction}
@@ -104,7 +104,7 @@ The B meson lifetime is sufficiently long such that it passes the first few laye
 When it decays, it produces several quarks and, potentially, a lepton. 
 This results in ``displaced'' tracks in the tracker that point to a ``secondary vertex'' (Fig.~\ref{fig:btagging_step2}) as opposed to the ``primary vertex,'' or the original pp collision. 
 The presence of a secondary vertex within a jet therefore gives a unique indication that it originated from a \Pb quark (Fig.~\ref{fig:btagging_step3}). 
-Particle tracks are therefore vital for \Pb-tagging, so \Pb-tagged jets must be within the fiducial region of the tracker ($\abs{\eta} < 2.5$). 
+Particle tracks are therefore vital for \Pb-tagging, so \Pb-tagged jets must be within the tracker acceptance region ($\abs{\eta} < 2.5$). 
 For CMS analysis, a deep neural network called \DeepJet was trained to use the presence of a secondary vertex, along with additional kinematic information about the jet and its constituents, to ``tag'' jets as originating from a \Pb quark~\cite{Bols:2020bkb}. 
 
 \begin{figure}[htb]
@@ -125,8 +125,8 @@ This presents a unique signal: the two nearby jets can instead be found as a sin
 That is, these merged jets will appear in the AK8 jet collection. 
 In the work presented in this dissertation, we search for Higgs bosons decaying to \bbbar at high energies, tagged as a single merged jet. 
 This is made possible by a graph neural network, called \ParticleNet, trained for CMS analysis to identify the origins of merged jets based on the properties of its constituents, arranged in a graph-like data structure according to their proximity to one another~\cite{Qu:2019gqs}. 
-Similar to \Pb-tagging, merged jets considered for \Xtobb tagging, for instance, must be within the fiducial region of the tracker. 
-The merged jet with a mass similar to the Higgs boson, and a highest \ParticleNet \Xtobb score is considered as the best Higgs boson candidate.
+Similar to \Pb-tagging, merged jets considered for \Xtobb tagging, for instance, must be within the tracker acceptance region. 
+The merged jet with a mass similar to the Higgs boson, and the highest \ParticleNet \Xtobb score is considered as the best Higgs boson candidate.
 
 \subsubsection{Jets originating from VBS quarks}\label{sec:vbsjets}
 The presence of VBS quarks is inferred from the presence of two jets that are back-to-back (large $\abs{\detajj}$) and have a large combined invariant mass (\Mjj). 
@@ -148,7 +148,7 @@ The hadronic decay, however, has a unique ``multi-prong'' structure, allowing it
 Neutrinos, meanwhile, pass through the entire detector, so their presence can only be inferred by first accounting for everything else, then asking for what is missing. 
 
 \subsection{Missing energy}\label{sec:met}
-Protons collide along the beamline with equal but opposite momenta so the system has a total momentum of zero. 
+Protons collide along the beamline with equal but opposite momenta, so the system has a total momentum of zero. 
 Because of the conservation of momentum, the sum of the momenta of all produced particles must still be zero. 
 This is as true in the classical world as the quantum world. 
 The shrapnel from two colliding bullets, for instance, is thrown from the collision in a disk, so the total momentum is conserved~\cite{SmarterEveryDayBullets}. 
@@ -165,7 +165,7 @@ One common background for VBS Higgs boson analyses is \ttbar production.
 Both top quarks decay to a \PW boson and \PQb quark. 
 With either the hadronic or leptonic decay of the \PW bosons, and the two genuine \PQb jets, there is a large potential for trickery. 
 For example, the \PW boson could decay to two quarks that overlap with each other and one of the \PQb jets, resulting in a jet with a large invariant mass and displaced tracks that could be mistaken for a \Htobb jet (e.g. Fig.~\ref{fig:vbs_vs_ttbar}). 
-Backgrounds including genuine VBS jets or a genuine Higgs boson are typically much more rare than a more populous background like \ttbar generating a fake signature. 
+Backgrounds including genuine VBS jets or a genuine Higgs boson are typically much rarer than a more populous background like \ttbar generating a fake signature. 
 
 \begin{figure}[htb]
     \centering
@@ -198,14 +198,14 @@ Instead, we use Monte Carlo (MC) simulation software that ``generates'' proton-p
 
 Taking $\Pp\Pp\to\ttbar+\PH$ as an example (Fig.~\ref{fig:ttbarH_mc}), the first step of generating a MC simulation is to calculate the kinematics (the energy and the momentum vector) for the top quark, anti-top quark, and Higgs boson. 
 This is often done with the \MGvATNLO ``matrix-element'' generator, which finds the relevant Feynman diagrams, including very rare ones, and randomly generates different realizations of the final state based on an approximation of the underlying theory. % TODO: cite MadGraph AMC@NLO paper
-Better accuracy comes from including more Feynman diagrams and a more fine-grained approximation of QFT at a the cost of computational complexity. 
+Better accuracy comes from including more Feynman diagrams and a more fine-grained approximation of QFT at the cost of computational complexity. 
 Next, a ``general-purpose'' generator (e.g. \PYTHIA or \POWHEG) takes the event generated by the previous step\footnotemark{} and promotes it to something closer to what we would observe in nature. % TODO: cite Pythia and POWHEG papers
 That is, it generates the particles that actually impinge onto our detector, including an approximation of the hadronization of quarks and gluons into jets. 
 \footnotetext{Notably, general-purpose generators are also capable of doing the first step.}
 The output of this step is then interfaced with a highly detailed \GEANTfour simulation of the CMS Experiment---from material interactions, to the digitization of the electrical signals from the subdetectors, to the decisions of the L1 trigger and HLT. 
 The result is a sample of simulated data that is a very close match to the signals produced by CMS for $\Pp\Pp\to\ttbar+\PH$. 
 
-Because it is simulated all of the way to the trigger decisions, the simulation can be passed through the PF algorithm and all other data postprocessing steps performed on data (Fig.~\ref{fig:mcgen_diagram}). 
+Because it is simulated all of the way to the trigger decisions, the simulation can be passed through the PF algorithm and all other data post-processing steps performed on data (Fig.~\ref{fig:mcgen_diagram}). 
 This results in samples of simulated data that appear effectively identical to real collision data, except with some truth-level information available for further study. 
 Analyzers can then use these simulated samples to optimize their analysis for preferring signal processes over background processes.
 
@@ -213,7 +213,7 @@ Analyzers can then use these simulated samples to optimize their analysis for pr
     \centering
     \includegraphics[width=0.9\textwidth]{fig/cms/mcgen_diagram.png}
     \caption[Diagram of the CMS collision data and simulation processing workflow]{
-        Diagram of the CMS collision data and simulation processing workflow, from~\cite{CMSOpenDataMC}, for generating MC simulation showing the postprocessing steps that are shared between MC simulation and real collision data. 
+        Diagram of the CMS collision data and simulation processing workflow, from~\cite{CMSOpenDataMC}, for generating MC simulation showing the post-processing steps that are shared between MC simulation and real collision data. 
     }
     \label{fig:mcgen_diagram}
 \end{figure}
@@ -246,7 +246,7 @@ For VBS Higgs boson analyses, these will select for at least two jets that look 
 These selections are referred to as the ``Preselection'' in this dissertation. 
 
 The final set of selections are optimized using events that pass the Preselection. 
-The simplest analyses, like that presented in Chapter~\ref{ch:vbswh}, these selections will be on properties of each particle in the signal final state. 
+In the simplest analyses, like that presented in Chapter~\ref{ch:vbswh}, these selections will be on properties of each particle in the signal final state. 
 Other analyses, like that presented in Chapter~\ref{ch:vbsvvh}, use these variables as input to a machine learning algorithm trained to select signal events. 
 Ultimately, we select a final set of events that comprise the so-called ``signal region'' (Fig.~\ref{fig:nano_to_SR}). 
 We will compare the number of actual collision events that enter this region to the number of events predicted by simulation. 
@@ -268,7 +268,7 @@ Although the predicted number of background events in the signal region can be t
 Instead, there is a strategy---the famous ``ABCD'' method---in which only real data is used. 
 The ABCD method entirely relies on there being two variables used to define the signal region that are decorrelated. 
 For example, an analysis may have variables $x$ and $y$, where most of the signal has $x > 4$ and $y > 200$, whereas the background is concentrated near small values of $y$ and is uniformly distributed in $x$ (Fig.~\ref{fig:abcd}). 
-In this case, if $x$ and $y$ are decorrelated, then for any value of $x$, the distribution of the background in $y$ will be the same and visa versa. 
+In this case, if $x$ and $y$ are decorrelated, then for any value of $x$, the distribution of the background in $y$ will be the same and vice versa. 
 Provided that this is true, we can look at real collision events with $x \leq 4$ and calculate
 \begin{equation}
     f = \frac{\text{N events with }y > 200\text{ and }x \leq 4}{\text{N events with }y \leq 200\text{ and }x \leq 4}
@@ -411,5 +411,5 @@ If we wanted to include this uncertainty in our statistical analysis, we could r
 \end{equation}
 where $\Lumi_0$ is the measured value of the integrated luminosity and $\eta$ is typically a Gaussian-distributed number between 0 and 1. 
 Before we compute our confidence interval, we must find some $\hat{\eta}(\mu)$ that minimizes $q(\mu, \nu(\mu))$. 
-For each systematic uncertainty we add, we add an additional ``nuisance parameter'' that must first be minimized before the final result is produced. 
+For each systematic uncertainty in our analysis, we add an additional ``nuisance parameter'' that must first be minimized before the final result is produced. 
 In this dissertation, this operation---along with the maximum likelihood estimation---is performed by the \COMBINE tool~\cite{CombinePaper}. 

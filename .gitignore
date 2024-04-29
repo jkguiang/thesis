@@ -26,9 +26,8 @@
 *.maf
 *.mtc
 *.mtc0
-thesis.pdf
-output.pdf
-smalloutput.pdf
+*.bak
+*.pdf
 tmp
 sources
 examples
