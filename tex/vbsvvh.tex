@@ -15,8 +15,9 @@ By branching fraction, the VBS \HVV all-hadronic final state is the most populou
 This chapter focuses on the all-hadronic final state. 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbsvvh/vbsvvh_c2v_allhad.pdf}}\quad
-    \subfloat{\includegraphics[width=0.3\textwidth]{fig/feynman/vbsvvh/vbsvvh_c3_allhad.pdf}}
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/feynman/vbsvvh/vbsvvh_c2v_allhad.pdf}}
+    \quad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/feynman/vbsvvh/vbsvvh_c3_allhad.pdf}}
     \caption[Leading-order Feynman diagrams for VBS \VVH in the all-hadronic final state]{
         Leading-order Feynman diagrams for VBS production of two vector bosons (V) and one Higgs boson, where the vector bosons decay hadronically and the Higgs boson decays specifically to \PQb quarks. 
         The HHVV coupling \kVV is denoted by a blue circle (\textcolor{blue}{\ding{108}}), and the \HHH coupling \kHHH is denoted by a magenta circle (\textcolor{magenta}{\ding{108}}). 
@@ -32,7 +33,8 @@ The \ParticleNet regressed mass \MPNet is used to estimate the mass of each AK8 
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/M_jj_sig_vs_bkg_stacked_logy.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/M_jj_sig_vs_bkg_stacked_logy.pdf}}
+    \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/abs_deta_jj_sig_vs_bkg_stacked_logy.pdf}}
     \caption[The \Mjj and \detajj distribution for the VBS jets]{
         The invariant mass \Mjj (left) and pseudorapidity separation \detajj (right) of the VBS jets plotted after the Preselection is applied. 
@@ -73,7 +75,8 @@ All of these backgrounds simply produce many jets that can, by random chance, pa
 
 \begin{figure}[htb]
     \centering
-    \subfloat[QCD multijet]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/qcd_multijet.pdf}\label{fig:qcd_multijet}}\quad
+    \subfloat[QCD multijet]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/qcd_multijet.pdf}\label{fig:qcd_multijet}}
+    \quad
     \subfloat[\ttbar in the all-hadronic final state]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_allhad_extraJet_ggF.pdf}\label{fig:ttbar_allhad}}
     \caption[Feynman diagrams for QCD multijet and \ttbar production]{
         Feynman diagram for QCD multijet production (left) and \ttbar production in the all-hadronic final state (right), the leading and subleading backgrounds, respectively, for the VBS \VVH all-hadronic analysis. 
@@ -124,12 +127,12 @@ The replacement is performed for each AK8 jet via the following prescription:
     \item Get \XWtoqq score \textit{PDF} for the appropriate \pt, \Xtobb score bin
     \item Replace AK8 jet \XWtoqq score with one randomly sampled from the \XWtoqq score \textit{PDF}
 \end{enumerate}
-
 After replacing the AK8 jet scores in events with 3 AK8 jets, the \ParticleNet score distribution agreement between data and MC improves significantly (Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores}), doubling the number of raw QCD MC events that pass the Preselection.
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf}}
+    \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin0.pdf}}
     \caption[The approximation of the \ParticleNet \textit{PDF}s]{
         The approximation of the \ParticleNet \textit{PDF}s plotted for the \Xtobb score in one bin of \pt (left) and the \XWtoqq score in one bin of \pt and \Xtobb (right). 
@@ -245,7 +248,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the \ABCDN
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.5\textwidth]{fig/vbsvvh/loss_epoch900.pdf}\label{fig:vbsvvh_abcdnet_history}}\qquad
+    \subfloat[]{\includegraphics[width=0.5\textwidth]{fig/vbsvvh/loss_epoch900.pdf}\label{fig:vbsvvh_abcdnet_history}}
+    \qquad
     \subfloat[]{\includegraphics[width=0.4\textwidth]{fig/vbsvvh/abcdnet_roc_logx.pdf}\label{fig:vbsvvh_abcdnet_roc}}
     \caption[The average loss at each epoch and ROC curve for the selected \ABCDNet model]{
         The average loss at each epoch (left) and ROC curve for the selected model (right). 
@@ -257,7 +261,8 @@ Moreover, it can be seen in Fig.~\ref{fig:vbsvvh_abcdnet_decorr} that the \ABCDN
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile.pdf}}
+    \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/correlation2D_abcdnet_score_abs_deta_jj_1Dprofile_flipped.pdf}}
     \caption[A two-dimensional histogram binned in \ABCDNet score and \detajj]{
         A two-dimensional histogram binned in \ABCDNet score and \detajj. 
@@ -356,7 +361,8 @@ This effectively takes the relative error on the non-closure in MC as the system
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABC1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck1}}\qquad
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/ABC1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck1}}
+    \qquad
     \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/AB1B2C1C2D1D2_abcdnet_score_gt_0p89_vs_abs_deta_jj_gt_5p0.pdf}\label{fig:vbsvvh_abcdCheck2}}
     \caption[The ABCD regions used for closure tests]{
         The ABCD regions used for closure tests. 
@@ -369,7 +375,8 @@ This effectively takes the relative error on the non-closure in MC as the system
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsAC_closure_signal.pdf}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsAC_closure_signal.pdf}}
+    \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/regionsBD_closure_signal.pdf}}
     \caption[Regions A, B, C, and D used in the ABCD method]{
         Regions A and C (left) and regions B and D (right) used in the ABCD method.
@@ -441,7 +448,7 @@ The result of the fit is shown in Figure~\ref{fig:vbsvvh_limit}, and the regions
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/C2V_Limit.pdf}}
+    \subfloat{\includegraphics[width=0.8\textwidth]{fig/vbsvvh/C2V_Limit.pdf}}
     \caption{The 95\% confidence level limit plotted as a function of \kVV for the all-hadronic channel. 
     }
     \label{fig:vbsvvh_limit}

@@ -83,7 +83,7 @@ Combined with the fact that the signal has a distinctly larger average value of 
     \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/fireworks/signal/vbswh_evt131104_rz_gen_labeled.png}}
     \caption[Event display for a simulated VBS \WH event]{
-        Event display for a simulated VBS \WH event in the x-y plane (left) and x-z plane (right), with the final-state particles (thick red lines) labeled. 
+        Event display for a simulated VBS \WH event in the $r$-$\phi$ plane (left) and $r$-$z$ plane (right), with the final-state particles (thick red lines) labeled. 
         Two VBS jets can be seen very near to the beamline, going in either direction in $z$. 
     }
     \label{fig:vbswh_fireworks}
@@ -94,7 +94,7 @@ In general, background processes for this analysis need a fake\footnotemark{} $\
 \footnotetext{
     In principle, a background process could have a \textit{real} Higgs boson with large \pt decay to \bbbar or two \textit{real} VBS jets, however SM processes with these kinds of signatures are so rare that they do not represent a significant background for this analysis.
 }
-The leading background process for this analysis is \ttbar production (Fig.~\ref{fig:vbswh_lead_bkg}), wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
+The leading background process for this analysis is \ttbar production, wherein a top and antitop quark are produced and both decay to a bottom quark and \PW boson. 
 One of the \PW bosons can decay to a real lepton and neutrino, and the fake VBS jets and \Htobb merged jet can come from some combination of the \PQb quarks, quarks from one of the \PW bosons decaying hadronically, and possibly an extra gluon radiated by one of the incoming quarks (Fig.~\ref{fig:ttbar1l}). 
 One of the incoming quarks can also radiate a \PW or \PZ boson (Fig.~\ref{fig:ttV1l}), which presents additional opportunities for trickery. 
 The largest sub-leading background comes from \wjets (Fig.~\ref{fig:w_jets}), where a \PW is produced along with some number of quarks or gluons, and single-top production (Fig.~\ref{fig:single_t}), where only one top quark is produced. 
@@ -106,22 +106,29 @@ In single-top production, the top quark again decays to a \PW boson and b quark,
     \subfloat[$\ttbar + \text{jet}$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttbar_onelep_extraJet_ggF.pdf}\label{fig:ttbar1l}}
     \quad
     \subfloat[$\ttbar + \PV$]{\includegraphics[width=0.4\textwidth]{fig/feynman/ttbar/ttV_onelep.pdf}\label{fig:ttV1l}}
-    \caption[Feynman diagrams for \ttbar production]{
-        Feynman diagram for \ttbar production in the single-lepton final state with (a) an extra jet from a gluon or (b) an extra vector boson ($\PV = \PW$ or \PZ) radiated from one of the incoming partons.  
-    }
-    \label{fig:vbswh_lead_bkg} % leading background (ttbar)
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
+    \\
     \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/wjets.pdf}\label{fig:w_jets}}
     \quad
     \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/singletop_tW.pdf}\label{fig:single_t}}
-    \caption[Feynman diagrams for \wjets and $\PQt\PW$ production]{
-        Feynman diagram for \wjets production in the single-lepton final state (left) and the production of a single top quark and \PW boson (right). 
+    \caption[Feynman diagrams the leading (\ttbar) and subleading (\wjets and single top quark) backgrounds]{
+        Feynman diagrams for the leading and subleading backgrounds in this analysis.
+        From top to bottom: 
+        \ttbar production in the single-lepton final state with (a) an extra jet from a gluon or (b) an extra vector boson ($\PV = \PW$ or \PZ) radiated from one of the incoming partons;  
+        \wjets production in the single-lepton final state (c); and the production of a single top quark and \PW boson (d). 
     }
-    \label{fig:vbswh_subl_bkg} % sub-leading background (W+jets and single top)
+    \label{fig:vbswh_bkg} % leading background (ttbar)
 \end{figure}
+
+% \begin{figure}[htb]
+%     \centering
+%     \subfloat[\wjets]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/wjets.pdf}\label{fig:w_jets}}
+%     \quad
+%     \subfloat[Single top]{\includegraphics[width=0.4\textwidth]{fig/feynman/other/singletop_tW.pdf}\label{fig:single_t}}
+%     \caption[Feynman diagrams for \wjets and $\PQt\PW$ production]{
+%         Feynman diagram for \wjets production in the single-lepton final state (a) and the production of a single top quark and \PW boson (b). 
+%     }
+%     \label{fig:vbswh_subl_bkg} % sub-leading background (W+jets and single top)
+% \end{figure}
 
 \section{Event selection}
 \subsection{Triggers and preselection}
