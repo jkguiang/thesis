@@ -186,7 +186,7 @@ The \dCorrSq term is the ``distance correlation,'' a statistical quantity that m
 
 For this analysis, a DNN hereafter referred to as \ABCDNet was trained to be decorrelated from $|\detajj|$.
 While there are many configurations of this technique that were considered, we found that using $|\detajj|$ as the decorrelation target provided the most stable result and the best closure for this analysis. 
-A simple architecture was selected for \ABCDNet: 3 hidden layers with 64 nodes each. % TODO: add reference to ABCDNet architecture cartoon  (Fig.~\ref{fig:vbsvvh_abcdnet_arch})
+A simple architecture was selected for \ABCDNet: 3 hidden layers with 64 nodes each. 
 Additional hyperparameters are tabulated in Table~\ref{tab:vbsvvh_abcdnet_params}. 
 A total of 13 features (Fig.~\ref{fig:vbsvvh_abcdnet_inputs}) are provided to \ABCDNet as inputs:
 \begin{itemize}
@@ -312,7 +312,7 @@ Because \ABCDNet was trained to be decorrelated with \detajj, the method holds b
 Now, it can be seen in Fig.~\ref{fig:vbsvvh_abcd_closureMass} that data and MC agree reasonably well in regions A, B, and C which have already been unblinded since they have nearly zero contribution from signal by design. 
 The statistical uncertainty \Estat on the method is simply the propagation of statistical uncertainties on the data yields for regions B, C, and D:
 \begin{equation}\label{eq:vbsvvh_statUnc}
-    \Estat = \frac{\sqrt{\Bdata}}{\Bdata} \oplus \frac{\sqrt{\Cdata}}{\Cdata} \oplus \frac{\sqrt{\Ddata}}{\Ddata} \approx 34\% % TODO: add alias for this
+    \Estat = \frac{\sqrt{\Bdata}}{\Bdata} \oplus \frac{\sqrt{\Cdata}}{\Cdata} \oplus \frac{\sqrt{\Ddata}}{\Ddata} \approx 34\% 
 \end{equation}
 
 \begin{figure}[htb]
@@ -326,7 +326,6 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
     \label{fig:vbsvvh_abcd}
 \end{figure}
 
-% TODO: add flowchart for ABCD regions (like in VBSWH AN)
 \begin{table}[htbp]
     \centering
     \caption[VBS $\VVH$ ABCD yields]{
@@ -348,14 +347,14 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
 
 We can immediately assess the closure of the method using only simulated events by comparing \AMCPred and \AMC:
 \begin{equation*}
-    \AMCPred = \BMC\times\frac{\CMC}{\DMC} = 1.12\pm0.29 \qquad \AMC = 2.34\pm0.82 % TODO: add alias for this
+    \AMCPred = \BMC\times\frac{\CMC}{\DMC} = 1.12\pm0.29 \qquad \AMC = 2.34\pm0.82
 \end{equation*}
 However, the conclusion from this test is not clear, given the large uncertainty on the MC prediction in region A. 
 Instead, a systematic uncertainty on the method \Esyst can be derived using MC as follows:
 \begin{equation}
     \Esyst = 
         \frac{2}{\AMC + \AMCPred}
-        \sqrt{\bigg(\frac{\AMC^\text{err}}{\AMC}\bigg)^2 + \bigg(\frac{\Estat^\mathrm{MC}}{\AMCPred}\bigg)^2} \approx 25\% % TODO: add alias for this
+        \sqrt{\bigg(\frac{\AMC^\text{err}}{\AMC}\bigg)^2 + \bigg(\frac{\Estat^\mathrm{MC}}{\AMCPred}\bigg)^2} \approx 25\%
 \end{equation}
 This effectively takes the relative error on the non-closure in MC as the systematic uncertainty, where $\AMC^\text{err}$ is the statistical error on the MC yield and $\Estat^\mathrm{MC}$ is the equivalent of Eq.~\ref{eq:vbsvvh_statUnc} for MC.
 
