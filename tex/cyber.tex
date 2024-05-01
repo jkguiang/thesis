@@ -44,7 +44,7 @@ These data transfers are initialized and managed by the File Transfer Service (F
 The Energy Sciences Network (ESNet), the NREN used by the CMS and ATLAS collaborations in the United States, has developed an SDN product called SENSE: SDN for end-to-end networked science at the exascale~\cite{SENSE}. 
 It is designed to provide users with enhanced interactivity via an ``intent-based'' interface, allowing for the precise management of network resources---the exact functionality needed for HL-LHC data movement. 
 SENSE provides this interactivity through a novel configuration of the data storage sites (Fig.~\ref{fig:sense_site}) that allows data to be accessed across many different IPv6 subnets simultaneously. 
-These subnets logically divide the network traffic which, in turn, enables SENSE to allocate bandwidth. 
+These subnets logically divide the network traffic, enabling SENSE to allocate bandwidth. 
 
 \begin{figure}[htb]
     \centering
@@ -111,7 +111,7 @@ Alternatively, transfers could be allocated bandwidth according to their priorit
 \end{figure}
 
 \section{Demonstrations}
-The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech. 
+The Rucio-SENSE interoperation was first demonstrated in a simple test involving two sites, one at UCSD and another at Caltech~\cite{XLOOP}. 
 These institutions were selected because they each maintain highly active ``\Tier{2}'' computing facilities, which are the endpoints of real CMS production data transfers. 
 In order to simulate this kind of network traffic, the IPerf tool was used to emulate activity across best effort network services. 
 At the same time, a private instance of Rucio was deployed, with only UCSD and Caltech as known sites. 
@@ -162,6 +162,7 @@ With the Rucio-SENSE interoperation model now demonstrated successfully multiple
 In addition, the intelligence of the DMM priority allocation will continue to be refined, with special attention given to the possibility of data transfer scheduling. 
 
 \section{Acknowledgements}
-This chapter is a partial reproduction of the paper ``Integrating End-to-End Exascale SDN into the LHC Data Distribution Cyberinfrastructure'', in the proceedings of PEARC 2023 (doi:10.1145/3491418.3535134). 
-This ongoing work is partially supported by the US National Science Foundation (NSF) Grants OAC-2030508, OAC-1841530, OAC-1836650, MPS-1148698, and PHY-1624356.
-In addition, the development of SENSE is supported by the US Department of Energy (DOE) Grants DE-SC0015527, DE-SC0015528, DE-SC0016585, and FP-00002494.
+This chapter is a partial reproduction of the paper ``Managed Network Services for Exascale Data Movement Across Large Global Scientific Collaborations,'' in the proceedings of XLOOP 2023, (doi:10.1109/XLOOP56614.2022.00008). 
+This ongoing work is partially supported by the US National Science Foundation (NSF) Grants OAC-2030508, OAC-1841530, OAC-1836650, MPS-1148698, and PHY-1624356. 
+In addition, the development of SENSE is supported by the US Department of Energy (DOE) Grants DE-SC0015527, DE-SC0015528, DE-SC0016585, and FP-00002494. 
+Finally, this work would not be possible without the significant contributions of collaborators at ESnet, Caltech, and SDSC.
