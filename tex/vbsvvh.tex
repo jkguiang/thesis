@@ -298,7 +298,7 @@ Ultimately, the following signal region was determined:
 
 \section{Background estimation}
 The background in the signal region is estimated entirely from data by using the ``ABCD'' method, where regions A, B, C, and D are illustrated in Fig.~\ref{fig:vbsvvh_abcd}. % and Fig.~\ref{fig:vbsvvh_abcdFlowchart}. 
-These regions are formed by selecting two cuts in the signal region (Region A), then inverting them to form regions B, C, and D. 
+These regions are formed by selecting two cuts in the signal region (region A), then inverting them to form regions B, C, and D. 
 So long as the two cuts are independent, the following method holds. 
 As in the previous analysis, the background yield in regions A, B, C, and D in Monte Carlo are defined as \AMC, \BMC, \CMC, and \DMC.
 Likewise, let the same yields in data be defined as  \Adata, \Bdata, \Cdata, and \Ddata.
@@ -310,7 +310,7 @@ where the same can be done in MC, yielding \AMCPred.
 The two cuts used to define the ABCD method are \ABCDNet $> 0.89$ and $|\detajj| > 5$. 
 Because \ABCDNet was trained to be decorrelated with \detajj, the method holds by construction. 
 Now, it can be seen in Fig.~\ref{fig:vbsvvh_abcd_closureMass} that data and MC agree reasonably well in regions A, B, and C which have already been unblinded since they have nearly zero contribution from signal by design. 
-The statistical uncertainty \Estat on the method is simply the propagation of statistical uncertainties on the data yields for Regions B, C, and D:
+The statistical uncertainty \Estat on the method is simply the propagation of statistical uncertainties on the data yields for regions B, C, and D:
 \begin{equation}\label{eq:vbsvvh_statUnc}
     \Estat = \frac{\sqrt{\Bdata}}{\Bdata} \oplus \frac{\sqrt{\Cdata}}{\Cdata} \oplus \frac{\sqrt{\Ddata}}{\Ddata} \approx 34\% % TODO: add alias for this
 \end{equation}
@@ -330,7 +330,7 @@ The statistical uncertainty \Estat on the method is simply the propagation of st
 \begin{table}[htbp]
     \centering
     \caption[VBS $\VVH$ ABCD yields]{
-        Data yields and Region A prediction for the control region used for the ABCD closure test. 
+        Data yields and region A prediction for the control region used for the ABCD closure test. 
         The region A yield is kept blind, while $A_{pred}$ is reported.
     }
     \begin{tabular}{ccc}
@@ -350,7 +350,7 @@ We can immediately assess the closure of the method using only simulated events 
 \begin{equation*}
     \AMCPred = \BMC\times\frac{\CMC}{\DMC} = 1.12\pm0.29 \qquad \AMC = 2.34\pm0.82 % TODO: add alias for this
 \end{equation*}
-However, the conclusion from this test is not clear, given the large uncertainty on the MC prediction in Region A. 
+However, the conclusion from this test is not clear, given the large uncertainty on the MC prediction in region A. 
 Instead, a systematic uncertainty on the method \Esyst can be derived using MC as follows:
 \begin{equation}
     \Esyst = 
