@@ -6,7 +6,7 @@
 \end{aquote}
 
 \section{The Standard Model}
-Put simply, the Standard Model (SM) attempts to describe, at the most fundamental level, what the universe is made of and how it operates (Fig.~\ref{fig:standard_model}). 
+Put simply, the Standard Model (Fig.~\ref{fig:standard_model}), shortened hereafter to ``SM'' for brevity, attempts to describe, at the most fundamental level, what the universe is made of and how it operates. 
 So far, the content of the model is as follows: the universe is made of fermions (quarks and leptons), and it operates through the exchange of bosons (photons, gluons, W, Z, and H). 
 That is, matter\footnotemark{} is composed of assemblies of fermions, which are held together, pushed apart, and otherwise interact via the fundamental forces ``transmitted'' by bosons. 
 \footnotetext{With the current exception of ``dark'' matter, which is discussed later in this chapter.}
@@ -19,7 +19,7 @@ Together, these forces and the Higgs mechanism---and gravity, whose omission her
 The entire universe is, we believe, the structure that emerges from the elegant, infinite dance of these fundamental particles. 
 
 Of course, a rigorous description of the SM could only be properly treated alongside a stack of textbooks. 
-The concepts of fermions and bosons carry deeply insightful mathematics derived originally in statistical mechanics, which was developed to describe the behavior of large ensembles of microscopic objects (like gases). 
+The concepts of fermions and bosons carry deeply insightful mathematics derived originally in statistical mechanics, which was itself developed to describe the behavior of large ensembles of microscopic objects (like gases). 
 Moreover, the particle ``zoo'' has been herded into the confines of the mathematical framework called quantum field theory (QFT), wherein particles are described as excitations of quantum ``fields'' and physical laws are realized as mathematical symmetries. 
 Unfortunately, four to five years of attentive instruction and rigorous study across multiple subjects---including quantum mechanics, special relativity, and a bevy of other mathematical formalisms---are required to even begin reading QFT textbooks, and well over a lifetime may be required to fully understand them\footnotemark{}. 
 \footnotetext{Even still, paraphrasing the great Prof. Aneesh Manohar, ``all QFT textbooks are wrong.''}
@@ -61,6 +61,8 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
         The fundamental vertices in the Standard Model. 
         From left to right, top to bottom: 
         (a) electromagnetic; (b), (c) electroweak; (d) weak; (e), (f), (g) strong; (h), (i) Higgs. 
+        For compactness, a shorthand notation is used in some of the vertices to represent more than one particle: 
+        $f$ is a fermion and $X_m$ is any massive particle. 
     }
     \label{fig:sm_vertices}
 \end{figure}
@@ -97,7 +99,7 @@ This probability is called the ``cross-section,'' because it is mathematically s
     In fact, the answer to this question is expressed in the units of ``barns,'' literally as in ``hitting the broad side of a barn,'' coined by Manhattan Project scientists during World War II~\cite{BarnOrigin}. 
 }
 Indeed, one of the most important features of QFT is the ability to compute the cross-section for scattering two electrons off of each other, as in this case, or any other interactions between particles. 
-Feynman diagrams beautifully encode the complex mathematics at work here: each line and every vertex (where three lines meet) correspond to a term in the calculation. 
+Feynman diagrams beautifully encode the complex mathematics at work here: each line and every vertex (where lines meet) correspond to a term in the calculation. 
 For the electron-electron scattering example, this would look like
 \begin{equation}
     \sigma = \langle|\mathcal{M}|^2\rangle = \frac{2g_e^4}{(p_1 \cdot p_3)^2(p_1 \cdot p_4)^2[(p_1 \cdot p_2)^4 + (p_1 \cdot p_3)^4 + (p_1 \cdot p_4)^4]}
@@ -120,8 +122,8 @@ Moreover, this feature of QFT---the ability to compute cross-sections---is absol
 The validity of any model is a precarious condition: the model must exactly describe reality, else it is not a realization of the truth, but rather only approximately---or worse, accidentally---correct. 
 That is, \textit{every} SM cross-section value must be accurate for the validity of the model to hold. 
 And so generations of physicists have made diligent, and highly accurate, measurements of dozens of cross-sections---spanning orders of magnitude of rarity. 
-Tabulated in grand tables (Fig.~\ref{fig:cms_xsecs} and \ref{fig:atlas_xsecs}), it is evident that the SM has so far withstood every test derived from CMS data and ATLAS data. 
-This is an incredible feat: a ``simple'' model seems to describe subatomic physics, which drove the creation of the universe and continues to drive the mechanics of everything, with incredible accuracy. 
+Tabulated in grand tables (Fig.~\ref{fig:cms_xsecs} and \ref{fig:atlas_xsecs}), it is evident that the SM has so far withstood every test derived from generations of experiments. 
+This is an incredible feat: a ``simple'' model seems to describe subatomic physics, which drove the creation of the universe and continues to drive the mechanics of \textit{everything} in existence, with incredible accuracy. 
 Lingering beyond these shining trophies, however, are a number of glaring inconsistencies and enormous missing pieces. 
 In other words, we know with certainty that the SM is not complete, and that much more work is needed to complete it. 
 We will focus in this dissertation on questions around the Higgs boson. 
@@ -154,7 +156,7 @@ Without these prerequisites, it suffices to say that the idea of the Higgs boson
 Originally derived for classical systems---an arrow in flight, a planet in motion, a ball on a ramp---an appropriately written ``Lagrangian,'' a mathematical object, together with the Euler-Lagrange equation can reproduce the mathematical description of the dynamics of a given system---the position of the arrow, planets, or ball as a function of time. 
 The Lagrangian $L$ is a simple function of the energies in a classical mechanics:
 \begin{equation}
-    L = \underbrace{\frac{1}{2}m\dot{x}^2}_\text{kinetic energy} - \underbrace{U(x)}_{\substack{\text{potential} \\ \text{energy}}}
+    L = \underbrace{\frac{1}{2}m\dot{x}^2}_\text{\substack{\text{kinetic} \\ \text{energy}}} - \underbrace{U(x)}_{\substack{\text{potential} \\ \text{energy}}}
 \end{equation}
 where $x$, really $x(t)$, is the position of some physical object in one direction as a function of time and $\dot{x}$ is shorthand for the derivative of x with respect to time ($\frac{d}{dt}$), or the velocity. 
 By plugging $L$ into the Euler-Lagrange equations, 
