@@ -57,7 +57,7 @@ We must then find our signal, which is often incredibly rare, amongst petabytes 
 
 \section{Choosing a final state}
 The final collection of particles that are actually recorded by CMS are called the ``final state.'' 
-As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and photons. 
+As covered in Chapter~\ref{ch:lhc_cms}, Section~\ref{sec:cms}, CMS can record electrons, photons, hadrons, and muons. 
 Higgs bosons, vector bosons, gluons, and tau leptons decay to these particles. 
 Therefore, when we say we are looking for VBS production of a Higgs boson and two vector bosons, we are really looking for two quarks (VBS) and the decay products of the bosons. 
 Some final states are preferable over others, however. 
@@ -77,14 +77,14 @@ Particles reconstructed by the PF algorithm are called PF ``candidates'' and are
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{fig/cms/particle_id_slice.pdf}
-    \caption{
-        Transverse slice of CMS, from Ref.~\cite{Davis:2205172}, showing the signals left by different kinds of particles in each subdetector.
+    \caption[A transverse slice of CMS, showing the signals left by different kinds of particles in each subdetector.]{
+        A transverse slice of CMS, from Ref.~\cite{Davis:2205172}, showing the signals left by different kinds of particles in each subdetector.
     }
     \label{fig:cms_particle_id}
 \end{figure}
 
 \subsection{Jets}
-All hadrons leave a hit in the HCAL, while charged hadrons also have a track that can be associated to it, but these hits do not correspond to individual quarks---like the VBS quarks, for example. 
+All hadrons leave a deposit in the HCAL, while charged hadrons also have a track that can be associated to it, but these hits do not correspond to individual quarks---like the VBS quarks, for example. 
 Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
 This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
 Fortunately, jets tend to be concentrated in relatively narrow cones, meaning individual jets---and thus, individual quarks---can usually be distinguished from one another. 
@@ -102,6 +102,8 @@ The B meson lifetime is sufficiently long such that it passes the first few laye
 When it decays, it produces several quarks and, potentially, a lepton. 
 This results in ``displaced'' tracks in the tracker that point to a ``secondary vertex'' (Fig.~\ref{fig:btagging_step2}) as opposed to the ``primary vertex,'' or the original pp collision. 
 The presence of a secondary vertex within a jet therefore gives a unique indication that it originated from a \Pb quark (Fig.~\ref{fig:btagging_step3}). 
+However, the reconstruction of that secondary vertex is fundamentally made possible by the fact that the B meson is sufficiently more massive than its decay products. 
+If the B meson were much lighter, its decay products would be more columnated, and the secondary vertex could therefore only be reconstructed if the tracker were infinitely precise. 
 Particle tracks are therefore vital for \Pb-tagging, so \Pb-tagged jets must be within the tracker acceptance region ($\abs{\eta} < 2.5$). 
 For CMS analysis, a deep neural network called \DeepJet was trained to use the presence of a secondary vertex, along with additional kinematic information about the jet and its constituents, to ``tag'' jets as originating from a \Pb quark~\cite{Bols:2020bkb}. 
 
@@ -147,11 +149,12 @@ Neutrinos, meanwhile, pass through the entire detector, so their presence can on
 
 \subsection{Missing energy}\label{sec:met}
 Protons collide along the beamline with equal but opposite momenta, so the system has a total momentum of zero. 
-Because of the conservation of momentum, the sum of the momenta of all produced particles must still be zero. 
-This is as true in the classical world as the quantum world. 
+Because of the conservation of momentum, the sum of the momenta of all produced particles must still be zero in the transverse plane. 
+Importantly, the interacting protons receive a random fraction of the proton's overall momentum according to the parton distribution function, so the initial momentum of the produced particles in the $z$-direction is not known a priori. 
+This can be better visualzed in the classical world where these kinds of quantum considerations do not apply. 
 The shrapnel from two colliding bullets, for instance, is thrown from the collision in a disk, so the total momentum is conserved~\cite{SmarterEveryDayBullets}. 
-Therefore, if an invisible particle (a neutrino or possibly something new) is produced, its momentum will not be recorded, and the sum of momenta will be non-zero. 
-Since the missing momentum will be entirely in the transverse plane, the plane perpendicular to the beamline, it is referred to as \ptmiss, or missing transverse momentum. 
+Therefore, if an invisible particle (a neutrino or possibly something new) is produced, its momentum will not be recorded, and the \pt sum will thereby be non-zero. 
+Since the missing \pt will be entirely in the transverse plane, the plane perpendicular to the beamline, it is referred to as \ptmiss, or missing transverse momentum. 
 
 \section{Identifying backgrounds}
 Of course, final states are not unique. 

@@ -49,20 +49,21 @@ Feynman diagrams are not only a visual aid for remembering which processes are a
 \begin{figure}[htb]
     \centering
     \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qed_vertex_2.pdf}\label{fig:qed1}}\qquad
+    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/ewk_vertex_Vff.pdf}\label{fig:weak}}\qquad
     \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/ewk_vertex_WWZ.pdf}\label{fig:ewk1}}\qquad
     \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/ewk_vertex_VVVV.pdf}\label{fig:ewk2}}\\
-    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/ewk_vertex_Vff.pdf}\label{fig:weak}}\qquad
     \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qcd_vertex_gqq.pdf}\label{fig:qcd1}}\qquad
-    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qcd_vertex_ggg.pdf}\label{fig:qcd2}}\\
-    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qcd_vertex_gggg.pdf}\label{fig:qcd3}}\qquad
+    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qcd_vertex_ggg.pdf}\label{fig:qcd2}}\qquad
+    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/qcd_vertex_gggg.pdf}\label{fig:qcd3}}\\
     \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/hig_vertex_HXX.pdf}\label{fig:hig1}}\qquad
-    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/hig_vertex_HHHH.pdf}\label{fig:hig2}}
+    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/hig_vertex_HHHH.pdf}\label{fig:hig2}}\qquad
+    \subfloat[]{\includegraphics[width=0.2\textwidth]{fig/feynman/vertices/hig_vertex_HHVV.pdf}\label{fig:hig2}}
     \caption[The fundamental vertices in the Standard Model]{
         The fundamental vertices in the Standard Model. 
         From left to right, top to bottom: 
-        (a) electromagnetic; (b), (c) electroweak; (d) weak; (e), (f), (g) strong; (h), (i) Higgs. 
+        (a) electromagnetic; (b), (c) electroweak; (d) weak; (e), (f), (g) strong; (h), (i), (j) Higgs. 
         For compactness, a shorthand notation is used in some of the vertices to represent more than one particle: 
-        $f$ is a fermion and $X_m$ is any massive particle. 
+        $X^{\pm}$ is any charged particle, $f$ is a fermion, and $X_m$ is any massive particle. 
     }
     \label{fig:sm_vertices}
 \end{figure}
@@ -134,6 +135,7 @@ However, we will also mention some additional open questions to illustrate the m
     \includegraphics[width=0.95\textwidth]{fig/cms/cms_xsecs_2023.pdf}
     \caption[The totality of the cross-section measurements performed with data from the CMS Experiment]{
         The totality of the cross-section measurements performed with data from the CMS Experiment compared to the Standard Model predictions, from Ref.~\cite{CMSXSecs}. 
+        The size of each cross-section is plotted on the x-axis and each measurement is separated along the y-axis, with the process name, collision energy, and journal reference on the left and the integrated luminosity of the collision data used in the measurement on the right. 
         Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
     }
     \label{fig:cms_xsecs}
@@ -141,9 +143,10 @@ However, we will also mention some additional open questions to illustrate the m
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.95\textwidth]{fig/atlas/atlas_xsecs_2023.pdf}
+    \includegraphics[width=0.97\textwidth]{fig/atlas/atlas_xsecs_2023.pdf}
     \caption[A selection of cross-section measurements performed with data from the ATLAS Experiment]{
         A selection of cross-section measurements performed with data from the ATLAS Experiment compared to the Standard Model predictions, from Ref.~\cite{ATL-PHYS-PUB-2023-039}. 
+        The size of each cross-section is plotted on the x-axis and each measurement is separated along the y-axis, with the process name on the left and the integrated luminosity of the collision data used in the measurement and the journal reference on the right. 
         Precise agreement with the Standard Model can be seen across several orders of magnitude, representing the triumph of the model across decades of experimental scrutiny. 
     }
     \label{fig:atlas_xsecs}
@@ -156,7 +159,7 @@ Without these prerequisites, it suffices to say that the idea of the Higgs boson
 Originally derived for classical systems---an arrow in flight, a planet in motion, a ball on a ramp---an appropriately written ``Lagrangian,'' a mathematical object, together with the Euler-Lagrange equation can reproduce the mathematical description of the dynamics of a given system---the position of the arrow, planets, or ball as a function of time. 
 The Lagrangian $L$ is a simple function of the energies in a classical mechanics:
 \begin{equation}
-    L = \underbrace{\frac{1}{2}m\dot{x}^2}_\text{\substack{\text{kinetic} \\ \text{energy}}} - \underbrace{U(x)}_{\substack{\text{potential} \\ \text{energy}}}
+    L = \underbrace{\frac{1}{2}m\dot{x}^2}_{\substack{\text{kinetic} \\ \text{energy}}} - \underbrace{U(x)}_{\substack{\text{potential} \\ \text{energy}}}
 \end{equation}
 where $x$, really $x(t)$, is the position of some physical object in one direction as a function of time and $\dot{x}$ is shorthand for the derivative of x with respect to time ($\frac{d}{dt}$), or the velocity. 
 By plugging $L$ into the Euler-Lagrange equations, 
@@ -166,7 +169,7 @@ By plugging $L$ into the Euler-Lagrange equations,
 we can solve for $x(t)$ with some algebra and calculus, trivializing some of the most challenging undergraduate classical mechanics problems. 
 
 In particle physics, we promote $x(t)$ to a field\footnotemark{} $\phi$, which is a function of space and time $\phi(x, y, z, t)$, and $L$ to $\mathcal{L}$, a Lagrangian \textit{density}.
-\footnotetext{Fields are used here in a quantum context (scalar fields in particular) but there are many classical examples: the temperature of a room, the height of the sea, the strength of a magnetic field, these are quantities that may be different at every position in space and may also vary in time.}
+\footnotetext{Fields are used here in a quantum context (scalar fields in particular) but there are many classical examples: the temperature of a room, the height of the sea, the strength of a magnetic field, i.e. quantities that may be different at every position in space and may also vary in time.}
 Our interest in these abstract fields is well-motivated in QFT, where a field $\phi(x,y,z,t)$ with certain properties corresponds to an observable particle with those same properties. 
 For example, the Lagrangian 
 \begin{equation}
@@ -229,3 +232,4 @@ It is one of the central physics targets of the LHC for the coming decades, and 
         Corrections from heavier particles---even unknown ones---could make the Higgs boson over 16 orders of magnitude heavier, so some new physics should correct this somehow~\cite{Susskind:1978ms, tHooft:1979rat}.
     }
 \end{itemize}
+Answers to many of these questions around the Higgs boson could lie in more precise measurements of its properties, such as those presented in this dissertation.
