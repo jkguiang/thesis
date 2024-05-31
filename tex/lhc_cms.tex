@@ -127,7 +127,7 @@ See Fig.~\ref{fig:cms_labeled} for its exact specifications, and Figures~\ref{fi
 \end{figure}
 
 \subsection{Overview}
-The CMS Experiment is composed of subdetectors arranged in consecutive layers, where each layer interacts with or completely absorbs certain particles, producing an electric signal that can be used to measure some property of those particles. 
+The CMS Experiment is composed of subdetectors arranged in consecutive layers surrounding one of the LHC collision points, where each layer interacts with or completely absorbs certain particles, producing an electric signal that can be used to measure some property of those particles. 
 The innermost layer is the silicon tracker, which allows for the reconstruction of the trajectories of throughgoing charged particles (``tracks''). 
 Next is the electromagnetic calorimeter (ECAL), which absorbs electrons and photons and records their individual energies. 
 After the ECAL, there is the hadronic calorimeter (HCAL), which absorbs hadrons and records their individual energies. 
@@ -279,12 +279,13 @@ All of the different types of muon chambers operate on a similar principle: muon
 The DTs (Fig.~\ref{fig:cms_muon_DT}) and CSCs are assembled into multiple layers that serve as an enormous outer tracker (Fig.~\ref{fig:cms_muon_stations}) exclusively for muons. 
 DT and CSC modules also both have multiple inner layers in order to give a measurement of a muon's outer track accurate enough to be matched to its inner track in the silicon tracker. 
 The RPCs, meanwhile, are designed to give a much faster, if less accurate, measurement of each muon's momentum. 
-This measurement can be used to determine whether the pp collision is interesting or not.
+Because the presence of muons indicates potentially interesting physics (most collisions at the LHC simply produces low-energy quarks), a signal in the RPC can be used to determine whether a pp collision should be recorded.
+Moreover, the time resolution (2 ns) of the RPCs makes this information available well before the next pp collision.
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.6\textwidth,valign=c]{fig/cms/subdetector_layout.png}\label{fig:cms_subdetector_layout}}\quad
-    \subfloat[]{\includegraphics[width=0.3\textwidth,valign=c]{fig/cms/muon_stations.png}\label{fig:cms_muon_stations}}
+    \subfloat[]{\includegraphics[width=0.6\textwidth]{fig/cms/subdetector_layout.png}\label{fig:cms_subdetector_layout}}\quad
+    \subfloat[]{\includegraphics[width=0.3\textwidth]{fig/cms/muon_stations.png}\label{fig:cms_muon_stations}}
     \caption[The cross-section of CMS in the $r$-$z$ and $r$-$\phi$ planes, respectively.]{
         The cross-section of CMS in the $r$-$z$ plane (left), from Ref.~\cite{CMS:2018rym}, and $r$-$\phi$ plane (right), from Ref.~\cite{CMSWebMuons}. 
         In the $r$-$z$ plane, the DTs, CSCs, and RPCs are drawn in light green, dark green, and blue, respectively, showing the layout of the muon system as well as the other subdetectors. 
@@ -294,8 +295,8 @@ This measurement can be used to determine whether the pp collision is interestin
 
 \begin{figure}[htb]
     \centering
-    \subfloat[]{\includegraphics[width=0.465\textwidth,valign=c]{fig/cms/muon_DT_section.jpg}\label{fig:cms_muon_section}}\quad
-    \subfloat[]{\includegraphics[width=0.435\textwidth,valign=c]{fig/cms/muon_DT_diagram.png}\label{fig:cms_muon_diagram}}
+    \subfloat[]{\includegraphics[width=0.465\textwidth]{fig/cms/muon_DT_section.jpg}\label{fig:cms_muon_section}}\quad
+    \subfloat[]{\includegraphics[width=0.435\textwidth]{fig/cms/muon_DT_diagram.png}\label{fig:cms_muon_diagram}}
     \caption[A photograph of a section of the barrel muon chambers and a diagram of a drift tube muon detector]{
         A photograph of a section of the barrel muon chambers (drift tubes) before they were installed (left), from Ref.~\cite{Hoch:1274451}, and a diagram of a drift tube muon detector (right), from Ref.~\cite{CMSWebMuonDT}. 
     }
@@ -309,13 +310,13 @@ With bunch crossings every 25 ns, the CMS Experiment would record data at an int
 \end{equation}
 Within 24 hours, CMS alone would produce over 2 \textit{exabytes} of data---within a week, CMS could thus easily overwhelm CERN's storage capacity. 
 However, pp collisions rarely produce something worth studying like a Higgs boson, vector boson (\PW or \PZ), or something new, which had better be rare, else we should have seen it already. 
-We can therefore discard most of the data recorded by CMS, making its continued operation sustainable. 
+We can therefore discard most pp collisions, making the continued operation of CMS sustainable. 
 
 The CMS Experiment has a two-stage trigger system for identifying interesting events. 
 The first stage, called the ``Level 1'' (L1) trigger, takes raw data from the calorimeters and muon chambers and makes a decision on whether to keep or discard the event. 
 It is implemented with dedicated hardware (FPGAs), so it can run synchronously with the pp collisions. 
 Although it can only make very simple decisions, the L1 trigger reduces the output of CMS from 40 million events per second down to 100\,000 by discarding events that are obviously uninteresting. 
-The second stage, called the ``high level'' trigger (HLT), relies on high-throughput software (written in C++), rather than specialized hardware, to reduce the event rate from 100\,000 events per second to 1\,000. 
+The second stage, called the ``high level'' trigger (HLT), relies on high-throughput software (written in C++), rather than specialized hardware, to reduce the event rate from 100\,000 events per second to 1000 events per second. 
 The HLT is designed to ingest more sophisticated input and thus make more precise decisions. 
 In particular, events are processed along trigger ``paths,'' representing different sets of selections. 
 Passing events are then sorted and written to disk for further processing. 

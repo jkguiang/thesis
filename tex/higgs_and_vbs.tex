@@ -4,6 +4,11 @@
 \end{aquote}
 
 \section{New physics and the Higgs boson}
+Chapters~\ref{ch:vbswh} and~\ref{ch:vbsvvh} cover two distinct analyses of CMS data---hereafter, we will refer to any publishable study of CMS data as an ``analysis.''  
+Both report precision measurements of the Higgs boson as an exciting handle for discovery via similar physics processes. 
+As such, in this chapter, we will introduce common strategies, terminology, and techniques used in both analyses. 
+Then, in the following chapters, we will narrow in on specifics.
+
 The stage is set: over a century of particle physics has yielded a beautiful theory of \textit{almost} everything, the Standard Model, and a grand coalition of nations has built the largest and most complex scientific instrument in human history, the LHC, to test it. 
 The most recent act in this drama concluded in 2012, when the Higgs boson was discovered at CMS and ATLAS~\cite{CMSdisc, ATLASdisc}. 
 In the years following its discovery, the LHC experiments have measured many of its properties to great precision and found no significant deviations from SM predictions~\cite{NatureHiggsCMS2022, NatureHiggsATLAS2022}. 
@@ -13,12 +18,12 @@ Moreover, the Higgs boson can uniquely interact with all known matter, so by pro
 
 There are many educated guesses, called theories, as to the mysterious nature of the Higgs boson. 
 Some guess at the existence of yet-undiscovered particles that also interact with the Higgs boson\footnotemark{}, and experimentalists can search for their existence directly: either by looking for the SM particles that they might decay into, or by checking for what is missing after everything is else accounted for. 
-\footnotetext{This is not an unlikely guess: dark matter is known to have mass, and it may have obtained that mass through the Higgs mechanism.}
+\footnotetext{This is well-motivated: dark matter is known to have mass, and it may have obtained that mass through the Higgs mechanism.}
 Experimentalists can also search for new physics indirectly by making precise measurements of SM predictions: any significant deviation from the prediction would poke another hole in the Standard Model or even confirm a prediction of a new theory. 
 The physics analyses described in this document both follow the latter strategy.
 
 \subsection{The $\kappa$-framework}
-One commonly used framework used to quantify deviations from the SM is the so-called $\kappa$-framework~\cite{KFrame}, which introduces modifiers $\kappa_X$ to the Higgs boson couplings to some particle $X$:
+One commonly used framework used to quantify deviations from the SM is the so-called $\kappa$-framework~\cite{KFrame}, which defines modifiers $\kappa_X$ to the Higgs boson couplings to any particle $X$:
 \begin{equation}
     \kappa_X = \frac{\text{modified coupling value}}{\text{SM coupling value}}.
 \end{equation}
@@ -76,7 +81,7 @@ Particles reconstructed by the PF algorithm are called PF ``candidates'' and are
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.95\textwidth]{fig/cms/particle_id_slice.pdf}
+    \includegraphics[width=0.97\textwidth]{fig/cms/particle_id_slice.pdf}
     \caption[A transverse slice of CMS, showing the signals left by different kinds of particles in each subdetector.]{
         A transverse slice of CMS, from Ref.~\cite{Davis:2205172}, showing the signals left by different kinds of particles in each subdetector.
     }
@@ -85,15 +90,24 @@ Particles reconstructed by the PF algorithm are called PF ``candidates'' and are
 
 \subsection{Jets}
 All hadrons leave a deposit in the HCAL, while charged hadrons also have a track that can be associated to it, but these hits do not correspond to individual quarks---like the VBS quarks, for example. 
-Due to quark ``confinement,'' quarks hadronize into ``jets'' of hadrons. 
-This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters. 
+Due to ``color confinement,'' quarks hadronize into ``jets'' of hadrons. 
+This happens in a cascade, where quarks beget quarks that beget more quarks and so on, until the jet impinges on the calorimeters (Fig.~\ref{fig:hadronization}). 
 Fortunately, jets tend to be concentrated in relatively narrow cones, meaning individual jets---and thus, individual quarks---can usually be distinguished from one another. 
 Jets are constructed using the anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma}, which clusters PF candidates according to a configurable ``distance parameter,'' which determines the size of the jet cone. 
 For AK4 jets, the distance parameter is set to 0.4, corresponding to $\DeltaR = 0.4$, where
 \begin{equation}
-    \DeltaR = \sqrt{\Delta\phi^2 + \Delta\eta^2}
+    \DeltaR = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}
 \end{equation}
-There is also a collection of AK8 jets, which have the distance parameter set to 0.8, which captures merged jets.
+There is also a collection of AK8 jets, which have the distance parameter set to 0.8, for reconstructing merged jets.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/hadronization.png}
+    \caption[An illustration of two quarks hadronizing into two distinct jets.]{
+        An illustration of two quarks hadronizing into two distinct jets based on Figs. 8.1, 8.2, and 8.3 in Ref.~\cite{GriffithsParticle}.
+    }
+    \label{fig:hadronization}
+\end{figure}
 
 \subsubsection{Jets originating from \Pb quarks}
 While the presence of quarks can be inferred from the presence of jets, the identity (flavor) of each quark is less obvious. 
@@ -157,7 +171,7 @@ Therefore, if an invisible particle (a neutrino or possibly something new) is pr
 The ``missing'' \pt required to conserve transverse momentum is referred to as \ptmiss. 
 
 \section{Identifying backgrounds}
-Of course, final states are not unique. 
+Of course, the observed final state is not unique. 
 For example, if we were searching for $\PZ\to\Pellp\Pellm$, and thus asked for collision events with two leptons with opposite charge, we would also get events where a \PWp and \PWm were produced and both decayed leptonically. 
 We could also pick up events where \PW and \PZ boson were produced, and both decayed leptonically, but the lepton from the \PW was not recorded by CMS. 
 These processes that produce the same final state, but are not the signal, are referred to as ``backgrounds.'' 
@@ -298,8 +312,8 @@ By estimating the background yield in the signal region in this way, we rely ent
     \centering
     \includegraphics[width=0.45\textwidth]{fig/generic_abcd_cartoon.png}
     \caption[A generic ABCD configuration]{
-        A generic ABCD configuration where selections on the quantities $x$ and $y$ are used to form the signal region (region A), and three ``control'' regions (regions B, C, and D) used to estimate the background in the signal region. 
-        In the toy example shown, the method closes exactly for background (blue): $B\times C/D = 3 = A$. 
+        A generic ABCD configuration where selections on the statistically independent quantities $x$ and $y$ are used to form the signal region (region A), and three ``control'' regions (regions B, C, and D) used to estimate the background in the signal region. 
+        In the toy example shown, the method closes exactly for background (blue): $B\times C/D = 15\times4/10 = 6$.
     }
     \label{fig:abcd}
 \end{figure}
@@ -353,7 +367,7 @@ Importantly, $P$ and $L$ are related, and thus superficially similar, but they a
 \end{figure}
 
 \subsection{Maximum likelihood estimate}
-Our task can now be expressed in the proper language of statistics: the most probable value of $\mu$ given $n$, $s$, and $b$ is given by the maximum of the likelihood $L(\mu)$. 
+Our task can now be expressed in the proper language of statistics: determine the most probable value of $\mu$ given $n$, $s$, and $b$ is given by calculating maximum of the likelihood $L(\mu)$. 
 Fortunately, this is basic calculus: take the derivative of $L$ with respect to $\mu$, set it equal to zero, and solve. 
 For simplicity, we will instead consider $q(\mu) = -2\ln{L(\mu)}$:
 \begin{align}
