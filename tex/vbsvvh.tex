@@ -173,7 +173,7 @@ The signal region would preferably be accompanied by a valid data-driven backgro
 Because this is a common analysis scenario, a machine learning (ML) method has been proposed to satisfy both requirements at once~\cite{AutoABCD}. 
 This method has been used already in some published work, e.g. Ref.~\cite{CMS:2022cpe}. 
 In particular, a DNN is trained to serve as one of the ``arms'' of a traditional ABCD background estimation. 
-Critically, a \dCorrSq term is added to the loss function that trains the DNN to be decorrelated with the other arm:
+Critically, a \dCorrSq term is added to the loss function ($\mathcal{L}$) that trains the DNN to be decorrelated with the other arm:
 \begin{equation}
     \mathcal{L}[f(\vec{x})] = \mathcal{L}_\mathrm{BCE}[f(\vec{x}, y)] + \lambda\dCorrSq_{y=0}[f(\vec{x}), X_0]
 \end{equation}
@@ -445,7 +445,7 @@ The upper limits are calculated using the AymptoticLimits method in the \COMBINE
 The full list of systematic uncertainties are included as nuisance parameters during the fitting procedure.
 The result of the fit is shown in Fig.~\ref{fig:vbsvvh_limit_allhad} and~\ref{fig:vbsvvh_limit_combined} for the all-hadronic channel and the combination of all channels, respectively. 
 The regions where the expected limit is smaller than the theoretical prediction on the cross-section are taken to be excluded values for \kVV. 
-Specifically, the all-hadronic channel places a limit on the \HHVV coupling to be within -0.03 and 2.04 times the SM, and the combined limit further limits it to within 0.023 and 0.178 times the SM. 
+Specifically, the all-hadronic channel places a limit on the \HHVV coupling to be within -0.03 and 2.04 times the SM, and the combined limit further limits it to within 0.23 and 1.78 times the SM. 
 
 \section{Next steps}
 This work is still going through the rigorous CMS Collaboration approval process, wherein the methods and conclusions presented in this chapter are thoroughly checked for validity and accuracy. 
