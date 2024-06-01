@@ -105,27 +105,27 @@ To address this, the following resampling procedure is used to correct the \Part
 Only the scores for the QCD jets undergo this procedure, and the rest of the minor backgrounds are subtracted from the data distributions used for the resampling.
 First, the following assumptions are made:
 \begin{enumerate}
-    \item A mass-decorrelated \ParticleNet score for a given AK8 jet should be fundamentally described by a probability density function (\textit{PDF}), where \textit{PDF} is \textit{italicized} to distinguish it from the parton distribution function.
-    \item This \textit{PDF} should be the same regardless of how many AK8 jets are in the event.
+    \item A mass-decorrelated \ParticleNet score for a given AK8 jet should be fundamentally described by a probability density function $\mathcal{P}$, namely $\mathcal{P}_{\Xtobb}$ and $\mathcal{P}_{\XWtoqq}$ for the \ParticleNet \Xtobb and \XWtoqq scores, respectively.
+    \item $\mathcal{P}$ should be the same regardless of how many AK8 jets are in the event.
     \item The \ParticleNet score is not correlated to the jet kinematic properties used later in the analysis. 
 \end{enumerate}
-Assumption 1 is the common statistical interpretation of a histogram; that is, the \textit{PDF} can be approximated by histogramming the \ParticleNet score for every AK8 jet in an event and normalizing it to unity. 
+Assumption 1 is the common statistical interpretation of a histogram; that is, $\mathcal{P}$ can be approximated by histogramming the \ParticleNet score for every AK8 jet in an event and normalizing it to unity. 
 Assumption 2 is less trivial. 
 In our case, we need to verify that events with 3 AK8 jets to contain the same kinds of AK8 jets as an event with 2 AK8 jets. 
 This is not guaranteed, as events with different AK8 jet multiplicity may involve different physics. 
 For QCD events in this analysis, however, it can be seen in Fig.~\ref{fig:vbsvvh_pnetpdf} that Assumption 2 holds, as the \textit{PDFs} in 3 AK8 jet events approximately match the 2 AK8 jet events in data (with non-QCD events taken from MC subtracted out).
-Therefore, the properly binned \textit{PDF} derived in data for 2-AK8-jet events can be sampled to replace the \ParticleNet scores in 3-AK8-jet events. 
+Therefore, the properly binned $\mathcal{P}$ derived in data for 2-AK8-jet events can be sampled to replace the \ParticleNet scores in 3-AK8-jet events. 
 In order to account for the correlation in this resampling, we bin the \ParticleNet \Xtobb score in \pt. 
 
 The \ParticleNet \XWtoqq score, on the other hand, must be binned in the \Xtobb score and \pt, as the \Xtobb score is included indirectly in the calculation of the \XWtoqq score. 
-The leading \Xtobb score is also picked first, thus potentially biasing even more the correlation among the scores.
+The leading \Xtobb score is also picked first, thus potentially further biasing the correlation among the scores.
 The replacement is performed for each AK8 jet via the following prescription:
 \begin{enumerate}
     \item Get AK8 jet \pt
-    \item Sample \Xtobb score \textit{PDF} for the appropriate \pt bin
-    \item Replace AK8 jet \Xtobb score with one randomly sampled from the \Xtobb score \textit{PDF}
-    \item Get \XWtoqq score \textit{PDF} for the appropriate \pt, \Xtobb score bin
-    \item Replace AK8 jet \XWtoqq score with one randomly sampled from the \XWtoqq score \textit{PDF}
+    \item Sample $\mathcal{P}_{\Xtobb}$ for the appropriate \pt bin
+    \item Replace AK8 jet \Xtobb score with one randomly sampled from $\mathcal{P}_{\Xtobb}$
+    \item Get $\mathcal{P}_{\XWtoqq}$ for the appropriate \pt, \Xtobb score bin
+    \item Replace AK8 jet \XWtoqq score with one randomly sampled from $\mathcal{P}_{\XWtoqq}$
 \end{enumerate}
 After replacing the AK8 jet scores in events with 3 AK8 jets, the \ParticleNet score distribution agreement between data and MC improves significantly (Fig.~\ref{fig:vbsvvh_dataMC_fatjet_scores}), doubling the number of raw QCD MC events that pass the Preselection.
 
@@ -134,8 +134,8 @@ After replacing the AK8 jet scores in events with 3 AK8 jets, the \ParticleNet s
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xbb_1D_pdf_xbin0.pdf}}
     \qquad
     \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/qcdfix/data_minus_nonqcd_xwqq_2D_pdf_xbin0_ybin0.pdf}}
-    \caption[The approximation of the \ParticleNet \textit{PDF}s]{
-        The approximation of the \ParticleNet \textit{PDF}s plotted for the \Xtobb score in one bin of \pt (left) and the \XWtoqq score in one bin of \pt and \Xtobb (right). 
+    \caption[The approximation of the \ParticleNet probability density functions]{
+        The approximation of the \ParticleNet probability density functions plotted for the \Xtobb score in one bin of \pt (left) and the \XWtoqq score in one bin of \pt and \Xtobb (right). 
     }
     \label{fig:vbsvvh_pnetpdf}
 \end{figure}
@@ -171,6 +171,7 @@ With the AK8 jets thus tagged, a very loose selection is applied to the \Particl
 \subsection{\ABCDNet}
 The signal region would preferably be accompanied by a valid data-driven background estimation method while also being optimized for maximal significance, since the dominant background is multijet QCD.
 Because this is a common analysis scenario, a machine learning (ML) method has been proposed to satisfy both requirements at once~\cite{AutoABCD}. 
+This method has been used already in some published work, e.g. Ref.~\cite{CMS:2022cpe}. 
 In particular, a DNN is trained to serve as one of the ``arms'' of a traditional ABCD background estimation. 
 Critically, a \dCorrSq term is added to the loss function that trains the DNN to be decorrelated with the other arm:
 \begin{equation}

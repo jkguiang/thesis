@@ -34,7 +34,7 @@ The $\kappa$-framework is not the only framework used to understand and quantify
 The dominant Higgs boson production mechanism at the LHC is gluon-gluon fusion through a top quark loop. % TODO: cite PDG
 Through these processes, the Higgs boson was discovered and many of its branching ratios and couplings have been measured precisely. 
 However, additional production mechanisms can yield unique insights. 
-Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off of each other by the exchange of vector bosons ($\PV = \PW$ or \PZ). 
+Enter vector boson scattering\footnotemark{} (VBS), where two quarks scatter off of each other by the exchange of vector bosons ($\PV = \PW$ or \PZ), as shown in Fig.~\ref{fig:vbs_monsters}. 
 \footnotetext{Although VBS specifically implies the production of two vector bosons, while vector boson fusion (VBF) implies the production of a single Higgs or vector boson~\cite{RauchVBSVBF2016}, the names VBS and VBF are used interchangeably; since we are interested in the production of a Higgs boson and one or two vector bosons, the naming is anyway ambiguous.}
 This exchange can, in turn, produce a variety of physics, most notably the production of at least one Higgs boson. 
 This process also has two important features. 
@@ -43,12 +43,13 @@ Second, but equally important, modifications to the Higgs couplings induce effec
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{fig/vbs_signature.png}
-    \caption[VBS jets signature]{
-        Typical VBS jet \Mjj and $\abs{\detajj}$ distributions (left) next to an event display for a simulated VBS WH signal event in the $r$-$z$ plane, with the VBS jets labeled (right). 
-        \Mjj is the invariant mass of the two VBS jets and $\abs{\detajj}$ is the psuedorapidity (defined in Appendix~\ref{apdx:cms_coords}) gap between them. 
+    \includegraphics[width=0.6\textwidth]{fig/vbs_monsters.png}
+    \caption[The leading-order Feynman diagram for VBS production of a Higgs boson and two vector bosons.]{
+        The leading-order Feynman diagram for VBS production of a Higgs boson and two vector bosons. 
+        This can occur in several ways, represented by a circle in the middle obscuring the vertices involved (``here be dragons''). 
+        Inspired by Ref.~\cite{CPollygm2}.
     }
-    \label{fig:vbs_fireworks}
+    \label{fig:vbs_monsters}
 \end{figure}
 
 VBS provides a unique way of producing Higgs bosons, with an easily identifiable signature, and there are myriad VBS processes involving a Higgs, each involving different couplings. 
@@ -72,7 +73,7 @@ The choice for the decay of the vector bosons is less clear.
 The leptonic decays ($\PW\to\Pell\PGn$ or $\PZ\to\Pellp\Pellm$) are more unique, but are rarer, with branching ratios of 33\% and 10\%, respectively. 
 On the other hand, the hadronic decays ($\PW\to\qq$ at 67\% and $\PZ\to\qq$ at 70\%) are more plentiful, but are difficult to distinguish from far more abundant processes. 
 The \textit{reconstruction} of the final state of each proton-proton collision, based on the electronic readout of CMS, is thus crucial for the entire physics operation at CMS---and any other experiment at the LHC. 
-Importantly, many SM particles decay to neutrinos, which pass through CMS completely undetected, and it is possible that BSM particles are similarly missed, but the presence of these particles can be inferred if the reconstruction is performed with high precision. 
+Importantly, many SM particles decay to neutrinos, which pass through CMS completely undetected, and it is possible that BSM particles are similarly missed, but the presence of these particles can be inferred if the reconstruction is performed with high precision (see Section~\ref{sec:met}). 
 
 \section{Reconstruction}
 The subdetectors that comprise CMS produce a set of electric signals digitized into data that can be used as measurements of physical quantities. 
@@ -136,7 +137,7 @@ For CMS analysis, a deep neural network called \DeepJet was trained to use the p
 \end{figure}
 
 \subsubsection{Merged jets originating from \Htobb}
-In cases where a highly energetic particle decays to a pair of quarks, the resulting jets overlap or are near enough to each other to be difficult to separate. 
+In cases where a highly energetic particle decays to a pair of quarks, the resulting jets overlap or are near enough to each other to be difficult to separate (Fig.~\ref{fig:resolved_to_merged}). 
 This presents a unique signal: the two nearby jets can instead be found as a single, large-cone jet. 
 That is, these merged jets will appear in the AK8 jet collection. 
 In the work presented in this dissertation, we search for Higgs bosons decaying to \bbbar at high energies, tagged as a single merged jet. 
@@ -144,12 +145,33 @@ This is made possible by a graph neural network, called \ParticleNet, trained fo
 Similar to \Pb-tagging, merged jets considered for \Xtobb tagging, for instance, must be within the tracker acceptance region. 
 The merged jet with a mass similar to the Higgs boson, and the highest \ParticleNet \Xtobb score is considered as the best Higgs boson candidate.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig/resolved_to_merged.png}
+    \caption[An illustration of a generic boson with a small, moderate, and large Lorentz boost, respectively, decaying to two jets.]{
+        An illustration of a generic boson with a small, moderate, and large Lorentz boost, respectively, decaying to two jets.
+        As the boson receives a larger boost, its hadronic decay products become increasingly columnated until they are reconstructed as a single merged jet. 
+        Based on Ref.~\cite{Collaboration:2809446}.
+    }
+    \label{fig:resolved_to_merged}
+\end{figure}
+
 \subsubsection{Jets originating from VBS quarks}\label{sec:vbsjets}
 The presence of VBS quarks is inferred from the presence of two jets that are back-to-back (large $\abs{\detajj}$) and have a large combined invariant mass (\Mjj). 
 In events where there are more than two additional jets that do not overlap with the Higgs boson candidate jet, the two best VBS jet candidates must be selected. 
 A unique VBS selection technique was derived for the work presented in this dissertation: 
 if all of the jets are in one hemisphere of $\eta$, then the two jets with the largest momenta are selected; 
-otherwise, the jet with the largest momentum in each $\eta$ hemisphere are selected. 
+otherwise, the jet with the largest momentum in each $\eta$ hemisphere are selected.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig/vbs_signature.png}
+    \caption[VBS jets signature]{
+        Typical VBS jet \Mjj and $\abs{\detajj}$ distributions (left) next to an event display for a simulated VBS WH signal event in the $r$-$z$ plane, with the VBS jets labeled (right). 
+        \Mjj is the invariant mass of the two VBS jets and $\abs{\detajj}$ is the psuedorapidity (defined in Appendix~\ref{apdx:cms_coords}) gap between them. 
+    }
+    \label{fig:vbs_fireworks}
+\end{figure}
 
 \subsection{Leptons}
 For simplicity, when we consider ``leptons,'' we will exclusively mean those leptons that are directly detected by CMS, namely electrons and muons. 
@@ -205,7 +227,7 @@ Instead, we use Monte Carlo (MC) simulation software that ``generates'' proton-p
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.85\textwidth]{fig/mc_diagram_labeled.png}
+    \includegraphics[width=0.9\textwidth]{fig/mc_diagram_labeled.png}
     \caption[Detailed diagram of the generation of a single $\Pp\Pp\to\ttbar+\PH$ event]{
         Detailed diagram of the generation of a single $\Pp\Pp\to\ttbar+\PH$ event, based on Ref.~\cite{Gleisberg:2008ta}, starting from hard scattering (circled), to the decay of the top quark, anti-top quark, and Higgs boson (black arrows and text), to the hadronization of the final state into jets (red triangles). 
         Also included are jets from final-state radiation, i.e. gluons radiated from the final state quarks, and initial-state radiation, i.e. jets from the other constituents of the colliding protons. 
@@ -214,12 +236,12 @@ Instead, we use Monte Carlo (MC) simulation software that ``generates'' proton-p
 \end{figure}
 
 Taking $\Pp\Pp\to\ttbar+\PH$ as an example (Fig.~\ref{fig:ttbarH_mc}), the first step of generating a MC simulation is to calculate the kinematics (the energy and the momentum vector) for the top quark, anti-top quark, and Higgs boson. 
-This is often done with the \MGvATNLO ``matrix-element'' generator, which finds the relevant Feynman diagrams, including very rare ones, and randomly generates different realizations of the final state based on an approximation of the underlying theory. % TODO: cite MadGraph AMC@NLO paper
+This is often done with the \MGvATNLO ``matrix-element'' generator~\cite{Alwall:2014hca}, which finds the relevant Feynman diagrams, including very rare ones, and randomly generates different realizations of the final state based on an approximation of the underlying theory. % TODO: cite MadGraph AMC@NLO paper
 Better accuracy comes from including more Feynman diagrams and a more fine-grained approximation of QFT at the cost of computational complexity. 
-Next, a ``general-purpose'' generator (e.g. \PYTHIA or \POWHEG) takes the event generated by the previous step\footnotemark{} and promotes it to something closer to what we would observe in nature. % TODO: cite Pythia and POWHEG papers
+Next, a ``general-purpose'' generator (e.g. \PYTHIA or \POWHEG~\cite{Sjostrand:2014zea,Alioli:2010xd,Frixione:2007vw}) takes the event generated by the previous step\footnotemark{} and promotes it to something closer to what we would observe in nature. % TODO: cite Pythia and POWHEG papers
 That is, it generates the particles that actually impinge onto our detector, including an approximation of the hadronization of quarks and gluons into jets. 
 \footnotetext{Notably, general-purpose generators are also capable of doing the first step.}
-The output of this step is then interfaced with a highly detailed \GEANTfour simulation of the CMS Experiment---from material interactions, to the digitization of the electrical signals from the subdetectors, to the decisions of the L1 trigger and HLT. 
+The output of this step is then interfaced with a highly detailed \GEANTfour simulation~\cite{GEANT4:2002zbu} of the CMS Experiment---from material interactions, to the digitization of the electrical signals from the subdetectors, to the decisions of the L1 trigger and HLT. 
 The result is a sample of simulated data that is a very close match to the signals produced by CMS for $\Pp\Pp\to\ttbar+\PH$. 
 
 Because it is simulated all of the way to the trigger decisions, the simulation can be passed through the PF algorithm and all other data post-processing steps performed on data (Fig.~\ref{fig:mcgen_diagram}). 
