@@ -54,18 +54,19 @@ To put this into context, the speed of light is roughly 1 ft/ns, so the next bun
 \subsection{Collision energy}
 The collision energy, often written as $\sqrt{s}$, is measured in electronvolts (eV), the standard unit of energy in particle physics---at LHC scales, teraelectronvolts (\TeVns), or trillions of eV, are the relevant units. 
 In Run 1 of the LHC (2009--2013) the collision energy was ramped up to a maximum of 8\TeV, much lower than what the LHC was designed for. % TODO: citation needed
-This was done out of an abundance of caution due to the fact that the LHC exploded when it was first turned on in 2008. % TODO: citation needed
+This was done out of an abundance of caution due to the fact that the LHC exploded\footnotemark{} when it was first turned on in 2008. 
+\footnotetext{A faulty cable lead to a catastrophic quench of one of the LHC superconducting magnets, resulting in the release of several metric tons of helium (used to cool the magnets) into the LHC tunnel~\cite{EDMS-973073}.}
 Then, in Run 2 (2016--2018), the collision energy was increased to 13\TeV. 
 Over the course of Run 2I, the collision energy will be ramped up to 14\TeV, where it will be held for the remainder of the LHC's lifetime. 
 At 7\TeV per proton beam, each bunch has roughly 7 times the kinetic energy of a flying mosquito with a mass ten trillion times smaller. 
 
-\subsection{Luminosity}
-The luminosity (\Lumi) is a measure of an accelerator's ability to initiate the desired particle interactions~\cite{Herr:941318}. 
+\subsection{Luminosity and pileup}
+The luminosity is a measure of an accelerator's ability to initiate the desired particle interactions~\cite{Herr:941318}. 
 It is thus measured in the inverse units of a cross-section, namely cm$^{-2}$ or inverse barns (b$^{-1}$)---or, at LHC scales, inverse femptobarns (\fbinv).
-At the LHC, \Lumi is a measure of the ability to initiate pp collisions. 
-Immediately, it is clear that \Lumi should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
-This is called the \textit{instantaneous} luminosity, or how many interactions are initiated at any one time. 
-We can also consider the \textit{integrated} luminosity, or the total number of interactions initiated over some period of time---as the name suggests, this is simply an integral of the instantaneous luminosity. 
+At the LHC, luminosity is a measure of the ability to initiate pp collisions. 
+Immediately, it is clear that it should be some function of time: the longer we let the beams collide, the more pp collisions produced. 
+This is called the \textit{instantaneous} luminosity (\Lumi), or how many interactions are initiated at any one time. 
+We can also consider the \textit{integrated} luminosity, or the total number of interactions initiated over some period of time---as the name suggests, this is simply the integral of the instantaneous luminosity over time. 
 Put simply, the integrated luminosity represents the rate at which interactions occur at the LHC, while the integrated luminosity is a compact shorthand for how many interactions occurred at the LHC during some period of data-taking. 
 For example, with the LHC operating at an instantaneous luminosity of $\Lumi = 1\times10^{34}$ cm$^{-2}$s$^{-1}$, given the pp inelastic scattering cross-section at 13\TeV ($\sigma = 71.3$ millibarns~\cite{CMS-PAS-FSQ-15-005}), we can expect $\Lumi\times\sigma = 713$ million pp collisions per second, or 11.24 quadrillion pp collisions over 6 months. 
 This is notably much larger than 1 pp collision per bunch crossing: with one bunch crossing every 25 ns, one might expect a mere 630 trillion collisions. 
@@ -226,10 +227,10 @@ These layers use strip modules, which have worse spatial resolution than the pix
     \label{fig:cms_tracker_layout}
 \end{figure}
 
-\subsection{Electromagnetic calorimeter}
+\subsection{Electromagnetic calorimeter (ECAL)}
 The ECAL (Fig.~\ref{fig:cms_ecal_install}) consists of nearly 80\,000 lead tungstate (PbWO$_4$) crystals\footnotemark{} (Fig.~\ref{fig:cms_ecal_crystal})~\cite{CMSWebECAL}. 
 \footnotetext{These crystals were grown in manufacturing plants in Russia and China and took roughly a decade to produce~\cite{CMSWebECAL}.}
-When an electron or photon passes through one of these crystals, they interact through the electromagnetic force with the atoms in the crystal lattice, producing a shower of photons. 
+When an electron or photon passes through one of these crystals, they interact through the electromagnetic force with the atoms in the crystal lattice, resulting in the emission of photons. 
 This process is called ``scintillation'' and the amount of light produced from one of these interactions is proportional to the energy of the impinging particle. 
 Each PbWO$_4$ crystal is glued to a photodetector that collects the scintillation light by the attached crystal and outputs an electric signal proportional to the amount of light collected. 
 This signal can then be used to measure the energy of electrons and photons. 
@@ -250,7 +251,7 @@ The latter property, however, is also vital: localized showers are less likely t
     \label{fig:cms_ecal}
 \end{figure}
 
-\subsection{Hadronic calorimeter}
+\subsection{Hadronic calorimeter (HCAL)}
 The HCAL (Fig.~\ref{fig:cms_hcal_removed}) is composed of interwoven layers of solid brass or steel plates and plastic scintillator tiles~\cite{CERN-LHCC-97-031}. 
 When a hadron interacts with one of the brass and steel ``absorber'' layers, a shower of secondary particles are created. 
 The secondary particles pass through the next scintillator layer, creating scintillation light, then proceed to the next absorber layer. 
@@ -304,7 +305,7 @@ Moreover, the time resolution (2 ns) of the RPCs makes this information availabl
 \end{figure}
 
 \subsection{Trigger system}
-With bunch crossings every 25 ns, the CMS Experiment would record data at an intractable rate if every bunch crossing was recorded:
+If every bunch crossing was recorded, with one bunch crossing every 25 ns (40 MHz), the CMS Experiment would record data at an intractable rate:
 \begin{equation}
 40\text{ MHz} \times 0.75\text{ megabytes per event} = 30\text{ terabytes per second}
 \end{equation}
@@ -314,7 +315,7 @@ We can therefore discard most pp collisions, making the continued operation of C
 
 The CMS Experiment has a two-stage trigger system for identifying interesting events. 
 The first stage, called the ``Level 1'' (L1) trigger, takes raw data from the calorimeters and muon chambers and makes a decision on whether to keep or discard the event. 
-It is implemented with dedicated hardware (FPGAs), so it can run synchronously with the pp collisions. 
+It is implemented with dedicated hardware, so it can run synchronously with the pp collisions. 
 Although it can only make very simple decisions, the L1 trigger reduces the output of CMS from 40 million events per second down to 100\,000 by discarding events that are obviously uninteresting. 
 The second stage, called the ``high level'' trigger (HLT), relies on high-throughput software (written in C++), rather than specialized hardware, to reduce the event rate from 100\,000 events per second to 1000 events per second. 
 The HLT is designed to ingest more sophisticated input and thus make more precise decisions. 
@@ -322,7 +323,7 @@ In particular, events are processed along trigger ``paths,'' representing differ
 Passing events are then sorted and written to disk for further processing. 
 
 \section{The high luminosity era}
-There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once, or the luminosity. 
+There are three primary knobs to turn at the LHC: what things are being collided, what energy they are collided at, and how many of them are collided at once (the instantaneous luminosity). 
 Since most of the experiments serviced by the LHC were designed for pp collisions, and because the LHC is designed for at most $\sqrt{s} = 14\TeV$, the final era of LHC physics will see a massive increase in luminosity. 
 That is, at the ``high luminosity'' LHC (HL-LHC), there will be 100--200 concurrent pp collisions per bunch crossing (Fig.~\ref{fig:high_pu}), corresponding to an increase by a factor of 5--7.5.
 More collisions mean more opportunities for interesting physics. 

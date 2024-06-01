@@ -35,7 +35,7 @@ Therefore, this channel provides the opportunity to determine the sign of \lambd
 
 \subsection{Signal characteristics}
 A specific final state is intentionally selected for its uniqueness---making the signal easier to find amidst the haystack. 
-First, leptons are preferred in the final state over jets, due to the sheer size of the ``QCD'' background, the most populous physics process produced at the LHC. 
+First, leptons are preferred in the final state over jets, due to the sheer size of the ``QCD multijet'' background, the most populous physics process produced at the LHC where the interactions between the quarks and gluons in the colliding protons simply produce more quarks and gluons. 
 Then, $\PW\to\ell\nu$ is preferred over $\PZ\to\ell\ell$, since there are fewer backgrounds with only one lepton in the final state. 
 Finally, $\PH\to\PQb\PAQb$ has the largest branching ratio, and it can be identified using the latest advances in artificial intelligence. 
 
@@ -52,11 +52,10 @@ The analysis was optimized for the latter case.
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_ST_1p0kZ_kWpoints_norm.pdf}\label{fig:lheST_kWpoints}}
-    \qquad
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_ST_1p0kW_kZpoints_norm.pdf}\label{fig:lheST_kZpoints}}
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/lhe_ST_kWpoints.pdf}\label{fig:lheST_kWpoints}
     \caption[Generator-level \ST distribution]{
-        Distribution of \ST plotted at the generator level for $\kZ = +1$ (left) and $\kW = +1$ (right), demonstrating the Lorentz boost in the final state due to modifications to \lambdaWZ. 
+        Distribution of \ST plotted at the generator level for $\kZ = +1$, demonstrating the Lorentz boost in the final state due to modifications to \lambdaWZ. 
+        Importantly, the distributions look identical for the case where $\kW = +1$ and \kZ is similarly varied.
     }
     \label{fig:vbswh_lhe}
 \end{figure}
@@ -197,13 +196,23 @@ Comparing these two numbers, it is clear that the ABCD method for this analysis 
 The difference between the predicted and actual yield in MC is therefore taken as the baseline systematic uncertainty of \BkgEstMethodSystErr\% on this method. 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{fig/vbswh/regionsABCD_closure_unblinded.pdf}
-    \caption[The data and MC yields plotted in regions A, B, C, and D.]{
-        The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram. 
-        In region A, the signal region, the background yield estimated from data is plotted instead of that predicted by MC. 
-        Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding 2\std. 
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/abcd_cartoon.png}
+    \caption{
+        A sketch of regions A, B, C, and D used in the background estimation method.
     }
-    \label{fig:vbswh_abcd_closure}
+    \label{fig:vbswh_abcd_cartoon}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_flipped.pdf}\label{fig:vbswh_abcd_corr}}
+    \qquad
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_data_vs_mc.pdf}\label{fig:vbswh_abcd_corr_data_mc}}
+    \caption[A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD]{
+        A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlaid using only MC (left). 
+        The downward trend in the profile plot indicates that there is a minor correlation between \MSD and \detajj. 
+        The profile is compared between data and MC (right), and good agreement suggests that the correlation is at least well-modeled. 
+        This correlation can thus be addressed with a correction derived from MC when applying the method in data, such that the background yield in the signal region is more accurately predicted.
+    }
 \end{figure}
 However, the background composition is not consistent between the ABCD regions, and it is furthermore not known to high precision. 
 The baseline systematic must be extended to cover the uncertainty in the background composition. 
@@ -233,34 +242,24 @@ Therefore, the final estimated background yield in the signal region is given by
 \end{equation*}
 where the systematic and statistical uncertainties are kept as \BkgEstTotalSystErr\% and \BkgEstStatErr\% respectively.
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{fig/vbswh/abcd_cartoon.png}
-    \caption{
-        A sketch of regions A, B, C, and D used in the background estimation method.
-    }
-    \label{fig:vbswh_abcd_cartoon}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_flipped.pdf}\label{fig:vbswh_abcd_corr}}
-    \qquad
-    \subfloat[]{\includegraphics[width=0.45\textwidth]{fig/vbswh/correlation2D_1Dprofile_data_vs_mc.pdf}\label{fig:vbswh_abcd_corr_data_mc}}
-    \caption[A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD]{
-        A 2-dimensional histogram of the ABCD variables \MSD and \detajj with a profile of \MSD overlaid using only MC (left). 
-        The downward trend in the profile plot indicates that there is a minor correlation between \MSD and \detajj. 
-        The profile is compared between data and MC (right), and good agreement suggests that the correlation is at least well-modeled. 
-        This correlation can thus be addressed with a correction derived from MC when applying the method in data, such that the background yield in the signal region is more accurately predicted.
-    }
-\end{figure}
-
 \section{Results}
-The background yield in the signal region estimated from data and the signal yield predicted by Monte Carlo simulation are tabulated in Table~\ref{tab:vbswh_yields}. 
+The background yield in the signal region estimated from data and the signal yield predicted by Monte Carlo simulation are shown in Fig.~\ref{fig:vbswh_abcd_closure} and tabulated in Table~\ref{tab:vbswh_yields}. 
 Using these yields, and a thorough accounting of systematic uncertainties, we perform a maximum-likelihood fit~\cite{Cowan:2010js} using the \COMBINE statistical tool. 
 Then, the exclusion significance and confidence level (CL) are extracted following the procedure described in Section~3.2 of Ref.~\cite{Aad2016MLM}.
-In particular, we exclude the scenario where $\lambdaWZ = -1$ with an observed (expected) significance of 8.3\std (9.3\std), and we exclude all $\lambdaWZ < 0$ scenarios that were allowed by previous limits well beyond 5\std.
-The results of this analysis therefore strongly indicate that \kW and \kZ have the same sign, representing another success of the Standard Model.
+In particular, we exclude the scenario where $\lambdaWZ = -1$ with an observed (expected) significance of 8.3\std (9.3\std), and we exclude all $\lambdaWZ < 0$ scenarios that were allowed by previous limits well beyond 5\std. 
+These results are presented in Fig.~\ref{fig:vbswh_limit_1D} and~\ref{fig:vbswh_limit_2D}, respectively. 
+This analysis, therefore, strongly indicates that \kW and \kZ have the same sign, representing another success of the Standard Model and the final determination of this property of the Higgs boson.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/vbswh/regionsABCD_closure_unblinded.pdf}
+    \caption[The data and MC yields plotted in regions A, B, C, and D.]{
+        The data and MC yields plotted in regions A, B, C, and D as a 1-dimensional histogram. 
+        In region A, the signal region, the background yield estimated from data is plotted instead of that predicted by MC. 
+        Overall, there is good agreement between data and MC in regions B, C, and D, with the difference between data and MC never exceeding 2\std. 
+    }
+    \label{fig:vbswh_abcd_closure}
+\end{figure}
 
 \begin{table}[htp]
     \centering
@@ -287,8 +286,8 @@ The results of this analysis therefore strongly indicate that \kW and \kZ have t
     \qquad
     \subfloat[2D exclusion of \lambdaWZ values]{\includegraphics[width=0.455\textwidth,valign=c]{fig/vbswh/exclusion_2D_contours_unblinded.pdf}\label{fig:vbswh_limit_2D}}
     \caption[The 1D and 2D exclusion significance for BSM \lambdaWZ scenarios]{
-        The negative-log-likelihood plotted as a function of the signal strength ($\mu$) for $\lambdaWZ = -1$, with the 68\% confidence interval labeled (a).
-        The exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped error bars (b).
+        
+        The negative-log-likelihood plotted as a function of the signal strength ($\mu$) for $\lambdaWZ = -1$, with the 68\% confidence interval labeled (a), and the exclusion significance plotted as a function of \kW and \kZ with the previous best CMS limits plotted as white capped error bars (b). 
         It is clear from these two plots (a) the $\lambdaWZ = -1$ scenario is excluded beyond 5\std and (b) opposite-sign scenarios ($\lambdaWZ < 0$) within previous CMS limits are also excluded beyond 5\std. 
     }
 \end{figure}

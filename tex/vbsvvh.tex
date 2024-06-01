@@ -4,7 +4,7 @@
 The precise determination of the Higgs boson couplings to other particles is essential to establishing our understanding of the Higgs mechanism with empirical data. 
 However, the more exotic the coupling, the more rare it is in nature. 
 Among these are the \HHVV and \HHH couplings, whose modifiers are represented by \kVV and \kHHH in the $\kappa$ framework, respectively. 
-At the time of writing, the value of \kVV has been constrained to $[0.67, 1.38]$ and the value of \kHHH has been constrained to $[-1.24, 6.49]$ at the 95\% \CL. 
+At the time of writing, the value of \kVV has been constrained to $[0.67, 1.38]$ and the value of \kHHH has been constrained to $[-1.24, 6.49]$ at the 95\% \CL~\cite{NatureHiggsCMS2022}. 
 Thus, compared to the \kV coupling modifiers, for example, the values of \kVV and \kHHH are relatively less well-measured, providing an exciting opportunity for advancing our understanding of the Higgs boson. 
 
 \section{The signal}
@@ -438,17 +438,25 @@ In each test, good closure is seen in data, supporting the validity of the metho
 
 \section{Results}
 We fit the signal and predicted background yield in the signal region to data for the analysis described here as well as all other channels.
-The B, C and D region data yields are included in the fit together with their respective signal contamination.
-We set upper limits at the 95\% \CL on the cross-section of the VBS VVH process for each \kVV generated data point.
-
+The B, C and D region data yields are included in the fit together with their respective signal contamination. 
+We set upper limits at the 95\% \CL on the cross-section of the VBS VVH process for each \kVV generated data point. 
 The upper limits are calculated using the AymptoticLimits method in the \COMBINE toolkit~\cite{CombinePaper}.
 The full list of systematic uncertainties are included as nuisance parameters during the fitting procedure.
-The result of the fit is shown in Figure~\ref{fig:vbsvvh_limit}, and the regions where the expected limit is smaller than the theoretical prediction on the cross-section are taken to be excluded values for \kVV.
+The result of the fit is shown in Fig.~\ref{fig:vbsvvh_limit_allhad} and~\ref{fig:vbsvvh_limit_combined} for the all-hadronic channel and the combination of all channels, respectively. 
+The regions where the expected limit is smaller than the theoretical prediction on the cross-section are taken to be excluded values for \kVV. 
+Specifically, the all-hadronic channel places a limit on the \HHVV coupling to be within -0.03 and 2.04 times the SM, and the combined limit further limits it to within 0.023 and 0.178 times the SM. 
+
+\section{Next steps}
+This work is still going through the rigorous CMS Collaboration approval process, wherein the methods and conclusions presented in this chapter are thoroughly checked for validity and accuracy. 
+All of the results presented here use only simulated events---or, for the background estimation, recorded data events that do not enter the signal region. 
+Soon, the analysis will be ``unblinded,'' meaning the yield of recorded data in the signal region will be seen for the first time. 
+Already, the combination of all VBS \VVH channels are expected to give a limit that is competitive with the current best result. 
+In Run 3, and beyond, the combination of VBS \VVH with the results from other analyses will yield a precise measurement of the strength of the \HHVV coupling.
 
 \begin{figure}[htb]
     \centering
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/k2v_limit_allhad.jpg}}\qquad
-    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/k2v_limit_combined.jpg}}
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/k2v_limit_allhad.jpg}\label{fig:vbsvvh_limit_allhad}}\qquad
+    \subfloat{\includegraphics[width=0.45\textwidth]{fig/vbsvvh/k2v_limit_combined.jpg}\label{fig:vbsvvh_limit_combined}}
     \caption{The 95\% confidence level limit plotted as a function of \kVV for the all-hadronic channel (left) and all channels combined (right). 
     }
     \label{fig:vbsvvh_limit}

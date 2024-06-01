@@ -43,17 +43,29 @@ To Shana Slebioda, Sinai Cota, and the Sloan Foundation: thank you!
 
 Chapter~\ref{ch:lhc_cms} describes the Large Hadron Collider (LHC) and the CMS Experiment. 
 The figures used in this chapter are materials produced by or for CERN and were released by CERN for informational use under CERN copyright~\cite{CERNCopyright}. 
+The description of the LHC and CMS are derived from publicly available material and the relevant technical design reports. 
 
 Chapter~\ref{ch:vbswh} describes a search for the production of a W and Higgs boson via vector boson scattering, using data recorded by the CMS experiment from 2016 to 2018. 
 It is a partial reproduction of the paper ``Study of WH production through vector boson scattering and extraction of the relative sign of the W and Z couplings to the Higgs boson in proton-proton collisions at $\sqrt{s} = 13\TeV$,'' submitted to PLB (arXiv:2405.16566). 
+My individual contribution to this work was significant. 
+I participated in the ideation of this analysis by working with Prof. Philip Chang to make the initial calculations of its feasibility. 
+Then, I personally implemented the entire analysis, from basic selections, to the optimization of the signal region, to the background estimation and evaluation of systematic uncertainties.
 
 Chapter~\ref{ch:vbsvvh} describes a search for the production of a Higgs boson and two vector bosons via vector boson scattering, using data recorded by the CMS experiment from 2016 to 2018. 
 It is a partial reproduction of a paper being prepared for submission for publication. 
+I worked as part of a multi-institutional team that, together, implemented the three main channels of this analysis. 
+However, I personally drove the channel that I worked on. 
+On top of implementing the analysis itself (from selections to systematic uncertainties), I also implemented the training pipeline for the deep neural network used for the final result in both my work and the other most sensitive channel of the combined analysis.
 
 Chapter~\ref{ch:lst} describes improvements to the Line Segment Tracking algorithm using machine learning. 
 It is a partial reproduction of the paper ``Improving tracking algorithms with machine learning: a case for line-segment tracking at the High Luminosity LHC,'' in the proceedings of Connecting the Dots 2023 (arXiv:2403.13166). 
+This contribution is part of a larger effort to produce a highly parallelizable line-segment based tracking (LST) algorithm. 
+I developed the pipeline for training the machine learning algorithm described in this chapter, and personally integrated it into the LST algorithm.
 
-Chapter~\ref{ch:cyber} describes the development of software-defined networking capabilities within the LHC data distribution cyberinfrastructure. 
+Chapter~\ref{ch:cyber} describes the development of software-defined networking (SDN) capabilities within the LHC data distribution cyberinfrastructure. 
 It is a partial reproduction of the paper ``Managed Network Services for Exascale Data Movement Across Large Global Scientific Collaborations,'' in the proceedings of XLOOP 2022 (doi:10.1109/XLOOP56614.2022.00008). 
+I personally developed the first version of the software that implements the interoperation of SDN into the LHC data management software, with guidance from research engineers at the SDSC and ESNet. 
+I also configured the testbed of this system and orchestrated some of the first proof-of-concept tests. 
+Although much of the code was written by me, all of this work was done in close collaboration with Diego Davila, Aashay Arora, Tom Lehman, and Xi Yang.
 
 \end{acknowledgements}
