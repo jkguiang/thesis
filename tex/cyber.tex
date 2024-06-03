@@ -10,7 +10,7 @@ Crucially, CMS data movement is entirely driven by the production data transfers
 \begin{figure}[htb]
     \centering
     \includegraphics[width=.9\textwidth]{fig/cyber/tape_cms2022.pdf}
-    \caption[HL-LHC tape usage projections at CMS]{
+    \caption[HL-LHC tape usage projections at CMS.]{
         The HL-LHC tape usage projections at CMS as a function of time, showing data production rates of over 0.5 EB per year after 2030~\cite{CMSComputingReport2022}.
     }
     \label{fig:tape_projections}
@@ -49,7 +49,7 @@ These subnets logically divide the network traffic, enabling SENSE to allocate b
 \begin{figure}[htb]
     \centering
     \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_site.png}
-    \caption[Rucio-SENSE site configuration]{
+    \caption[Rucio-SENSE site configuration.]{
         A generic site configuration that enables SENSE capabilities, where each ``redirector'' services a different bandwidth allocation by directing traffic for that allocation to one of the data servers connected to it. 
         Each data server has equal access to the underlying filesystem.
     }
@@ -96,7 +96,7 @@ Alternatively, transfers could be allocated bandwidth according to their priorit
 \begin{figure}[htb]
     \centering
     \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_basic.png}
-    \caption[Rucio-SENSE interoperation workflow]{
+    \caption[Rucio-SENSE interoperation workflow.]{
         A simplified diagram of the Rucio-SENSE interoperation workflow, taken from Ref.~\cite{Guiang:2022tgi}, with numbered steps: 
         (1) a rule is initialized; 
         (2) Rucio sends transfer description to DMM; 
@@ -135,7 +135,7 @@ In Fig.~\ref{fig:rucio_sense_demo_big}, it can be seen that the bandwidth is app
 \begin{figure}[htb]
     \centering
     \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo.png}
-    \caption[Rucio-SENSE interoperation throughput with 2 sites in the testbed]{
+    \caption[Rucio-SENSE interoperation throughput with 2 sites in the testbed.]{
         Throughput measurements of the first demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD and Caltech. 
         Background traffic is simulated with the IPerf tool, emulating activity across best effort network services. 
         Then, a set of priority data transfers are initialized between the two sites with at least 7 Gb/s of requested bandwidth. 
@@ -147,7 +147,7 @@ In Fig.~\ref{fig:rucio_sense_demo_big}, it can be seen that the bandwidth is app
 \begin{figure}[htb]
     \centering
     \includegraphics[width=.9\textwidth]{fig/cyber/rucio-sense_demo_big.png}
-    \caption[Rucio-SENSE interoperation throughput with 3 sites in the testbed]{
+    \caption[Rucio-SENSE interoperation throughput with 3 sites in the testbed.]{
         Throughput measurements of a demonstration of the Rucio-SENSE interoperation prototype involving three sites: UCSD, FNAL, and Caltech. 
         Three sets of data transfers are started simultaneously: one from UCSD to Caltech with priority 5, another from FNAL to Caltech with priority 3, and one more from UCSD to Caltech with a priority of 2. 
         Every one to two hours, the priorities are swapped between the three. 
